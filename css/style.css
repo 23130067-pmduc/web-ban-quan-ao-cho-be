@@ -4,3 +4,64 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.hotline{
+    max-height: 30px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+#hotline{
+    padding: 7px 50px;
+    margin: 0;
+}
+#thongBao{
+    padding: 7px 50px;
+    margin: 0;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    border-bottom: 1px solid #8B0000;
+
+}
+.logo{
+    display: flex;
+    justify-content: center;
+}
+
+.header img{
+    height: 120px;
+    width: 200px;
+    padding: 15px 30px;
+    cursor: pointer;
+
+}
+.header h1{
+    padding: 25px 5px;
+
+}
+.navbar ul{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    text-decoration: none;
+
+
+}
+.navbar a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: color 0.2s;     /*Màu chữ thay đổi từ từ chứ không phải thay đổi đột ngột*/
+}
+
+.navbar a:hover{
+    color: #8B0000;
+}
