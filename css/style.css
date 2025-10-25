@@ -60,8 +60,124 @@
     color: black;
     font-weight: bold;
     transition: color 0.2s;     /*Màu chữ thay đổi từ từ chứ không phải thay đổi đột ngột*/
+
 }
 
 .navbar a:hover{
     color: #8B0000;
 }
+
+/* ========== BANNER ========== */
+.banner {
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.anh {
+    display: flex;
+    justify-content: center;
+}
+
+.banner img {
+    width: 100%;
+    height: 500px;
+    cursor: pointer;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+}
+
+
+.banner-text {
+    position: absolute;
+    z-index: 2;
+    opacity: 0;               /* ẩn ban đầu */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.btn-primary {
+    background-color: #A9C87D;
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #8B0000;
+    transform: scale(1.05);
+}
+
+.banner:hover img {
+    opacity: 0.5;             /* phủ mờ ảnh */
+}
+
+.banner:hover .banner-text {
+    opacity: 1;               /* hiện nút */
+    transform: translateY(-30px);
+}
+/* ========== DANH MỤC ========== */
+.categories {
+    padding: 60px 100px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.categories h2 {
+    font-size: 28px;
+    color: #333333;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.categories h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: #8B0000;
+    margin: 10px auto 0;
+    border-radius: 3px;
+}
+
+.category-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap; /* giúp xuống hàng khi màn hình nhỏ */
+}
+
+.category-item {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px #333333;
+    overflow: hidden;
+    transition: transform 0.3s;
+    width: 280px;
+    cursor: pointer;
+}
+
+.category-item:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 8px 16px #A6A6A6;
+}
+
+.category-item h3 {
+    font-size: 20px;
+    color: #333333;
+    margin: 20px 0;
+    transition: color 0.3s ease;
+}
+
+.category-item:hover h3 {
+    color: #8B0000;
+}
+
