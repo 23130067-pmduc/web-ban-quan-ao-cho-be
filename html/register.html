@@ -4,45 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng ký</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/register.css">
+
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <a href="index.html">
-            <img src="images/logo.png" alt="Logo BabyShop" class="logo">
-        </a>
-    </header>
-
     <!-- Main Register Form -->
     <main class="register-container">
-        <h2>Đăng ký tài khoản</h2>
+        <h2 class="dangKy">Đăng ký tài khoản</h2>
 
-        <form id="registerForm">
+        <form class="registerForm">
             <!-- Họ tên -->
-            <label for="fullname">Họ và tên</label>
-            <input type="text" id="fullname" placeholder="Nhập họ và tên..." required>
+            <div class="input-group">
+                <label for="fullname">Họ và tên</label>
+                <input type="text" id="fullname" placeholder="Nhập họ và tên..." required>
+            </div>
 
             <!-- Email -->
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="Nhập email..." required>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Nhập email..." required>
+            </div>
 
             <!-- Mật khẩu -->
-            <label for="password">Mật khẩu</label>
-            <input type="password" id="password" placeholder="Nhập mật khẩu..." required>
+            <div class="input-group">
+                <label for="password">Mật khẩu</label>
+                <input type="password" id="password" placeholder="Nhập mật khẩu..." required>
+            </div>
 
             <!-- Xác nhận mật khẩu -->
-            <label for="confirmPassword">Xác nhận mật khẩu</label>
-            <input type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu..." required>
+            <div class="input-group">
+                <label for="confirmPassword">Xác nhận mật khẩu</label>
+                <input type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu..." required>
+            </div>
 
             <!-- Nút đăng ký -->
-            <button type="submit">Đăng ký</button>
+            <button class="btn" id="btnDangKy" type="submit">Đăng ký</button>
+
+            <!-- Liên kết -->
+            <div class="links">
+                <a href="login.html">Đã có tài khoản? Đăng nhập</a>
+            </div>
         </form>
 
-        <!-- Liên kết -->
-        <div class="links">
-            <a href="login.html">Đã có tài khoản? Đăng nhập</a>
-        </div>
+
     </main>
 
     <!-- JavaScript -->
