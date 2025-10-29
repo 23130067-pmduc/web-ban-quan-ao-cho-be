@@ -47,25 +47,131 @@
     padding: 25px 5px;
 
 }
+
+
+
+/*Thanh ds */
 .navbar ul{
     display: flex;
     gap: 20px;
     list-style: none;
     text-decoration: none;
-
-
+    margin: 0;
+    padding: 0;
+}
+.navbar ul li{
+    position: relative;
 }
 .navbar a{
     text-decoration: none;
     color: black;
     font-weight: bold;
     transition: color 0.2s;     /*Màu chữ thay đổi từ từ chứ không phải thay đổi đột ngột*/
-
+    display: block;
+    padding: 10px 15px;
 }
-
 .navbar a:hover{
     color: #C89F7B;
 }
+
+header .sub{
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: 100%;
+    left: 0;
+    border-radius: 8px;
+    border: 1px solid #C89F7B;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    width: 100%;
+
+}
+header .sub a{
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: black;
+    font-weight: normal;
+    transition: background-color 0.2s;
+}
+
+header li:hover .sub{
+    display: block;
+}
+
+/**/
+.sub li a:hover{
+    background-color: #C89F7B;
+    color: white;
+    border-radius: 5px;
+}
+
+
+.actions{
+    display: flex;
+    gap: 40px;
+    padding-right: 50px;
+}
+
+
+.user-menu {
+    position: relative;
+}
+
+/* Menu con ẩn */
+.user-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%; /* nằm ngay dưới icon user */
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #C89F7B;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    min-width: 160px;
+}
+
+/* Các item trong menu con */
+.user-dropdown li a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: black;
+    font-weight: normal;
+    transition: background-color 0.2s;
+}
+
+.user-dropdown li a:hover {
+    background-color: #C89F7B;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Khi hover vào user thì hiện menu con */
+.user-menu:hover .user-dropdown {
+    display: block;
+}
+
+/* Hiệu ứng icon */
+.icon i {
+    font-size: 20px;
+    color: black;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.icon:hover i {
+    color: #C89F7B;
+    transform: scale(1.2);
+}
+
 
 /* ========== BANNER ========== */
 .banner {
