@@ -1,0 +1,384 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    min-height: 100vh;
+}
+.hotline{
+    max-height: 30px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+#hotline{
+    padding: 7px 50px;
+    margin: 0;
+}
+#thongBao{
+    padding: 7px 50px;
+    margin: 0;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    border-bottom: 1px solid #C89F7B;
+
+}
+.logo{
+    display: flex;
+    justify-content: center;
+}
+
+.header img{
+    height: 120px;
+    width: 200px;
+    padding: 15px 30px;
+    cursor: pointer;
+
+}
+.header h1{
+    padding: 25px 5px;
+
+}
+
+
+
+/*Thanh ds */
+.navbar ul{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+.navbar ul li{
+    position: relative;
+}
+.navbar a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: color 0.2s;     /*Màu chữ thay đổi từ từ chứ không phải thay đổi đột ngột*/
+    display: block;
+    padding: 10px 15px;
+}
+.navbar a:hover{
+    color: #C89F7B;
+}
+
+header .sub{
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: 100%;
+    left: 0;
+    border-radius: 8px;
+    border: 1px solid #C89F7B;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    width: 100%;
+
+}
+header .sub a{
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: black;
+    font-weight: normal;
+    transition: background-color 0.2s;
+}
+
+header li:hover .sub{
+    display: block;
+}
+
+/**/
+.sub li a:hover{
+    background-color: #C89F7B;
+    color: white;
+    border-radius: 5px;
+}
+
+
+.actions{
+    display: flex;
+    gap: 40px;
+    padding-right: 50px;
+}
+
+
+.user-menu {
+    position: relative;
+}
+
+/* Menu con ẩn */
+.user-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%; /* nằm ngay dưới icon user */
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #C89F7B;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    min-width: 160px;
+}
+
+/* Các item trong menu con */
+.user-dropdown li a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: black;
+    font-weight: normal;
+    transition: background-color 0.2s;
+}
+
+.user-dropdown li a:hover {
+    background-color: #C89F7B;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Khi hover vào user thì hiện menu con */
+.user-menu:hover .user-dropdown {
+    display: block;
+}
+
+/* Hiệu ứng icon */
+.icon i {
+    font-size: 20px;
+    color: black;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.icon:hover i {
+    color: #C89F7B;
+    transform: scale(1.2);
+}
+
+
+
+/* PHẦN NỘI DUNG */
+
+
+
+.title {
+    background-color: #f8f8f8; /* màu nền nhạt */
+    border: 1px solid #eee;    /* viền nhẹ */
+    padding: 15px 50px;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.title span {
+    color: #4b0000; /* màu chữ nâu đỏ */
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 50px 150px;
+    gap: 150px;
+
+}
+
+.contactFrom{
+    flex: 3;
+    border: 1px solid #eee;
+    padding: 20px 25px;
+    border-radius: 6px;
+
+}
+
+.contactFrom h2{
+    margin-bottom: 20px;
+    font-size: 18px;
+
+}
+.contactFrom label{
+    display: block;
+    margin-top: 10px;
+    font-weight: 500;
+    color: #C89F7B;
+}
+.contactFrom input,
+.contactFrom textarea{
+    width: 100%;
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.contactFrom button{
+    margin-top: 10px;
+    background-color: #C89F7B;
+    padding: 10px 30px;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+}
+.contactFrom button:hover{
+    background-color: #666666;
+}
+
+
+.contactInfo {
+    flex: 1.8;
+    border: 1px solid #eee;
+    padding: 20px 25px;
+    border-radius: 6px;
+
+
+
+
+}
+
+.contactInfo h3 {
+    color: #4b0000;
+    margin-bottom: 10px;
+}
+
+.contactInfo p {
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+/* ========== FOOTER ========== */
+.footer {
+    background-color: #222222;
+    color: #C89F7B;
+    padding: 50px 80px 20px;
+    font-size: 15px;
+    line-height: 1.8;
+    display: flex;
+    gap: 0;
+    align-items: flex-start;
+}
+
+.s-footer-1,
+.s-footer-2,
+.s-footer-3 {
+    flex: 1;
+    padding: 0 30px;
+}
+
+.s-footer-1 {
+    text-align: left;
+}
+
+.s-footer-2 {
+    text-align: center;
+    border-right: 2px solid #FFF8E7;
+    border-left: 2px solid #FFF8E7;
+}
+
+.s-footer-3 {
+    text-align: right;
+
+}
+
+.footer-info h3 {
+    font-size: 22px;
+    color: #A9C87D;
+    margin-bottom: 15px;
+}
+.footer-info p {
+    margin: 5px 0;
+    color: #FFF8E7;
+}
+
+.footer-danhmuc {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-danhmuc h3 {
+    font-size: 22px;
+    color: #A9C87D;
+}
+.footer-danhmuc a {
+    color: #A9C87D;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.footer-danhmuc a:hover {
+    color: #C89F7B;
+    transform: scale(1.05);
+}
+
+.footer-contact h3 {
+    font-size: 22px;
+    color: #A9C87D;
+    margin-bottom: 15px;
+
+}
+
+.footer-contact p {
+    margin: 10px 0;
+    color: #FFF8E7;
+}
+
+.footer-contact .work-time {
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #FFF8E7;
+}
+
+.footer-contact .work-time p {
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+.footer-contact .work-time p:first-child::before {
+    content: "🕐 ";
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+.footer-contact .work-time strong {
+    color: #A9C87D;
+}
+
+.copyright {
+    border-top: 1.5px solid #666666;
+    padding: 15px;
+    text-align: center;
+    font-size: 13px;
+    color: #FFF8E7;
+    background-color: #222222;
+}
