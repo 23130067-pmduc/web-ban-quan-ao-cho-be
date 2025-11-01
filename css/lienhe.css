@@ -7,7 +7,29 @@
 body{
     min-height: 100vh;
 }
-.hotline{
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    z-index: 999;
+    transition: top 0.4s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Khi thêm class hide → header trượt lên */
+.header.hide {
+    top: -120px; /* ẩn hẳn khỏi màn hình */
+}
+
+/* Để phần nội dung không bị header che */
+body {
+    padding-top: 130px;
+}
+
+
+.header .topbar{
     max-height: 30px;
     background-color: black;
     color: white;
@@ -16,16 +38,16 @@ body{
     font-size: 13px;
 }
 
-#hotline{
+.header .topbar #hotline{
     padding: 7px 50px;
     margin: 0;
 }
-#thongBao{
+.header .topbar #thongBao{
     padding: 7px 50px;
     margin: 0;
 }
 
-.header{
+.header .navbar{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -122,10 +144,11 @@ header li:hover .sub{
 
 .user-menu {
     position: relative;
+    display: inline-block;
 }
 
 /* Menu con ẩn */
-.user-dropdown {
+.navbar .actions .user-dropdown {
     display: none;
     position: absolute;
     top: 100%; /* nằm ngay dưới icon user */

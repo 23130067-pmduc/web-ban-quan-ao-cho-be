@@ -5,7 +5,33 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.hotline{
+
+/* Ẩn header khi cuộn xuống */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    z-index: 999;
+    transition: top 0.4s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Khi thêm class hide → header trượt lên */
+.header.hide {
+    top: -120px; /* ẩn hẳn khỏi màn hình */
+}
+
+/* Để phần nội dung không bị header che */
+body {
+    padding-top: 130px;
+}
+
+
+/* Phần này chỉnh lại @.@*/
+
+.header .topbar{
     max-height: 30px;
     background-color: black;
     color: white;
@@ -14,16 +40,16 @@
     font-size: 13px;
 }
 
-#hotline{
+.header .topbar #hotline{
     padding: 7px 50px;
     margin: 0;
 }
-#thongBao{
+.header .topbar #thongBao{
     padding: 7px 50px;
     margin: 0;
 }
 
-.header{
+.header .navbar{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -120,14 +146,15 @@ header li:hover .sub{
 
 .user-menu {
     position: relative;
+    display: inline-block;
 }
 
 /* Menu con ẩn */
-.user-dropdown {
+.navbar .actions .user-dropdown {
     display: none;
     position: absolute;
     top: 100%; /* nằm ngay dưới icon user */
-    right: 0;
+
     background-color: #fff;
     border: 1px solid #C89F7B;
     border-radius: 8px;
@@ -136,7 +163,8 @@ header li:hover .sub{
     margin: 0;
     padding: 0;
     z-index: 1000;
-    min-width: 160px;
+    min-width: 150px;
+
 }
 
 /* Các item trong menu con */

@@ -8,43 +8,54 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
 
+
 </head>
 <body>
-  <nav class="hotline">
-      <p id="hotline">Hotline: <b> 0909 999 999</b> (8h30 - 12h) Tất cả các ngày trong tuần | </p>
-      <p id="thongBao">Thông báo của tôi</p>
-  </nav>
+
   <!-- ========== HEADER ========== -->
-  <header class="header">
-    <div class="logo">
-        <img src="../img/gau.jpg" alt="SunnyBear Logo">
-    </div>
-    <nav class="navbar">
-      <ul>
-        <li><a href="index.html">Trang chủ</a></li>
-        <li ><a href="#">Danh sách sản phẩm ▾</a>
-            <ul class="sub">
-                <li class="subItem"> <a href="#">Quần áo bé trai</a> </li>
-                <li class="subItem"> <a href="#">Quần áo bé gái</a> </li>
-                <li class="subItem"> <a href="#">Phụ kiện</a> </li>
-            </ul>
-        </li>
-        <li><a href="#">Tin tức</a></li>
-        <li><a href="#">Khuyến mãi</a></li>
-        <li><a href="lienhe.html">Liên hệ</a></li>
-      </ul>
+  <header class="header" id="header">
+
+    <nav class="topbar">
+       <p id="hotline">Hotline: <b> 0909 999 999</b> (8h30 - 12h) Tất cả các ngày trong tuần | </p>
+       <p id="thongBao">Thông báo của tôi</p>
     </nav>
-    <div class="actions">
-        <a href="#" class="iconSearch"><i class="fa-solid fa-magnifying-glass"></i></a>
-        <div class="user-menu">
-            <a href="#" class="iconUser"><i class="fa-regular fa-user"></i></a>
-            <ul class="user-dropdown">
-                <li><a href="login.html">Đăng nhập</a></li>
-                <li><a href="register.html">Đăng ký</a></li>
+
+
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="../img/gau.jpg" alt="SunnyBear Logo">
+        </div>
+
+        <div class="menu">
+            <ul>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li ><a href="#">Danh sách sản phẩm ▾</a>
+                    <ul class="sub">
+                        <li class="subItem"> <a href="#">Quần áo bé trai</a> </li>
+                        <li class="subItem"> <a href="#">Quần áo bé gái</a> </li>
+                        <li class="subItem"> <a href="#">Phụ kiện</a> </li>
+                    </ul>
+                </li>
+                <li><a href="#">Tin tức</a></li>
+                <li><a href="#">Khuyến mãi</a></li>
+                <li><a href="lienhe.html">Liên hệ</a></li>
             </ul>
         </div>
-        <a href="#" class="iconCart"><i class="fa-solid fa-cart-shopping"></i></a>
-      </div>
+
+        <div class="actions">
+            <a href="#" class="iconSearch"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <div class="user-menu">
+                <a href="#" class="iconUser"><i class="fa-regular fa-user"></i></a>
+                <ul class="user-dropdown">
+                    <li><a href="login.html">Đăng nhập</a></li>
+                    <li><a href="register.html">Đăng ký</a></li>
+                </ul>
+            </div>
+            <a href="#" class="iconCart"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+    </nav>
+
 
   </header>
 
@@ -224,4 +235,5 @@
   <p class="copyright">© 2025 SunnyBear. All rights reserved.</p>
   <script src="script.js"></script>
 </body>
+<script src="../javaScript/header.js"></script>
 </html>
