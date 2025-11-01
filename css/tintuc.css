@@ -4,9 +4,12 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 body{
-    min-height: 100vh;
+    max-height: 100vh;
 }
+
+/* Ẩn header khi cuộn xuống */
 .header {
     position: fixed;
     top: 0;
@@ -28,6 +31,8 @@ body {
     padding-top: 130px;
 }
 
+
+/* Phần này chỉnh lại @.@*/
 
 .header .topbar{
     max-height: 30px;
@@ -152,6 +157,7 @@ header li:hover .sub{
     display: none;
     position: absolute;
     top: 100%; /* nằm ngay dưới icon user */
+
     background-color: #fff;
     border: 1px solid #C89F7B;
     border-radius: 8px;
@@ -160,7 +166,8 @@ header li:hover .sub{
     margin: 0;
     padding: 0;
     z-index: 1000;
-    min-width: 160px;
+    min-width: 150px;
+
 }
 
 /* Các item trong menu con */
@@ -197,14 +204,10 @@ header li:hover .sub{
 }
 
 
-
-/* PHẦN NỘI DUNG */
-
-
-
+/* MAIN */
 .title {
-    background-color: #f8f8f8; /* màu nền nhạt */
-    border: 1px solid #eee;    /* viền nhẹ */
+    background-color: #f8f8f8;
+    border: 1px solid #eee;
     padding: 15px 50px;
     display: inline-block;
     width: 100%;
@@ -212,85 +215,86 @@ header li:hover .sub{
 }
 
 .title span {
-    color: #4b0000; /* màu chữ nâu đỏ */
+    color: #4b0000;
     font-weight: 600;
     letter-spacing: 1px;
 }
 
 .container{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
     max-width: 1200px;
-    margin: 50px 150px;
-    gap: 150px;
-
+    margin: 50px auto;
+    padding: 0 20px;
 }
 
-.contactFrom{
-    flex: 3;
-    border: 1px solid #eee;
-    padding: 20px 25px;
-    border-radius: 6px;
+.newsContainer{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    margin: 50px auto;
+    gap: 100px;
 
 }
-
-.contactFrom h2{
-    margin-bottom: 20px;
-    font-size: 18px;
-
+.newsItem {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
-.contactFrom label{
-    display: block;
-    margin-top: 10px;
-    font-weight: 500;
-    color: #C89F7B;
-}
-.contactFrom input,
-.contactFrom textarea{
+.newsItem img{
     width: 100%;
-    margin-top: 5px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-.contactFrom button{
-    margin-top: 10px;
-    background-color: #C89F7B;
-    padding: 10px 30px;
-    color: white;
-    border-radius: 5px;
-    border: none;
-    text-align: center;
+    height: 250px;
+    object-fit: cover;
     cursor: pointer;
 }
-.contactFrom button:hover{
-    background-color: #666666;
+.newsItem img:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
 }
-
-
-.contactInfo {
-    flex: 1.8;
-    border: 1px solid #eee;
-    padding: 20px 25px;
-    border-radius: 6px;
-
-
-
+.newsItem a{
+    color: inherit;
+    text-decoration: none;
+}
+.newsItem a:hover{
+    color: #C89F7B;
+    transition: 0.3s all ease;
 
 }
+.newsItem h3 {
+    font-size: 18px;
+    margin: 10px 15px;
+    color: #222;
+    cursor: pointer;
 
-.contactInfo h3 {
-    color: #4b0000;
-    margin-bottom: 10px;
+}
+.newsItem p {
+    font-size: 14px;
+    margin: 0 15px 15px;
+    color: #555;
+    line-height: 1.5;
 }
 
-.contactInfo p {
-    margin-bottom: 10px;
+/* Tin to ở hàng dưới cùng chiếm 2 cột */
+.newsItem.big {
+    grid-column: 1 / span 2;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
+.newsItem.big img {
+    width: 40%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.newsItem.big h3 {
+    font-size: 22px;
+}
+
+.newsItem.big p {
+    font-size: 15px;
+}
 
 
 
