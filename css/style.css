@@ -5,6 +5,10 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
 
 /* Ẩn header khi cuộn xuống */
 .header {
@@ -286,7 +290,7 @@ header li:hover .sub{
 .slide img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Ảnh vừa khung, giữ tỷ lệ gốc, không bị cắt */
+    object-fit: contain;  /* Ảnh vừa khung, giữ tỷ lệ gốc, không bị cắt */
     display: block;
 }
 
