@@ -5,7 +5,7 @@
 }
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f3e8;
+    background-color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,15 +17,29 @@ body{
     padding: 20px;
 }
 .forget-box {
-    background-color: #fff;
+    position: relative;
+    background-color: #f8f3e8;
     padding: 45px 60px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 380px;
     text-align: center;
-    border: 1px solid #e1d5c4;
+    border: 1px solid #5B3A29;
 }
-
+.close-btn{
+    position: absolute;
+    right : 25px;
+    top: 20px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease;
+}
+.close-btn:hover{
+    color: red;
+}
 .quenMatKhau{
     font-size: 28px;
     font-weight: 600;

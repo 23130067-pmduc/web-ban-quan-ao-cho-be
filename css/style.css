@@ -426,6 +426,8 @@ header li:hover .sub{
 }
 
 .btn-add {
+    position: relative;
+    z-index: 10;
     background-color: #A9C87D;
     color: #ffffff;
     border: none;
@@ -515,6 +517,7 @@ header li:hover .sub{
     gap: 40px;
 }
 .product-card{
+    position: relative;
     background-color: #ffffff;
     border-radius: 20px;
     box-shadow: 0 4px 8px #333333;
@@ -559,6 +562,8 @@ header li:hover .sub{
 }
 
 .btn-add {
+    position: relative;
+    z-index: 10;
     background-color: #A9C87D;
     color: #ffffff;
     border: none;

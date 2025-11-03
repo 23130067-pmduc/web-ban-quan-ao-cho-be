@@ -11,7 +11,20 @@ body{
     align-items: center;
     overflow: hidden;
 }
-
+.close-btn{
+    position: absolute;
+    right : 150px;
+    top: 20px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease;
+}
+.close-btn:hover{
+    color: red;
+}
 .register-container{
     position: relative;
     width: 380px;

@@ -5,16 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng nhập</title>
     <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body class="login-page">
     <!-- ======== Form Đăng Nhập ======== -->
    <section class="login-container">
     <div class="login-box">
-      <h2 class="dangNhap">Đăng nhập</h2>
+      <a href="index.html">
+        <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+      </a>
+      <h2 class="dangNhap" >Đăng nhập</h2>
       <form id="loginForm">
         <div class="input-group">
-          <label for="username">Tên đăng nhập</label>
-          <input type="text" id="username" name="username" placeholder="Nhập tên đăng nhập" required>
+          <label for="username">Tên đăng nhập/Số điện thoại</label>
+          <input type="text" id="username" name="username" placeholder="Nhập tên/số điện thoại" required>
         </div>
 
         <div class="input-group">
@@ -25,7 +29,7 @@
 
         <div class="remember-forgot">
             <div class="remember">
-                <input type="checkbox" id="remember" name="remember">
+                <input type="checkbox" id="remember" name="remember" style="cursor: pointer;">
                 <label for="remember">Nhớ mật khẩu</label>
             </div>
             <a href="../html/forget.html">Quên mật khẩu?</a>

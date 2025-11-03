@@ -39,7 +39,20 @@ body{
     margin-bottom: 40px;
     text-shadow: 0 2px 4px #00000033;
 }
-
+.close-btn{
+    position: absolute;
+    right : 25px;
+    top: 20px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease;
+}
+.close-btn:hover{
+    color: red;
+}
 .input-group{
     margin-bottom: 30px;
 }
@@ -74,6 +87,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 }
 .remember-forgot a{
     text-decoration: none;
