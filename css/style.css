@@ -552,13 +552,35 @@ header li:hover .sub{
     color: #666666;
     font-size: 15px;
     margin-bottom: 15px;
-    font-weight: bold;
+    font-weight: 700;
 }
 
-.product-card span {
+/* Price container and responsive ordering */
+.price,
+.product-card p,
+.product-mini .price {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: nowrap;
+}
+
+.new-price {
+    order: 1;
     color: #dc2626;
-    font-weight: bold;
-    font-size: 16px;
+    font-weight: 800;
+    font-size: 1rem;
+}
+
+.old-price {
+    order: 2;
+    color: #888888;
+    font-weight: 400;
+    font-size: 0.95rem;
+    text-decoration-line: line-through;
+    text-decoration-color: rgba(0,0,0,0.15);
+    text-decoration-thickness: 2px;
+    opacity: 0.95;
 }
 
 .btn-add {
