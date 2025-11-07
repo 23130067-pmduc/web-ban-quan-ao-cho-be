@@ -17,7 +17,8 @@ body{
     background: white;
     z-index: 999;
     transition: top 0.4s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px #222222;
+
 }
 
 /* Khi thêm class hide → header trượt lên */
@@ -361,14 +362,26 @@ header li:hover .sub{
     display: block;
 }
 
+/* Liên kết bao quanh sản phẩm hoặc tiêu đề */
 .link-cover {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hiệu ứng underline mềm mượt khi hover */
+.link-cover::after {
+    content: "";
     position: absolute;
-    top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 5;
-    text-indent: -9999px;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: #C89F7B;
+    transition: width 0.3s ease;
 }
 
 /* Lưới sản phẩm */
@@ -392,6 +405,7 @@ header li:hover .sub{
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 12px;
 }
 
 .product-card:hover {
@@ -429,7 +443,7 @@ header li:hover .sub{
     color: #dc2626;
     font-weight: bold;
     font-size: 16px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 /* Nút thêm giỏ hàng */
@@ -442,6 +456,9 @@ header li:hover .sub{
     cursor: pointer;
     font-size: 15px;
     transition: all 0.3s ease;
+    display: inline-block;
+    align-self: center;
+    margin: 0;
 }
 
 .btn-add:hover {
