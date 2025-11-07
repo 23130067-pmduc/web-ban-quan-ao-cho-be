@@ -45,7 +45,51 @@ body {
 .header .topbar #thongBao{
     padding: 7px 50px;
     margin: 0;
+    cursor: pointer;
+    gap: 6px;
+    transition: color 0.3s;
 }
+.header .topbar #thongBao:hover{
+    color: #C89F7B;
+}
+.header .topbar #thongBao i{
+    font-size: 16px;
+}
+
+#notification-box{
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    width: 320px;
+    z-index: 1000;
+    padding: 10px 15px;
+    font-size: 14px;
+    animation: fadein 0.3s ease;
+}
+
+#notification-box ul{
+    list-style: none;
+}
+
+#notification-box ul li{
+    padding: 10px 5px;
+    border-bottom: 1px solid #e4dddd;
+    color: black;
+
+
+}
+#notification-box ul li:last-child {
+    border: none;
+}
+
+#notification-box.active {
+    display: block;
+}
+
 
 .header .navbar{
     display: flex;
