@@ -13,7 +13,19 @@
 
         <nav class="topbar">
             <p id="hotline">Hotline: <b> 0909 999 999</b> (8h30 - 12h) Tất cả các ngày trong tuần | </p>
-            <p id="thongBao">Thông báo của tôi</p>
+            <p id="thongBao">
+           <i class="fa-regular fa-bell"></i>
+           Thông báo của tôi
+       </p>
+
+        <div id="notification-box">
+            <ul>
+                <li>Hiện không có thông báo nào.</li>
+                <li>Đăng nhập để được nhận thêm nhiều ưu đãi.</li>
+
+            </ul>
+
+        </div>
         </nav>
 
 
@@ -54,6 +66,18 @@
 
 
     </header>
+    <div class="search-overlay" id="searchOverlay">
+        <img class="logo" src="../img/gau.jpg" alt="Logo">
+
+        <div class="boxSearch">
+            <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
+            <button> <i class="fa-solid fa-magnifying-glass"></i> </button>
+        </div>
+
+        <span class="closeSearch" id="closeSearch">&times; </span>
+    </div>
+
+
     <div class="title">
         <span>THÔNG TIN LIÊN HỆ</span>
     </div>
@@ -128,4 +152,6 @@
 
 </body>
 <script src="../javaScript/header.js"></script>
+<script src="../javaScript/thongBao.js"></script>
+<script src="../javaScript/search.js"></script>
 </html>
