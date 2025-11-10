@@ -522,6 +522,10 @@ header li:hover .sub{
     border-color: #A9C87D;
     box-shadow: 0 3px 8px #4b0000;
 }
+.filter-btn.active {
+    background-color: #ff7f50;
+    color: white;
+}
 
 /* ===== DROPDOWN ===== */
 .dropdown {
@@ -598,6 +602,7 @@ header li:hover .sub{
     font-weight: 500;
     position: relative;
     transition: color 0.3s ease, transform 0.3s ease;
+    flex-grow: 1; /* chiếm hết khoảng trống */
 }
 
 /* Hiệu ứng underline mềm mượt khi hover */
@@ -632,7 +637,7 @@ header li:hover .sub{
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+
     align-items: center;
     gap: 12px;
     height: 540px;
@@ -675,6 +680,15 @@ header li:hover .sub{
     font-size: 16px;
     margin-bottom: 12px;
 }
+.product-info {
+    flex-grow: 1; /* chiếm phần còn lại cho text + giá */
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.product-info h3 {
+    margin-top: 18px;
+}
 
 /* Nút thêm giỏ hàng */
 .btn-add {
@@ -688,7 +702,7 @@ header li:hover .sub{
     transition: all 0.3s ease;
     display: inline-block;
     align-self: center;
-    margin: 0;
+    margin-top: auto;
 }
 
 .btn-add:hover {
