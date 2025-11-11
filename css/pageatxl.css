@@ -384,7 +384,7 @@ header li:hover .sub{
 
 .image-thumbs img.active,
 .image-thumbs img:hover {
-    border-color: #4CAF50;
+    border-color: #A9C87D;
 }
 
 /* ========== THÔNG TIN SẢN PHẨM ========== */
@@ -415,19 +415,28 @@ header li:hover .sub{
     display: flex;
     gap: 10px;
     margin: 10px 0 20px;
+    flex-wrap: wrap;
 }
-
-.color-btn {
-    width: 30px;
-    height: 30px;
+.color-thumb {
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #666666;
     cursor: pointer;
-    border: 2px solid transparent;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+
 }
 
-.color-btn.active {
-    box-shadow: 0 0 0 2px #666666;
+.color-thumb:hover {
+    transform: scale(1.08);
+    border-color: #C89F7B;
 }
+
+.color-thumb.active {
+    border-color: #A9C87D;
+}
+
 
 .size-btn {
     padding: 6px 14px;

@@ -122,23 +122,6 @@
 
             </div>
             <div class="payment-content-right">
-                <div class="payment-content-right-button">
-                    <input type="text" placeholder="Mã giảm giá/ Quà tặng">
-                    <button> <i class="fa-solid fa-check"></i> </button>
-                </div>
-                <div class="payment-content-right-button">
-                    <input type="text" placeholder="Mã cộng tác viên">
-                    <button> <i class="fa-solid fa-check"></i> </button>
-                </div>
-                <div class="payment-content-right-mnv">
-                    <select name="" id="">
-                        <option value="">Chọn mã nhân viên thân thiết</option>
-                        <option value="">D345</option>
-                        <option value="">A345</option>
-                        <option value="">E345</option>
-                        <option value="">I123</option>
-                    </select>
-                </div>
                 <!-- Danh sách sản phẩm gọn, số lượng cố định 1 -->
                 <div class="payment-cart">
                     <h3>Danh sách sản phẩm</h3>
@@ -146,18 +129,24 @@
                         <tr>
                             <th>Sản phẩm</th>
                             <th>Tên</th>
+                            <th>Màu</th>
+                            <th>Size</th>
                             <th>Số lượng</th>
                             <th>Thành tiền</th>
                         </tr>
                         <tr>
                             <td><img src="../img/aox.webp" alt=""></td>
                             <td>Áo polo in hình khủng long SunnyBear</td>
+                            <td>Xanh</td>
+                            <td>10-15kg</td>
                             <td>1</td>
                             <td>150.000₫</td>
                         </tr>
                         <tr>
                             <td><img src="../img/den.webp" alt=""></td>
                             <td>Áo polo in hình khủng long SunnyBear</td>
+                            <td>Đen</td>
+                            <td>16-20kg</td>
                             <td>1</td>
                             <td>150.000₫</td>
                         </tr>
@@ -169,12 +158,40 @@
                     </div>
                 </div>
 
+                <!-- 🧾 Thông tin người nhận hàng -->
+                <div class="payment-content-left-customer-info">
+                    <p style="font-weight: bold;">Thông tin người nhận hàng</p>
+
+                    <div class="customer-info-item">
+                        <label>Họ và tên:</label>
+                        <input type="text" placeholder="Nhập họ và tên người nhận">
+                    </div>
+
+                    <div class="customer-info-item">
+                        <label>Số điện thoại:</label>
+                        <input type="text" placeholder="Nhập số điện thoại liên hệ">
+                    </div>
+
+                    <div class="customer-info-item">
+                        <label>Địa chỉ nhận hàng:</label>
+                        <input type="text" placeholder="Nhập địa chỉ nhận hàng cụ thể">
+                    </div>
+
+                    <div class="customer-info-item">
+                        <label>Ghi chú (tuỳ chọn):</label>
+                        <textarea placeholder="Ví dụ: Giao trong giờ hành chính, gọi trước khi giao..."></textarea>
+                    </div>
+                </div>
+                <div class="payment-content-right-button">
+                    <input type="text" placeholder="Mã giảm giá/ Quà tặng">
+                    <button> <i class="fa-solid fa-check"></i> </button>
+                </div>
+
 
             </div>
-
         </div>
         <div class="payment-content-right-payment">
-            <button>TIẾP TỤC THANH TOÁN</button>
+            <a href="thanhtoanthanhcong.html" class="btn-pay">XÁC NHẬN THANH TOÁN</a>
         </div>
     </div>
 </section>

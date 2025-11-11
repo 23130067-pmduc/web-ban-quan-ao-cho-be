@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
     const mainImage = document.getElementById("main-image");
-    const colorButtons = document.querySelectorAll(".color-btn");
     const thumbs = document.querySelectorAll(".thumb");
     const sizeButtons = document.querySelectorAll(".size-btn");
     const decreaseBtn = document.querySelector(".btn-decrease");
@@ -10,39 +9,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const submitBtn = document.getElementById("submit-review");
     const reviewText = document.getElementById("review-text");
     const reviewList = document.querySelector(".review-list");
+    const colorThumbs = document.querySelectorAll(".color-thumb");
 
-    // === BẢN ĐỒ MÀU -> ẢNH CHÍNH ===
-    const colorImages = {
-        xanh: "../img/aox.webp",
-        do: "../img/do.webp",
-        den: "../img/den.webp",
-        xanhnhat: "../img/xanhnhat.webp",
-        trang: "../img/trang.webp"
-    };
-
-    // === KHI CHỌN MÀU ===
-    colorButtons.forEach(btn => {
-        btn.addEventListener("click", () => {
-            colorButtons.forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-
-            const color = btn.dataset.color;
-            if (colorImages[color]) {
-                mainImage.classList.add("fade");
-                setTimeout(() => {
-                    mainImage.src = colorImages[color];
-                    mainImage.classList.remove("fade");
-                }, 200);
-            }
-        });
-    });
-
-    // === KHI CLICK ẢNH NHỎ ===
-    thumbs.forEach(t => {
+    // === KHI CLICK ẢNH NHỎ (THUMB) ===
+    document.querySelectorAll(".thumb").forEach(t => {
         t.addEventListener("click", () => {
-            thumbs.forEach(th => th.classList.remove("active"));
+            document.querySelectorAll(".thumb").forEach(th => th.classList.remove("active"));
             t.classList.add("active");
 
+            const mainImage = document.getElementById("main-image");
             mainImage.classList.add("fade");
             setTimeout(() => {
                 mainImage.src = t.src;
@@ -50,6 +25,27 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 200);
         });
     });
+
+
+    // === KHI CHỌN MÀU (ẢNH THẬT) ===
+    colorThumbs.forEach(thumb => {
+        thumb.addEventListener("click", () => {
+            colorThumbs.forEach(t => t.classList.remove("active"));
+            thumb.classList.add("active");
+
+            const newImage = thumb.getAttribute("data-image");
+            if (newImage) {
+                mainImage.classList.add("fade");
+                setTimeout(() => {
+                    mainImage.src = newImage;
+                    mainImage.classList.remove("fade");
+                }, 200);
+            }
+        });
+    });
+
+
+
 
     // === CHỌN SIZE ===
     sizeButtons.forEach(btn => {
