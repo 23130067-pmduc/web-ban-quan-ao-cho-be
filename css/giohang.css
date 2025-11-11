@@ -379,6 +379,12 @@ header li:hover .sub{
     width: 30px;
 }
 
+.card-content-left table .colorImg{
+    width: 25px;
+    height: 25px;
+    justify-items: center;
+    text-align: center;
+}
 .card-content-left table span{
     display: flex;
     justify-content: center;
@@ -449,26 +455,30 @@ header li:hover .sub{
     padding: 0 20px;
     height: 35px;
     cursor: pointer;
+    border-radius: 25px;
+    font-weight: bold;
 
 }
 .card-content-right-button button:first-child{
     background-color: #fff;
     border: 1px solid black;
     margin-right: 20px;
+
 }
 .card-content-right-button button:first-child:hover{
     background-color: #ddd;
+    transform: scale(1.03);
 }
 
 .card-content-right-button button:last-child{
-    background-color: #333333;
+    background-color: red;
     color: #fff;
     border: none;
 }
 .card-content-right-button button:last-child:hover{
-    background-color: #ddd;
-    color: black;
+    background-color: #c62828;
     border: 1px solid black;
+    transform: scale(1.03);
 }
 
 

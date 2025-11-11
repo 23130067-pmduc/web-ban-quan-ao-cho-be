@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentIndex = 0;
     const totalSlides = slides.length;
     
+    
     // Hàm cập nhật vị trí slider
     function updateSlider() {
         const offset = -currentIndex * 100;
