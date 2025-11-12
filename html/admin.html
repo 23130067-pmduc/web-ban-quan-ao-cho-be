@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <div class="admin">
+
+        <!-- THANH CÔNG CỤ -->
+
+        <aside class="sidebar">
+            <img src="../img/gau.jpg" alt=""Logo>
+            <p>ADMIN</p>
+
+            <div class="nav" id="menu">
+                <button data-page="dashboard">DashBoard</button>
+                <button data-page="sanpham">Sản phẩm</button>
+                <button data-page="donhang">Đơn hàng</button>
+                <button data-page="khachhang">Khách hàng</button>
+                <button data-page="magiamgia">Mã giảm giá</button>
+                <button data-page="caidat">Cài đặt</button>
+            </div>
+        </aside>
+
+
+        <!-- PHẦN NỘI DUNG -->
+        <section class="content">
+            <!-- PHẦN MÉ TRÊN -->
+            <header class="topbar">
+                <h1 id="pageTitle">DashBoard</h1>
+                <div class="actions">
+                    <button id="logout">Đăng xuất</button>
+                </div>
+            </header>
+
+
+            <!-- PHẦN MÉ DƯỚI -->
+            <main id="page">
+                <!-- DASHBROAD -->
+                <section id="dashboard" class="page active">
+                    <div class="cards">
+                        <div class="card">Tổng sản phẩm<br><span id="dashboard-total-products">0</span></div>
+                        <div class="card">Đơn hàng<br><span id="dashboard-total-orders">0</span></div>
+                        <div class="card">Khách hàng<br><span id="dashboard-total-customers">0</span></div>
+                        <div class="card">Mã giảm giá<br><span id="dashboard-total-magiamgia">0</span></div>
+                    </div>
+                </section>
+
+
+                <!-- SẢN PHẨM -->
+                <section id="sanpham" class="page">
+                    <div class="cards">
+                        <div class="card">Số sản phẩm<br><span id="total-products">0</span></div>
+                        <div class="card">Hết hàn<br><span id="total-products">0</span></div>
+                    </div>
+                    <div class="toolbar">
+                        <button id="add-product">Thêm sản phẩm</button>
+                        <input type="text" id="search" placeholder="Tìm sản phẩm...">
+                    </div>
+
+                    <table class="table" id="products-table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Ảnh</th>
+                            <th>Tên</th>
+                            <th>Giá</th>
+                            <th>Loại</th>
+                            <th>Lượt mua</th>
+                            <th>Trạng thái</th>
+                            <th>Hành động</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+
+                <!-- ĐƠN HÀNG -->
+                <section id="donhang" class="page">
+                    <div class="toolbar">
+                        <button id="add-order">Thêm đơn hàng</button>
+                        <input type="text" id="search-donhang" placeholder="Tìm đơn hàng...">
+                    </div>
+
+                    <table class="table" id="donhang-table">
+                        <thead>
+                        <tr>
+                            <th>Mã đơn hàng</th>
+                            <th>Mã khách hàng</th>
+                            <th>Tên khách hàng</th>
+                            <th>Email</th>
+                            <th>Số điện thoại</th>
+                            <th>Ngày đặt hàng</th>
+                            <th>Trạng thái đơn hàng</th>
+                            <th>Tổng tiền</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+
+
+
+                <!-- KHÁCH HÀNG -->
+                <section id="khachhang" class="page">
+                    <div class="cards">
+                        <div class="card">Tổng số khách hàng<br><span id="total-products">0</span></div>
+                        <div class="card">Khách hàng mới trong tuần<br><span id="total-products">0</span></div>
+                    </div>
+                    <div class="toolbar">
+                        <button id="add-customer">Thêm khách hàng</button>
+                        <input type="text" id="search-khachhang" placeholder="Tìm khách hàng...">
+                    </div>
+
+                    <table class="table" id="khachhang-table">
+                        <thead>
+                        <tr>
+                            <th>Mã khách hàng</th>
+                            <th>Tên</th>
+                            <th>Email</th>
+                            <th>Số điện thoại</th>
+                            <th>Ngày đăng ký</th>
+                            <th>Số đơn hàng</th>
+                            <th>Trạng thái hoạt động</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+
+
+
+                <!-- MÃ GIẢM GIÁ -->
+                <section id="magiamgia" class="page">
+                    <div class="toolbar">
+                        <button id="add-discount">Thêm mã giảm giá</button>
+                        <input type="text" id="search-discount" placeholder="Tìm mã giảm giá...">
+                    </div>
+
+                    <table class="table" id="discount-table">
+                        <thead>
+                        <tr>
+                            <th>Mã giảm giá</th>
+                            <th>Mức giảm (%)</th>
+                            <th>Ngày bắt đầu</th>
+                            <th>Ngày kết thúc</th>
+                            <th>Số lượng sử dụng</th>
+                            <th>Trạng thái</th>
+                            <th>Hành động</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+
+
+
+                <!-- CÀI ĐẶT -->
+                <section id="caidat" class="page">
+                    <h2>Cài đặt trang admin</h2>
+
+                    <div class="settings-section">
+                        <h3>Thông tin cửa hàng</h3>
+                        <label>Tên cửa hàng: <input type="text" id="shop-name" value="SuunyBear Kids Clothongs"></label>
+                        <label>Email: <input type="email" id="shop-email" value="contact@sunnybear.vn"></label>
+                        <label>Số điện thoại: <input type="text" id="shop-phone" value="0909 999 999"></label>
+                        <button id="save-shop-info">Lưu thay đổi</button>
+                    </div>
+
+                    <div class="settings-section">
+                        <h3>Giao diện admin</h3>
+                        <label>Chủ đề:
+                            <select id="theme-select">
+                                <option value="light">Sáng</option>
+                                <option value="dark">Tối</option>
+                                <option value="pastel">Màu pastel</option>
+                            </select>
+                        </label>
+                        <button id="save-theme">Lưu chủ đề</button>
+                    </div>
+
+                    <div class="settings-section">
+                        <h3>Bảo mật</h3>
+                        <label>Đổi mật khẩu: <input type="password" id="new-password" placeholder="Nhập mật khẩu mới"></label>
+                        <button id="change-password">Đổi mật khẩu</button>
+                    </div>
+                </section>
+            </main>
+
+
+        </section>
+
+
+
+    </div>
+
+</body>
+<script src="../javaScript/admin.js"></script>
+</html>
