@@ -36,17 +36,17 @@
 
         <div class="menu">
             <ul >
-                <li><a href="index.html">Trang chủ</a></li>
-                <li ><a href="sanpham.html">Sản phẩm ▾</a>
+                <li><a href="index_login.html">Trang chủ</a></li>
+                <li ><a href="sanpham_login.html">Sản phẩm ▾</a>
                     <ul class="sub">
-                        <li class="subItem"> <a href="listqabt.html">Quần áo bé trai</a> </li>
-                        <li class="subItem"> <a href="listbegai.html">Quần áo bé gái</a> </li>
-                        <li class="subItem"> <a href="phukien.html">Phụ kiện</a> </li>
+                        <li class="subItem"> <a href="listqabt_login.html">Quần áo bé trai</a> </li>
+                        <li class="subItem"> <a href="listbegai_login.html">Quần áo bé gái</a> </li>
+                        <li class="subItem"> <a href="phukien_login.html">Phụ kiện</a> </li>
                     </ul>
                 </li>
-                <li><a href="tintuc.html">Tin tức</a></li>
-                <li><a href="khuyenmai.html">Khuyến mãi</a></li>
-                <li><a href="lienhe.html">Liên hệ</a></li>
+                <li><a href="tintuc_login.html">Tin tức</a></li>
+                <li><a href="khuyenmai_login.html">Khuyến mãi</a></li>
+                <li><a href="lienhe_login.html">Liên hệ</a></li>
             </ul>
         </div>
 
@@ -55,7 +55,7 @@
             <div class="user-menu">
                 <a href="#" class="iconUser"><i class="fa-regular fa-user"></i></a>
                 <ul class="user-dropdown">
-                    <li><a href="#"><i class="fa-solid fa-user"></i> Thông tin cá nhân</a></li>
+                    <li><a href="profile.html"><i class="fa-solid fa-user"></i> Thông tin cá nhân</a></li>
                     <li><a href="#"><i class="fa-solid fa-clipboard-list"></i> Đơn hàng của tôi</a></li>
                     <li><a href="index.html"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
                 </ul>
@@ -66,6 +66,16 @@
 
 
 </header>
+    <div class="search-overlay" id="searchOverlay">
+      <img class="logo" src="../img/gau.jpg" alt="Logo">
+
+      <div class="boxSearch">
+          <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
+          <button> <i class="fa-solid fa-magnifying-glass"></i> </button>
+      </div>
+
+      <span class="closeSearch" id="closeSearch">&times; </span>
+    </div>
 
 
 <!-- ============== MAIN =================== -->
@@ -119,7 +129,7 @@
 
         <div class="related">
             <div class="relativeContent">
-                <a href="tintuc_3.html">
+                <a href="tintuc_3_login.html">
                     <img src="../img/quanao.jpg" alt="SunnyBear Kids Clothing">
                     <p>SunnyBear Kids Clothing</p>
                 </a>
@@ -130,7 +140,7 @@
 
         <div class="related">
             <div class="relativeContent">
-                <a href="tintuc_1.html">
+                <a href="tintuc_1_login.html">
                     <img src="../img/quanaokonen.webp" alt="Không nên mua cho trẻ em">
                     <p>Những loại quần áo không nên mua cho trẻ em</p>
                 </a>
@@ -160,11 +170,11 @@
 
         <div class="footer-danhmuc">
             <h3>Danh mục</h3>
-            <a href="index.html">Trang chủ</a>
-            <a href="sanpham.html">Sản Phẩm</a>
-            <a href="tintuc.html">Tin Tức</a>
-            <a href="khuyen-mai.html">Khuyến mãi</a>
-            <a href="lienhe.html">Liên hệ</a>
+            <a href="index_login.html">Trang chủ</a>
+            <a href="sanpham_login.html">Sản Phẩm</a>
+            <a href="tintuc_login.html">Tin Tức</a>
+            <a href="khuyenmai_login.html">Khuyến mãi</a>
+            <a href="lienhe_login.html">Liên hệ</a>
 
         </div>
 
@@ -197,4 +207,5 @@
 </body>
 <script src="../javaScript/header.js"></script>
 <script src="../javaScript/thongBao.js"></script>
+<script src="../javaScript/search.js"></script>
 </html>

@@ -4,8 +4,10 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-body{
-    min-height: 100vh;
+
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 /* Ẩn header khi cuộn xuống */
@@ -17,8 +19,7 @@ body{
     background: white;
     z-index: 999;
     transition: top 0.4s ease;
-    box-shadow: 0 2px 5px #222222;
-
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 /* Khi thêm class hide → header trượt lên */
@@ -94,7 +95,6 @@ body {
 #notification-box.active {
     display: block;
 }
-
 
 .header .navbar{
     display: flex;
@@ -190,13 +190,13 @@ header li:hover .sub{
     padding-right: 50px;
 }
 
-
+/* ========== USER MENU & DROPDOWN ========== */
 .user-menu {
     position: relative;
     display: inline-block;
 }
 
-/* Icon user căn giữa */
+/* Icon căn giữa */
 .iconUser {
     display: inline-flex;
     align-items: center;
@@ -216,7 +216,7 @@ header li:hover .sub{
     color: #C89F7B;
 }
 
-/* Dropdown tăng chiều ngang */
+/* Dropdown */
 .user-dropdown {
     display: none;
     position: absolute;
@@ -230,13 +230,13 @@ header li:hover .sub{
     margin: 0;
     padding: 8px;
     z-index: 1000;
-    min-width: 260px; /* Tăng từ 240px lên 260px */
+    min-width: 200px;
     opacity: 0;
     transform: translateY(-10px);
     transition: all 0.3s ease;
 }
 
-/* Mũi tên tam giác trỏ lên */
+/* Mũi tên tam giác */
 .user-dropdown::before {
     content: "";
     position: absolute;
@@ -267,8 +267,8 @@ header li:hover .sub{
 .user-dropdown li a {
     display: flex;
     align-items: center;
-    gap: 14px;
-    padding: 12px 18px;
+    gap: 12px;
+    padding: 12px 16px;
     text-decoration: none;
     color: #333333;
     font-weight: 500;
@@ -278,10 +278,12 @@ header li:hover .sub{
     white-space: nowrap;
 }
 
+
+
 /* Icon căn chỉnh cố định bên trái */
 .user-dropdown li i,
 .user-dropdown li a i {
-    width: 22px;
+    width: 22px; 
     text-align: center;
     font-size: 16px;
 }
@@ -357,6 +359,8 @@ header li:hover .sub{
     color: #C89F7B;
     transform: scale(1.2);
 }
+
+
 /* ===========THANH TÌM KIẾM ẨN==========*/
 .search-overlay{
     position: fixed;
@@ -429,26 +433,9 @@ header li:hover .sub{
     padding: 15px 30px;
     cursor: pointer;
 
-}
+}   
 
-/* Style cho các icon trong actions */
-.actions a {
-    color: black;
-    text-decoration: none;
-    transition: color 0.2s, transform 0.2s;
-}
-
-.actions a i {
-    font-size: 20px;
-}
-
-.actions a:hover i {
-    color: #C89F7B;
-    transform: scale(1.2);
-}
-
-
-/* PHẦN LIST QUẦN ÁO BÉ TRAI */
+/* PHẦN LIST PHỤ KIỆN */
 .products {
     padding: 80px 100px;
     background-color: #fff;

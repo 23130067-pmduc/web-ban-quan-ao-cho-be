@@ -55,7 +55,7 @@
             <div class="user-menu">
                 <a href="#" class="iconUser"><i class="fa-regular fa-user"></i></a>
                 <ul class="user-dropdown">
-                    <li><a href="#"><i class="fa-solid fa-user"></i> Thông tin cá nhân</a></li>
+                    <li><a href="profile.html"><i class="fa-solid fa-user"></i> Thông tin cá nhân</a></li>
                     <li><a href="#"><i class="fa-solid fa-clipboard-list"></i> Đơn hàng của tôi</a></li>
                     <li><a href="index.html"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
                 </ul>
@@ -64,16 +64,16 @@
         </div>
     </nav>
 </header>
-<div class="search-overlay" id="searchOverlay">
-    <img class="logo" src="../img/gau.jpg" alt="Logo">
+    <div class="search-overlay" id="searchOverlay">
+      <img class="logo" src="../img/gau.jpg" alt="Logo">
 
-    <div class="boxSearch">
-        <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
-        <button> <i class="fa-solid fa-magnifying-glass"></i> </button>
+      <div class="boxSearch">
+          <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
+          <button> <i class="fa-solid fa-magnifying-glass"></i> </button>
+      </div>
+
+      <span class="closeSearch" id="closeSearch">&times; </span>
     </div>
-
-    <span class="closeSearch" id="closeSearch">&times; </span>
-</div>
 
 <!-- ========== DANH SÁCH SẢN PHẨM ========== -->
 <section class="products">
@@ -121,13 +121,16 @@
         </div>
     </div>
 
-    <div class="product-list">
-        <div class="product-card">
-            <a href="pageatxl.html" class="link-cover"></a>
-            <img src="../img/aox.webp" alt="Áo polo in hình khủng long">
-            <h3>Áo polo in hình khủng long</h3>
-            <p>Chất cotton 100%, thoáng mát</p>
-            <span>150.000₫</span>
+    <div class="product-list" id="productList">
+        <div class="product-card" date-category="dobo">
+            <a href="pageatxl_login.html" class="link-cover">
+                <img src="../img/aox.webp" alt="Áo polo in hình khủng long">
+                <div class="product-info">
+                    <h3>Áo polo in hình khủng long</h3>
+                    <p>Chất cotton 100%, thoáng mát</p>
+                    <span>150.000₫</span>
+                </div>
+            </a>
             <button class="btn-add">Thêm vào giỏ</button>
         </div>
 
@@ -268,11 +271,11 @@
 
         <div class="footer-danhmuc">
             <h3>Danh mục</h3>
-            <a href="index.html">Trang chủ</a>
-            <a href="#">Sản Phẩm</a>
-            <a href="tintuc.html">Tin Tức</a>
-            <a href="#">Khuyến mãi</a>
-            <a href="lienhe.html">Liên hệ</a>
+            <a href="index_login.html">Trang chủ</a>
+            <a href="sanpham_login.html">Sản Phẩm</a>
+            <a href="tintuc_login.html">Tin Tức</a>
+            <a href="khuyenmai_login.html">Khuyến mãi</a>
+            <a href="lienhe_login.html">Liên hệ</a>
 
         </div>
 
@@ -319,4 +322,5 @@
 <script src="../javaScript/pageatxl.js"></script>
 <script src="../javaScript/header.js"></script>
 <script src="../javaScript/thongBao.js"></script>
+<script src="../javaScript/search.js"></script>
 </html>

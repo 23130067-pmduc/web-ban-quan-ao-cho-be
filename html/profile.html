@@ -2,11 +2,16 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Thanh toán thành công</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop quần áo trẻ em SunnyBear Kids</title>
+    <link rel="stylesheet" href="../css/profile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/thanhtoanthanhcong.css">
+
+
+
 </head>
 <body>
+
 <!-- ========== HEADER ========== -->
 <header class="header" id="header">
 
@@ -55,7 +60,7 @@
             <div class="user-menu">
                 <a href="#" class="iconUser"><i class="fa-regular fa-user"></i></a>
                 <ul class="user-dropdown">
-                    <li><a href="profile.html"><i class="fa-solid fa-user"></i> Thông tin cá nhân</a></li>
+                    <li><a href="#"><i class="fa-solid fa-user"></i> Thông tin cá nhân</a></li>
                     <li><a href="#"><i class="fa-solid fa-clipboard-list"></i> Đơn hàng của tôi</a></li>
                     <li><a href="index.html"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
                 </ul>
@@ -63,8 +68,11 @@
             <a href="giohang.html" class="iconCart"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
     </nav>
-</header>
 
+
+
+</header>
+<!-- Ô TÌM KIẾM ẨN -->
 <div class="search-overlay" id="searchOverlay">
     <img class="logo" src="../img/gau.jpg" alt="Logo">
 
@@ -75,81 +83,77 @@
 
     <span class="closeSearch" id="closeSearch">&times; </span>
 </div>
-<div class="success-box">
-    <h1>✔ Đặt hàng thành công!</h1>
-    <p>Vui lòng giữ máy & bắt máy để SunnyBear Shop liên lạc xác nhận đơn hàng. Cảm ơn Quý Khách.</p>
-    <a href="index_login.html">Quay về trang chủ</a>
-</div>
-
-<!-- Gợi ý sản phẩm -->
-<section class="products">
-    <h2>Gợi ý cho bạn</h2>
-    <div class="product-list">
-        <div class="product-card">
-            <img src="../img/blazer.jpg" alt="Set Áo Blazer & Quần Short">
-            <h3>Set Áo Blazer & Quần Short</h3>
-            <p>Phong Cách Lịch Lãm</p>
-            <span>429.000₫</span>
-            <button class="btn-add">Thêm vào giỏ</button>
+<!-- ========== PROFILE ========== -->
+<section class="profile-container">
+    <div class="profile-sidebar">
+        <div class="user-info">
+            <div class="avatar">
+                <img src="../img/aochuV.jpg" alt="Avatar">
+                <button class="change-avatar-btn">Đổi ảnh</button>
+            </div>
+            <h3>Nguyễn Văn A</h3>
+            <p>Thành viên từ: 15/03/2024</p>
         </div>
 
-        <div class="product-card">
-            <img src="../img/aosomitrang.jpg" alt="Áo sơ mi trắng">
-            <h3>Áo sơ mi trắng</h3>
-            <p>Lịch sự, dễ phối đồ</p>
-            <span>175.000₫</span>
-            <button class="btn-add">Thêm vào giỏ</button>
-        </div>
-
-        <div class="product-card">
-            <img src="../img/aokhoac.jpg" alt="Áo Khoác Hoodie">
-            <h3>Áo Khoác Hoodie</h3>
-            <p>Lịch sự, dễ phối đồ</p>
-            <span>329.000₫</span>
-            <button class="btn-add">Thêm vào giỏ</button>
-        </div>
-
-        <div class="product-card">
-            <img src="../img/vest.jpg" alt="Set Vest 2 In 1 SHEIN">
-            <h3>Set Vest 2 In 1 SHEIN</h3>
-            <p>Lịch Lãm & Thoải Mái</p>
-            <span>430.000₫</span>
-            <button class="btn-add">Thêm vào giỏ</button>
-        </div>
-
-        <div class="product-card">
-            <img src="../img/vestt.jpg" alt="Bộ vest bé trai">
-            <h3>Bộ vest bé trai</h3>
-            <p>Tặng thêm áo thun sành điệu</p>
-            <span>590.000₫</span>
-            <button class="btn-add">Thêm vào giỏ</button>
-        </div>
-
-        <div class="product-card">
-            <img src="../img/nasa.jpg" alt="Bộ thun tay ngắn cổ tròn NASA">
-            <h3>Bộ thun tay ngắn cổ tròn NASA</h3>
-            <p>Phù hợp bé trai năng động</p>
-            <span>192.000₫</span>
-            <button class="btn-add">Thêm vào giỏ</button>
-        </div>
-
-        <div class="product-card">
-            <img src="../img/aolen.jpg" alt="Áo len tay dài đính cúc đơn giản">
-            <h3>Áo len tay dài đính cúc đơn giảnh</h3>
-            <p>Đơn giản, ấp áp, dễ phối đồ</p>
-            <span>240.000₫</span>
-            <button class="btn-add">Thêm vào giỏ</button>
-        </div>
-
-        <div class="product-card" date-category="dobo">
-            <img src="../img/aokemtui.jpg" alt="Bộ thun cao cấp kèm túi đeo chéo">
-            <h3>Bộ thun cao cấp kèm túi đeo chéo</h3>
-            <p>Bền, gọn nhẹ, thoải mái</p>
-            <span>272.000₫</span>
-            <button class="btn-add">Thêm vào giỏ</button>
-        </div>
+        <nav class="profile-menu">
+            <ul>
+                <li class="active"><a href="#"><i class="fas fa-user"></i> Thông tin cá nhân</a></li>
+                <li><a href="#"><i class="fas fa-clipboard-list"></i> Đơn hàng của tôi</a></li>
+                <li><a href="#"><i class="fas fa-lock"></i> Đổi mật khẩu</a></li>
+            </ul>
+        </nav>
     </div>
-    <a href="listqabt_login.html" class="btn-view-more">Xem thêm</a>
+
+    <div class="profile-content">
+        <h2>Thông tin cá nhân</h2>
+
+        <form class="profile-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fullname">Họ và tên</label>
+                    <input type="text" id="fullname" value="Nguyễn Văn A">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Số điện thoại</label>
+                    <input type="tel" id="phone" value="0909 999 999">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" value="nguyenvana@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="birthday">Ngày sinh</label>
+                    <input type="date" id="birthday" value="1990-01-01">
+                </div>
+            </div>
+
+            <div class="form-row">
+            <div class="form-group">
+                <label for="address">Địa chỉ</label>
+                <input type="text" id="address" value="123 Đường Hạnh Phúc, Quận 5, TP.HCM">
+            </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Giới tính</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="gender" value="male" checked> Nam</label>
+                        <label><input type="radio" name="gender" value="female"> Nữ</label>
+                        <label><input type="radio" name="gender" value="other"> Khác</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn-cancel">Hủy</button>
+                <button type="submit" class="btn-save">Lưu thay đổi</button>
+            </div>
+        </form>
+    </div>
 </section>
 
 <!-- ========== FOOTER ========== -->
@@ -207,4 +211,3 @@
 <script src="../javaScript/thongBao.js"></script>
 <script src="../javaScript/search.js"></script>
 </html>
-

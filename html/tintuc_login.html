@@ -55,7 +55,7 @@
                 <div class="user-menu">
                     <a href="#" class="iconUser"><i class="fa-regular fa-user"></i></a>
                     <ul class="user-dropdown">
-                        <li><a href="#"><i class="fa-solid fa-user"></i> Thông tin cá nhân</a></li>
+                        <li><a href="profile.html"><i class="fa-solid fa-user"></i> Thông tin cá nhân</a></li>
                         <li><a href="#"><i class="fa-solid fa-clipboard-list"></i> Đơn hàng của tôi</a></li>
                         <li><a href="index.html"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
                     </ul>
@@ -66,6 +66,16 @@
 
 
     </header>
+    <div class="search-overlay" id="searchOverlay">
+      <img class="logo" src="../img/gau.jpg" alt="Logo">
+
+      <div class="boxSearch">
+          <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
+          <button> <i class="fa-solid fa-magnifying-glass"></i> </button>
+      </div>
+
+      <span class="closeSearch" id="closeSearch">&times; </span>
+    </div>
     <!-- =========== MAIN ============= -->
     <div class="title">
         <span>TIN TỨC</span>
@@ -75,7 +85,7 @@
 
         <div class="newsContainer">
             <div class="newsItem">
-                <a href="tintuc_1.html">
+                <a href="tintuc_1_login.html">
                     <img src="../img/quanaokonen.webp" alt="Quần áo không nên cho trẻ em">
                 </a>
                 <h3><a href="tintuc_1.html">Những loại quần áo không nên mua cho trẻ em</a> </h3>
@@ -84,7 +94,7 @@
             </div>
 
             <div class="newsItem">
-                <a href="tintuc_2.html">
+                <a href="tintuc_2_login.html">
                     <img src="../img/xuhuong.jpg" alt="Xu hướng thời trang 2025">
                 </a>
                 <h3><a href="#">Xu hướng thời trang trẻ em cao cấp năm 2025</a> </h3>
@@ -93,7 +103,7 @@
             </div>
 
             <div class="newsItem">
-                <a href="tintuc_3.html">
+                <a href="tintuc_3_login.html">
                     <img src="..//img/quanao.jpg" alt="SunnyBear Kids Clothing">
                 </a>
                 <h3><a href="#">SunnyBear Kids Clothing - Shop quần áo trẻ em</a> </h3>
@@ -118,11 +128,11 @@
 
             <div class="footer-danhmuc">
                 <h3>Danh mục</h3>
-                <a href="index.html">Trang chủ</a>
-                <a href="sanpham.html">Sản Phẩm</a>
-                <a href="tintuc.html">Tin Tức</a>
-                <a href="khuyen-mai.html">Khuyến mãi</a>
-                <a href="lienhe.html">Liên hệ</a>
+                <a href="index_login.html">Trang chủ</a>
+                <a href="sanpham_login.html">Sản Phẩm</a>
+                <a href="tintuc_login.html">Tin Tức</a>
+                <a href="khuyenmai_login.html">Khuyến mãi</a>
+                <a href="lienhe_login.html">Liên hệ</a>
 
             </div>
 
@@ -155,4 +165,5 @@
 </body>
 <script src="../javaScript/header.js"></script>
 <script src="../javaScript/thongBao.js"></script>
+<script src="../javaScript/search.js"></script>
 </html>

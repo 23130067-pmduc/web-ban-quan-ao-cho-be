@@ -56,7 +56,7 @@
             <div class="user-menu">
                 <a href="#" class="iconUser"><i class="fa-regular fa-user"></i></a>
                 <ul class="user-dropdown">
-                    <li><a href="#"><i class="fa-solid fa-user"></i> Thông tin cá nhân</a></li>
+                    <li><a href="profile.html"><i class="fa-solid fa-user"></i> Thông tin cá nhân</a></li>
                     <li><a href="#"><i class="fa-solid fa-clipboard-list"></i> Đơn hàng của tôi</a></li>
                     <li><a href="index.html"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
                 </ul>
@@ -64,6 +64,17 @@
             <a href="giohang.html" class="iconCart"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
     </nav>
+    <!-- Ô TÌM KIẾM ẨN -->  
+    <div class="search-overlay" id="searchOverlay">
+        <img class="logo" src="../img/gau.jpg" alt="Logo">
+
+        <div class="boxSearch">
+            <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
+            <button> <i class="fa-solid fa-magnifying-glass"></i> </button>
+        </div>
+
+        <span class="closeSearch" id="closeSearch">&times; </span>
+    </div>
 
 
     <div class="title">
@@ -77,7 +88,7 @@
             <h1> <i class="fas fa-fire"></i>
                 KHUYẾN MÃI ĐẶC BIỆT</h1>
             <p>Giảm giá lên đến 50% - Thời trang trẻ em chất lượng cao</p>
-            <a href="#products" class="btn-hero">Mua ngay</a>
+            <a href="sanpham_login.html" class="btn-hero">Mua ngay</a>
         </div>
     </section>
 
@@ -92,7 +103,7 @@
             <div class="product-card">
                 <span class="badge flash">FLASH -50%</span>
                 <img src="../img/aox.webp" alt="Áo polo">
-                <h3>Áo polo in hình khủng long</h3>
+                <h3>Áo polo in hình khủng long SunnyBear</h3>
                 <p class="price">
                     <span class="new-price">150.000đ</span>
                     <span class="old-price">300.000đ</span>
@@ -248,12 +259,12 @@
     <section class="s-footer-2">
       
         <div class="footer-danhmuc">
-          <h3>Danh mục</h3>
-          <a href="index.html">Trang chủ</a>
-          <a href="products.html">Sản Phẩm</a>
-          <a href="news.html">Tin Tức</a>
-          <a href="khuyen-mai.html">Khuyến mãi</a>
-            <a href="lienhe.html">Liên hệ</a>
+            <h3>Danh mục</h3>
+            <a href="index_login.html">Trang chủ</a>
+            <a href="sanpham_login.html">Sản Phẩm</a>
+            <a href="tintuc_login.html">Tin Tức</a>
+            <a href="khuyenmai_login.html">Khuyến mãi</a>
+            <a href="lienhe_login.html">Liên hệ</a>
           
         </div>
 
@@ -288,4 +299,5 @@
 </body>
 <script src="../javaScript/khuyenmai.js"></script>
 <script src="../javaScript/thongBao.js"></script>
+<script src="../javaScript/search.js"></script>
 </html>

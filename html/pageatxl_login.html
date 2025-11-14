@@ -44,18 +44,28 @@
                     <div class="user-menu">
                         <a href="#" class="icon iconUser"><i class="fa-regular fa-user"></i></a>
                         <ul class="user-dropdown">
-                            <li><a href="#"><i class="fa-solid fa-user"></i> Thông tin cá nhân</a></li>
+                            <li><a href="profile.html"><i class="fa-solid fa-user"></i> Thông tin cá nhân</a></li>
                             <li><a href="#"><i class="fa-solid fa-clipboard-list"></i> Đơn hàng của tôi</a></li>
-                            <li><a href="#"><i class="fas fa-edit"></i> Cập nhật tài khoản</a></li>
                             <li><a href="index.html"><i class="fa fa-sign-out" aria-hidden="true"></i> Đăng xuất</a></li>
                         </ul>
                     </div>
-                    <a href="#" class="icon iconCart"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="giohang.html" class="icon iconCart"><i class="fa-solid fa-cart-shopping"></i></a>
                 </div>
             </nav>
 
 
         </header>
+
+        <div class="search-overlay" id="searchOverlay">
+      <img class="logo" src="../img/gau.jpg" alt="Logo">
+
+      <div class="boxSearch">
+          <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
+          <button> <i class="fa-solid fa-magnifying-glass"></i> </button>
+      </div>
+
+      <span class="closeSearch" id="closeSearch">&times; </span>
+    </div>
 <main class="product-detail">
     <div class="product-container">
 
@@ -81,11 +91,11 @@
             <div class="product-colors">
                 <p><strong>Màu sắc:</strong></p>
                 <div class="color-options">
-                    <button class="color-btn active" data-color="xanh" style="background-color:#91a941;"></button>
-                    <button class="color-btn" data-color="do" style="background-color:#bc1127;"></button>
-                    <button class="color-btn" data-color="den" style="background-color:#18151a;"></button>
-                    <button class="color-btn" data-color="xanhnhat" style="background-color:#abd9f2;"></button>
-                    <button class="color-btn" data-color="trang" style="background-color:#ffffff; border: 1px solid #cccccc"></button>
+                    <img class="color-thumb" data-image="../img/aox.webp" src="../img/green.webp" alt="xanh">
+                    <img class="color-thumb" data-image="../img/do.webp" src="../img/red.webp" alt="do">
+                    <img class="color-thumb" data-image="../img/den.webp" src="../img/black.webp" alt="den">
+                    <img class="color-thumb" data-image="../img/xanhnhat.webp" src="../img/xn.jpg" alt="xanhnhat">
+                    <img class="color-thumb" data-image="../img/trang.webp" src="../img/t.jpg" alt="trang">
                 </div>
             </div>
 
@@ -112,7 +122,7 @@
 
             <!-- NÚT MUA -->
             <div class="product-actions">
-                <button class="btn-buy-now">Mua ngay</button>
+                <a href="thanhtoan_login.html" class="link-cover"><button class="btn-buy-now">Mua ngay</button></a>
                 <button class="btn-add-cart">Thêm vào giỏ hàng</button>
             </div>
         </div>
@@ -195,7 +205,7 @@
                 <p class="price">259.749₫</p>
             </div>
         </div>
-        <a href="listqabt.html" class="btn-view-more">Xem thêm</a>
+        <a href="listqabt_login.html" class="btn-view-more">Xem thêm</a>
     </section>
 </main>
 
@@ -212,11 +222,11 @@
 
         <div class="footer-danhmuc">
             <h3>Danh mục</h3>
-            <a href="index.html">Trang chủ</a>
-            <a href="#">Sản Phẩm</a>
-            <a href="tintuc.html">Tin Tức</a>
-            <a href="#">Khuyến mãi</a>
-            <a href="lienhe.html">Liên hệ</a>
+            <a href="index_login.html">Trang chủ</a>
+            <a href="sanpham_login.html">Sản Phẩm</a>
+            <a href="tintuc_login.html">Tin Tức</a>
+            <a href="khuyenmai_login.html">Khuyến mãi</a>
+            <a href="lienhe_login.html">Liên hệ</a>
 
         </div>
 
@@ -250,4 +260,6 @@
 </body>
 <script src="../javaScript/pageatxl.js"></script>
 <script src="../javaScript/header.js"></script>
+<script src="../javaScript/thongBao.js"></script>
+<script src="../javaScript/search.js"></script>
 </html>
