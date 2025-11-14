@@ -160,7 +160,7 @@ header .sub{
     margin: 0;
     padding: 0;
     z-index: 1000;
-    width: 100%;
+    width: 200px;
 
 }
 header .sub a{

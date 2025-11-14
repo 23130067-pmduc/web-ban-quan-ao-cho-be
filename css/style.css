@@ -160,7 +160,7 @@ header .sub{
     margin: 0;
     padding: 0;
     z-index: 1000;
-    width: 100%;
+    width: 200px;
 
 }
 header .sub a{
@@ -278,6 +278,17 @@ header li:hover .sub{
     white-space: nowrap;
 }
 
+
+
+/* Icon căn chỉnh cố định bên trái */
+.user-dropdown li i,
+.user-dropdown li a i {
+    width: 22px; 
+    text-align: center;
+    font-size: 16px;
+}
+
+/* Hover effect */
 .user-dropdown li a:hover {
     background-color: #f5f5f5;
 }
@@ -291,6 +302,56 @@ header li:hover .sub{
 .icon i {
     font-size: 20px;
     color: black;
+}
+
+.icon:hover i {
+    color: #C89F7B;
+}
+
+
+/* Menu con ẩn */
+.navbar .actions .user-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%; /* nằm ngay dưới icon user */
+
+    background-color: #fff;
+    border: 1px solid #C89F7B;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    min-width: 150px;
+
+}
+
+/* Các item trong menu con */
+.user-dropdown li a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: black;
+    font-weight: normal;
+    transition: background-color 0.2s;
+}
+
+.user-dropdown li a:hover {
+    background-color: #C89F7B;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Khi hover vào user thì hiện menu con */
+.user-menu:hover .user-dropdown {
+    display: block;
+}
+
+/* Hiệu ứng icon */
+.icon i {
+    font-size: 20px;
+    color: black;
     transition: color 0.2s, transform 0.2s;
 }
 
@@ -298,6 +359,7 @@ header li:hover .sub{
     color: #C89F7B;
     transform: scale(1.2);
 }
+
 
 /* ===========THANH TÌM KIẾM ẨN==========*/
 .search-overlay{

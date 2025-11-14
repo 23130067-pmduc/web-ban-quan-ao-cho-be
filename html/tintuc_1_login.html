@@ -12,7 +12,19 @@
 
         <nav class="topbar">
             <p id="hotline">Hotline: <b> 0909 999 999</b> (8h30 - 12h) Tất cả các ngày trong tuần | </p>
-            <p id="thongBao">Thông báo của tôi</p>
+            <p id="thongBao">
+            <i class="fa-regular fa-bell"></i>
+                Thông báo của tôi
+            </p>
+
+            <div id="notification-box">
+                <ul>
+                    <li>Hiện không có thông báo nào.</li>
+                    <li>Đăng nhập để được nhận thêm nhiều ưu đãi.</li>
+
+                </ul>
+
+            </div>
         </nav>
 
 
@@ -25,7 +37,7 @@
             <div class="menu">
                 <ul>
                     <li><a href="index.html">Trang chủ</a></li>
-                    <li ><a href="sanpham.html">Danh sách sản phẩm ▾</a>
+                    <li ><a href="sanpham.html">Sản phẩm ▾</a>
                         <ul class="sub">
                             <li class="subItem"> <a href="listqabt.html">Quần áo bé trai</a> </li>
                             <li class="subItem"> <a href="listbegai.html">Quần áo bé gái</a> </li>
@@ -39,17 +51,16 @@
             </div>
 
             <div class="actions">
-                <a href="#" class="icon iconSearch"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <a href="#" class="iconSearch"><i class="fa-solid fa-magnifying-glass"></i></a>
                 <div class="user-menu">
-                    <a href="#" class="icon iconUser"><i class="fa-regular fa-user"></i></a>
+                    <a href="#" class="iconUser"><i class="fa-regular fa-user"></i></a>
                     <ul class="user-dropdown">
-                        <li><a href="#"><i class="fa-solid fa-user"></i> Thông tin đăng nhập</a></li>
+                        <li><a href="#"><i class="fa-solid fa-user"></i> Thông tin cá nhân</a></li>
                         <li><a href="#"><i class="fa-solid fa-clipboard-list"></i> Đơn hàng của tôi</a></li>
-                        <li><a href="#"><i class="fas fa-edit"></i> Cập nhật tài khoản</a></li>
-                        <li><a href="index.html"><i class="fa fa-sign-out" aria-hidden="true"></i> Đăng xuất</a></li>
+                        <li><a href="index.html"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
                     </ul>
                 </div>
-                <a href="#" class="icon iconCart"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="giohang.html" class="iconCart"><i class="fa-solid fa-cart-shopping"></i></a>
             </div>
         </nav>
 
@@ -178,4 +189,5 @@
 
 </body>
 <script src="../javaScript/header.js"></script>
+<script src="../javaScript/thongBao.js"></script>
 </html>

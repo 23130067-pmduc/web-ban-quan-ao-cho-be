@@ -21,6 +21,18 @@ body{
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+/* Ẩn header khi cuộn xuống */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    z-index: 999;
+    transition: top 0.4s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
 /* Khi thêm class hide → header trượt lên */
 .header.hide {
     top: -120px; /* ẩn hẳn khỏi màn hình */
@@ -95,7 +107,6 @@ body {
     display: block;
 }
 
-
 .header .navbar{
     display: flex;
     justify-content: space-between;
@@ -160,7 +171,7 @@ header .sub{
     margin: 0;
     padding: 0;
     z-index: 1000;
-    width: 100%;
+    width: 200px;
 
 }
 header .sub a{
@@ -190,11 +201,124 @@ header li:hover .sub{
     padding-right: 50px;
 }
 
-
+/* ========== USER MENU & DROPDOWN ========== */
 .user-menu {
     position: relative;
     display: inline-block;
 }
+
+/* Icon căn giữa */
+.iconUser {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.iconUser i {
+    font-size: 20px;
+    color: black;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.iconUser:hover i {
+    color: #C89F7B;
+}
+
+/* Dropdown */
+.user-dropdown {
+    display: none;
+    position: absolute;
+    right: -10px;
+    top: calc(100% + 12px);
+    background: #ffffff;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    list-style: none;
+    margin: 0;
+    padding: 8px;
+    z-index: 1000;
+    min-width: 200px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+/* Mũi tên tam giác */
+.user-dropdown::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    right: 18px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #ffffff;
+    filter: drop-shadow(0 -2px 3px rgba(0,0,0,0.08));
+}
+
+/* Hiển thị dropdown khi hover */
+.user-menu:hover .user-dropdown {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Các item trong dropdown */
+.user-dropdown li {
+    padding: 0;
+    margin: 4px 0;
+    list-style: none;
+}
+
+.user-dropdown li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #333333;
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+}
+
+
+
+/* Icon căn chỉnh cố định bên trái */
+.user-dropdown li i,
+.user-dropdown li a i {
+    width: 22px; 
+    text-align: center;
+    font-size: 16px;
+}
+
+/* Hover effect */
+.user-dropdown li a:hover {
+    background-color: #f5f5f5;
+}
+
+/* Đường kẻ ngăn cách */
+.user-dropdown li + li {
+    border-top: 1.3px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Hiệu ứng icon */
+.icon i {
+    font-size: 20px;
+    color: black;
+}
+
+.icon:hover i {
+    color: #C89F7B;
+}
+
 
 /* Menu con ẩn */
 .navbar .actions .user-dropdown {
@@ -246,7 +370,6 @@ header li:hover .sub{
     color: #C89F7B;
     transform: scale(1.2);
 }
-
 /* ===========THANH TÌM KIẾM ẨN==========*/
 .search-overlay{
     position: fixed;

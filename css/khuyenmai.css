@@ -162,7 +162,7 @@ header .sub{
     margin: 0;
     padding: 0;
     z-index: 1000;
-    width: 100%;
+    width: 200px;
 
 }
 header .sub a{
@@ -821,4 +821,21 @@ header li:hover .sub{
 
 .footer-social a:hover img {
     transform: scale(1.05)        
+}
+
+
+
+.title {
+    background-color: #f8f8f8; /* màu nền nhạt */
+    border: 1px solid #eee;    /* viền nhẹ */
+    padding: 15px 50px;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.title span {
+    color: #4b0000; /* màu chữ nâu đỏ */
+    font-weight: 600;
+    letter-spacing: 1px;
 }
