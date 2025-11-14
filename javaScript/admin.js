@@ -8,6 +8,158 @@ var discounts = [];
 var currentSort = '';
 var sortDirection = 'asc';
 
+// Chuyển mảng sản phẩm thành chuỗi để lưu vào localStorage
+function chuoiHoaSanPham(arr) {
+    var result = '';
+    for (var i = 0; i < arr.length; i++) {
+        var p = arr[i];
+        result += p.id + '|||' + p.name + '|||' + p.price + '|||' + p.category + '|||' + 
+                  p.image + '|||' + p.purchases + '|||' + p.status;
+        if (i < arr.length - 1) {
+            result += '###';
+        }
+    }
+    return result;
+}
+
+// Chuyển chuỗi thành mảng sản phẩm
+function giaiChuoiSanPham(str) {
+    if (!str) return [];
+    
+    var arr = [];
+    var records = str.split('###');
+    
+    for (var i = 0; i < records.length; i++) {
+        var fields = records[i].split('|||');
+        if (fields.length === 7) {
+            arr.push({
+                id: fields[0],
+                name: fields[1],
+                price: parseInt(fields[2]),
+                category: fields[3],
+                image: fields[4],
+                purchases: parseInt(fields[5]),
+                status: fields[6]
+            });
+        }
+    }
+    return arr;
+}
+
+// Chuyển mảng đơn hàng thành chuỗi
+function chuoiHoaDonHang(arr) {
+    var result = '';
+    for (var i = 0; i < arr.length; i++) {
+        var o = arr[i];
+        result += o.id + '|||' + o.customerId + '|||' + o.customerName + '|||' + 
+                  o.email + '|||' + o.phone + '|||' + o.date + '|||' + 
+                  o.status + '|||' + o.total;
+        if (i < arr.length - 1) {
+            result += '###';
+        }
+    }
+    return result;
+}
+
+// Chuyển chuỗi thành mảng đơn hàng
+function giaiChuoiDonHang(str) {
+    if (!str) return [];
+    
+    var arr = [];
+    var records = str.split('###');
+    
+    for (var i = 0; i < records.length; i++) {
+        var fields = records[i].split('|||');
+        if (fields.length === 8) {
+            arr.push({
+                id: fields[0],
+                customerId: fields[1],
+                customerName: fields[2],
+                email: fields[3],
+                phone: fields[4],
+                date: fields[5],
+                status: fields[6],
+                total: parseInt(fields[7])
+            });
+        }
+    }
+    return arr;
+}
+
+// Chuyển mảng khách hàng thành chuỗi
+function chuoiHoaKhachHang(arr) {
+    var result = '';
+    for (var i = 0; i < arr.length; i++) {
+        var c = arr[i];
+        result += c.id + '|||' + c.name + '|||' + c.email + '|||' + 
+                  c.phone + '|||' + c.registered + '|||' + c.orders;
+        if (i < arr.length - 1) {
+            result += '###';
+        }
+    }
+    return result;
+}
+
+// Chuyển chuỗi thành mảng khách hàng
+function giaiChuoiKhachHang(str) {
+    if (!str) return [];
+    
+    var arr = [];
+    var records = str.split('###');
+    
+    for (var i = 0; i < records.length; i++) {
+        var fields = records[i].split('|||');
+        if (fields.length === 6) {
+            arr.push({
+                id: fields[0],
+                name: fields[1],
+                email: fields[2],
+                phone: fields[3],
+                registered: fields[4],
+                orders: parseInt(fields[5])
+            });
+        }
+    }
+    return arr;
+}
+
+// Chuyển mảng mã giảm giá thành chuỗi
+function chuoiHoaMaGiamGia(arr) {
+    var result = '';
+    for (var i = 0; i < arr.length; i++) {
+        var d = arr[i];
+        result += d.code + '|||' + d.percent + '|||' + d.startDate + '|||' + 
+                  d.endDate + '|||' + d.uses + '|||' + d.status;
+        if (i < arr.length - 1) {
+            result += '###';
+        }
+    }
+    return result;
+}
+
+// Chuyển chuỗi thành mảng mã giảm giá
+function giaiChuoiMaGiamGia(str) {
+    if (!str) return [];
+    
+    var arr = [];
+    var records = str.split('###');
+    
+    for (var i = 0; i < records.length; i++) {
+        var fields = records[i].split('|||');
+        if (fields.length === 6) {
+            arr.push({
+                code: fields[0],
+                percent: parseInt(fields[1]),
+                startDate: fields[2],
+                endDate: fields[3],
+                uses: parseInt(fields[4]),
+                status: fields[5]
+            });
+        }
+    }
+    return arr;
+}
+
 // KHỞI TẠO
 document.addEventListener('DOMContentLoaded', function() {
     console.log('✅ Trang admin đã tải xong!');
@@ -222,126 +374,135 @@ function taoDataMau() {
     
     if (!existingProducts) {
         // Tạo dữ liệu sản phẩm mẫu
-        var sampleProducts = [
-            {
-                id: 'SP001',
-                name: 'Áo thun bé trai',
-                price: 120000,
-                category: 'Áo',
-                image: 'https://via.placeholder.com/120x90?text=Ao1',
-                purchases: 15,
-                status: 'Còn hàng'
-            },
-            {
-                id: 'SP002',
-                name: 'Quần jean bé gái',
-                price: 180000,
-                category: 'Quần',
-                image: 'https://via.placeholder.com/120x90?text=Quan1',
-                purchases: 9,
-                status: 'Còn hàng'
-            },
-            {
-                id: 'SP003',
-                name: 'Đầm xinh cho bé',
-                price: 200000,
-                category: 'Đầm',
-                image: 'https://via.placeholder.com/120x90?text=Dam1',
-                purchases: 4,
-                status: 'Hết hàng'
-            },
-            {
-                id: 'SP004',
-                name: 'Áo len ấm áp',
-                price: 220000,
-                category: 'Áo',
-                image: 'https://via.placeholder.com/120x90?text=Ao2',
-                purchases: 7,
-                status: 'Còn hàng'
-            }
-        ];
+        var sampleProducts = [];
         
-        // Lưu vào localStorage
-        localStorage.setItem('admin_products', JSON.stringify(sampleProducts));
+        sampleProducts.push({
+            id: 'SP001',
+            name: 'Áo thun bé trai',
+            price: 120000,
+            category: 'Áo',
+            image: 'https://via.placeholder.com/120x90?text=Ao1',
+            purchases: 15,
+            status: 'Còn hàng'
+        });
+        
+        sampleProducts.push({
+            id: 'SP002',
+            name: 'Quần jean bé gái',
+            price: 180000,
+            category: 'Quần',
+            image: 'https://via.placeholder.com/120x90?text=Quan1',
+            purchases: 9,
+            status: 'Còn hàng'
+        });
+        
+        sampleProducts.push({
+            id: 'SP003',
+            name: 'Đầm xinh cho bé',
+            price: 200000,
+            category: 'Đầm',
+            image: 'https://via.placeholder.com/120x90?text=Dam1',
+            purchases: 4,
+            status: 'Hết hàng'
+        });
+        
+        sampleProducts.push({
+            id: 'SP004',
+            name: 'Áo len ấm áp',
+            price: 220000,
+            category: 'Áo',
+            image: 'https://via.placeholder.com/120x90?text=Ao2',
+            purchases: 7,
+            status: 'Còn hàng'
+        });
+        
+        // Lưu vào localStorage (dùng hàm tự viết)
+        localStorage.setItem('admin_products', chuoiHoaSanPham(sampleProducts));
         console.log('✅ Đã tạo dữ liệu sản phẩm mẫu');
     }
     
     // Tạo dữ liệu đơn hàng mẫu
     var existingOrders = localStorage.getItem('admin_orders');
     if (!existingOrders) {
-        var sampleOrders = [
-            {
-                id: 'DH001',
-                customerId: 'KH001',
-                customerName: 'Nguyễn Văn A',
-                email: 'nva@example.com',
-                phone: '0909000001',
-                date: '2025-11-01',
-                status: 'Đang xử lý',
-                total: 320000
-            },
-            {
-                id: 'DH002',
-                customerId: 'KH002',
-                customerName: 'Trần Thị B',
-                email: 'ttb@example.com',
-                phone: '0909000002',
-                date: '2025-11-03',
-                status: 'Đã giao',
-                total: 180000
-            }
-        ];
-        localStorage.setItem('admin_orders', JSON.stringify(sampleOrders));
+        var sampleOrders = [];
+        
+        sampleOrders.push({
+            id: 'DH001',
+            customerId: 'KH001',
+            customerName: 'Nguyễn Văn A',
+            email: 'nva@example.com',
+            phone: '0909000001',
+            date: '2025-11-01',
+            status: 'Đang xử lý',
+            total: 320000
+        });
+        
+        sampleOrders.push({
+            id: 'DH002',
+            customerId: 'KH002',
+            customerName: 'Trần Thị B',
+            email: 'ttb@example.com',
+            phone: '0909000002',
+            date: '2025-11-03',
+            status: 'Đã giao',
+            total: 180000
+        });
+        
+        localStorage.setItem('admin_orders', chuoiHoaDonHang(sampleOrders));
         console.log('✅ Đã tạo dữ liệu đơn hàng mẫu');
     }
     
     // Tạo dữ liệu khách hàng mẫu
     var existingCustomers = localStorage.getItem('admin_customers');
     if (!existingCustomers) {
-        var sampleCustomers = [
-            {
-                id: 'KH001',
-                name: 'Nguyễn Văn A',
-                email: 'nva@example.com',
-                phone: '0909000001',
-                registered: '2025-10-20',
-                orders: 2
-            },
-            {
-                id: 'KH002',
-                name: 'Trần Thị B',
-                email: 'ttb@example.com',
-                phone: '0909000002',
-                registered: '2025-11-02',
-                orders: 1
-            }
-        ];
-        localStorage.setItem('admin_customers', JSON.stringify(sampleCustomers));
+        var sampleCustomers = [];
+        
+        sampleCustomers.push({
+            id: 'KH001',
+            name: 'Nguyễn Văn A',
+            email: 'nva@example.com',
+            phone: '0909000001',
+            registered: '2025-10-20',
+            orders: 2
+        });
+        
+        sampleCustomers.push({
+            id: 'KH002',
+            name: 'Trần Thị B',
+            email: 'ttb@example.com',
+            phone: '0909000002',
+            registered: '2025-11-02',
+            orders: 1
+        });
+        
+        localStorage.setItem('admin_customers', chuoiHoaKhachHang(sampleCustomers));
         console.log('✅ Đã tạo dữ liệu khách hàng mẫu');
     }
     
     // Tạo dữ liệu mã giảm giá mẫu
     var existingDiscounts = localStorage.getItem('admin_discounts');
     if (!existingDiscounts) {
-        var sampleDiscounts = [
-            {
-                code: 'SUMMER10',
-                percent: 10,
-                startDate: '2025-06-01',
-                endDate: '2025-08-31',
-                uses: 50,
-                status: 'Đang hoạt động'
-            },
-            {
-                code: 'NEW20',
-                percent: 20,
-                startDate: '2025-11-01',
-                endDate: '2025-11-30',
-                uses: 10,
-                status: 'Đang hoạt động'
-            }
-        ];
-        localStorage.setItem('admin_discounts', JSON.stringify(sampleDiscounts));
+        var sampleDiscounts = [];
+        
+        sampleDiscounts.push({
+            code: 'SUMMER10',
+            percent: 10,
+            startDate: '2025-06-01',
+            endDate: '2025-08-31',
+            uses: 50,
+            status: 'Đang hoạt động'
+        });
+        
+        sampleDiscounts.push({
+            code: 'NEW20',
+            percent: 20,
+            startDate: '2025-11-01',
+            endDate: '2025-11-30',
+            uses: 10,
+            status: 'Đang hoạt động'
+        });
+        
+        localStorage.setItem('admin_discounts', chuoiHoaMaGiamGia(sampleDiscounts));
         console.log('✅ Đã tạo dữ liệu mã giảm giá mẫu');
     }
 }
@@ -349,31 +510,31 @@ function taoDataMau() {
 //TẢI DỮ LIỆU TỪ LOCALSTORAGE
 
 function taiDuLieu() {
-    // Tải sản phẩm
+    // Tải sản phẩm (dùng hàm tự viết thay vì JSON.parse)
     var productsData = localStorage.getItem('admin_products');
     if (productsData) {
-        products = JSON.parse(productsData);
+        products = giaiChuoiSanPham(productsData);
         console.log('✅ Đã tải ' + products.length + ' sản phẩm');
     }
     
     // Tải đơn hàng
     var ordersData = localStorage.getItem('admin_orders');
     if (ordersData) {
-        orders = JSON.parse(ordersData);
+        orders = giaiChuoiDonHang(ordersData);
         console.log('✅ Đã tải ' + orders.length + ' đơn hàng');
     }
     
     // Tải khách hàng
     var customersData = localStorage.getItem('admin_customers');
     if (customersData) {
-        customers = JSON.parse(customersData);
+        customers = giaiChuoiKhachHang(customersData);
         console.log('✅ Đã tải ' + customers.length + ' khách hàng');
     }
     
     // Tải mã giảm giá
     var discountsData = localStorage.getItem('admin_discounts');
     if (discountsData) {
-        discounts = JSON.parse(discountsData);
+        discounts = giaiChuoiMaGiamGia(discountsData);
         console.log('✅ Đã tải ' + discounts.length + ' mã giảm giá');
     }
 }
@@ -553,7 +714,7 @@ function luuSanPham() {
         }
         
         if (found) {
-            localStorage.setItem('admin_products', JSON.stringify(products));
+            localStorage.setItem('admin_products', chuoiHoaSanPham(products));
             hienThiToast('Đã cập nhật sản phẩm', 'toast-success');
         }
     } else {
@@ -571,7 +732,7 @@ function luuSanPham() {
         };
         
         products.push(newProduct);
-        localStorage.setItem('admin_products', JSON.stringify(products));
+        localStorage.setItem('admin_products', chuoiHoaSanPham(products));
         hienThiToast('Đã thêm sản phẩm: ' + name, 'toast-success');
     }
     
@@ -618,8 +779,8 @@ function xoaSanPham(productId) {
     // Xóa khỏi mảng
     var deletedProduct = products.splice(index, 1)[0];
     
-    // Lưu vào localStorage
-    localStorage.setItem('admin_products', JSON.stringify(products));
+    // Lưu vào localStorage (dùng hàm tự viết)
+    localStorage.setItem('admin_products', chuoiHoaSanPham(products));
     
     // Hiển thị thông báo
     hienThiToast('Đã xóa sản phẩm: ' + deletedProduct.name, 'toast-error');
@@ -688,7 +849,7 @@ function luuMaGiamGia() {
     };
     discounts.push(newDiscount);
     
-    localStorage.setItem('admin_discounts', JSON.stringify(discounts));
+    localStorage.setItem('admin_discounts', chuoiHoaMaGiamGia(discounts));
     hienThiBangMaGiamGia();
     dongModalGiamGia();
     hienThiToast('Thêm mã giảm giá thành công!', 'toast-success');
@@ -705,7 +866,7 @@ function xoaMaGiamGia(code) {
             break;
         }
     }
-    localStorage.setItem('admin_discounts', JSON.stringify(discounts));
+    localStorage.setItem('admin_discounts', chuoiHoaMaGiamGia(discounts));
     hienThiBangMaGiamGia();
     hienThiToast('Xóa mã giảm giá thành công!', 'toast-success');
 }
