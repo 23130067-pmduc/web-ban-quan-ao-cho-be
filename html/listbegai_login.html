@@ -1,9 +1,9 @@
-
+<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Quần áo bé gái</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>Quần áo bé gái login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="../css/listBegai.css">
 
 </head>
@@ -52,17 +52,18 @@
         </div>
 
         <div class="actions">
-            <a href="#" class="icon iconSearch"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <a href="#" class="iconSearch"><i class="fa-solid fa-magnifying-glass"></i></a>
             <div class="user-menu">
-                <a href="#" class="icon iconUser"><i class="fa-regular fa-user"></i></a>
+                <a href="#" class="iconUser"><i class="fa-regular fa-user"></i></a>
                 <ul class="user-dropdown">
                     <li><a href="profile.html"><i class="fa-solid fa-user"></i> Thông tin cá nhân</a></li>
                     <li><a href="#"><i class="fa-solid fa-clipboard-list"></i> Đơn hàng của tôi</a></li>
-                    <li><a href="index.html"><i class="fa fa-sign-out" aria-hidden="true"></i> Đăng xuất</a></li>
+                    <li><a href="index.html"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
                 </ul>
             </div>
-            <a href="giohang.html" class="icon iconCart"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="giohang_login.html" class="iconCart"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
+
     </nav>
 </header>
 
@@ -253,10 +254,13 @@
             <button class="btn-add">Thêm vào giỏ</button>
         </div>
 
-
+        <div class="load-more-container">
+            <button id="load-more">Xem thêm</button>
+        </div>
     </div>
 </section>
-
+<!-- ========== Khi nhấn thêm vào giỏ hàng-->
+      <div id="toast"></div>
 <!-- ========== FOOTER ========== -->
 <div class="footer">
     <section class="s-footer-1">
@@ -323,8 +327,6 @@
 <script src="../javaScript/header.js"></script>
 <script src="../javaScript/thongBao.js"></script>
 <script src="../javaScript/search.js"></script>
-</html>
-
-
-</body>
+<script src="../javaScript/themvaogiohang.js"></script>
+<script src="../javaScript/loadMore.js"></script>
 </html>

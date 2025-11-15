@@ -10,6 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if ( i >= visibleCount) p.classList.add("hidden");
     });
 
+    // Nếu lúc đầu số sản phẩm bằng hoặc ít hơn số sản phẩm hiển thị thì ẩn nút "Xem thêm"
+    if (product.length <= visibleCount){
+        loadMoreButton.style.display = "none";
+    }
 
     // Tức là bắt đầu từ sản phẩm bị ẩn nếu còn đủ thì nhỏ hơn increment tức là hiện đúng số increment còn
     // < hiddenProduct tức là số sản phẩm ẩn còn lại nhỏ hơn increament nên chỉ hiện số sp còn lại thôi.

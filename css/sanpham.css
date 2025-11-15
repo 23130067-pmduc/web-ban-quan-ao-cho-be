@@ -358,6 +358,7 @@ header li:hover .sub{
     transform: scale(1.2);
 }
 
+
 /* ===========THANH TÌM KIẾM ẨN==========*/
 .search-overlay{
     position: fixed;
@@ -432,21 +433,6 @@ header li:hover .sub{
 
 }
 
-/* Style cho các icon trong actions */
-.actions a {
-    color: black;
-    text-decoration: none;
-    transition: color 0.2s, transform 0.2s;
-}
-
-.actions a i {
-    font-size: 20px;
-}
-
-.actions a:hover i {
-    color: #C89F7B;
-    transform: scale(1.2);
-}
 
 
 /* ========== PRODUCTS ========== */
@@ -745,6 +731,30 @@ header li:hover .sub{
 
 .hidden{
     display: none;
+}
+/* ==========Khi nhấn thêm vào giỏ hàng ===========*/
+#toast {
+  visibility: hidden;
+  min-width: 250px;
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  border-radius: 12px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1000;
+  right: 30px;
+  bottom: 30px;
+  font-size: 16px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: opacity 0.5s, bottom 0.5s;
+}
+
+#toast.show {
+  visibility: visible;
+  opacity: 1;
+  bottom: 50px;
 }
 
 

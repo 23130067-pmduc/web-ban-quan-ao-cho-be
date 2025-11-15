@@ -431,21 +431,6 @@ header li:hover .sub{
 
 }
 
-/* Style cho các icon trong actions */
-.actions a {
-    color: black;
-    text-decoration: none;
-    transition: color 0.2s, transform 0.2s;
-}
-
-.actions a i {
-    font-size: 20px;
-}
-
-.actions a:hover i {
-    color: #C89F7B;
-    transform: scale(1.2);
-}
 
 
 /* PHẦN NỘI DUNG PAYMENT */
