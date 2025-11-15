@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop quần áo trẻ em SunnyBear Kids</title>
-    <link rel="stylesheet" href="../css/profile.css">
+    <title>Đổi Mật Khẩu - SunnyBear Kids</title>
+    <link rel="stylesheet" href="../css/doimatkhau.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-
-
 </head>
 <body>
 
@@ -83,7 +80,7 @@
 
     <span class="closeSearch" id="closeSearch">&times; </span>
 </div>
-<!-- ========== PROFILE ========== -->
+<!-- ========== ĐỔI MẬT KHẨU ========== -->
 <section class="profile-container">
     <div class="profile-sidebar">
         <div class="user-info">
@@ -97,61 +94,42 @@
 
         <nav class="profile-menu">
             <ul>
-                <li class="active"><a href="#"><i class="fas fa-user"></i> Thông tin cá nhân</a></li>
+                <li><a href="profile.html"><i class="fas fa-user"></i> Thông tin cá nhân</a></li>
                 <li><a href="#"><i class="fas fa-clipboard-list"></i> Đơn hàng của tôi</a></li>
-                <li><a href="doimatkhau.html"><i class="fas fa-lock"></i> Đổi mật khẩu</a></li>
+                <li class="active"><a href="doimatkhau.html"><i class="fas fa-lock"></i> Đổi mật khẩu</a></li>
                 <li><a href="index.html"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
             </ul>
         </nav>
     </div>
 
     <div class="profile-content">
-        <h2>Thông tin cá nhân</h2>
+        <h2>Đổi mật khẩu</h2>
 
         <form class="profile-form">
             <div class="form-row">
                 <div class="form-group">
-                    <label for="fullname">Họ và tên</label>
-                    <input type="text" id="fullname" value="Nguyễn Văn A">
-                </div>
-                <div class="form-group">
-                    <label for="phone">Số điện thoại</label>
-                    <input type="tel" id="phone" value="0909 999 999">
+                    <label for="oldpass">Mật khẩu hiện tại</label>
+                    <input type="password" id="oldpass" placeholder="Nhập mật khẩu cũ">
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" value="nguyenvana@example.com">
-                </div>
-                <div class="form-group">
-                    <label for="birthday">Ngày sinh</label>
-                    <input type="date" id="birthday" value="1990-01-01">
+                    <label for="newpass">Mật khẩu mới</label>
+                    <input type="password" id="newpass" placeholder="Nhập mật khẩu mới">
                 </div>
             </div>
 
             <div class="form-row">
-            <div class="form-group">
-                <label for="address">Địa chỉ</label>
-                <input type="text" id="address" value="123 Đường Hạnh Phúc, Quận 5, TP.HCM">
-            </div>
-            </div>
-
-            <div class="form-row">
                 <div class="form-group">
-                    <label>Giới tính</label>
-                    <div class="radio-group">
-                        <label><input type="radio" name="gender" value="male" checked> Nam</label>
-                        <label><input type="radio" name="gender" value="female"> Nữ</label>
-                        <label><input type="radio" name="gender" value="other"> Khác</label>
-                    </div>
+                    <label for="repass">Nhập lại mật khẩu mới</label>
+                    <input type="password" id="repass" placeholder="Nhập lại mật khẩu mới">
                 </div>
             </div>
 
             <div class="form-actions">
                 <button type="button" class="btn-cancel">Hủy</button>
-                <button type="submit" class="btn-save">Lưu thay đổi</button>
+                <button type="submit" class="btn-save">Lưu mật khầu</button>
             </div>
         </form>
     </div>
