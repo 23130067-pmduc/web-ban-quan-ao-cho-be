@@ -173,6 +173,13 @@ document.addEventListener('DOMContentLoaded', function() {
     hienThiBangKhachHang();
     hienThiBangMaGiamGia();
     capNhatDashboard();
+    
+    // Mặc định hiển thị trang Dashboard
+    var dashboardBtn = document.querySelector('.nav button[data-page="dashboard"]');
+    if (dashboardBtn) {
+        dashboardBtn.classList.add('active');
+    }
+    hienThiTrang('dashboard');
 });
 
 // KHỞI TẠO MENU
@@ -321,19 +328,19 @@ function khoiTaoNutBam() {
     }
     
     // Modal mã giảm giá
-    var btnDiscountModalClose = document.getElementById('discount-modal-close');
+    let btnDiscountModalClose = document.getElementById('discount-modal-close');
     if (btnDiscountModalClose) {
         btnDiscountModalClose.addEventListener('click', dongModalGiamGia);
     }
-    var btnDiscountModalCancel = document.getElementById('discount-modal-cancel');
+    let btnDiscountModalCancel = document.getElementById('discount-modal-cancel');
     if (btnDiscountModalCancel) {
         btnDiscountModalCancel.addEventListener('click', dongModalGiamGia);
     }
-    var btnDiscountModalSave = document.getElementById('discount-modal-save');
+    let btnDiscountModalSave = document.getElementById('discount-modal-save');
     if (btnDiscountModalSave) {
         btnDiscountModalSave.addEventListener('click', luuMaGiamGia);
     }
-    var discountModalOverlay = document.getElementById('discount-modal');
+    let discountModalOverlay = document.getElementById('discount-modal');
     if (discountModalOverlay) {
         discountModalOverlay.addEventListener('click', function(event) {
             if (event.target === discountModalOverlay) {
@@ -550,14 +557,18 @@ function hienThiBangSanPham() {
     var keyword = searchBox ? searchBox.value.toLowerCase() : '';
     
     // Lọc sản phẩm theo từ khóa
-    var filteredProducts = products.filter(function(product) {
-        if (!keyword) return true;
-        
-        var nameMatch = product.name.toLowerCase().includes(keyword);
-        var categoryMatch = product.category.toLowerCase().includes(keyword);
-        
-        return nameMatch || categoryMatch;
-    });
+    var filteredProducts = [];
+    for (var i = 0; i < products.length; i++) {
+        if (!keyword) {
+            filteredProducts.push(products[i]);
+        } else {
+            var nameMatch = products[i].name.toLowerCase().indexOf(keyword) !== -1;
+            var categoryMatch = products[i].category.toLowerCase().indexOf(keyword) !== -1;
+            if (nameMatch || categoryMatch) {
+                filteredProducts.push(products[i]);
+            }
+        }
+    }
     
     // Sắp xếp sản phẩm
     if (currentSort) {
@@ -612,6 +623,42 @@ function hienThiBangSanPham() {
     }
     
     console.log('✅ Đã hiển thị ' + filteredProducts.length + ' sản phẩm');
+    
+    // Cập nhật thống kê trang sản phẩm
+    capNhatThongKeSanPham();
+}
+
+// CẬP NHẬT THỐNG KÊ TRANG SẢN PHẨM
+function capNhatThongKeSanPham() {
+    // Tổng sản phẩm
+    var elemTotalProducts = document.getElementById('total-products');
+    if (elemTotalProducts) {
+        elemTotalProducts.textContent = products.length;
+    }
+    
+    // Tổng sản phẩm còn hàng
+    var inStock = 0;
+    for (var i = 0; i < products.length; i++) {
+        if (products[i].status === 'Còn hàng') {
+            inStock++;
+        }
+    }
+    var elemInStock = document.getElementById('in-stock');
+    if (elemInStock) {
+        elemInStock.textContent = inStock;
+    }
+    
+    // Số sản phẩm hết hàng
+    var outOfStock = 0;
+    for (var i = 0; i < products.length; i++) {
+        if (products[i].status === 'Hết hàng') {
+            outOfStock++;
+        }
+    }
+    var elemOutOfStock = document.getElementById('out-of-stock');
+    if (elemOutOfStock) {
+        elemOutOfStock.textContent = outOfStock;
+    }
 }
 
 //MỞ MODAL THÊM/SỬA SẢN PHẨM
@@ -896,6 +943,42 @@ function hienThiBangDonHang() {
     }
     
     console.log('✅ Đã hiển thị ' + orders.length + ' đơn hàng');
+    
+    // Cập nhật thống kê đơn hàng
+    capNhatThongKeDonHang();
+}
+
+// CẬP NHẬT THỐNG KÊ ĐƠN HÀNG
+function capNhatThongKeDonHang() {
+    // Tổng đơn hàng
+    var elemTotalOrders = document.getElementById('total-orders');
+    if (elemTotalOrders) {
+        elemTotalOrders.textContent = orders.length;
+    }
+    
+    // Đơn đang xử lý
+    var pendingOrders = 0;
+    for (var i = 0; i < orders.length; i++) {
+        if (orders[i].status === 'Đang xử lý' || orders[i].status === 'Đang giao') {
+            pendingOrders++;
+        }
+    }
+    var elemPendingOrders = document.getElementById('pending-orders');
+    if (elemPendingOrders) {
+        elemPendingOrders.textContent = pendingOrders;
+    }
+    
+    // Đơn hoàn thành
+    var completedOrders = 0;
+    for (var i = 0; i < orders.length; i++) {
+        if (orders[i].status === 'Đã giao') {
+            completedOrders++;
+        }
+    }
+    var elemCompletedOrders = document.getElementById('completed-orders');
+    if (elemCompletedOrders) {
+        elemCompletedOrders.textContent = completedOrders;
+    }
 }
 
 function hienThiBangKhachHang() {
@@ -921,6 +1004,46 @@ function hienThiBangKhachHang() {
     }
     
     console.log('✅ Đã hiển thị ' + customers.length + ' khách hàng');
+    
+    // Cập nhật thống kê khách hàng
+    capNhatThongKeKhachHang();
+}
+
+// CẬP NHẬT THỐNG KÊ KHÁCH HÀNG
+function capNhatThongKeKhachHang() {
+    // Tổng khách hàng
+    var elemTotalCustomers = document.getElementById('total-customers');
+    if (elemTotalCustomers) {
+        elemTotalCustomers.textContent = customers.length;
+    }
+    
+    // Khách hàng mới trong tuần (giả sử đăng ký trong 7 ngày gần đây)
+    var newCustomersWeek = 0;
+    var today = new Date();
+    var weekAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+    
+    for (var i = 0; i < customers.length; i++) {
+        var regDate = new Date(customers[i].registered);
+        if (regDate >= weekAgo) {
+            newCustomersWeek++;
+        }
+    }
+    var elemNewCustomersWeek = document.getElementById('new-customers-week');
+    if (elemNewCustomersWeek) {
+        elemNewCustomersWeek.textContent = newCustomersWeek;
+    }
+    
+    // Khách hàng thân thiết (có từ 5 đơn hàng trở lên)
+    var vipCustomers = 0;
+    for (var i = 0; i < customers.length; i++) {
+        if (customers[i].orders >= 5) {
+            vipCustomers++;
+        }
+    }
+    var elemVipCustomers = document.getElementById('vip-customers');
+    if (elemVipCustomers) {
+        elemVipCustomers.textContent = vipCustomers;
+    }
 }
 
 function hienThiBangMaGiamGia() {
@@ -947,6 +1070,42 @@ function hienThiBangMaGiamGia() {
     
     tbody.innerHTML = html;
     console.log('✅ Đã hiển thị ' + discounts.length + ' mã giảm giá');
+    
+    // Cập nhật thống kê mã giảm giá
+    capNhatThongKeMaGiamGia();
+}
+
+// CẬP NHẬT THỐNG KÊ MÃ GIẢM GIÁ
+function capNhatThongKeMaGiamGia() {
+    // Tổng mã giảm giá
+    var elemTotalDiscounts = document.getElementById('total-discounts');
+    if (elemTotalDiscounts) {
+        elemTotalDiscounts.textContent = discounts.length;
+    }
+    
+    // Mã đang hoạt động
+    var activeDiscounts = 0;
+    for (var i = 0; i < discounts.length; i++) {
+        if (discounts[i].status === 'Đang hoạt động') {
+            activeDiscounts++;
+        }
+    }
+    var elemActiveDiscounts = document.getElementById('active-discounts');
+    if (elemActiveDiscounts) {
+        elemActiveDiscounts.textContent = activeDiscounts;
+    }
+    
+    // Mã hết hạn
+    var expiredDiscounts = 0;
+    for (var i = 0; i < discounts.length; i++) {
+        if (discounts[i].status === 'Hết hạn') {
+            expiredDiscounts++;
+        }
+    }
+    var elemExpiredDiscounts = document.getElementById('expired-discounts');
+    if (elemExpiredDiscounts) {
+        elemExpiredDiscounts.textContent = expiredDiscounts;
+    }
 }
 
 //CẬP NHẬT DASHBOARD

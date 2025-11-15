@@ -51,8 +51,15 @@
                 <!-- SẢN PHẨM -->
                 <section id="sanpham" class="page">
                     <div class="cards">
-                        <div class="card">Số sản phẩm<br><span id="total-products">0</span></div>
-                        <div class="card">Hết hàng<br><span id="total-products">0</span></div>
+                        <div class="card">Tổng sản phẩm<br>
+                            <span id="total-products">0</span>
+                        </div>
+                        <div class="card">Sản phẩm còn hàng<br>
+                            <span id="in-stock">0</span>
+                        </div>
+                        <div class="card">Sản phẩm hết hàng<br>
+                            <span id="out-of-stock">0</span>
+                        </div>
                     </div>
                     <div class="toolbar">
                         <button id="add-product">Thêm sản phẩm</button>
@@ -78,6 +85,17 @@
 
                 <!-- ĐƠN HÀNG -->
                 <section id="donhang" class="page">
+                    <div class="cards">
+                        <div class="card">Tổng đơn hàng<br>
+                            <span id="total-orders">0</span>
+                        </div>
+                        <div class="card">Đơn đang xử lý<br>
+                            <span id="pending-orders">0</span>
+                        </div>
+                        <div class="card">Đơn hoàn thành<br>
+                            <span id="completed-orders">0</span>
+                        </div>
+                    </div>
                     <div class="toolbar">
                         <button id="add-order">Thêm đơn hàng</button>
                         <input type="text" id="search-donhang" placeholder="Tìm đơn hàng...">
@@ -105,8 +123,15 @@
                 <!-- KHÁCH HÀNG -->
                 <section id="khachhang" class="page">
                     <div class="cards">
-                        <div class="card">Tổng số khách hàng<br><span id="total-products">0</span></div>
-                        <div class="card">Khách hàng mới trong tuần<br><span id="total-products">0</span></div>
+                        <div class="card">Tổng khách hàng<br>
+                            <span id="total-customers">0</span>
+                        </div>
+                        <div class="card">Khách hàng mới trong tuần<br>
+                            <span id="new-customers-week">0</span>
+                        </div>
+                        <div class="card">Khách hàng thân thiết<br>
+                            <span id="vip-customers">0</span>
+                        </div>
                     </div>
                     <div class="toolbar">
                         <button id="add-customer">Thêm khách hàng</button>
@@ -133,6 +158,17 @@
 
                 <!-- MÃ GIẢM GIÁ -->
                 <section id="magiamgia" class="page">
+                    <div class="cards">
+                        <div class="card">Tổng mã giảm giá<br>
+                            <span id="total-discounts">0</span>
+                        </div>
+                        <div class="card">Mã đang hoạt động<br>
+                            <span id="active-discounts">0</span>
+                        </div>
+                        <div class="card">Mã hết hạn<br>
+                            <span id="expired-discounts">0</span>
+                        </div>
+                    </div>
                     <div class="toolbar">
                         <button id="add-discount">Thêm mã giảm giá</button>
                         <input type="text" id="search-discount" placeholder="Tìm mã giảm giá...">
