@@ -533,9 +533,8 @@ header li:hover .sub{
     background: #C89F7B;
     color: white;
 }
-
-
 /* Profile Content */
+
 .profile-content {
     flex: 1;
     background: #fff;
@@ -544,90 +543,49 @@ header li:hover .sub{
     padding: 30px;
 
 }
-
-.profile-content h2 {
-    color: #333;
-    margin-bottom: 25px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #5B3A29;
-}
-
-.orderTab{
+.profile-top{
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 25px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px #e0e0e0;
-    padding: 20px;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
 }
 
-.orderTab button {
-    border: none;
+.profile-top h4{
     cursor: pointer;
-    background-color: #f5f5f5;
-    color: #333;
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-weight: 500;
+}
+.profile-top a{
+    text-decoration: none;
+    color: inherit;
 }
 
-.orderTab .active {
-    background-color: #C89F7B;
-    color: white;
-}
-
-.orderTab .tab:not(.active):hover {
-    background: #d6cfc2;
-    color: white;
-}
-
-/* Tìm kiếm */
-.timkiem {
+.top{
     display: flex;
-    align-items: center;
-    gap: 10px;
-    background-color: #f0f0f0;
-    padding: 10px 15px;
-    border-radius: 8px;
-}
-
-.timkiem i {
-    font-size: 16px;
-    color: #555;
-}
-
-.timkiem input {
-    flex: 1;
-    border: none;
-    background: transparent;
-    outline: none;
-    font-size: 14px;
-    color: #333;
-}
-
-
-/* Sản phẩm */
-
-.order-item {
-    margin-top: 25px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
 
 }
+.top h2{
+    color: red;
+}
 
-.order-center {
+.center {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-top: 15px;
     margin-bottom: 15px;
-    border-bottom: 1px solid #ddd;s
 
+}
+
+.center-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 .order-left {
@@ -665,131 +623,31 @@ header li:hover .sub{
     text-align: right;
 }
 
-.status.dang-giao {
-    background-color: #f0ad4e;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    display: inline-block;
-    font-size: 14px;
-}
-.status.hoan-thanh {
-    background-color: #5cb85c;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    display: inline-block;
-    font-size: 14px;
-}
-.status.da-huy {
-    background-color: #d9534f;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    display: inline-block;
-    font-size: 14px;
+.center-bottom {
+    margin-top: 15px;
 }
 
-.price {
-    font-weight: bold;
-    margin-top: 5px;
-}
-
-.order-bottom {
-    margin-top: 20px;
+.info-table {
+    width: 100%;
+    border-collapse: collapse;   /* viền liền mạch */
+    font-family: "Segoe UI", Tahoma, sans-serif;
     font-size: 14px;
+    background: #fff;
 }
 
-.order-total {
-    font-size: 16px;
-    margin-bottom: 10px;
+
+.info-table td {
+    border: 1px solid #ddd;
+    padding: 10px 12px;
     text-align: right;
 }
-
-.order-total span {
-    font-size: 24px;
-    color: red;
-    font-weight: bold;
+.info-table td:last-child{
+    width: 25%;
 }
 
-
-
-.order-note {
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    font-size: 12px;
+.bottom{
+    margin-top: 20px;
 }
-
-
-
-.order-buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-}
-
-.btn-mualai {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: red;
-    color: white;
-}
-.btn-mualai:hover {
-    background: #c62828
-}
-.btn-huydon {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #f0f0f0;
-    color: black;
-    text-decoration: none;
-}
-
-.btn-huydon:hover {
-    background-color: #ddd;
-    text-decoration: underline;
-}
-.contact{
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    color: black;
-}
-.contact:hover{
-    background-color: #ddd;
-}
-
-.disabled {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    background-color: #ccc;
-    color: #666;
-    cursor: not-allowed;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

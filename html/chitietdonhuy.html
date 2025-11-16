@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Đơn mua</title>
-    <link rel="stylesheet" href="../css/donmua.css">
+    <title>Trang hủy đơn hàng</title>
+    <link rel="stylesheet" href="../css/chitietdonhuy.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
-
 <!-- ========== HEADER ========== -->
 <header class="header" id="header">
 
@@ -104,28 +103,25 @@
     </div>
 
     <div class="profile-content">
-        <h2>Đơn hàng của tôi</h2>
+        <div class="profile-top">
+            <a href="donmua.html">
+                <h4><i class="fa-solid fa-angle-left"></i> TRỞ LẠI</h4>
+            </a>
 
-        <form class="profile-form">
-            <!-- Ô trạng thái -->
-            <div class="orderTab">
-                <button type="button" class="tab active" data-tab="tat-ca">Tất cả</button>
-                <button type="button" class="tab" data-tab="cho-xac-nhan">Chờ xác nhận</button>
-                <button type="button" class="tab" data-tab="dang-giao">Đang giao</button>
-                <button type="button" class="tab" data-tab="hoan-thanh">Hoàn thành</button>
-                <button type="button" class="tab" data-tab="da-huy">Đã hủy</button>
-            </div>
+            <p>Yêu cầu vào: 10:04 16-11-2025</p>
+        </div>
 
-            <!-- Tìm kiếm -->
-            <div class="timkiem">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Bạn có thể tìm kiếm theo tên Shop, ID đơn hàng hoặc Tên sản phẩm">
-            </div>
 
-            <!-- Đơn hàng 1 -->
-            <div class="order-item" data-status="dang-giao">
-                <div class="order-center">
-                    <div class="order-left">
+        <div class="top">
+            <h2>Đã hủy đơn hàng</h2>
+            <p>vào 10:04 16-11-2025</p>
+        </div>
+
+        <div class="center">
+            <div class="center-top">
+                <div class="order-left multiple">
+                    <!-- Sản phẩm 1 -->
+                    <div class="single-product">
                         <img src="../img/aox.webp" alt="sp">
                         <div class="order-info">
                             <h3>Áo polo in hình khủng long SunnyBear</h3>
@@ -134,122 +130,53 @@
                         </div>
                     </div>
 
-                    <div class="order-right">
-                        <span class="status dang-giao">Đang giao</span>
-                        <p class="price">150.000đ</p>
-                    </div>
-                </div>
-
-
-                <div class="order-bottom">
-                    <div class="order-total">
-                        <strong>Thành tiền:</strong> <span>150.000₫</span>
-                    </div>
-
-
-                    <p class="order-note">
-                        Vui lòng chỉ nhấn <strong>'Đã nhận hàng'</strong> khi đơn hàng đã được giao đến bạn và sản phẩm nhận được không có lỗi và đầy đủ.
-                    </p>
-
-                    <div class="order-buttons">
-                        <button disabled class="btn disabled">Đã Nhận Hàng</button>
-                        <button disabled class="btn disabled">Yêu Cầu Trả Hàng/Hoàn Tiền</button>
-                        <button class="contact">Liên Hệ Người Bán</button>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Đơn hàng 2 -->
-            <div class="order-item" data-status="hoan-thanh">
-                <div class="order-center">
-                    <div class="order-left">
-                        <img src="../img/aox.webp" alt="sp">
+                    <!-- Sản phẩm 2 (Mới thêm) -->
+                    <div class="single-product">
+                        <img src="../img/xanhnhat.webp" alt="sp">
                         <div class="order-info">
                             <h3>Áo polo in hình khủng long SunnyBear</h3>
-                            <p>Phân loại: Xanh lá, 10-15kg</p>
-                            <p>x1</p>
+                            <p>Phân loại: Xanh nhạt, 10-15kg</p>
+                            <p>x2</p>
                         </div>
                     </div>
-
-                    <div class="order-right">
-                        <span class="status hoan-thanh">Hoàn thành</span>
-                        <p class="price">150.000đ</p>
-                    </div>
                 </div>
 
-
-                <div class="order-bottom">
-                    <div class="order-total">
-                        <strong>Thành tiền:</strong> <span>150.000₫</span>
-                    </div>
-
-
-                    <div class="order-buttons">
-                        <button class="btn-mualai">Mua lại</button>
-                        <button class="contact">Liên Hệ Người Bán</button>
-                    </div>
-
-                </div>
-
+            <div class="order-right">
+                <p class="price">450.000đ</p>
             </div>
+        </div>
+        </div>
+        <div class="center-bottom">
+            <table class="info-table">
+                <tr>
+                    <td colspan="3">
+                        Yêu cầu bởi
+                    </td>
+                    <td class="value">Người mua</td>
+                </tr>
 
-            <!-- Đơn hàng 3 -->
-            <div class="order-item" data-status="da-huy">
-                <div class="order-center">
-                    <div class="order-left multiple">
-                        <!-- Sản phẩm 1 -->
-                        <div class="single-product">
-                            <img src="../img/aox.webp" alt="sp">
-                            <div class="order-info">
-                                <h3>Áo polo in hình khủng long SunnyBear</h3>
-                                <p>Phân loại: Xanh lá, 10-15kg</p>
-                                <p>x1</p>
-                            </div>
-                        </div>
+                <tr>
+                    <td colspan="3">Phương thức thanh toán</td>
+                    <td class="value">Chưa thanh toán</td>
+                </tr>
 
-                        <!-- Sản phẩm 2 (Mới thêm) -->
-                        <div class="single-product">
-                            <img src="../img/xanhnhat.webp" alt="sp">
-                            <div class="order-info">
-                                <h3>Áo polo in hình khủng long SunnyBear</h3>
-                                <p>Phân loại: Xanh nhạt, 10-15kg</p>
-                                <p>x2</p>
-                            </div>
-                        </div>
-                    </div>
+                <tr>
+                    <td colspan="3">Mã đơn hàng</td>
+                    <td>250728ASH2QPKF</td>
+                </tr>
+            </table>
 
-                    <div class="order-right">
-                        <span class="status da-huy">Đã hủy</span>
-                        <p class="price">450.000đ</p>
-                    </div>
-                </div>
+        </div>
 
 
-                <div class="order-bottom">
-                    <div class="order-total">
-                        <strong>Thành tiền:</strong> <span>450.000₫</span>
-                    </div>
 
-
-                    <div class="order-buttons">
-                        <button class="btn-mualai">Mua lại</button>
-                        <a href="../html/chitietdonhuy.html" class="btn-huydon">Xem chi tiết hủy đơn</a>
-                        <button class="contact">Liên Hệ Người Bán</button>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-        </form>
+        <div class="bottom">
+            Lý do: Tôi không có nhu cầu mua nữa
+        </div>
     </div>
 
 
 </section>
-
-
 
 
 <!-- ========== FOOTER ========== -->
@@ -303,7 +230,6 @@
 <p class="copyright">© 2025 SunnyBear. All rights reserved.</p>
 
 </body>
-<script src="../javaScript/donmua.js    "></script>
 <script src="../javaScript/pageatxl.js"></script>
 <script src="../javaScript/header.js"></script>
 <script src="../javaScript/thongBao.js"></script>
