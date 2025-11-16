@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đổi Mật Khẩu - SunnyBear Kids</title>
-    <link rel="stylesheet" href="../css/doimatkhau.css">
+    <title>Đơn mua</title>
+    <link rel="stylesheet" href="../css/donmua.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
@@ -80,7 +79,9 @@
 
     <span class="closeSearch" id="closeSearch">&times; </span>
 </div>
-<!-- ========== ĐỔI MẬT KHẨU ========== -->
+
+
+<!-- Đơn hàng của tôi -->
 <section class="profile-container">
     <div class="profile-sidebar">
         <div class="user-info">
@@ -95,45 +96,160 @@
         <nav class="profile-menu">
             <ul>
                 <li><a href="profile.html"><i class="fas fa-user"></i> Thông tin cá nhân</a></li>
-                <li><a href="donmua.html"><i class="fas fa-clipboard-list"></i> Đơn hàng của tôi</a></li>
-                <li class="active"><a href="doimatkhau.html"><i class="fas fa-lock"></i> Đổi mật khẩu</a></li>
+                <li class="active"><a href="donmua.html"><i class="fas fa-clipboard-list"></i> Đơn hàng của tôi</a></li>
+                <li><a href="doimatkhau.html"><i class="fas fa-lock"></i> Đổi mật khẩu</a></li>
                 <li><a href="index.html"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
             </ul>
         </nav>
     </div>
 
     <div class="profile-content">
-        <h2>Đổi mật khẩu</h2>
+        <h2>Đơn hàng của tôi</h2>
 
         <form class="profile-form">
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="oldpass">Mật khẩu hiện tại</label>
-                    <input type="password" id="oldpass" placeholder="Nhập mật khẩu cũ">
+            <!-- Ô trạng thái -->
+            <div class="orderTab">
+                <button type="button" class="tab active" data-tab="tat-ca">Tất cả</button>
+                <button type="button" class="tab" data-tab="cho-xac-nhan">Chờ xác nhận</button>
+                <button type="button" class="tab" data-tab="dang-giao">Đang giao</button>
+                <button type="button" class="tab" data-tab="hoan-thanh">Hoàn thành</button>
+                <button type="button" class="tab" data-tab="da-huy">Đã hủy</button>
+            </div>
+
+            <!-- Tìm kiếm -->
+            <div class="timkiem">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Bạn có thể tìm kiếm theo tên Shop, ID đơn hàng hoặc Tên sản phẩm">
+            </div>
+
+            <!-- Đơn hàng 1 -->
+            <div class="order-item" data-status="dang-giao">
+                <div class="order-center">
+                    <div class="order-left">
+                        <img src="../img/aox.webp" alt="sp">
+                        <div class="order-info">
+                            <h3>Áo polo in hình khủng long SunnyBear</h3>
+                            <p>Phân loại: Xanh lá, 10-15kg</p>
+                            <p>x1</p>
+                        </div>
+                    </div>
+
+                    <div class="order-right">
+                        <span class="status dang-giao">Đang giao</span>
+                        <p class="price">150.000đ</p>
+                    </div>
+                </div>
+
+
+                <div class="order-bottom">
+                    <div class="order-total">
+                        <strong>Thành tiền:</strong> <span>150.000₫</span>
+                    </div>
+
+
+                    <p class="order-note">
+                        Vui lòng chỉ nhấn <strong>'Đã nhận hàng'</strong> khi đơn hàng đã được giao đến bạn và sản phẩm nhận được không có lỗi và đầy đủ.
+                    </p>
+
+                    <div class="order-buttons">
+                        <button disabled class="btn disabled">Đã Nhận Hàng</button>
+                        <button disabled class="btn disabled">Yêu Cầu Trả Hàng/Hoàn Tiền</button>
+                        <button class="contact">Liên Hệ Người Bán</button>
+                    </div>
+
                 </div>
             </div>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="newpass">Mật khẩu mới</label>
-                    <input type="password" id="newpass" placeholder="Nhập mật khẩu mới">
+            <!-- Đơn hàng 2 -->
+            <div class="order-item" data-status="hoan-thanh">
+                <div class="order-center">
+                    <div class="order-left">
+                        <img src="../img/aox.webp" alt="sp">
+                        <div class="order-info">
+                            <h3>Áo polo in hình khủng long SunnyBear</h3>
+                            <p>Phân loại: Xanh lá, 10-15kg</p>
+                            <p>x1</p>
+                        </div>
+                    </div>
+
+                    <div class="order-right">
+                        <span class="status hoan-thanh">Hoàn thành</span>
+                        <p class="price">150.000đ</p>
+                    </div>
                 </div>
+
+
+                <div class="order-bottom">
+                    <div class="order-total">
+                        <strong>Thành tiền:</strong> <span>150.000₫</span>
+                    </div>
+
+
+                    <div class="order-buttons">
+                        <button class="btn-mualai">Mua lại</button>
+                        <button class="contact">Liên Hệ Người Bán</button>
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="repass">Nhập lại mật khẩu mới</label>
-                    <input type="password" id="repass" placeholder="Nhập lại mật khẩu mới">
+            <!-- Đơn hàng 3 -->
+            <div class="order-item" data-status="da-huy">
+                <div class="order-center">
+                    <div class="order-left multiple">
+                        <!-- Sản phẩm 1 -->
+                        <div class="single-product">
+                            <img src="../img/aox.webp" alt="sp">
+                            <div class="order-info">
+                                <h3>Áo polo in hình khủng long SunnyBear</h3>
+                                <p>Phân loại: Xanh lá, 10-15kg</p>
+                                <p>x1</p>
+                            </div>
+                        </div>
+
+                        <!-- Sản phẩm 2 (Mới thêm) -->
+                        <div class="single-product">
+                            <img src="../img/xanhnhat.webp" alt="sp">
+                            <div class="order-info">
+                                <h3>Áo polo in hình khủng long SunnyBear</h3>
+                                <p>Phân loại: Xanh nhạt, 10-15kg</p>
+                                <p>x2</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="order-right">
+                        <span class="status da-huy">Đã hủy</span>
+                        <p class="price">450.000đ</p>
+                    </div>
                 </div>
+
+
+                <div class="order-bottom">
+                    <div class="order-total">
+                        <strong>Thành tiền:</strong> <span>450.000₫</span>
+                    </div>
+
+
+                    <div class="order-buttons">
+                        <button class="btn-mualai">Mua lại</button>
+                        <button class="contact">Liên Hệ Người Bán</button>
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="form-actions">
-                <button type="button" class="btn-cancel">Hủy</button>
-                <button type="submit" class="btn-save">Lưu mật khầu</button>
-            </div>
+
         </form>
     </div>
+
+
 </section>
+
+
+
 
 <!-- ========== FOOTER ========== -->
 <div class="footer">
@@ -184,7 +300,9 @@
     </section>
 </div>
 <p class="copyright">© 2025 SunnyBear. All rights reserved.</p>
+
 </body>
+<script src="../javaScript/donmua.js    "></script>
 <script src="../javaScript/pageatxl.js"></script>
 <script src="../javaScript/header.js"></script>
 <script src="../javaScript/thongBao.js"></script>
