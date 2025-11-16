@@ -624,7 +624,7 @@ header li:hover .sub{
     justify-content: space-between;
     align-items: center;
     gap: 12px;
-    height: 550px;
+    height: 540px;
 }
 
 .product-card:hover {
@@ -678,6 +678,15 @@ header li:hover .sub{
     display: inline-block;
     align-self: center;
     margin: 0;
+}
+.product-info {
+    flex-grow: 1; /* chiếm phần còn lại cho text + giá */
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+.product-info h3 {
+    margin-top: 26px;
 }
 
 .btn-add:hover {

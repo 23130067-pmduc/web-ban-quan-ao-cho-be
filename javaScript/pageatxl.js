@@ -80,32 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // === GỬI ĐÁNH GIÁ ===
     submitBtn.addEventListener("click", () => {
-        const comment = reviewText.value.trim();
-        
-        if (selectedRating === 0) {
-            alert("Vui lòng chọn số sao đánh giá!");
-            return;
-        }
-        
-        if (comment === "") {
-            alert("Vui lòng nhập nhận xét!");
-            return;
-        }
-
-        // Tạo HTML cho đánh giá mới
         const starDisplay = "⭐".repeat(selectedRating);
-        const newReview = document.createElement("div");
-        newReview.classList.add("review-item");
-        newReview.innerHTML = `<strong>Bạn:</strong> ${starDisplay} ${comment}`;
-        
-        // Thêm vào đầu danh sách
-        reviewList.insertBefore(newReview, reviewList.children[1]);
-        
-        // Reset form
-        reviewText.value = "";
-        selectedRating = 0;
-        stars.forEach(s => s.classList.remove("active"));
-        
-        alert("Cảm ơn bạn đã đánh giá sản phẩm! ❤️");
     });
 });

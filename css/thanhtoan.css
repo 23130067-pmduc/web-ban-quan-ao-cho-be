@@ -558,7 +558,7 @@ header li:hover .sub{
     height: 45px;
     line-height: 45px;
     padding: 0 30px;
-    background-color: #C89F7B;
+    background-color: #c62828;
     color: #ffffff;
     font-weight: 600;
     border-radius: 30px;
@@ -568,7 +568,7 @@ header li:hover .sub{
 }
 
 .btn-pay:hover {
-    background-color: #5B3A29;
+    background-color: #4b0000;
     transform: translateY(-2px);
 }
 
