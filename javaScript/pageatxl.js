@@ -82,4 +82,51 @@ document.addEventListener("DOMContentLoaded", () => {
     submitBtn.addEventListener("click", () => {
         const starDisplay = "⭐".repeat(selectedRating);
     });
+
+    // === THÊM VÀO GIỎ HÀNG ===
+    const btnAddCart = document.querySelector(".btn-add-cart");
+    const btnBuyNow = document.querySelector(".btn-buy-now");
+
+    // Hàm hiển thị thông báo toast
+    function showToast(message) {
+        const toast = document.getElementById("toast");
+        toast.textContent = message;
+        toast.className = "show";
+
+        setTimeout(() => {
+            toast.className = toast.className.replace("show", "");
+        }, 3000);
+    }
+
+    // Khi click "Thêm vào giỏ hàng"
+    if (btnAddCart) {
+        btnAddCart.addEventListener("click", () => {
+            const selectedSize = document.querySelector(".size-btn.active");
+            const quantity = quantityInput.value;
+
+            if (!selectedSize) {
+                alert("Vui lòng chọn size!");
+                return;
+            }
+
+            showToast("Đã thêm vào giỏ hàng!");
+        });
+    }
+
+    // Khi click "Mua ngay"
+    if (btnBuyNow) {
+        btnBuyNow.addEventListener("click", () => {
+            const selectedSize = document.querySelector(".size-btn.active");
+            
+            if (!selectedSize) {
+                alert("Vui lòng chọn size!");
+                return;
+            }
+
+            showToast("Đang chuyển đến trang thanh toán...");
+            setTimeout(() => {
+                window.location.href = "thanhtoan.html";
+            }, 1000);
+        });
+    }
 });
