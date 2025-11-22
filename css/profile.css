@@ -608,7 +608,7 @@ header li:hover .sub{
     justify-content: flex-end;
 }
 
-.btn-save, .btn-cancel {
+.btn-save, .btn-cancel, .btn-edit {
     padding: 12px 30px;
     border: none;
     border-radius: 5px;
@@ -616,6 +616,15 @@ header li:hover .sub{
     font-size: 16px;
     transition: all 0.3s;
     margin-left: 0;
+}
+
+.btn-edit {
+    background: #ff6b6b;
+    color: white;
+}
+
+.btn-edit:hover {
+    background: #4b0000;
 }
 
 .btn-save {

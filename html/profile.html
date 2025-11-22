@@ -113,29 +113,29 @@
             <div class="form-row">
                 <div class="form-group">
                     <label for="fullname">Họ và tên</label>
-                    <input type="text" id="fullname" value="Nguyễn Văn A">
+                    <input type="text" id="fullname" value="Nguyễn Văn A" disabled>
                 </div>
                 <div class="form-group">
                     <label for="phone">Số điện thoại</label>
-                    <input type="tel" id="phone" value="0909 999 999">
+                    <input type="tel" id="phone" value="0909 999 999" disabled>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" value="nguyenvana@example.com">
+                    <input type="email" id="email" value="nguyenvana@example.com" disabled>
                 </div>
                 <div class="form-group">
                     <label for="birthday">Ngày sinh</label>
-                    <input type="date" id="birthday" value="1990-01-01">
+                    <input type="date" id="birthday" value="1990-01-01" disabled>
                 </div>
             </div>
 
             <div class="form-row">
             <div class="form-group">
                 <label for="address">Địa chỉ</label>
-                <input type="text" id="address" value="123 Đường Hạnh Phúc, Quận 5, TP.HCM">
+                <input type="text" id="address" value="123 Đường Hạnh Phúc, Quận 5, TP.HCM" disabled>
             </div>
             </div>
 
@@ -143,16 +143,17 @@
                 <div class="form-group">
                     <label>Giới tính</label>
                     <div class="radio-group">
-                        <label><input type="radio" name="gender" value="male" checked> Nam</label>
-                        <label><input type="radio" name="gender" value="female"> Nữ</label>
-                        <label><input type="radio" name="gender" value="other"> Khác</label>
+                        <label><input type="radio" name="gender" value="male" checked disabled> Nam</label>
+                        <label><input type="radio" name="gender" value="female" disabled> Nữ</label>
+                        <label><input type="radio" name="gender" value="other" disabled> Khác</label>
                     </div>
                 </div>
             </div>
 
             <div class="form-actions">
-                <button type="button" class="btn-cancel">Hủy</button>
-                <button type="submit" class="btn-save">Lưu thay đổi</button>
+                <button type="button" class="btn-edit" id="btn-edit-profile">Sửa</button>
+                <button type="button" class="btn-cancel" id="btn-cancel-profile" style="display: none;">Hủy</button>
+                <button type="submit" class="btn-save" id="btn-save-profile" style="display: none;">Lưu thay đổi</button>
             </div>
         </form>
     </div>
@@ -211,4 +212,5 @@
 <script src="../javaScript/header.js"></script>
 <script src="../javaScript/thongBao.js"></script>
 <script src="../javaScript/search.js"></script>
+<script src="../javaScript/profile.js"></script>
 </html>
