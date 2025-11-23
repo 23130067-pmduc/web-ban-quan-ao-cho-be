@@ -16,6 +16,7 @@
 
             <div class="nav" id="menu">
                 <button data-page="dashboard">DashBoard</button>
+                <button data-page="doanhthu">Doanh thu</button>
                 <button data-page="sanpham">Sản phẩm</button>
                 <button data-page="donhang">Đơn hàng</button>
                 <button data-page="khachhang">Khách hàng</button>
@@ -44,7 +45,58 @@
                         <div class="card">Tổng sản phẩm<br><span id="dashboard-total-products">0</span></div>
                         <div class="card">Đơn hàng<br><span id="dashboard-total-orders">0</span></div>
                         <div class="card">Khách hàng<br><span id="dashboard-total-customers">0</span></div>
-                        <div class="card">Mã giảm giá<br><span id="dashboard-total-magiamgia">0</span></div>
+                        <div class="card">Doanh thu<br><span id="dashboard-total-revenue">0₫</span></div>
+                    </div>
+                </section>
+
+                <!-- DOANH THU -->
+                <section id="doanhthu" class="page">
+                    <div class="cards">
+                        <div class="card">Doanh thu hôm nay<br>
+                            <span id="revenue-today">0₫</span>
+                        </div>
+                        <div class="card">Doanh thu tuần này<br>
+                            <span id="revenue-week">0₫</span>
+                        </div>
+                        <div class="card">Doanh thu tháng này<br>
+                            <span id="revenue-month">0₫</span>
+                        </div>
+                        <div class="card">Tổng doanh thu<br>
+                            <span id="revenue-total">0₫</span>
+                        </div>
+                    </div>
+
+                    <div class="revenue-filters">
+                        <h3>Lọc theo thời gian</h3>
+                        <div class="filter-group">
+                            <label>Từ ngày: <input type="date" id="revenue-from-date"></label>
+                            <label>Đến ngày: <input type="date" id="revenue-to-date"></label>
+                            <button id="filter-revenue">Lọc</button>
+                            <button id="reset-revenue-filter">Đặt lại</button>
+                        </div>
+                    </div>
+
+                    <div class="revenue-chart">
+                        <h3>Biểu đồ doanh thu</h3>
+                        <div class="chart-container">
+                        </div>
+                    </div>
+
+                    <div class="revenue-details">
+                        <h3>Chi tiết doanh thu theo đơn hàng</h3>
+                        <table class="table" id="revenue-table">
+                            <thead>
+                            <tr>
+                                <th>Mã đơn hàng</th>
+                                <th>Ngày</th>
+                                <th>Khách hàng</th>
+                                <th>Sản phẩm</th>
+                                <th>Trạng thái</th>
+                                <th>Doanh thu</th>
+                            </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
                     </div>
                 </section>
 
@@ -340,5 +392,6 @@
 </div>
 
 <script src="../javaScript/admin.js"></script>
+<script src="../javaScript/doanhthu.js"></script>
 </body>
 </html>

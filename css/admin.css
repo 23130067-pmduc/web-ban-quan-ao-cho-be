@@ -14,7 +14,7 @@
 }
 
 html, body {
-    overflow-x: hidden;
+    overflow: hidden;
     max-width: 100%;
 }
 
@@ -90,7 +90,6 @@ body, .admin {
     flex: 1;
     background: #f5f7fb;
     padding: 25px;
-    overflow: auto;
 }
 
 /* TOPBAR - THANH HEADER */
@@ -344,15 +343,155 @@ body, .admin {
     animation: fadeIn 0.3s;
 }
 
-@keyframes fadeIn {
+@keyframes slideIn {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(-50px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* DOANH THU SECTION */
+.revenue-filters {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.revenue-filters h3 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.filter-group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filter-group label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
+}
+
+.filter-group input[type="date"] {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    min-width: 180px;
+    transition: all 0.3s;
+}
+
+.filter-group input[type="date"]:focus {
+    outline: none;
+    border-color: #A9C87D;
+    box-shadow: 0 0 0 3px rgba(169, 200, 125, 0.1);
+}
+
+.filter-group button {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 22px;
+}
+
+#filter-revenue {
+    background: #A9C87D;
+    color: white;
+}
+
+#filter-revenue:hover {
+    background: #8eb15c;
+    transform: translateY(-2px);
+}
+
+#reset-revenue-filter {
+    background: #e0e0e0;
+    color: #555;
+}
+
+#reset-revenue-filter:hover {
+    background: #d0d0d0;
+}
+
+.revenue-chart {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.revenue-chart h3 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.chart-container {
+    position: relative;
+    height: 350px;
+    padding: 20px;
+    background: #fafafa;
+    border-radius: 8px;
+}
+
+#revenue-bar-chart {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.revenue-details {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.revenue-details h3 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#revenue-table {
+    margin-top: 0;
+}
+
+/* Revenue cards - giống với dashboard cards (trắng + chữ xanh) */
+#doanhthu .cards .card {
+    background: #fff;
+    color: #333;
+}
+
+#doanhthu .cards .card span {
+    font-size: 28px;
+    font-weight: 700;
+    color: #A9C87D;
+}
+
+/* Ẩn scrollbar cho trang doanh thu */
+#doanhthu {
+    overflow: visible !important;
 }
 
 /* SETTINGS SECTION - PHẦN CÀI ĐẶT */
