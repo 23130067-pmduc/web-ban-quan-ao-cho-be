@@ -29,7 +29,7 @@
         <!-- PHẦN NỘI DUNG -->
         <section class="content">
             <!-- PHẦN HEADER -->
-            <header class="topbar">
+            <header class="topbar" style="display: none;">
                 <h1 id="pageTitle">DashBoard</h1>
                 <div class="actions">
                     <button id="logout">Đăng xuất</button>
@@ -41,6 +41,10 @@
             <main id="page">
                 <!-- DASHBROAD -->
                 <section id="dashboard" class="page active">
+                    <div class="page-header">
+                        <h1>DashBoard</h1>
+                        <button id="logout" class="logout-btn">Đăng xuất</button>
+                    </div>
                     <div class="cards">
                         <div class="card">Tổng sản phẩm<br><span id="dashboard-total-products">0</span></div>
                         <div class="card">Đơn hàng<br><span id="dashboard-total-orders">0</span></div>
@@ -51,6 +55,10 @@
 
                 <!-- DOANH THU -->
                 <section id="doanhthu" class="page">
+                    <div class="page-header">
+                        <h1>Doanh thu</h1>
+                        <button class="logout-btn">Đăng xuất</button>
+                    </div>
                     <div class="cards">
                         <div class="card">Doanh thu hôm nay<br>
                             <span id="revenue-today">0₫</span>
@@ -102,6 +110,10 @@
 
                 <!-- SẢN PHẨM -->
                 <section id="sanpham" class="page">
+                    <div class="page-header">
+                        <h1>Sản phẩm</h1>
+                        <button class="logout-btn">Đăng xuất</button>
+                    </div>
                     <div class="cards">
                         <div class="card">Tổng sản phẩm<br>
                             <span id="total-products">0</span>
@@ -137,6 +149,10 @@
 
                 <!-- ĐƠN HÀNG -->
                 <section id="donhang" class="page">
+                    <div class="page-header">
+                        <h1>Đơn hàng</h1>
+                        <button class="logout-btn">Đăng xuất</button>
+                    </div>
                     <div class="cards">
                         <div class="card">Tổng đơn hàng<br>
                             <span id="total-orders">0</span>
@@ -174,6 +190,10 @@
 
                 <!-- KHÁCH HÀNG -->
                 <section id="khachhang" class="page">
+                    <div class="page-header">
+                        <h1>Khách hàng</h1>
+                        <button class="logout-btn">Đăng xuất</button>
+                    </div>
                     <div class="cards">
                         <div class="card">Tổng khách hàng<br>
                             <span id="total-customers">0</span>
@@ -210,6 +230,10 @@
 
                 <!-- MÃ GIẢM GIÁ -->
                 <section id="magiamgia" class="page">
+                    <div class="page-header">
+                        <h1>Mã giảm giá</h1>
+                        <button class="logout-btn">Đăng xuất</button>
+                    </div>
                     <div class="cards">
                         <div class="card">Tổng mã giảm giá<br>
                             <span id="total-discounts">0</span>
@@ -246,7 +270,10 @@
 
                 <!-- CÀI ĐẶT -->
                 <section id="caidat" class="page">
-                    <h2>Cài đặt trang admin</h2>
+                    <div class="page-header">
+                        <h1>Cài đặt</h1>
+                        <button class="logout-btn">Đăng xuất</button>
+                    </div>
 
                     <div class="settings-section">
                         <h3>Thông tin cửa hàng</h3>

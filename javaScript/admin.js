@@ -211,22 +211,6 @@ function hienThiTrang(pageName) {
     if (selectedPage) {
         selectedPage.classList.add('active');
     }
-    
-    // Đổi tiêu đề trang
-    var titles = {
-        'dashboard': 'DashBoard',
-        'doanhthu': 'Doanh thu',
-        'sanpham': 'Sản phẩm',
-        'donhang': 'Đơn hàng',
-        'khachhang': 'Khách hàng',
-        'magiamgia': 'Mã giảm giá',
-        'caidat': 'Cài đặt'
-    };
-    
-    var titleElement = document.getElementById('pageTitle');
-    if (titleElement) {
-        titleElement.textContent = titles[pageName] || pageName;
-    }
 }
 
 //KHỞI TẠO CÁC NÚT BẤM
@@ -257,9 +241,9 @@ function khoiTaoNutBam() {
     }
     
     // Nút đăng xuất
-    var btnLogout = document.getElementById('logout');
-    if (btnLogout) {
-        btnLogout.addEventListener('click', function() {
+    var logoutButtons = document.querySelectorAll('.logout-btn, #logout');
+    for (var i = 0; i < logoutButtons.length; i++) {
+        logoutButtons[i].addEventListener('click', function() {
             if (confirm('Bạn có chắc muốn đăng xuất?')) {
                 alert('Đã đăng xuất (demo)');
                 // Trong thực tế sẽ redirect về trang login
