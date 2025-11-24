@@ -173,13 +173,50 @@ document.addEventListener('DOMContentLoaded', function() {
     hienThiBangKhachHang();
     hienThiBangMaGiamGia();
     capNhatDashboard();
-    
+
     // Mặc định hiển thị trang Dashboard
     var dashboardBtn = document.querySelector('.nav button[data-page="dashboard"]');
     if (dashboardBtn) {
         dashboardBtn.classList.add('active');
     }
     hienThiTrang('dashboard');
+
+    // Xử lý submenu Nội dung
+    var menuContentBtn = document.querySelector('.menu-content[data-page="noidung"]');
+    var submenu = document.querySelector('.menu-group .submenu');
+    if (menuContentBtn && submenu) {
+        menuContentBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (submenu.style.display === 'none' || submenu.style.display === '') {
+                submenu.style.display = 'block';
+            } else {
+                submenu.style.display = 'none';
+            }
+        });
+
+        // Đóng submenu khi click ra ngoài
+        document.addEventListener('click', function(e) {
+            if (!submenu.contains(e.target) && e.target !== menuContentBtn) {
+                submenu.style.display = 'none';
+            }
+        });
+    }
+
+    // Xử lý chuyển trang khi click submenu Nội dung
+    var submenuBtns = document.querySelectorAll('.submenu button[data-page]');
+    for (var i = 0; i < submenuBtns.length; i++) {
+        submenuBtns[i].addEventListener('click', function(e) {
+            var pageName = this.getAttribute('data-page');
+            hienThiTrang(pageName);
+            // Đánh dấu active cho menu-content
+            var navBtns = document.querySelectorAll('.nav button');
+            for (var j = 0; j < navBtns.length; j++) {
+                navBtns[j].classList.remove('active');
+            }
+            menuContentBtn.classList.add('active');
+            submenu.style.display = 'none';
+        });
+    }
 });
 
 // KHỞI TẠO MENU
@@ -196,6 +233,72 @@ function khoiTaoMenu() {
         });
     }
 }
+
+// Sau DOMContentLoaded: đảm bảo nội dung new sections được tải khi hiển thị
+document.addEventListener('DOMContentLoaded', function() {
+    taiDuLieuNoiDung();
+    hienThiBangTinTuc();
+    hienThiBangDanhGia();
+    hienThiBangLienHe();
+    hienThiBangThongBao();
+
+    // Search handlers cho các trang nội dung
+    var searchNews = document.getElementById('search-news');
+    if (searchNews) {
+        searchNews.addEventListener('input', function() {
+            // simple filter: filter by title
+            var q = this.value.toLowerCase();
+            var filtered = (window.news || []).filter(function(n){ return n.title.toLowerCase().indexOf(q) !== -1; });
+            window.newsFiltered = filtered;
+            hienThiBangTinTuc();
+        });
+    }
+
+    var searchReview = document.getElementById('search-review');
+    if (searchReview) {
+        searchReview.addEventListener('input', function() { hienThiBangDanhGia(); });
+    }
+
+    var searchContact = document.getElementById('search-contact');
+    if (searchContact) {
+        searchContact.addEventListener('input', function() { hienThiBangLienHe(); });
+    }
+
+    var searchNotification = document.getElementById('search-notification');
+    if (searchNotification) {
+        searchNotification.addEventListener('input', function() { hienThiBangThongBao(); });
+    }
+
+    // Add news button
+    var addNewsBtn = document.getElementById('add-news');
+    if (addNewsBtn) {
+        addNewsBtn.addEventListener('click', function(){
+            var title = prompt('Tiêu đề tin mới:');
+            if (!title) return;
+            var id = 'NT' + String(Date.now()).slice(-4);
+            var item = {id: id, title: title, date: new Date().toISOString().slice(0,10), author: 'Admin', status: 'Active'};
+            window.news.unshift(item);
+            localStorage.setItem('admin_news', JSON.stringify(window.news));
+            hienThiBangTinTuc();
+            hienThiToast('Đã thêm tin mới', 'toast-success');
+        });
+    }
+
+    // Add notification
+    var addNotBtn = document.getElementById('add-notification');
+    if (addNotBtn) {
+        addNotBtn.addEventListener('click', function(){
+            var title = prompt('Tiêu đề thông báo:');
+            if (!title) return;
+            var id = 'TB' + String(Date.now()).slice(-4);
+            var item = {id: id, title: title, date: new Date().toISOString().slice(0,10), recipients: 'All', status: 'Sent'};
+            window.notifications.unshift(item);
+            localStorage.setItem('admin_notifications', JSON.stringify(window.notifications));
+            hienThiBangThongBao();
+            hienThiToast('Đã tạo thông báo', 'toast-success');
+        });
+    }
+});
 
 //HIỂN THỊ TRANG TƯƠNG ỨNG
 
@@ -246,7 +349,7 @@ function khoiTaoNutBam() {
         logoutButtons[i].addEventListener('click', function() {
             if (confirm('Bạn có chắc muốn đăng xuất?')) {
                 alert('Đã đăng xuất (demo)');
-                // Trong thực tế sẽ redirect về trang login
+                //  về trang login
             }
         });
     }
@@ -496,6 +599,139 @@ function taoDataMau() {
         
         localStorage.setItem('admin_discounts', chuoiHoaMaGiamGia(sampleDiscounts));
         console.log('✅ Đã tạo dữ liệu mã giảm giá mẫu');
+    }
+
+    // Tạo dữ liệu tin tức mẫu
+    var existingNews = localStorage.getItem('admin_news');
+    if (!existingNews) {
+        var sampleNews = [];
+        sampleNews.push({id: 'NT001', title: 'Khai trương cửa hàng mới', date: '2025-10-01', author: 'Admin', status: 'Active'});
+        sampleNews.push({id: 'NT002', title: 'Khuyến mãi cuối năm', date: '2025-11-10', author: 'Marketing', status: 'Active'});
+        localStorage.setItem('admin_news', JSON.stringify(sampleNews));
+    }
+
+    // Tạo dữ liệu đánh giá mẫu
+    var existingReviews = localStorage.getItem('admin_reviews');
+    if (!existingReviews) {
+        var sampleReviews = [];
+        sampleReviews.push({id: 'DG001', productId: 'SP001', productName: 'Áo thun bé trai', customer: 'Nguyễn Văn A', stars: 5, content: 'Rất đẹp', date: '2025-11-02', status: 'Visible'});
+        sampleReviews.push({id: 'DG002', productId: 'SP002', productName: 'Quần jean bé gái', customer: 'Trần Thị B', stars: 4, content: 'Vừa vặn', date: '2025-11-05', status: 'Visible'});
+        localStorage.setItem('admin_reviews', JSON.stringify(sampleReviews));
+    }
+
+    // Tạo dữ liệu liên hệ mẫu
+    var existingContacts = localStorage.getItem('admin_contacts');
+    if (!existingContacts) {
+        var sampleContacts = [];
+        sampleContacts.push({id: 'LH001', name: 'Khách A', email: 'a@example.com', phone: '0909000001', subject: 'Hỏi về sản phẩm', message: 'Cho hỏi size', date: '2025-11-08', status: 'New'});
+        sampleContacts.push({id: 'LH002', name: 'Khách B', email: 'b@example.com', phone: '0909000002', subject: 'Góp ý', message: 'Giao hàng chậm', date: '2025-11-09', status: 'Handled'});
+        localStorage.setItem('admin_contacts', JSON.stringify(sampleContacts));
+    }
+
+    // Tạo dữ liệu thông báo mẫu
+    var existingNotifications = localStorage.getItem('admin_notifications');
+    if (!existingNotifications) {
+        var sampleNotifications = [];
+        sampleNotifications.push({id: 'TB001', title: 'Bảo trì hệ thống', date: '2025-11-15', recipients: 'All', status: 'Sent'});
+        localStorage.setItem('admin_notifications', JSON.stringify(sampleNotifications));
+    }
+}
+
+// Tải dữ liệu nội dung từ localStorage
+function taiDuLieuNoiDung() {
+    window.news = JSON.parse(localStorage.getItem('admin_news') || '[]');
+    window.reviews = JSON.parse(localStorage.getItem('admin_reviews') || '[]');
+    window.contacts = JSON.parse(localStorage.getItem('admin_contacts') || '[]');
+    window.notifications = JSON.parse(localStorage.getItem('admin_notifications') || '[]');
+}
+
+// Hiển thị bảng tin tức
+function hienThiBangTinTuc() {
+    var tbody = document.querySelector('#news-table tbody');
+    if (!tbody) return;
+    var list = window.news || [];
+    while (tbody.firstChild) tbody.removeChild(tbody.firstChild);
+    for (var i = 0; i < list.length; i++) {
+        var n = list[i];
+        var tr = document.createElement('tr');
+        var tdId = document.createElement('td'); tdId.textContent = n.id; tr.appendChild(tdId);
+        var tdTitle = document.createElement('td'); tdTitle.textContent = n.title; tr.appendChild(tdTitle);
+        var tdDate = document.createElement('td'); tdDate.textContent = n.date; tr.appendChild(tdDate);
+        var tdAuthor = document.createElement('td'); tdAuthor.textContent = n.author; tr.appendChild(tdAuthor);
+        var tdStatus = document.createElement('td'); tdStatus.textContent = n.status; tr.appendChild(tdStatus);
+        var tdActions = document.createElement('td');
+        var btnEdit = document.createElement('button'); btnEdit.className = 'btn-edit'; btnEdit.setAttribute('data-id', n.id); btnEdit.textContent = 'Sửa'; tdActions.appendChild(btnEdit);
+        var btnDelete = document.createElement('button'); btnDelete.className = 'btn-delete'; btnDelete.setAttribute('data-id', n.id); btnDelete.textContent = 'Xóa'; tdActions.appendChild(btnDelete);
+        tr.appendChild(tdActions);
+        tbody.appendChild(tr);
+    }
+}
+
+// Hiển thị bảng đánh giá
+function hienThiBangDanhGia() {
+    var tbody = document.querySelector('#review-table tbody');
+    if (!tbody) return;
+    var list = window.reviews || [];
+    while (tbody.firstChild) tbody.removeChild(tbody.firstChild);
+    for (var i = 0; i < list.length; i++) {
+        var r = list[i];
+        var tr = document.createElement('tr');
+        var tdId = document.createElement('td'); tdId.textContent = r.id; tr.appendChild(tdId);
+        var tdProductName = document.createElement('td'); tdProductName.textContent = r.productName; tr.appendChild(tdProductName);
+        var tdCustomer = document.createElement('td'); tdCustomer.textContent = r.customer; tr.appendChild(tdCustomer);
+        var tdStars = document.createElement('td'); tdStars.textContent = r.stars; tr.appendChild(tdStars);
+        var tdContent = document.createElement('td'); tdContent.textContent = r.content; tr.appendChild(tdContent);
+        var tdDate = document.createElement('td'); tdDate.textContent = r.date; tr.appendChild(tdDate);
+        var tdStatus = document.createElement('td'); tdStatus.textContent = r.status; tr.appendChild(tdStatus);
+        var tdActions = document.createElement('td');
+        var btnDelete = document.createElement('button'); btnDelete.className = 'btn-delete'; btnDelete.setAttribute('data-id', r.id); btnDelete.textContent = 'Xóa'; tdActions.appendChild(btnDelete);
+        tr.appendChild(tdActions);
+        tbody.appendChild(tr);
+    }
+}
+
+// Hiển thị bảng liên hệ
+function hienThiBangLienHe() {
+    var tbody = document.querySelector('#contact-table tbody');
+    if (!tbody) return;
+    var list = window.contacts || [];
+    while (tbody.firstChild) tbody.removeChild(tbody.firstChild);
+    for (var i = 0; i < list.length; i++) {
+        var c = list[i];
+        var tr = document.createElement('tr');
+        var tdId = document.createElement('td'); tdId.textContent = c.id; tr.appendChild(tdId);
+        var tdName = document.createElement('td'); tdName.textContent = c.name; tr.appendChild(tdName);
+        var tdEmail = document.createElement('td'); tdEmail.textContent = c.email; tr.appendChild(tdEmail);
+        var tdPhone = document.createElement('td'); tdPhone.textContent = c.phone; tr.appendChild(tdPhone);
+        var tdSubject = document.createElement('td'); tdSubject.textContent = c.subject; tr.appendChild(tdSubject);
+        var tdDate = document.createElement('td'); tdDate.textContent = c.date; tr.appendChild(tdDate);
+        var tdStatus = document.createElement('td'); tdStatus.textContent = c.status; tr.appendChild(tdStatus);
+        var tdActions = document.createElement('td');
+        var btnEdit = document.createElement('button'); btnEdit.className = 'btn-edit'; btnEdit.setAttribute('data-id', c.id); btnEdit.textContent = 'Xử lý'; tdActions.appendChild(btnEdit);
+        var btnDelete = document.createElement('button'); btnDelete.className = 'btn-delete'; btnDelete.setAttribute('data-id', c.id); btnDelete.textContent = 'Xóa'; tdActions.appendChild(btnDelete);
+        tr.appendChild(tdActions);
+        tbody.appendChild(tr);
+    }
+}
+
+// Hiển thị bảng thông báo
+function hienThiBangThongBao() {
+    var tbody = document.querySelector('#notification-table tbody');
+    if (!tbody) return;
+    var list = window.notifications || [];
+    while (tbody.firstChild) tbody.removeChild(tbody.firstChild);
+    for (var i = 0; i < list.length; i++) {
+        var t = list[i];
+        var tr = document.createElement('tr');
+        var tdId = document.createElement('td'); tdId.textContent = t.id; tr.appendChild(tdId);
+        var tdTitle = document.createElement('td'); tdTitle.textContent = t.title; tr.appendChild(tdTitle);
+        var tdDate = document.createElement('td'); tdDate.textContent = t.date; tr.appendChild(tdDate);
+        var tdRecipients = document.createElement('td'); tdRecipients.textContent = t.recipients; tr.appendChild(tdRecipients);
+        var tdStatus = document.createElement('td'); tdStatus.textContent = t.status; tr.appendChild(tdStatus);
+        var tdActions = document.createElement('td');
+        var btnDelete = document.createElement('button'); btnDelete.className = 'btn-delete'; btnDelete.setAttribute('data-id', t.id); btnDelete.textContent = 'Xóa'; tdActions.appendChild(btnDelete);
+        tr.appendChild(tdActions);
+        tbody.appendChild(tr);
     }
 }
 
