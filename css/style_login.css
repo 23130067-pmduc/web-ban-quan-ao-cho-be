@@ -650,7 +650,9 @@ header li:hover .sub{
     background-color: #ffffff;
     transform: scale(1.05);
 }
-.btn-view-more {
+/* Nút Xem thêm */
+
+#load-more {
     display: block;
     margin: 60px auto 0;
     background-color: #ffffff;
@@ -663,10 +665,16 @@ header li:hover .sub{
     transition: all 0.3s ease;
     width: fit-content;
     position: relative;
+    cursor: pointer;
 }
 
-.btn-view-more::before,
-.btn-view-more::after {
+#load-more a{
+    text-decoration: none;
+    color: inherit;
+}
+
+#load-more::before,
+#load-more::after {
     content: "";
     position: absolute;
     top: 50%;
@@ -676,20 +684,26 @@ header li:hover .sub{
     transform: translateY(-50%);
 }
 
-.btn-view-more::before {
+#load-more::before {
     left: -550px;
 }
 
-.btn-view-more::after {
+#load-more::after {
     right: -550px;
 }
 
 
-.btn-view-more:hover {
+#load-more:hover {
     background-color: #5B3A29;
     color: #FFF8E7;
     transform: scale(1.05);
 }
+
+
+.hidden{
+    display: none;
+}
+
 
 
 /* ========== SẢN PHẨM ========== */
