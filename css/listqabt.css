@@ -158,7 +158,7 @@ header .sub{
     margin: 0;
     padding: 0;
     z-index: 1000;
-    width: 200px;
+    width: 175px;
 
 }
 header .sub a{
@@ -582,10 +582,9 @@ header li:hover .sub{
     cursor: pointer;
     display: flex;
     flex-direction: column;
-
     align-items: center;
     gap: 12px;
-    height: 540px;
+    height: 500px;
 }
 
 .product-card:hover {
@@ -599,7 +598,7 @@ header li:hover .sub{
     height: 250px;
     object-fit: cover;
     border-radius: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 0;
     transition: transform 0.3s ease;
 }
 
@@ -614,7 +613,7 @@ header li:hover .sub{
 .product-card p {
     color: #666666;
     font-size: 15px;
-    margin-bottom: 10px;
+    margin-bottom: 0;
     font-weight: 500;
 }
 
@@ -623,7 +622,7 @@ header li:hover .sub{
     color: #dc2626;
     font-weight: bold;
     font-size: 16px;
-    margin-bottom: 12px;
+    margin-bottom: 0;
 }
 .product-info {
     flex-grow: 1; /* chiếm phần còn lại cho text + giá */

@@ -161,7 +161,7 @@ header .sub{
     margin: 0;
     padding: 0;
     z-index: 1000;
-    width: 100%;
+    width: 175px;
 
 }
 header .sub a{
@@ -530,23 +530,23 @@ header li:hover .sub{
     font-weight: bold;
 
 }
-.card-content-right-button button:first-child{
+.card-content-right-button #ttms{
     background-color: #fff;
     border: 1px solid black;
     margin-right: 20px;
 
 }
-.card-content-right-button button:first-child:hover{
+.card-content-right-button #ttms:hover{
     background-color: #ddd;
     transform: scale(1.03);
 }
 
-.card-content-right-button button:last-child{
+.card-content-right-button #tt{
     background-color: red;
     color: #fff;
     border: none;
 }
-.card-content-right-button button:last-child:hover{
+.card-content-right-button #tt:hover{
     background-color: #c62828;
     border: 1px solid black;
     transform: scale(1.03);
