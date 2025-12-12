@@ -1,0 +1,182 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: VIET
+  Date: 12/8/2025
+  Time: 7:45 PM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>REGISTER</title>
+    <style>
+        *{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .close-btn{
+            position: absolute;
+            right : 20px;
+            top: 20px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+        .close-btn:hover{
+            color: red;
+        }
+        .register-container{
+            position: relative;
+            width: 380px;
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            background: #FFF8E7;
+            border: 1px solid #5B3A29;
+            box-shadow: 0 25px 45px #00000066;
+            z-index: 10;
+            overflow: hidden;
+        }
+
+        .input-group{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        .dangKy{
+            color: black;
+            font-size: 28px;
+            font-weight: 600;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-bottom: 40px;
+            text-shadow: 0 2px 4px #00000033;
+        }
+
+        .input-group{
+            margin-bottom: 30px;
+        }
+        .input-group input{
+            width: 100%;
+            padding: 15px 20px;
+            background: #00000033;
+            border: none;
+            outline: none;
+            border-radius: 35px;
+            font-size: 16px;
+            color: #fff;
+            box-shadow: 2px 2px 5px #00000066;
+            transition: all 0.3s ease;
+
+        }
+        .input-group input::placeholder{
+            color: #060707;
+        }
+
+        .input-group input:focus{
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 20px #0000001a;
+        }
+        .input-group label{
+            position: relative;
+            left: 10px;
+            font-weight: bold;
+        }
+
+        .btn{
+            display: block;
+            line-height: 35px;
+            height: 40px;
+            background: black;
+            color: white;
+            width: 100%;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn:hover{
+            background: #333;
+        }
+        .links{
+            text-align: center;
+            margin-top: 15px;
+        }
+        .links a{
+            text-decoration: none;
+            color: blue;
+        }
+        .links a:hover{
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+<body>
+<!-- Main Register Form -->
+<main class="register-container">
+        <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+    <h2 class="dangKy">Đăng ký tài khoản</h2>
+    <%
+        String error = (String) request.getAttribute("error");
+        if (error != null) {
+    %>
+    <p style="color:red; text-align:center; margin-bottom:10px;"><%=error%></p>
+    <%
+        }
+    %>
+
+    <form class="registerForm" action="register" method="post">
+        <!-- Họ tên -->
+        <div class="input-group">
+            <label for="fullname">Tên đăng nhập</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Nhập tên đăng nhập..." required value="<%= request.getAttribute("fullname") != null ? request.getAttribute("fullname") : "" %>">
+        </div>
+
+        <!-- Email -->
+        <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Nhập email..." required>
+        </div>
+
+        <!-- Mật khẩu -->
+        <div class="input-group">
+            <label for="password">Mật khẩu</label>
+            <input type="password" id="password" name="password" placeholder="Nhập mật khẩu..." required>
+        </div>
+
+        <!-- Xác nhận mật khẩu -->
+        <div class="input-group">
+            <label for="confirmPassword">Xác nhận mật khẩu</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Nhập lại mật khẩu..." required>
+        </div>
+
+        <!-- Nút đăng ký -->
+        <button type="submit" class="btn">Đăng ký</button>
+
+        <!-- Liên kết -->
+        <div class="links">
+            <a href="loginn.jsp">Đã có tài khoản? Đăng nhập</a>
+        </div>
+    </form>
+
+</main>
+</body>
+</html>
+
