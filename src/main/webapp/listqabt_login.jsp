@@ -1,10 +1,13 @@
+<%@ page contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Quần áo bé trai login</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <link rel="stylesheet" href="../css/listqabt.css">
+    <link rel="stylesheet" href="./css/listqabt.css">
 </head>
 <body>
 <!-- ========== HEADER ========== -->
@@ -31,7 +34,7 @@
 
     <nav class="navbar">
         <div class="logo">
-            <img src="../img/gau.jpg" alt="SunnyBear Logo">
+            <img src="./img/gau.jpg" alt="SunnyBear Logo">
         </div>
 
         <div class="menu">
@@ -65,7 +68,7 @@
     </nav>
 </header>
     <div class="search-overlay" id="searchOverlay">
-      <img class="logo" src="../img/gau.jpg" alt="Logo">
+      <img class="logo" src="./img/gau.jpg" alt="Logo">
 
       <div class="boxSearch">
           <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
@@ -124,7 +127,7 @@
     <div class="product-list" id="productList">
         <div class="product-card" date-category="dobo">
             <a href="pageatxl_login.jsp" class="link-cover">
-                <img src="../img/aox.webp" alt="Áo polo in hình khủng long">
+                <img src="./img/aox.webp" alt="Áo polo in hình khủng long">
                 <div class="product-info">
                     <h3>Áo polo in hình khủng long</h3>
                     <p>Chất cotton 100%, thoáng mát</p>
@@ -135,7 +138,7 @@
         </div>
 
         <div class="product-card" date-category="aoaokhoac">
-            <img src="../img/aohoatiet.jpg" alt="Áo sơ mi họa tiết">
+            <img src="./img/aohoatiet.jpg" alt="Áo sơ mi họa tiết">
             <h3>Áo sơ mi họa tiết</h3>
             <p>Bắt mắt, độc lạ, sành điệu</p>
             <span>138.000₫</span>
@@ -145,7 +148,7 @@
 
 
         <div class="product-card" date-category="aoaokhoac">
-            <img src="../img/aosomitrang.jpg" alt="Áo sơ mi trắng">
+            <img src="./img/aosomitrang.jpg" alt="Áo sơ mi trắng">
             <h3>Áo sơ mi trắng</h3>
             <p>Lịch sự, dễ phối đồ</p>
             <span>175.000₫</span>
@@ -153,7 +156,7 @@
         </div>
 
         <div class="product-card" date-category="quan">
-            <img src="../img/quanjeanxanh.jpg" alt="Quần jean Tapered">
+            <img src="./img/quanjeanxanh.jpg" alt="Quần jean Tapered">
             <h3>Quần jean Tapered</h3>
             <p>Bền, co giãn nhẹ, sanh điệu</p>
             <span>399.000₫</span>
@@ -161,7 +164,7 @@
         </div>
 
         <div class="product-card" date-category="aoaokhoac">
-            <img src="../img/aokhoac.jpg" alt="Áo Khoác Hoodie">
+            <img src="./img/aokhoac.jpg" alt="Áo Khoác Hoodie">
             <h3>Áo Khoác Hoodie</h3>
             <p>Lịch sự, dễ phối đồ</p>
             <span>329.000₫</span>
@@ -169,7 +172,7 @@
         </div>
 
         <div class="product-card" date-category="dobo vest">
-            <img src="../img/blazer.jpg" alt="Set Áo Blazer & Quần Short">
+            <img src="./img/blazer.jpg" alt="Set Áo Blazer & Quần Short">
             <h3>Set Áo Blazer & Quần Short</h3>
             <p>Phong Cách Lịch Lãm</p>
             <span>429.000₫</span>
@@ -177,7 +180,7 @@
         </div>
 
         <div class="product-card" date-category="dobo vest">
-            <img src="../img/vest.jpg" alt="Set Vest 2 In 1 SHEIN">
+            <img src="./img/vest.jpg" alt="Set Vest 2 In 1 SHEIN">
             <h3>Set Vest 2 In 1 SHEIN</h3>
             <p>Lịch Lãm & Thoải Mái</p>
             <span>430.000₫</span>
@@ -185,7 +188,7 @@
         </div>
 
         <div class="product-card" date-category="dobo vest">
-            <img src="../img/vestt.jpg" alt="Bộ vest bé trai">
+            <img src="./img/vestt.jpg" alt="Bộ vest bé trai">
             <h3>Bộ vest bé trai</h3>
             <p>Tặng thêm áo thun sành điệu</p>
             <span>590.000₫</span>
@@ -193,7 +196,7 @@
         </div>
 
         <div class="product-card" date-category="dobo">
-            <img src="../img/nasa.jpg" alt="Bộ thun tay ngắn cổ tròn NASA">
+            <img src="./img/nasa.jpg" alt="Bộ thun tay ngắn cổ tròn NASA">
             <h3>Bộ thun tay ngắn cổ tròn NASA</h3>
             <p>Phù hợp bé trai năng động</p>
             <span>192.000₫</span>
@@ -201,7 +204,7 @@
         </div>
 
         <div class="product-card" date-category="quan">
-            <img src="../img/quankaki.jpg" alt="Quần kaki Jogger">
+            <img src="./img/quankaki.jpg" alt="Quần kaki Jogger">
             <h3>Quần kaki Jogger</h3>
             <p>Bền, co giãn nhẹ thoải mái</p>
             <span>199.000₫</span>
@@ -209,7 +212,7 @@
         </div>
 
         <div class="product-card" date-category="aoaokhoac">
-            <img src="../img/aolen.jpg" alt="Áo len tay dài đính cúc đơn giản">
+            <img src="./img/aolen.jpg" alt="Áo len tay dài đính cúc đơn giản">
             <h3>Áo len tay dài đính cúc đơn giảnh</h3>
             <p>Đơn giản, ấp áp, dễ phối đồ</p>
             <span>240.000₫</span>
@@ -217,7 +220,7 @@
         </div>
 
         <div class="product-card" date-category="quan">
-            <img src="../img/quanjog.jpg" alt="Quần Jogger">
+            <img src="./img/quanjog.jpg" alt="Quần Jogger">
             <h3>Quần Jogger</h3>
             <p>chất co giãn phong cách thể thao</p>
             <span>232.000₫</span>
@@ -225,7 +228,7 @@
         </div>
 
         <div class="product-card" date-category="dobo">
-            <img src="../img/aokemtui.jpg" alt="Bộ thun cao cấp kèm túi đeo chéo">
+            <img src="./img/aokemtui.jpg" alt="Bộ thun cao cấp kèm túi đeo chéo">
             <h3>Bộ thun cao cấp kèm túi đeo chéo</h3>
             <p>Bền, gọn nhẹ, thoải mái</p>
             <span>272.000₫</span>
@@ -233,7 +236,7 @@
         </div>
 
         <div class="product-card" date-category="dobo">
-            <img src="../img/aochuV.jpg" alt="Bộ thun đùi chữ V Play with me">
+            <img src="./img/aochuV.jpg" alt="Bộ thun đùi chữ V Play with me">
             <h3>Bộ thun đùi chữ V Play with me</h3>
             <p>Phong cách cực ngầu</p>
             <span>89.000₫</span>
@@ -241,7 +244,7 @@
         </div>
 
         <div class="product-card" date-category="dobo">
-            <img src="../img/aohong.jpg" alt="Áo sơ mi ngắn tay R & quần short">
+            <img src="./img/aohong.jpg" alt="Áo sơ mi ngắn tay R & quần short">
             <h3>Áo sơ mi ngắn tay R & quần short</h3>
             <p>Sành điệu, cá tính</p>
             <span>230.000₫</span>
@@ -249,7 +252,7 @@
         </div>
 
         <div class="product-card" date-category="dobo">
-            <img src="../img/hoathinh.jpg" alt="Bộ bé trai in hoạt hình cao cấp">
+            <img src="./img/hoathinh.jpg" alt="Bộ bé trai in hoạt hình cao cấp">
             <h3>Bộ bé trai in hoạt hình cao cấp</h3>
             <p>Hình in sắc nét từ áo đến quần</p>
             <span>247.000₫</span>
@@ -302,7 +305,7 @@
 
         <div class="social-icons">
             <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><img src="../img/zalo.webp" alt="Zalo"></a>
+            <a href="#"><img src="./img/zalo.webp" alt="Zalo"></a>
             <a href="#"><i class="fa-brands fa-twitter"></i></a>
             <a href="#"><i class="fa-brands fa-instagram"></i></a>
             <a href="#"><i class="fa-brands fa-tiktok"></i></a>
@@ -325,10 +328,10 @@
         });
     });
 </script>
-<script src="../javaScript/pageatxl.js"></script>
-<script src="../javaScript/header.js"></script>
-<script src="../javaScript/thongBao.js"></script>
-<script src="../javaScript/search.js"></script>
-<script src="../javaScript/themvaogiohang.js"></script>
-<script src="../javaScript/loadMore.js"></script>
+<script src="./javaScript/pageatxl.js"></script>
+<script src="./javaScript/header.js"></script>
+<script src="./javaScript/thongBao.js"></script>
+<script src="./javaScript/search.js"></script>
+<script src="./javaScript/themvaogiohang.js"></script>
+<script src="./javaScript/loadMore.js"></script>
 </html>

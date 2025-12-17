@@ -1,9 +1,12 @@
+<%@ page contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Xu hướng thời trang 2025</title>
-    <link rel="stylesheet" href="../css/tintuc_2.css">
+    <link rel="stylesheet" href="./css/tintuc_2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
@@ -31,7 +34,7 @@
 
     <nav class="navbar">
         <div class="logo">
-            <img src="../img/gau.jpg" alt="SunnyBear Logo">
+            <img src="./img/gau.jpg" alt="SunnyBear Logo">
         </div>
 
         <div class="menu">
@@ -67,7 +70,7 @@
 </header>
 
 <div class="search-overlay" id="searchOverlay">
-    <img class="logo" src="../img/gau.jpg" alt="Logo">
+    <img class="logo" src="./img/gau.jpg" alt="Logo">
 
     <div class="boxSearch">
         <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
@@ -94,7 +97,7 @@
         <h3> 1. Thời trang xanh – Chất liệu thân thiện môi trường</h3>
         <p>Quần áo được làm từ cotton hữu cơ, vải tre hoặc sợi tái chế đang trở thành lựa chọn hàng đầu của các bậc
             phụ huynh. Xu hướng “thời trang bền vững” giúp bé yêu mặc đẹp mà vẫn góp phần bảo vệ Trái Đất.</p>
-        <img src="../img/t.jpg" alt="Thời trang xanh">
+        <img src="./img/t.jpg" alt="Thời trang xanh">
 
 
         <h3> 2. Màu sắc pastel và họa tiết tự nhiên</h3>
@@ -102,7 +105,7 @@
             lá nhỏ xinh đang là “trend” hot cho trẻ em 2025. <br>
             Bé trai thường được phối các tông xanh nhạt, xám và be; trong khi bé gái lại nổi bật với hồng phấn, vàng
             kem hoặc xanh mint.</p>
-        <img src="../img/pastell.jpg" alt="Màu sắc pastel">
+        <img src="./img/pastell.jpg" alt="Màu sắc pastel">
 
 
 
@@ -111,7 +114,7 @@
             giúp bé thoải mái vận động mà vẫn cực kỳ dễ thương. <br>
             Đây cũng là phong cách được nhiều cha mẹ trẻ ưa chuộng để giúp con thể hiện cá tính riêng.
         </p>
-        <img src="../img/chat.jpg" alt="Phong cách năng động">
+        <img src="./img/chat.jpg" alt="Phong cách năng động">
 
 
 
@@ -119,7 +122,7 @@
         <p>Một số mẫu mới còn tích hợp chất liệu chống tia UV, kháng khuẩn hoặc có thể điều chỉnh nhiệt độ –
             mang đến trải nghiệm tiện lợi, hiện đại cho bé yêu.
         </p>
-        <img src="../img/67431c3dd878c56a4fb4a894904acc76.jpg_720x720q80.jpg" alt="Thời trang kết hợp công nghệ">
+        <img src="./img/67431c3dd878c56a4fb4a894904acc76.jpg_720x720q80.jpg" alt="Thời trang kết hợp công nghệ">
     </article>
 
 
@@ -129,7 +132,7 @@
         <div class="related">
             <div class="relativeContent">
                 <a href="tintuc_3.jsp">
-                    <img src="../img/quanao.jpg" alt="SunnyBear Kids Clothing">
+                    <img src="./img/quanao.jpg" alt="SunnyBear Kids Clothing">
                     <p>SunnyBear Kids Clothing</p>
                 </a>
             </div>
@@ -140,7 +143,7 @@
         <div class="related">
             <div class="relativeContent">
                 <a href="tintuc_1.jsp">
-                    <img src="../img/quanaokonen.webp" alt="Không nên mua cho trẻ em">
+                    <img src="./img/quanaokonen.webp" alt="Không nên mua cho trẻ em">
                     <p>Những loại quần áo không nên mua cho trẻ em</p>
                 </a>
             </div>
@@ -194,7 +197,7 @@
 
         <div class="social-icons">
             <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><img src="../img/zalo.webp" alt="Zalo"></a>
+            <a href="#"><img src="./img/zalo.webp" alt="Zalo"></a>
             <a href="#"><i class="fa-brands fa-twitter"></i></a>
             <a href="#"><i class="fa-brands fa-instagram"></i></a>
             <a href="#"><i class="fa-brands fa-tiktok"></i></a>
@@ -204,7 +207,7 @@
     </section>
 </div>
 </body>
-<script src="../javaScript/thongBao.js"></script>
-<script src="../javaScript/header.js"></script>
-<script src="../javaScript/search.js"></script>
+<script src="./javaScript/thongBao.js"></script>
+<script src="./javaScript/header.js"></script>
+<script src="./javaScript/search.js"></script>
 </html>

@@ -1,9 +1,12 @@
+<!DOCTYPE html><%@ page contentType="text/html; charset=UTF-8"
+                        pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <title>Liên hệ</title>
-    <link rel="stylesheet" href="../css/lienhe.css">
+    <link rel="stylesheet" href="./css/lienhe.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
@@ -32,7 +35,7 @@
 
         <nav class="navbar">
             <div class="logo">
-                <img src="../img/gau.jpg" alt="SunnyBear Logo">
+                <img src="./img/gau.jpg" alt="SunnyBear Logo">
             </div>
 
             <div class="menu">
@@ -70,7 +73,7 @@
 
     <!-- Ô TÌM KIẾM ẨN -->
     <div class="search-overlay" id="searchOverlay">
-        <img class="logo" src="../img/gau.jpg" alt="Logo">
+        <img class="logo" src="./img/gau.jpg" alt="Logo">
 
         <div class="boxSearch">
             <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
@@ -156,7 +159,7 @@
 
             <div class="social-icons">
                 <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#"><img src="../img/zalo.webp" alt="Zalo"></a>
+                <a href="#"><img src="./img/zalo.webp" alt="Zalo"></a>
                 <a href="#"><i class="fa-brands fa-twitter"></i></a>
                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
                 <a href="#"><i class="fa-brands fa-tiktok"></i></a>
@@ -168,7 +171,7 @@
     <p class="copyright">© 2025 SunnyBear. All rights reserved.</p>
 
 </body>
-<script src="../javaScript/header.js"></script>
-<script src="../javaScript/thongBao.js"></script>
-<script src="../javaScript/search.js"></script>
+<script src="./javaScript/header.js"></script>
+<script src="./javaScript/thongBao.js"></script>
+<script src="./javaScript/search.js"></script>
 </html>

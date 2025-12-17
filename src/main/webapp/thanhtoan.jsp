@@ -1,9 +1,12 @@
+<%@ page contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>THANH TOÁN</title>
-    <link rel="stylesheet" href="../css/thanhtoan.css">
+    <link rel="stylesheet" href="./css/thanhtoan.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
 </head>
@@ -32,7 +35,7 @@
 
     <nav class="navbar">
         <div class="logo">
-            <img src="../img/gau.jpg" alt="SunnyBear Logo">
+            <img src="./img/gau.jpg" alt="SunnyBear Logo">
         </div>
 
         <div class="menu">
@@ -66,7 +69,7 @@
 </header>
 
 <div class="search-overlay" id="searchOverlay">
-    <img class="logo" src="../img/gau.jpg" alt="Logo">
+    <img class="logo" src="./img/gau.jpg" alt="Logo">
 
     <div class="boxSearch">
         <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
@@ -98,21 +101,21 @@
                         <label for="">Thanh toán bằng thẻ tín dụng(OnePay)</label>
                     </div>
                     <div class="payment-content-left-method-payment-item-img">
-                        <img src="../img/ttd.jpg" alt="">
+                        <img src="./img/ttd.jpg" alt="">
                     </div>
                     <div class="payment-content-left-method-payment-item">
                         <input checked name="method-payment" type="radio">
                         <label for="">Thanh toán bằng thẻ ATM(OnePay)</label>
                     </div>
                     <div class="payment-content-left-method-payment-item-img">
-                        <img src="../img/nganhang.jpg" alt="">
+                        <img src="./img/nganhang.jpg" alt="">
                     </div>
                     <div class="payment-content-left-method-payment-item">
                         <input name="method-payment" type="radio">
                         <label for="">Thanh toán MOMO</label>
                     </div>
                     <div class="payment-content-left-method-payment-item-img">
-                        <img src="../img/momoo.jpg" alt="">
+                        <img src="./img/momoo.jpg" alt="">
                     </div>
                     <div class="payment-content-left-method-payment-item">
                         <input name="method-payment" type="radio">
@@ -135,7 +138,7 @@
                             <th>Thành tiền</th>
                         </tr>
                         <tr>
-                            <td><img src="../img/aox.webp" alt=""></td>
+                            <td><img src="./img/aox.webp" alt=""></td>
                             <td>Áo polo in hình khủng long SunnyBear</td>
                             <td>Xanh</td>
                             <td>10-15kg</td>
@@ -143,7 +146,7 @@
                             <td>150.000₫</td>
                         </tr>
                         <tr>
-                            <td><img src="../img/den.webp" alt=""></td>
+                            <td><img src="./img/den.webp" alt=""></td>
                             <td>Áo polo in hình khủng long SunnyBear</td>
                             <td>Đen</td>
                             <td>16-20kg</td>
@@ -230,8 +233,8 @@
 </div>
 <p class="copyright">© 2025 SunnyBear. All rights reserved.</p>
 </body>
-<script src="../javaScript/pageatxl.js"></script>
-<script src="../javaScript/header.js"></script>
-<script src="../javaScript/thongBao.js"></script>
-<script src="../javaScript/search.js"></script>
+<script src="./javaScript/pageatxl.js"></script>
+<script src="./javaScript/header.js"></script>
+<script src="./javaScript/thongBao.js"></script>
+<script src="./javaScript/search.js"></script>
 </html>

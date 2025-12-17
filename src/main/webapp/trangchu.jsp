@@ -39,7 +39,7 @@
 
     <nav class="navbar">
         <div class="logo">
-            <img src="../img/gau.jpg" alt="SunnyBear Logo">
+            <img src="./img/gau.jpg" alt="SunnyBear Logo">
         </div>
 
         <div class="menu">
@@ -75,7 +75,7 @@
   </header>
 
   <div class="search-overlay" id="searchOverlay">
-      <img class="logo" src="../img/gau.jpg" alt="Logo">
+      <img class="logo" src="./img/gau.jpg" alt="Logo">
 
       <div class="boxSearch">
           <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
@@ -92,25 +92,25 @@
 
             <div class="slide">
                 <a href="sanpham.jsp">
-                    <img src="../img/banner1.png" alt="Slide 1">
+                    <img src="./img/banner1.png" alt="Slide 1">
                 </a> 
             </div>
 
             <div class="slide">
                 <a href="sanpham.jsp">
-                    <img src="../img/ab.png" alt="Banner - Tên website">
+                    <img src="./img/ab.png" alt="Banner - Tên website">
                 </a> 
             </div>
 
             <div class="slide">
                 <a href="sanpham.jsp">
-                    <img src="../img/dodep1.png" alt="Slide 2">
+                    <img src="./img/dodep1.png" alt="Slide 2">
                 </a> 
             </div>
 
             <div class="slide">
                 <a href="sanpham.jsp">
-                    <img src="../img/ban.png" alt="Slide 3">
+                    <img src="./img/ban.png" alt="Slide 3">
                 </a> 
             </div>
 
@@ -129,26 +129,26 @@
     <h2>Sản phẩm mới nhất</h2>
     <div class="product-list">
       <div class="product-card">
-        <img src="../img/aox.webp" alt="Áo polo in hình khủng long">
+        <img src="./img/aox.webp" alt="Áo polo in hình khủng long">
         <a href="pageatxl.jsp" class="link-cover"></a>
         <h3>Áo polo in hình khủng long</h3>
     <p>Giá: <span class="old-price">180.000đ</span> <span class="new-price">150.000đ</span></p>
         <button class="btn-add">Thêm vào giỏ</button>
       </div>
       <div class="product-card">
-        <img src="../img/vayhong.png" alt="Váy hồng">
+        <img src="./img/vayhong.png" alt="Váy hồng">
         <h3>Váy hồng dễ thương</h3>
     <p>Giá: <span class="old-price">264.000đ</span> <span class="new-price">220.000đ</span></p>
         <button class="btn-add">Thêm vào giỏ</button>
       </div>
       <div class="product-card">
-        <img src="../img/dongu.webp" alt="Bộ đồ ngủ">
+        <img src="./img/dongu.webp" alt="Bộ đồ ngủ">
         <h3>Bộ đồ ngủ gấu</h3>
     <p>Giá: <span class="old-price">216.000đ</span> <span class="new-price">180.000đ</span></p>
         <button class="btn-add">Thêm vào giỏ</button>
       </div>
       <div class="product-card">
-        <img src="../img/somi.png" alt="Áo sơ mi">
+        <img src="./img/somi.png" alt="Áo sơ mi">
         <h3>Áo sơ mi</h3>
     <p>Giá: <span class="old-price">210.000đ</span> <span class="new-price">175.000đ</span></p>
         <button class="btn-add">Thêm vào giỏ</button>
@@ -167,25 +167,25 @@
           <div class="category-products">
               <div  class="product-mini">
                   <a href="pageatxl.jsp" class="link-cover"></a>
-                  <img src="../img/aox.webp" alt="Áo polo in hình khủng long">
+                  <img src="./img/aox.webp" alt="Áo polo in hình khủng long">
                   <p>Áo polo in hình khủng long</p>
                   <p class="price"><span class="old-price">180.000đ</span> <span class="new-price">150.000đ</span></p>
                   <button class="btn-add">Thêm vào giỏ</button>
               </div>
               <div class="product-mini">
-                  <img src="../img/somi.png" alt="Áo sơ mi bé trai">
+                  <img src="./img/somi.png" alt="Áo sơ mi bé trai">
                   <p>Áo sơ mi bé trai</p>
                   <p class="price"><span class="old-price">210.000đ</span> <span class="new-price">175.000đ</span></p>
                   <button class="btn-add">Thêm vào giỏ</button>
               </div>
               <div class="product-mini">
-                  <img src="../img/quanjogger.jpg" alt="Quần Jogger">
+                  <img src="./img/quanjogger.jpg" alt="Quần Jogger">
                   <p>Quần Jogger</p>
                   <p class="price"><span class="old-price">221.000đ</span> <span class="new-price">184.000đ</span></p>
                   <button class="btn-add">Thêm vào giỏ</button>
               </div>
               <div class="product-mini">
-                  <img src="../img/aobalogame.jpg" alt="Áo ba lỗ hình Game Play">
+                  <img src="./img/aobalogame.jpg" alt="Áo ba lỗ hình Game Play">
                   <p>Áo ba lỗ hình Game Play</p>
                   <p class="price"><span class="old-price">115.000đ</span> <span class="new-price">96.000đ</span></p>
                   <button class="btn-add">Thêm vào giỏ</button>
@@ -202,25 +202,25 @@
           <div class="category-title">Bé gái 👗</div>
           <div class="category-products">
               <div class="product-mini">
-                  <img src="../img/vayhong.png" alt="Váy hồng dễ thương">
+                  <img src="./img/vayhong.png" alt="Váy hồng dễ thương">
                   <p>Váy hồng dễ thương</p>
                   <p class="price"><span class="old-price">264.000đ</span> <span class="new-price">220.000đ</span></p>
                   <button class="btn-add">Thêm vào giỏ</button>
               </div>
               <div class="product-mini">
-                  <img src="../img/vayhalo.jpg" alt="Váy Halloween">
+                  <img src="./img/vayhalo.jpg" alt="Váy Halloween">
                   <p>Váy Halloween</p>
                   <p class="price"><span class="old-price">642.000đ</span> <span class="new-price">535.000đ</span></p>
                   <button class="btn-add">Thêm vào giỏ</button>
               </div>
               <div class="product-mini">
-                  <img src="../img/hoodie.jpg" alt="Sét áo hoodie và chân váy xếp ly">
+                  <img src="./img/hoodie.jpg" alt="Sét áo hoodie và chân váy xếp ly">
                   <p>Sét áo hoodie và chân váy xếp ly</p>
                   <p class="price"><span class="old-price">420.000đ</span> <span class="new-price">350.000đ</span></p>
                   <button class="btn-add">Thêm vào giỏ</button>
               </div>
               <div class="product-mini">
-                  <img src="../img/vaycongchua.jpg" alt="Váy công chúa tay phồng">
+                  <img src="./img/vaycongchua.jpg" alt="Váy công chúa tay phồng">
                   <p>Váy công chúa tay phồng</p>
                   <p class="price"><span class="old-price">408.000đ</span> <span class="new-price">340.000đ</span></p>
                   <button class="btn-add">Thêm vào giỏ</button>
@@ -236,25 +236,25 @@
           <div class="category-title">Phụ kiện 🎒</div>
           <div class="category-products">
               <div class="product-mini">
-                  <img src="../img/tathong.jpg" alt="Combo 5 đôi tất hoa màu hồng">
+                  <img src="./img/tathong.jpg" alt="Combo 5 đôi tất hoa màu hồng">
                   <p>Combo 5 đôi tất hoa màu hồng</p>
                   <p class="price"><span class="old-price">104.000đ</span> <span class="new-price">87.000đ</span></p>
                   <button class="btn-add">Thêm vào giỏ</button>
               </div>
               <div class="product-mini">
-                  <img src="../img/muvanh.jpg" alt="Mũ vành kiểu dáng basic">
+                  <img src="./img/muvanh.jpg" alt="Mũ vành kiểu dáng basic">
                   <p>Mũ vành kiểu dáng basic</p>
                   <p class="price"><span class="old-price">190.000đ</span> <span class="new-price">158.000đ</span></p>
                   <button class="btn-add">Thêm vào giỏ</button>
               </div>
               <div class="product-mini">
-                  <img src="../img/balomeo.jpg" alt="Balo dạng trứng hình MÈO">
+                  <img src="./img/balomeo.jpg" alt="Balo dạng trứng hình MÈO">
                   <p>Balo dạng trứng hình MÈO</p>
                   <p class="price"><span class="old-price">143.000đ</span> <span class="new-price">119.000đ</span></p>
                   <button class="btn-add">Thêm vào giỏ</button>
               </div>
               <div class="product-mini">
-                  <img src="../img/donghokl.jpg" alt="Đồng hồ kim khủng long 3D">
+                  <img src="./img/donghokl.jpg" alt="Đồng hồ kim khủng long 3D">
                   <p>Đồng hồ kim khủng long 3D</p>
                   <p class="price"><span class="old-price">107.000đ</span> <span class="new-price">89.000đ</span></p>
                   <button class="btn-add">Thêm vào giỏ</button>
@@ -309,7 +309,7 @@
 
            <div class="social-icons">
                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-               <a href="#."><img src="../img/zalo.webp" alt="Zalo"></a>
+               <a href="#."><img src="./img/zalo.webp" alt="Zalo"></a>
                <a href="#"><i class="fa-brands fa-twitter"></i></a>
                <a href="#"><i class="fa-brands fa-instagram"></i></a>
                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
@@ -321,9 +321,9 @@
   <p class="copyright">© 2025 SunnyBear. All rights reserved.</p>
 
 </body>
-<script src="../javaScript/header.js"></script>
-<script src="../javaScript/slider.js"></script>
-<script src="../javaScript/thongBao.js"></script>
-<script src="../javaScript/search.js"></script>
-<script src="../javaScript/themvaogiohang.js"></script>
+<script src="./javaScript/header.js"></script>
+<script src="./javaScript/slider.js"></script>
+<script src="./javaScript/thongBao.js"></script>
+<script src="./javaScript/search.js"></script>
+<script src="./javaScript/themvaogiohang.js"></script>
 </html>

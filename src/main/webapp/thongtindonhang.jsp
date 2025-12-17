@@ -1,9 +1,12 @@
+<%@ page contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <title>Thông tin đơn hàng - Thanh toán VCB</title>
-    <link rel="stylesheet" href="../css/thongtindonhang.css">
+    <link rel="stylesheet" href="./css/thongtindonhang.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 
@@ -13,7 +16,7 @@
 
      <!-- ====== TOP HEADER WITH LOGO & TIMER ====== -->
     <div class="top-header">
-        <img src="../img/Vietcombank_Logo.png" class="vnpay-logo">
+        <img src="./img/Vietcombank_Logo.png" class="vnpay-logo">
 
         <div class="timer-top">
             Giao dịch hết hạn sau 
@@ -98,5 +101,5 @@
 </section>
 <p class="copyright">Phát triển bởi Vietcombank © 2025.</p>
 </body>
-<script src="../javaScript/timer.js"></script>
+<script src="./javaScript/timer.js"></script>
 </html>

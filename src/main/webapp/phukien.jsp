@@ -1,10 +1,13 @@
+<%@ page contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <title>Phụ kiện</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <link rel="stylesheet" href="../css/phukien.css">
+    <link rel="stylesheet" href="./css/phukien.css">
 
 </head>
 <body>
@@ -32,7 +35,8 @@
 
     <nav class="navbar">
         <div class="logo">
-            <img src="../img/gau.jpg" alt="SunnyBear Logo">
+            <img src=".
+            ./img/gau.jpg" alt="SunnyBear Logo">
         </div>
 
         <div class="menu">
@@ -66,7 +70,7 @@
 </header>
 
 <div class="search-overlay" id="searchOverlay">
-    <img class="logo" src="../img/gau.jpg" alt="Logo">
+    <img class="logo" src="./img/gau.jpg" alt="Logo">
 
     <div class="boxSearch">
         <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
@@ -108,7 +112,7 @@
     <div class="product-list">
 
         <div class="product-card">
-            <img src="../img/balomeo.jpg" alt="Balo dạng trứng hình MÈO">
+            <img src="./img/balomeo.jpg" alt="Balo dạng trứng hình MÈO">
             <h3>Balo dạng trứng hình MÈO</h3>
             <p>Balo đáng yêu, tiện mang đi học</p>
             <span>119.000đ</span>
@@ -116,7 +120,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/donghokl.jpg" alt="Bộ thun tay ngắn cổ tròn NASA">
+            <img src="./img/donghokl.jpg" alt="Bộ thun tay ngắn cổ tròn NASA">
             <h3>Bộ thun tay ngắn cổ tròn NASA</h3>
             <p>Chất vải mềm, in hình năng động.</p>
             <span>89.0000đ</span>
@@ -124,7 +128,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/muvanh.jpg" alt="Mũ vành kiểu dáng basic">
+            <img src="./img/muvanh.jpg" alt="Mũ vành kiểu dáng basic">
             <h3>Mũ vành kiểu dáng basic</h3>
             <p>Phong cách đơn giản, dễ phối đồ.</p>
             <span>159.000đ</span>
@@ -132,7 +136,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/tathong.jpg" alt="Combo 5 đôi tất hoa màu hồng">
+            <img src="./img/tathong.jpg" alt="Combo 5 đôi tất hoa màu hồng">
             <h3>Combo 5 đôi tất hoa màu hồng</h3>
             <p>Mềm mại, dễ thương cho bé gái.</p>
             <span>87.000đ</span>
@@ -140,7 +144,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/gangtaygiuam.webp" alt="Găng tay lông xù">
+            <img src="./img/gangtaygiuam.webp" alt="Găng tay lông xù">
             <h3>Găng tay lông xù</h3>
             <p>Mềm mại giữ ấm đôi tay</p>
             <span>329.000₫</span>
@@ -148,7 +152,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/thatlung.jpg" alt="Thắt lưng thung bé trai">
+            <img src="./img/thatlung.jpg" alt="Thắt lưng thung bé trai">
             <h3>Thắt lưng thung bé trai</h3>
             <p>Co giãn có khóa cài có thể điều chỉnh</p>
             <span>33.000đ</span>
@@ -156,7 +160,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/gangtaygiuam.webp" alt="Găng tay trẻ em nhiều hình">
+            <img src="./img/gangtaygiuam.webp" alt="Găng tay trẻ em nhiều hình">
             <h3>Găng tay trẻ em nhiều hình</h3>
             <p>Găng tay giữ ấm cho bé</p>
             <span>59.000₫</span>
@@ -164,7 +168,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/khanchoangco.jpg" alt="Khăn choàng cổ">
+            <img src="./img/khanchoangco.jpg" alt="Khăn choàng cổ">
             <h3>Khăn choàng cổ</h3>
             <p>Mềm mại , giữ ấm</p>
             <span>60.000₫</span>
@@ -172,7 +176,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/mulenkhangchoang.jpg" alt="Mũ len và khăn choàng">
+            <img src="./img/mulenkhangchoang.jpg" alt="Mũ len và khăn choàng">
             <h3>Mũ len và khăn choàng</h3>
             <p>Chống lạnh hiệu quả, phong cách dễ thương.”</p>
             <span>220.000₫</span>
@@ -180,7 +184,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/tainghe.jpg" alt="Tai nghe bluetooth">
+            <img src="./img/tainghe.jpg" alt="Tai nghe bluetooth">
             <h3>Tai nghe bluetooth</h3>
             <p>Thiết kế đáng yêu, pin lâu bền.</p>
             <span>99.000₫</span>
@@ -188,7 +192,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/binhnuoc.jpg" alt="Bình nước trẻ em">
+            <img src="./img/binhnuoc.jpg" alt="Bình nước trẻ em">
             <h3>Bình nước trẻ em</h3>
             <p>Chống rò rỉ, giữ nhiệt tốt.</p>
             <span>235.000đ</span>
@@ -196,7 +200,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/daydeo.webp" alt="Dây đeo thẻ Cute dễ thương">
+            <img src="./img/daydeo.webp" alt="Dây đeo thẻ Cute dễ thương">
             <h3>Dây đeo thẻ Cute dễ thương</h3>
             <p>Vừa tiện lợi vừa đáng yêu để mang theo thẻ tên.</p>
             <span>29.000đ</span>
@@ -250,7 +254,7 @@
 
         <div class="social-icons">
             <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><img src="../img/zalo.webp" alt="Zalo"></a>
+            <a href="#"><img src="./img/zalo.webp" alt="Zalo"></a>
             <a href="#"><i class="fa-brands fa-twitter"></i></a>
             <a href="#"><i class="fa-brands fa-instagram"></i></a>
             <a href="#"><i class="fa-brands fa-tiktok"></i></a>
@@ -273,11 +277,11 @@
         });
     });
 </script>
-<script src="../javaScript/pageatxl.js"></script>
-<script src="../javaScript/header.js"></script>
-<script src="../javaScript/thongBao.js"></script>
-<script src="../javaScript/search.js"></script>
-<script src="../javaScript/themvaogiohang.js"></script>
-<script src="../javaScript/loadMore.js"></script>
+<script src="./javaScript/pageatxl.js"></script>
+<script src="./javaScript/header.js"></script>
+<script src="./javaScript/thongBao.js"></script>
+<script src="./javaScript/search.js"></script>
+<script src="./javaScript/themvaogiohang.js"></script>
+<script src="./javaScript/loadMore.js"></script>
 </html>
 

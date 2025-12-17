@@ -1,10 +1,13 @@
+<%@ page contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Không nên mua cho trẻ em</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <link rel="stylesheet" href="../css/tintuc_1.css">
+    <link rel="stylesheet" href="./css/tintuc_1.css">
 </head>
 <body>
     <!-- ========== HEADER ========== -->
@@ -31,7 +34,7 @@
 
         <nav class="navbar">
             <div class="logo">
-                <img src="../img/gau.jpg" alt="SunnyBear Logo">
+                <img src="./img/gau.jpg" alt="SunnyBear Logo">
             </div>
 
             <div class="menu">
@@ -67,7 +70,7 @@
     </header>
 
     <div class="search-overlay" id="searchOverlay">
-      <img class="logo" src="../img/gau.jpg" alt="Logo">
+      <img class="logo" src="./img/gau.jpg" alt="Logo">
 
       <div class="boxSearch">
           <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
@@ -93,7 +96,7 @@
             <h3> - Váy có nhiều hạt trang trí:</h3>
             <p>Quần áo trẻ em không nên có nhiều phụ kiện trang trí. Những đứa trẻ tò mò có thể xé nhỏ, cho vào mũi,
                 tai hoặc nuốt những thứ hấp dẫn, nhiều màu sắc này.</p>
-            <img src="../img/nhieutrangtri.webp" alt="Quần áo có hạt trang trí">
+            <img src="./img/nhieutrangtri.webp" alt="Quần áo có hạt trang trí">
 
 
             <h3> - Khăn quàng cổ dài:</h3>
@@ -102,7 +105,7 @@
                 không có sự trợ giúp của người lớn.<br>
                 <br>
                 Ở một số quốc gia còn cấm quàng khăn khi trẻ đi học mẫu giáo.</p>
-            <img src="..//img/khancodai.webp" alt="Khăn quàng cổ dài">
+            <img src=".//img/khancodai.webp" alt="Khăn quàng cổ dài">
 
 
 
@@ -111,7 +114,7 @@
                 của một sự cố, nhất là khi đi trên đường hoặc trời tối. <br>
                 <br>
                 Bên cạnh đó, cũng giống như một chiếc khăn quàng cổ, mũ trùm đầu dễ vướng vào đồ ở khu vui chơi.</p>
-            <img src="..//img/aoday.webp" alt="Áo có mũ trùm long dầy">
+            <img src=".//img/aoday.webp" alt="Áo có mũ trùm long dầy">
         </article>
 
 
@@ -121,7 +124,7 @@
             <div class="related">
                 <div class="relativeContent">
                     <a href="tintuc_2.jsp">
-                        <img src="../img/xuhuong.jpg" alt="Xu hướng thời trang 2025">
+                        <img src="./img/xuhuong.jpg" alt="Xu hướng thời trang 2025">
                         <p>Xu hướng thời trang trẻ em cao cấp năm 2025</p>
                     </a>
                 </div>
@@ -131,7 +134,7 @@
             <div class="related">
                 <div class="relativeContent">
                     <a href="tintuc_3.jsp">
-                        <img src="../img/quanao.jpg" alt="SunnyBear Kids Clothing">
+                        <img src="./img/quanao.jpg" alt="SunnyBear Kids Clothing">
                         <p>SunnyBear Kids Clothing</p>
                     </a>
                 </div>

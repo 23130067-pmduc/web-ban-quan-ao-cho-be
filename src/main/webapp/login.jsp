@@ -1,10 +1,13 @@
+<%@ page contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng nhập</title>
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body class="login-page">
@@ -32,7 +35,7 @@
                 <input type="checkbox" id="remember" name="remember" style="cursor: pointer;">
                 <label for="remember">Nhớ mật khẩu</label>
             </div>
-            <a href="../html/forget.html">Quên mật khẩu?</a>
+            <a href="./html/forget.html">Quên mật khẩu?</a>
         </div>
          <a href="index_login.jsp">
           <button type="button" class="btn-primary">Đăng nhập</button>
@@ -41,7 +44,7 @@
 
         <div class="form-links">
 
-          <p class="notAccount">Chưa có tài khoản? <a href="../html/register.html">Đăng ký ngay</a></p>
+          <p class="notAccount">Chưa có tài khoản? <a href="./html/register.html">Đăng ký ngay</a></p>
         </div>
       </form>
     </div>
@@ -52,6 +55,6 @@
     <p>© 2025 SunnyBear. All rights reserved.</p>
   </footer>
 
-  <script src="../javaScript/login.js"></script>
+  <script src="./javaScript/login.js"></script>
 </body>
 </html>

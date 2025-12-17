@@ -1,10 +1,13 @@
+<%@ page contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <title>Thanh toán thành công</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <link rel="stylesheet" href="../css/thanhtoanthanhcong.css">
+    <link rel="stylesheet" href="./css/thanhtoanthanhcong.css">
 </head>
 <body>
 <!-- ========== HEADER ========== -->
@@ -31,7 +34,7 @@
 
     <nav class="navbar">
         <div class="logo">
-            <img src="../img/gau.jpg" alt="SunnyBear Logo">
+            <img src="./img/gau.jpg" alt="SunnyBear Logo">
         </div>
 
         <div class="menu">
@@ -66,7 +69,7 @@
 </header>
 
 <div class="search-overlay" id="searchOverlay">
-    <img class="logo" src="../img/gau.jpg" alt="Logo">
+    <img class="logo" src="./img/gau.jpg" alt="Logo">
 
     <div class="boxSearch">
         <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
@@ -86,7 +89,7 @@
     <h2>Gợi ý cho bạn</h2>
     <div class="product-list">
         <div class="product-card">
-            <img src="../img/blazer.jpg" alt="Set Áo Blazer & Quần Short">
+            <img src="./img/blazer.jpg" alt="Set Áo Blazer & Quần Short">
             <h3>Set Áo Blazer & Quần Short</h3>
             <p>Phong Cách Lịch Lãm</p>
             <span>429.000₫</span>
@@ -94,7 +97,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/aosomitrang.jpg" alt="Áo sơ mi trắng">
+            <img src="./img/aosomitrang.jpg" alt="Áo sơ mi trắng">
             <h3>Áo sơ mi trắng</h3>
             <p>Lịch sự, dễ phối đồ</p>
             <span>175.000₫</span>
@@ -102,7 +105,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/aokhoac.jpg" alt="Áo Khoác Hoodie">
+            <img src="./img/aokhoac.jpg" alt="Áo Khoác Hoodie">
             <h3>Áo Khoác Hoodie</h3>
             <p>Lịch sự, dễ phối đồ</p>
             <span>329.000₫</span>
@@ -110,7 +113,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/vest.jpg" alt="Set Vest 2 In 1 SHEIN">
+            <img src="./img/vest.jpg" alt="Set Vest 2 In 1 SHEIN">
             <h3>Set Vest 2 In 1 SHEIN</h3>
             <p>Lịch Lãm & Thoải Mái</p>
             <span>430.000₫</span>
@@ -118,7 +121,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/vestt.jpg" alt="Bộ vest bé trai">
+            <img src="./img/vestt.jpg" alt="Bộ vest bé trai">
             <h3>Bộ vest bé trai</h3>
             <p>Tặng thêm áo thun sành điệu</p>
             <span>590.000₫</span>
@@ -126,7 +129,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/nasa.jpg" alt="Bộ thun tay ngắn cổ tròn NASA">
+            <img src="./img/nasa.jpg" alt="Bộ thun tay ngắn cổ tròn NASA">
             <h3>Bộ thun tay ngắn cổ tròn NASA</h3>
             <p>Phù hợp bé trai năng động</p>
             <span>192.000₫</span>
@@ -134,7 +137,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/aolen.jpg" alt="Áo len tay dài đính cúc đơn giản">
+            <img src="./img/aolen.jpg" alt="Áo len tay dài đính cúc đơn giản">
             <h3>Áo len tay dài đính cúc đơn giảnh</h3>
             <p>Đơn giản, ấp áp, dễ phối đồ</p>
             <span>240.000₫</span>
@@ -142,7 +145,7 @@
         </div>
 
         <div class="product-card" date-category="dobo">
-            <img src="../img/aokemtui.jpg" alt="Bộ thun cao cấp kèm túi đeo chéo">
+            <img src="./img/aokemtui.jpg" alt="Bộ thun cao cấp kèm túi đeo chéo">
             <h3>Bộ thun cao cấp kèm túi đeo chéo</h3>
             <p>Bền, gọn nhẹ, thoải mái</p>
             <span>272.000₫</span>
@@ -191,7 +194,7 @@
 
             <div class="social-icons">
                 <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#"><img src="../img/zalo.webp" alt="Zalo"></a>
+                <a href="#"><img src="./img/zalo.webp" alt="Zalo"></a>
                 <a href="#"><i class="fa-brands fa-twitter"></i></a>
                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
                 <a href="#"><i class="fa-brands fa-tiktok"></i></a>
@@ -202,9 +205,9 @@
 </div>
 <p class="copyright">© 2025 SunnyBear. All rights reserved.</p>
 </body>
-<script src="../javaScript/pageatxl.js"></script>
-<script src="../javaScript/header.js"></script>
-<script src="../javaScript/thongBao.js"></script>
-<script src="../javaScript/search.js"></script>
+<script src="./javaScript/pageatxl.js"></script>
+<script src="./javaScript/header.js"></script>
+<script src="./javaScript/thongBao.js"></script>
+<script src="./javaScript/search.js"></script>
 </html>
 

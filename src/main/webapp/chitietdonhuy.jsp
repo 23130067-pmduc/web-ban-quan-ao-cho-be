@@ -1,9 +1,12 @@
+<%@ page contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Trang hủy đơn hàng</title>
-    <link rel="stylesheet" href="../css/chitietdonhuy.css">
+    <link rel="stylesheet" href="./css/chitietdonhuy.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
@@ -31,7 +34,7 @@
 
     <nav class="navbar">
         <div class="logo">
-            <img src="../img/gau.jpg" alt="SunnyBear Logo">
+            <img src="./img/gau.jpg" alt="SunnyBear Logo">
         </div>
 
         <div class="menu">
@@ -69,7 +72,7 @@
 </header>
 <!-- Ô TÌM KIẾM ẨN -->
 <div class="search-overlay" id="searchOverlay">
-    <img class="logo" src="../img/gau.jpg" alt="Logo">
+    <img class="logo" src="./img/gau.jpg" alt="Logo">
 
     <div class="boxSearch">
         <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
@@ -85,7 +88,7 @@
     <div class="profile-sidebar">
         <div class="user-info">
             <div class="avatar">
-                <img src="../img/aochuV.jpg" alt="Avatar">
+                <img src="./img/aochuV.jpg" alt="Avatar">
                 <button class="change-avatar-btn">Đổi ảnh</button>
             </div>
             <h3>Nguyễn Văn A</h3>
@@ -122,7 +125,7 @@
                 <div class="order-left multiple">
                     <!-- Sản phẩm 1 -->
                     <div class="single-product">
-                        <img src="../img/aox.webp" alt="sp">
+                        <img src="./img/aox.webp" alt="sp">
                         <div class="order-info">
                             <h3>Áo polo in hình khủng long SunnyBear</h3>
                             <p>Phân loại: Xanh lá, 10-15kg</p>
@@ -132,7 +135,7 @@
 
                     <!-- Sản phẩm 2 (Mới thêm) -->
                     <div class="single-product">
-                        <img src="../img/xanhnhat.webp" alt="sp">
+                        <img src="./img/xanhnhat.webp" alt="sp">
                         <div class="order-info">
                             <h3>Áo polo in hình khủng long SunnyBear</h3>
                             <p>Phân loại: Xanh nhạt, 10-15kg</p>
@@ -218,7 +221,7 @@
 
             <div class="social-icons">
                 <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#"><img src="../img/zalo.webp" alt="Zalo"></a>
+                <a href="#"><img src="./img/zalo.webp" alt="Zalo"></a>
                 <a href="#"><i class="fa-brands fa-twitter"></i></a>
                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
                 <a href="#"><i class="fa-brands fa-tiktok"></i></a>
@@ -230,8 +233,8 @@
 <p class="copyright">© 2025 SunnyBear. All rights reserved.</p>
 
 </body>
-<script src="../javaScript/pageatxl.js"></script>
-<script src="../javaScript/header.js"></script>
-<script src="../javaScript/thongBao.js"></script>
-<script src="../javaScript/search.js"></script>
+<script src="./javaScript/pageatxl.js"></script>
+<script src="./javaScript/header.js"></script>
+<script src="./javaScript/thongBao.js"></script>
+<script src="./javaScript/search.js"></script>
 </html>

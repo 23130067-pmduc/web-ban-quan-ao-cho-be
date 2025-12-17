@@ -1,3 +1,6 @@
+<%@ page contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -6,7 +9,7 @@
     <title>Shop quần áo trẻ em SunnyBear Kids</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <link rel="stylesheet" href="../css/giohang.css">
+    <link rel="stylesheet" href="./css/giohang.css">
 
 
 
@@ -37,7 +40,7 @@
 
     <nav class="navbar">
         <div class="logo">
-            <img src="../img/gau.jpg" alt="SunnyBear Logo">
+            <img src="./img/gau.jpg" alt="SunnyBear Logo">
         </div>
 
         <div class="menu">
@@ -75,7 +78,7 @@
 
 <!-- Ô TÌM KIẾM ẨN -->
 <div class="search-overlay" id="searchOverlay">
-    <img class="logo" src="../img/gau.jpg" alt="Logo">
+    <img class="logo" src="./img/gau.jpg" alt="Logo">
 
     <div class="boxSearch">
         <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
@@ -105,18 +108,18 @@
                     <th>Xóa</th>
                 </tr>
                 <tr>
-                    <td><img src="../img/aox.webp" alt=""></td>
+                    <td><img src="./img/aox.webp" alt=""></td>
                     <td><p>Áo polo in hình khủng long SunnyBear</p></td>
-                    <td><img class="colorImg" src="../img/green.webp" alt="mauXanh"></td>
+                    <td><img class="colorImg" src="./img/green.webp" alt="mauXanh"></td>
                     <td><p>10-15kg</p></td>
                     <td><input type="number" value="1" min="1"></td>
                     <td><p>150.000₫</p></td>
                     <td><span>X</span></td>
                 </tr>
                 <tr>
-                    <td><img src="../img/den.webp" alt=""></td>
+                    <td><img src="./img/den.webp" alt=""></td>
                     <td><p>Áo polo in hình khủng long SunnyBear</p></td>
-                    <td><img class="colorImg" src="../img/black.webp" alt="mauDen"></td>
+                    <td><img class="colorImg" src="./img/black.webp" alt="mauDen"></td>
                     <td><p>16-20kg</p></td>
                     <td><input type="number" value="1" min="1"></td>
                     <td><p>150.000₫</p></td>
@@ -201,7 +204,7 @@
 
            <div class="social-icons">
                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-               <a href="#"><img src="../img/zalo.webp" alt="Zalo"></a>
+               <a href="#"><img src="./img/zalo.webp" alt="Zalo"></a>
                <a href="#"><i class="fa-brands fa-twitter"></i></a>
                <a href="#"><i class="fa-brands fa-instagram"></i></a>
                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
@@ -215,9 +218,9 @@
 
 <script src="thongbao.js"></script>
 </body>
-<script src="../javaScript/header.js"></script>
-<script src="../javaScript/slider.js"></script>
-<script src="../javaScript/search.js"></script>
-<script src="../javaScript/thongBao.js"></script>
+<script src="./javaScript/header.js"></script>
+<script src="./javaScript/slider.js"></script>
+<script src="./javaScript/search.js"></script>
+<script src="./javaScript/thongBao.js"></script>
 
 </html>

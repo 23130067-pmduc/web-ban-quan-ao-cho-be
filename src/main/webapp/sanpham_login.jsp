@@ -1,9 +1,12 @@
+<%@ page contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Sản phẩm Login</title>
-    <link rel="stylesheet" href="../css/sanpham.css">
+    <link rel="stylesheet" href="./css/sanpham.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
 </head>
@@ -32,7 +35,7 @@
 
     <nav class="navbar">
         <div class="logo">
-            <img src="../img/gau.jpg" alt="SunnyBear Logo">
+            <img src="./img/gau.jpg" alt="SunnyBear Logo">
         </div>
 
         <div class="menu">
@@ -67,7 +70,7 @@
 </header>
 
 <div class="search-overlay" id="searchOverlay">
-    <img class="logo" src="../img/gau.jpg" alt="Logo">
+    <img class="logo" src="./img/gau.jpg" alt="Logo">
 
     <div class="boxSearch">
         <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
@@ -117,7 +120,7 @@
 
         <div class="product-card">
             <a href="pageatxl_login.jsp" class="link-cover">
-                <img src="../img/aox.webp" alt="Áo polo in hình khủng long">
+                <img src="./img/aox.webp" alt="Áo polo in hình khủng long">
             </a>
             <h3><a href="pageatxl_login.jsp">Áo polo in hình khủng long</a></h3>
             <p><a href="pageatxl_login.jsp">Chất cotton 100%, thoáng mát</a></p>
@@ -129,7 +132,7 @@
 
 
         <div class="product-card">
-            <img src="../img/aokhoac.jpg" alt="Áo Khoác Hoodie">
+            <img src="./img/aokhoac.jpg" alt="Áo Khoác Hoodie">
             <h3>Áo Khoác Hoodie</h3>
             <p>Lịch sự, dễ phối đồ</p>
             <span>329.000₫</span>
@@ -137,7 +140,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/blazer.jpg" alt="Set Áo Blazer & Quần Short">
+            <img src="./img/blazer.jpg" alt="Set Áo Blazer & Quần Short">
             <h3>Set Áo Blazer & Quần Short</h3>
             <p>Phong Cách Lịch Lãm</p>
             <span>429.000₫</span>
@@ -145,7 +148,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/vest.jpg" alt="Set Vest 2 In 1 SHEIN">
+            <img src="./img/vest.jpg" alt="Set Vest 2 In 1 SHEIN">
             <h3>Set Vest 2 In 1 SHEIN</h3>
             <p>Lịch Lãm & Thoải Mái</p>
             <span>430.000₫</span>
@@ -153,7 +156,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/vestt.jpg" alt="Bộ vest bé trai">
+            <img src="./img/vestt.jpg" alt="Bộ vest bé trai">
             <h3>Bộ vest bé trai</h3>
             <p>Tặng thêm áo thun sành điệu</p>
             <span>590.000₫</span>
@@ -161,7 +164,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/aohoatiet.jpg" alt="Áo sơ mi họa tiết">
+            <img src="./img/aohoatiet.jpg" alt="Áo sơ mi họa tiết">
             <h3>Áo sơ mi họa tiết</h3>
             <p>Bắt mắt, độc lạ, sành điệu</p>
             <span>138.000₫</span>
@@ -169,7 +172,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/quankaki.jpg" alt="Quần kaki Jogger">
+            <img src="./img/quankaki.jpg" alt="Quần kaki Jogger">
             <h3>Quần kaki Jogger</h3>
             <p>Bền, co giãn nhẹ thoải mái</p>
             <span>199.000₫</span>
@@ -177,7 +180,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/binhnuoc.jpg" alt="Bình nước trẻ em">
+            <img src="./img/binhnuoc.jpg" alt="Bình nước trẻ em">
             <h3>Bình nước trẻ em</h3>
             <p>Chống rò rỉ, giữ nhiệt tốt.</p>
             <span>235.000đ</span>
@@ -185,7 +188,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/daydeo.webp" alt="Dây đeo thẻ Cute dễ thương">
+            <img src="./img/daydeo.webp" alt="Dây đeo thẻ Cute dễ thương">
             <h3>Dây đeo thẻ Cute dễ thương</h3>
             <p>Vừa tiện lợi vừa đáng yêu để mang theo thẻ tên.</p>
             <span>29.000đ</span>
@@ -194,7 +197,7 @@
 
 
         <div class="product-card">
-            <img src="../img/aolen.jpg" alt="Áo len tay dài đính cúc đơn giản">
+            <img src="./img/aolen.jpg" alt="Áo len tay dài đính cúc đơn giản">
             <h3>Áo len tay dài đính cúc đơn giảnh</h3>
             <p>Đơn giản, ấp áp, dễ phối đồ</p>
             <span>240.000₫</span>
@@ -202,7 +205,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/aohoodie.jpg" alt="Áo Hoodie ngắn tay & Quần Short">
+            <img src="./img/aohoodie.jpg" alt="Áo Hoodie ngắn tay & Quần Short">
             <h3>Quần jean xanh</h3>
             <p>Sành điệu, thoải mái</p>
             <span>232.000₫</span>
@@ -210,7 +213,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/aokemtui.jpg" alt="Bộ thun cao cấp kèm túi đeo chéo">
+            <img src="./img/aokemtui.jpg" alt="Bộ thun cao cấp kèm túi đeo chéo">
             <h3>Bộ thun cao cấp kèm túi đeo chéo</h3>
             <p>Bền, gọn nhẹ, thoải mái</p>
             <span>272.000₫</span>
@@ -218,7 +221,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/aochuV.jpg" alt="Bộ thun đùi chữ V Play with me">
+            <img src="./img/aochuV.jpg" alt="Bộ thun đùi chữ V Play with me">
             <h3>Bộ thun đùi chữ V Play with me</h3>
             <p>Phong cách cực ngầu</p>
             <span>89.000₫</span>
@@ -226,7 +229,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/aohong.jpg" alt="Áo sơ mi ngắn tay R & quần short">
+            <img src="./img/aohong.jpg" alt="Áo sơ mi ngắn tay R & quần short">
             <h3>Áo sơ mi ngắn tay R & quần short</h3>
             <p>Sành điệu, cá tính</p>
             <span>230.000₫</span>
@@ -234,7 +237,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/hoathinh.jpg" alt="Bộ bé trai in hoạt hình cao cấp">
+            <img src="./img/hoathinh.jpg" alt="Bộ bé trai in hoạt hình cao cấp">
             <h3>Bộ bé trai in hoạt hình cao cấp</h3>
             <p>Hình in sắc nét từ áo đến quần</p>
             <span>247.000₫</span>
@@ -242,7 +245,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/balomeo.jpg" alt="Balo dạng trứng hình MÈO">
+            <img src="./img/balomeo.jpg" alt="Balo dạng trứng hình MÈO">
             <h3>Balo dạng trứng hình MÈO</h3>
             <p>Balo đáng yêu, tiện mang đi học</p>
             <span>119.000đ</span>
@@ -250,7 +253,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/donghokl.jpg" alt="Bộ thun tay ngắn cổ tròn NASA">
+            <img src="./img/donghokl.jpg" alt="Bộ thun tay ngắn cổ tròn NASA">
             <h3>Bộ thun tay ngắn cổ tròn NASA</h3>
             <p>Chất vải mềm, in hình năng động.</p>
             <span>89.0000đ</span>
@@ -258,7 +261,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/muvanh.jpg" alt="Mũ vành kiểu dáng basic">
+            <img src="./img/muvanh.jpg" alt="Mũ vành kiểu dáng basic">
             <h3>Mũ vành kiểu dáng basic</h3>
             <p>Phong cách đơn giản, dễ phối đồ.</p>
             <span>159.000đ</span>
@@ -266,7 +269,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/tathong.jpg" alt="Combo 5 đôi tất hoa màu hồng">
+            <img src="./img/tathong.jpg" alt="Combo 5 đôi tất hoa màu hồng">
             <h3>Combo 5 đôi tất hoa màu hồng</h3>
             <p>Mềm mại, dễ thương cho bé gái.</p>
             <span>87.000đ</span>
@@ -274,7 +277,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/gangtaygiuam.webp" alt="Găng tay lông xù">
+            <img src="./img/gangtaygiuam.webp" alt="Găng tay lông xù">
             <h3>Găng tay lông xù</h3>
             <p>Mềm mại giữ ấm đôi tay</p>
             <span>329.000₫</span>
@@ -282,7 +285,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/thatlung.jpg" alt="Thắt lưng thung bé trai">
+            <img src="./img/thatlung.jpg" alt="Thắt lưng thung bé trai">
             <h3>Thắt lưng thung bé trai</h3>
             <p>Co giãn có khóa cài có thể điều chỉnh</p>
             <span>33.000đ</span>
@@ -290,7 +293,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/gangtaygiuam.webp" alt="Găng tay trẻ em nhiều hình">
+            <img src="./img/gangtaygiuam.webp" alt="Găng tay trẻ em nhiều hình">
             <h3>Găng tay trẻ em nhiều hình</h3>
             <p>Găng tay giữ ấm cho bé</p>
             <span>59.000₫</span>
@@ -298,7 +301,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/khanchoangco.jpg" alt="Khăn choàng cổ">
+            <img src="./img/khanchoangco.jpg" alt="Khăn choàng cổ">
             <h3>Khăn choàng cổ</h3>
             <p>Mềm mại , giữ ấm</p>
             <span>60.000₫</span>
@@ -310,7 +313,7 @@
 
 
         <div class="product-card">
-            <img src="../img/vaycongchua.jpg" alt="Váy công chúa tay phồng">
+            <img src="./img/vaycongchua.jpg" alt="Váy công chúa tay phồng">
             <h3>Váy công chúa tay phồng</h3>
             <p>Chất vải mềm, cổ điển xinh xắn</p>
             <span>340.000đ</span>
@@ -319,7 +322,7 @@
 
 
         <div class="product-card">
-            <img src="../img/damthunsuong.jpg" alt="Đầm thun suông xẻ tà">
+            <img src="./img/damthunsuong.jpg" alt="Đầm thun suông xẻ tà">
             <h3>Đầm thun suông xẻ tà</h3>
             <p>Cá tính, kiêu sa, xinh xắn.</p>
             <span>75.000đ</span>
@@ -327,7 +330,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/aovaquan.jpg" alt="Set Áo Sơ Mi Trắng & Quần Ống Rộng Sọc">
+            <img src="./img/aovaquan.jpg" alt="Set Áo Sơ Mi Trắng & Quần Ống Rộng Sọc">
             <h3>Set Áo Sơ Mi Trắng & Quần Ống Rộng Sọc</h3>
             <p>Phong Cách Hè Năng Động.</p>
             <span>339.000đ</span>
@@ -336,7 +339,7 @@
 
 
         <div class="product-card">
-            <img src="../img/vayhong.png" alt="Váy hồng dễ thương">
+            <img src="./img/vayhong.png" alt="Váy hồng dễ thương">
             <h3>Váy hồng dễ thương</h3>
             <p>Váy xinh xắn dễ thương, cute</p>
             <span>220.000đ</span>
@@ -344,7 +347,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/hoodie.jpg" alt="Sét áo hoodie và chân váy xếp ly">
+            <img src="./img/hoodie.jpg" alt="Sét áo hoodie và chân váy xếp ly">
             <h3>Sét áo hoodie và chân váy xếp ly</h3>
             <p>Phong cách đơn giản, năng động.</p>
             <span>350.000đ</span>
@@ -352,7 +355,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/vayhalo.jpg" alt="Váy Halloween">
+            <img src="./img/vayhalo.jpg" alt="Váy Halloween">
             <h3>Váy Halloween</h3>
             <p>Phong cách halloween đầy ma mị</p>
             <span>535.000đ</span>
@@ -360,7 +363,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/aokhoaclong.jpg" alt="Áo khoác lông dài tay trơn">
+            <img src="./img/aokhoaclong.jpg" alt="Áo khoác lông dài tay trơn">
             <h3>Áo khoác lông dài tay trơn</h3>
             <p>Mềm mại ấm áp sang trọng</p>
             <span>229.000₫</span>
@@ -368,7 +371,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/vaycono.jpg" alt="Váy công chúa nơ bèo nhún lớp lưới">
+            <img src="./img/vaycono.jpg" alt="Váy công chúa nơ bèo nhún lớp lưới">
             <h3>Váy công chúa nơ bèo nhún lớp lưới</h3>
             <p>Sang trọng, cao cấp, quý tộc</p>
             <span>693.000đ</span>
@@ -376,7 +379,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/damlua.jpg" alt="Đầm công chúa lụa satin xếp ly kết nơ">
+            <img src="./img/damlua.jpg" alt="Đầm công chúa lụa satin xếp ly kết nơ">
             <h3>Đầm công chúa lụa satin xếp ly kết nơ</h3>
             <p>Mềm mại, sang trọng, đẳng cấp</p>
             <span>385.000₫</span>
@@ -384,7 +387,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/aokhoacni.jpg" alt="Áo khoác nỉ nỉ">
+            <img src="./img/aokhoacni.jpg" alt="Áo khoác nỉ nỉ">
             <h3>Áo khoác nỉ nỉ</h3>
             <p>In chữ cá tính, kiểu dáng mới mẻ</p>
             <span>220.000₫</span>
@@ -392,7 +395,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/aothun.jpg" alt="Áo thun dài tay">
+            <img src="./img/aothun.jpg" alt="Áo thun dài tay">
             <h3>Áo thun dài tay</h3>
             <p>Mềm mại, không quá dày, họa tiết xinh xắn.”</p>
             <span>178.000₫</span>
@@ -400,7 +403,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/quanlegging.jpg" alt="Quần Legging">
+            <img src="./img/quanlegging.jpg" alt="Quần Legging">
             <h3>Quần Legging</h3>
             <p>Màu trơn mềm mịn co giãn.</p>
             <span>153.000₫</span>
@@ -408,7 +411,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/nasa.jpg" alt="Bộ thun tay ngắn cổ tròn NASA">
+            <img src="./img/nasa.jpg" alt="Bộ thun tay ngắn cổ tròn NASA">
             <h3>Bộ thun tay ngắn cổ tròn NASA</h3>
             <p>Phù hợp bé trai năng động</p>
             <span>192.000₫</span>
@@ -416,7 +419,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/aosomitrang.jpg" alt="Áo sơ mi trắng">
+            <img src="./img/aosomitrang.jpg" alt="Áo sơ mi trắng">
             <h3>Áo sơ mi trắng</h3>
             <p>Lịch sự, dễ phối đồ</p>
             <span>175.000₫</span>
@@ -424,7 +427,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/quanjeanxanh.jpg" alt="Quần jean Tapered">
+            <img src="./img/quanjeanxanh.jpg" alt="Quần jean Tapered">
             <h3>Quần jean Tapered</h3>
             <p>Bền, co giãn nhẹ, sanh điệu</p>
             <span>399.000₫</span>
@@ -432,7 +435,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/dambaby.jpg" alt="Đầm baby doll không tay">
+            <img src="./img/dambaby.jpg" alt="Đầm baby doll không tay">
             <h3>Đầm baby doll không tay</h3>
             <p>Tặng kèm túi đeo chéo thời trang.</p>
             <span>285.000đ</span>
@@ -440,7 +443,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/quanongrong.jpg" alt="Quần bé gái ống rộng kẻ sọc Colorblock">
+            <img src="./img/quanongrong.jpg" alt="Quần bé gái ống rộng kẻ sọc Colorblock">
             <h3>Quần bé gái ống rộng kẻ sọc Colorblock</h3>
             <p>Cá tính, đột phá, thời trang.</p>
             <span>178.000đ</span>
@@ -448,7 +451,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/quanongsuong.jpg" alt="Quần dáng suông ống rộng chữ G">
+            <img src="./img/quanongsuong.jpg" alt="Quần dáng suông ống rộng chữ G">
             <h3>Quần dáng suông ống rộng chữ G</h3>
             <p>Cá tính, năng động, xinh xắn</p>
             <span>119.000đ</span>
@@ -456,7 +459,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/aothatcavat.jpg" alt="Sét áo thắt cà vạt và chân váy xếp ly">
+            <img src="./img/aothatcavat.jpg" alt="Sét áo thắt cà vạt và chân váy xếp ly">
             <h3>Sét áo thắt cà vạt và chân váy xếp ly</h3>
             <p>Phong cách thủy thủ, xinh xắn.</p>
             <span>279.000đ</span>
@@ -464,7 +467,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/mulenkhangchoang.jpg" alt="Mũ len và khăn choàng">
+            <img src="./img/mulenkhangchoang.jpg" alt="Mũ len và khăn choàng">
             <h3>Mũ len và khăn choàng</h3>
             <p>Chống lạnh hiệu quả, phong cách dễ thương.”</p>
             <span>220.000₫</span>
@@ -472,7 +475,7 @@
         </div>
 
         <div class="product-card">
-            <img src="../img/tainghe.jpg" alt="Tai nghe bluetooth">
+            <img src="./img/tainghe.jpg" alt="Tai nghe bluetooth">
             <h3>Tai nghe bluetooth</h3>
             <p>Thiết kế đáng yêu, pin lâu bền.</p>
             <span>99.000₫</span>
@@ -527,7 +530,7 @@
 
             <div class="social-icons">
                 <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#"><img src="../img/zalo.webp" alt="Zalo"></a>
+                <a href="#"><img src="./img/zalo.webp" alt="Zalo"></a>
                 <a href="#"><i class="fa-brands fa-twitter"></i></a>
                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
                 <a href="#"><i class="fa-brands fa-tiktok"></i></a>
@@ -550,10 +553,10 @@
         });
     });
 </script>
-<script src="../javaScript/pageatxl.js"></script>
-<script src="../javaScript/header.js"></script>
-<script src="../javaScript/thongBao.js"></script>
-<script src="../javaScript/search.js"></script>
-<script src="../javaScript/loadMore.js"></script>
-<script src="../javaScript/themvaogiohang.js"></script>
+<script src="./javaScript/pageatxl.js"></script>
+<script src="./javaScript/header.js"></script>
+<script src="./javaScript/thongBao.js"></script>
+<script src="./javaScript/search.js"></script>
+<script src="./javaScript/loadMore.js"></script>
+<script src="./javaScript/themvaogiohang.js"></script>
 </html>

@@ -1,9 +1,12 @@
+<%@ page contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <title>Tin tức</title>
-    <link rel="stylesheet" href="../css/tintuc.css">
+    <link rel="stylesheet" href="./css/tintuc.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
@@ -31,7 +34,7 @@
 
         <nav class="navbar">
             <div class="logo">
-                <img src="../img/gau.jpg" alt="SunnyBear Logo">
+                <img src="./img/gau.jpg" alt="SunnyBear Logo">
             </div>
 
             <div class="menu">
@@ -67,7 +70,7 @@
 
     </header>
     <div class="search-overlay" id="searchOverlay">
-      <img class="logo" src="../img/gau.jpg" alt="Logo">
+      <img class="logo" src="./img/gau.jpg" alt="Logo">
 
       <div class="boxSearch">
           <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
@@ -86,7 +89,7 @@
         <div class="newsContainer">
             <div class="newsItem">
                 <a href="tintuc_1_login.jsp">
-                    <img src="../img/quanaokonen.webp" alt="Quần áo không nên cho trẻ em">
+                    <img src="./img/quanaokonen.webp" alt="Quần áo không nên cho trẻ em">
                 </a>
                 <h3><a href="tintuc_1.jsp">Những loại quần áo không nên mua cho trẻ em</a> </h3>
                 <p>Quần áo kiểu dáng sành điệu của người lớn, khăn quàng cổ dài hay áo nhiều họa tiết... là những có
@@ -95,7 +98,7 @@
 
             <div class="newsItem">
                 <a href="tintuc_2_login.jsp">
-                    <img src="../img/xuhuong.jpg" alt="Xu hướng thời trang 2025">
+                    <img src="./img/xuhuong.jpg" alt="Xu hướng thời trang 2025">
                 </a>
                 <h3><a href="#">Xu hướng thời trang trẻ em cao cấp năm 2025</a> </h3>
                 <p>Dưới đây là những xu hướng nổi bật, bạn không nên bỏ lỡ khi tìm mua quần áo trẻ em
@@ -104,7 +107,7 @@
 
             <div class="newsItem">
                 <a href="tintuc_3_login.jsp">
-                    <img src="..//img/quanao.jpg" alt="SunnyBear Kids Clothing">
+                    <img src=".//img/quanao.jpg" alt="SunnyBear Kids Clothing">
                 </a>
                 <h3><a href="#">SunnyBear Kids Clothing - Shop quần áo trẻ em</a> </h3>
                 <p>SunnyBear Kids Clothing - Shop quần áo trẻ em trai/gái 2025. là thương hiệu thời trang trẻ em
@@ -153,7 +156,7 @@
 
             <div class="social-icons">
                 <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#"><img src="../img/zalo.webp" alt="Zalo"></a>
+                <a href="#"><img src="./img/zalo.webp" alt="Zalo"></a>
                 <a href="#"><i class="fa-brands fa-twitter"></i></a>
                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
                 <a href="#"><i class="fa-brands fa-tiktok"></i></a>
@@ -163,7 +166,7 @@
         </section>
     </div>
 </body>
-<script src="../javaScript/header.js"></script>
-<script src="../javaScript/thongBao.js"></script>
-<script src="../javaScript/search.js"></script>
+<script src="./javaScript/header.js"></script>
+<script src="./javaScript/thongBao.js"></script>
+<script src="./javaScript/search.js"></script>
 </html>

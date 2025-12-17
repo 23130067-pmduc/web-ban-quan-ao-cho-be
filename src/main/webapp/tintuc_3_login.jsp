@@ -1,9 +1,12 @@
+<%@ page contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Xu hướng thời trang 2025</title>
-    <link rel="stylesheet" href="../css/tintuc_3.css">
+    <link rel="stylesheet" href="css/tintuc_3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
@@ -31,7 +34,7 @@
 
     <nav class="navbar">
         <div class="logo">
-            <img src="../img/gau.jpg" alt="SunnyBear Logo">
+            <img src="./img/gau.jpg" alt="SunnyBear Logo">
         </div>
 
         <div class="menu">
@@ -67,7 +70,7 @@
 
 </header>
     <div class="search-overlay" id="searchOverlay">
-      <img class="logo" src="../img/gau.jpg" alt="Logo">
+      <img class="logo" src="./img/gau.jpg" alt="Logo">
 
       <div class="boxSearch">
           <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
@@ -95,7 +98,7 @@
             kế tối giản nhưng tinh tế, giúp bé luôn thoải mái khi vận động và tự tin thể hiện cá tính. Các mẫu áo thun,
             váy, quần short hay áo khoác đều được gia công tỉ mỉ, phù hợp với khí hậu Việt Nam.</p>
 
-        <img src="../img/dodep.jpg" alt="Bộ sưu tập mới nhất">
+        <img src="./img/dodep.jpg" alt="Bộ sưu tập mới nhất">
 
         <br>
         <p>Không chỉ là nơi mua sắm, SunnyBear còn là điểm đến lý tưởng cho các bậc phụ huynh muốn tìm hiểu xu hướng
@@ -114,7 +117,7 @@
         <div class="related">
             <div class="relativeContent">
                 <a href="tintuc_1_login.jsp">
-                    <img src="../img/quanaokonen.webp" alt="Không nên mua cho trẻ em">
+                    <img src="./img/quanaokonen.webp" alt="Không nên mua cho trẻ em">
                     <p>Những loại quần áo không nên mua cho trẻ em</p>
                 </a>
             </div>
@@ -124,7 +127,7 @@
         <div class="related">
                 <div class="relativeContent">
                     <a href="tintuc_2_login.jsp">
-                        <img src="../img/xuhuong.jpg" alt="Xu hướng thời trang 2025">
+                        <img src="./img/xuhuong.jpg" alt="Xu hướng thời trang 2025">
                         <p>Xu hướng thời trang trẻ em cao cấp năm 2025</p>
                     </a>
                 </div>
@@ -176,7 +179,7 @@
 
         <div class="social-icons">
             <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><img src="../img/zalo.webp" alt="Zalo"></a>
+            <a href="#"><img src="./img/zalo.webp" alt="Zalo"></a>
             <a href="#"><i class="fa-brands fa-twitter"></i></a>
             <a href="#"><i class="fa-brands fa-instagram"></i></a>
             <a href="#"><i class="fa-brands fa-tiktok"></i></a>
@@ -186,7 +189,7 @@
     </section>
 </div>
 </body>
-<script src="../javaScript/header.js"></script>
-<script src="../javaScript/thongBao.js"></script>
-<script src="../javaScript/search.js"></script>
+<script src="./javaScript/header.js"></script>
+<script src="./javaScript/thongBao.js"></script>
+<script src="./javaScript/search.js"></script>
 </html>

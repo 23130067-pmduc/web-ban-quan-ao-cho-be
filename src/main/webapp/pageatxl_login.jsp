@@ -1,9 +1,12 @@
+<%@ page contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Áo thun xanh lá</title>
-    <link rel="stylesheet" href="../css/pageatxl.css">
+    <link rel="stylesheet" href="./css/pageatxl.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     
 </head>
@@ -20,7 +23,7 @@
 
             <nav class="navbar">
                 <div class="logo">
-                    <img src="../img/gau.jpg" alt="SunnyBear Logo">
+                    <img src="./img/gau.jpg" alt="SunnyBear Logo">
                 </div>
 
                 <div class="menu">
@@ -57,7 +60,7 @@
         </header>
 
         <div class="search-overlay" id="searchOverlay">
-      <img class="logo" src="../img/gau.jpg" alt="Logo">
+      <img class="logo" src="./img/gau.jpg" alt="Logo">
 
       <div class="boxSearch">
           <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
@@ -71,13 +74,13 @@
 
         <!-- ========== HÌNH ẢNH ========== -->
         <div class="product-image">
-            <img id="main-image" src="../img/aox.webp" alt="Áo polo in hình khủng long">
+            <img id="main-image" src="./img/aox.webp" alt="Áo polo in hình khủng long">
             <div class="image-thumbs">
-                <img src="../img/aox.webp" class="thumb active" data-color="xanh" alt="Xanh lá">
-                <img src="../img/do.webp" class="thumb" data-color="do" alt="Đỏ">
-                <img src="../img/den.webp" class="thumb" data-color="den" alt="Đen">
-                <img src="../img/xanhnhat.webp" class="thumb" data-color="xanhnhat" alt="Xanh nhạt">
-                <img src="../img/trang.webp" class="thumb" data-color="trang" alt="Trắng">
+                <img src="./img/aox.webp" class="thumb active" data-color="xanh" alt="Xanh lá">
+                <img src="./img/do.webp" class="thumb" data-color="do" alt="Đỏ">
+                <img src="./img/den.webp" class="thumb" data-color="den" alt="Đen">
+                <img src="./img/xanhnhat.webp" class="thumb" data-color="xanhnhat" alt="Xanh nhạt">
+                <img src="./img/trang.webp" class="thumb" data-color="trang" alt="Trắng">
             </div>
         </div>
 
@@ -91,11 +94,11 @@
             <div class="product-colors">
                 <p><strong>Màu sắc:</strong></p>
                 <div class="color-options">
-                    <img class="color-thumb" data-image="../img/aox.webp" src="../img/green.webp" alt="xanh">
-                    <img class="color-thumb" data-image="../img/do.webp" src="../img/red.webp" alt="do">
-                    <img class="color-thumb" data-image="../img/den.webp" src="../img/black.webp" alt="den">
-                    <img class="color-thumb" data-image="../img/xanhnhat.webp" src="../img/xn.jpg" alt="xanhnhat">
-                    <img class="color-thumb" data-image="../img/trang.webp" src="../img/t.jpg" alt="trang">
+                    <img class="color-thumb" data-image="./img/aox.webp" src="./img/green.webp" alt="xanh">
+                    <img class="color-thumb" data-image="./img/do.webp" src="./img/red.webp" alt="do">
+                    <img class="color-thumb" data-image="./img/den.webp" src="./img/black.webp" alt="den">
+                    <img class="color-thumb" data-image="./img/xanhnhat.webp" src="./img/xn.jpg" alt="xanhnhat">
+                    <img class="color-thumb" data-image="./img/trang.webp" src="./img/t.jpg" alt="trang">
                 </div>
             </div>
 
@@ -185,25 +188,25 @@
         <h2>Sản phẩm phù hợp khác</h2>
         <div class="suggested-list">
             <div class="suggested-item">
-                <img src="../img/somi.png" alt="Áo sơ mi bé trai">
+                <img src="./img/somi.png" alt="Áo sơ mi bé trai">
                 <p class="name">Áo sơ mi bé trai</p>
                 <p class="price">175.000₫</p>
                 <button class="btn-add">Thêm vào giỏ</button>
             </div>
             <div class="suggested-item">
-                <img src="../img/aobalogame.jpg" alt="Áo ba lỗ hình Game Play">
+                <img src="./img/aobalogame.jpg" alt="Áo ba lỗ hình Game Play">
                 <p class="name">Áo ba lỗ hình Game Play</p>
                 <p class="price">96.000₫</p>
                 <button class="btn-add">Thêm vào giỏ</button>
             </div>
             <div class="suggested-item">
-                <img src="../img/satvqs.jpg" alt="Set Áo Thun & Quần Short">
+                <img src="./img/satvqs.jpg" alt="Set Áo Thun & Quần Short">
                 <p class="name">Áo Thun & Quần Short</p>
                 <p class="price">259.749₫</p>
                 <button class="btn-add">Thêm vào giỏ</button>
             </div>
             <div class="suggested-item">
-                <img src="../img/aoghile.jpg" alt="Áo ghile phối đồ vest">
+                <img src="./img/aoghile.jpg" alt="Áo ghile phối đồ vest">
                 <p class="name">Áo ghile phối đồ vest</p>
                 <p class="price">259.749₫</p>
                 <button class="btn-add">Thêm vào giỏ</button>
@@ -251,7 +254,7 @@
 
         <div class="social-icons">
             <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><img src="../img/zalo.webp" alt="Zalo"></a>
+            <a href="#"><img src="./img/zalo.webp" alt="Zalo"></a>
             <a href="#"><i class="fa-brands fa-twitter"></i></a>
             <a href="#"><i class="fa-brands fa-instagram"></i></a>
             <a href="#"><i class="fa-brands fa-tiktok"></i></a>
@@ -266,9 +269,9 @@
 <div id="toast"></div>
 
 </body>
-<script src="../javaScript/pageatxl.js"></script>
-<script src="../javaScript/header.js"></script>
-<script src="../javaScript/thongBao.js"></script>
-<script src="../javaScript/search.js"></script>
-<script src="../javaScript/themvaogiohang.js"></script>
+<script src="./javaScript/pageatxl.js"></script>
+<script src="./javaScript/header.js"></script>
+<script src="./javaScript/thongBao.js"></script>
+<script src="./javaScript/search.js"></script>
+<script src="./javaScript/themvaogiohang.js"></script>
 </html>

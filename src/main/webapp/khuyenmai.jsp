@@ -1,10 +1,13 @@
+<%@ page contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khuyến mãi</title>
-    <link rel="stylesheet" href="../css/khuyenmai.css">
+    <link rel="stylesheet" href="./css/khuyenmai.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
@@ -32,7 +35,7 @@
 
     <nav class="navbar">
         <div class="logo">
-            <img src="../img/gau.jpg" alt="SunnyBear Logo">
+            <img src="./img/gau.jpg" alt="SunnyBear Logo">
         </div>
 
         <div class="menu">
@@ -68,7 +71,7 @@
 
         
   <div class="search-overlay" id="searchOverlay">
-      <img class="logo" src="../img/gau.jpg" alt="Logo">
+      <img class="logo" src="./img/gau.jpg" alt="Logo">
 
       <div class="boxSearch">
           <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
@@ -101,7 +104,7 @@
         <div class="flash-products">
             <div class="product-card">
                 <span class="badge flash">SALE -50%</span>
-                <img src="../img/aox.webp" alt="Áo polo">
+                <img src="./img/aox.webp" alt="Áo polo">
                 <h3>Áo polo in hình khủng long SunnyBear</h3>
                 <p class="price">
                     <span class="new-price">150.000đ</span>
@@ -111,7 +114,7 @@
             </div>
             <div class="product-card">
                 <span class="badge flash">SALE -45%</span>
-                <img src="../img/vayhong.png" alt="Váy hồng">
+                <img src="./img/vayhong.png" alt="Váy hồng">
                 <h3>Váy hồng dễ thương</h3>
                 <p class="price">
                     <span class="new-price">220.000đ</span>
@@ -121,7 +124,7 @@
             </div>
             <div class="product-card">
                 <span class="badge flash">SALE -40%</span>
-                <img src="../img/dongu.webp" alt="Đồ ngủ">
+                <img src="./img/dongu.webp" alt="Đồ ngủ">
                 <h3>Bộ đồ ngủ gấu</h3>
                 <p class="price">
                     <span class="new-price">180.000đ</span>
@@ -131,7 +134,7 @@
             </div>
             <div class="product-card">
                 <span class="badge flash">SALE -35%</span>
-                <img src="../img/somi.png" alt="Áo sơ mi">
+                <img src="./img/somi.png" alt="Áo sơ mi">
                 <h3>Áo sơ mi bé trai</h3>
                 <p class="price">
                     <span class="new-price">175.000đ</span>
@@ -148,7 +151,7 @@
         <div class="product-grid">
             <div class="product-card">
                 <span class="badge flash">SALE -30%</span>
-                <img src="../img/quanjogger.jpg" alt="Quần Jogger">
+                <img src="./img/quanjogger.jpg" alt="Quần Jogger">
                 <h3>Quần Jogger bé trai</h3>
                 <p class="price">
                     <span class="new-price">184.000đ</span>
@@ -158,7 +161,7 @@
             </div>
             <div class="product-card">
                 <span class="badge flash">SALE -25%</span>
-                <img src="../img/aobalogame.jpg" alt="Áo ba lỗ">
+                <img src="./img/aobalogame.jpg" alt="Áo ba lỗ">
                 <h3>Áo ba lỗ Game Play</h3>
                 <p class="price">
                     <span class="new-price">96.000đ</span>
@@ -168,7 +171,7 @@
             </div>
             <div class="product-card">
                 <span class="badge flash">SALE -35%</span>
-                <img src="../img/vayhalo.jpg" alt="Váy Halloween">
+                <img src="./img/vayhalo.jpg" alt="Váy Halloween">
                 <h3>Váy Halloween</h3>
                 <p class="price">
                     <span class="new-price">535.000đ</span>
@@ -178,7 +181,7 @@
             </div>
             <div class="product-card">
                 <span class="badge flash">SALE -20%</span>
-                <img src="../img/hoodie.jpg" alt="Hoodie">
+                <img src="./img/hoodie.jpg" alt="Hoodie">
                 <h3>Sét áo hoodie và chân váy</h3>
                 <p class="price">
                     <span class="new-price">350.000đ</span>
@@ -188,7 +191,7 @@
             </div>
             <div class="product-card">
                 <span class="badge flash">SALE -28%</span>
-                <img src="../img/vaycongchua.jpg" alt="Váy công chúa">
+                <img src="./img/vaycongchua.jpg" alt="Váy công chúa">
                 <h3>Váy công chúa tay phồng</h3>
                 <p class="price">
                     <span class="new-price">340.000đ</span>
@@ -198,7 +201,7 @@
             </div>
             <div class="product-card">
                 <span class="badge flash">SALE -22%</span>
-                <img src="../img/tathong.jpg" alt="Tất">
+                <img src="./img/tathong.jpg" alt="Tất">
                 <h3>Combo 5 đôi tất hoa</h3>
                 <p class="price">
                     <span class="new-price">87.000đ</span>
@@ -208,7 +211,7 @@
             </div>
             <div class="product-card">
                 <span class="badge flash">SALE -30%</span>
-                <img src="../img/muvanh.jpg" alt="Mũ vành">
+                <img src="./img/muvanh.jpg" alt="Mũ vành">
                 <h3>Mũ vành basic</h3>
                 <p class="price">
                     <span class="new-price">158.000đ</span>
@@ -218,7 +221,7 @@
             </div>
             <div class="product-card">
                 <span class="badge flash">SALE -18%</span>
-                <img src="../img/balomeo.jpg" alt="Balo">
+                <img src="./img/balomeo.jpg" alt="Balo">
                 <h3>Balo trứng hình MÈO</h3>
                 <p class="price">
                     <span class="new-price">119.000đ</span>
@@ -271,7 +274,7 @@
 
            <div class="social-icons">
                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-               <a href="#"><img src="../img/zalo.webp" alt="Zalo"></a>
+               <a href="#"><img src="./img/zalo.webp" alt="Zalo"></a>
                <a href="#"><i class="fa-brands fa-twitter"></i></a>
                <a href="#"><i class="fa-brands fa-instagram"></i></a>
                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
@@ -282,9 +285,9 @@
    </div>
   <p class="copyright">© 2025 SunnyBear. All rights reserved.</p>
 
-    <script src="../javaScript/khuyenmai.js"></script>
-    <script src="../javaScript/thongBao.js"></script>
-    <script src="../javaScript/search.js"></script>
-    <script src="../javaScript/themvaogiohang.js"></script>
+    <script src="./javaScript/khuyenmai.js"></script>
+    <script src="./javaScript/thongBao.js"></script>
+    <script src="./javaScript/search.js"></script>
+    <script src="./javaScript/themvaogiohang.js"></script>
 </body>
 </html>
