@@ -13,15 +13,22 @@
 <body class="login-page">
     <!-- ======== Form Đăng Nhập ======== -->
    <section class="login-container">
+       <%
+           String error = (String) request.getAttribute("error");
+           if(error==null) error="";
+           String username = request.getParameter("email");
+           if(username==null) username="";
+       %>
     <div class="login-box">
       <a href="trangchu.jsp">
         <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
       </a>
       <h2 class="dangNhap" >Đăng nhập</h2>
-      <form id="loginForm">
+      <form id="loginForm" action="login" method="post">
         <div class="input-group">
+          <span style="color: red; width:100%; text-align:center; display:block; margin-bottom:5px;"><%=error%></span>
           <label for="username">Email/Tên đăng nhập</label>
-          <input type="text" id="username" name="username" placeholder="Nhập email/Tên tài khoản" required>
+          <input type="email" id="username" name="username" placeholder="Nhập email/Tên tài khoản" required value="<%=username%>">
         </div>
 
         <div class="input-group">
@@ -35,16 +42,15 @@
                 <input type="checkbox" id="remember" name="remember" style="cursor: pointer;">
                 <label for="remember">Nhớ mật khẩu</label>
             </div>
-            <a href="./html/forget.html">Quên mật khẩu?</a>
+            <a href="./forget.jsp">Quên mật khẩu?</a>
         </div>
-         <a href="index_login.jsp">
-          <button type="button" class="btn-primary">Đăng nhập</button>
-        </a>
+          <button type="submit" class="btn-primary">Đăng nhập</button>
+
 
 
         <div class="form-links">
 
-          <p class="notAccount">Chưa có tài khoản? <a href="./html/register.html">Đăng ký ngay</a></p>
+          <p class="notAccount">Chưa có tài khoản? <a href="./register.jsp">Đăng ký ngay</a></p>
         </div>
       </form>
     </div>
