@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quần áo bé trai login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/listqabt.css">
+</head>
+<body>
+<!-- ========== HEADER ========== -->
+<header class="header" id="header">
+
+    <nav class="topbar">
+        <p id="hotline">Hotline: <b> 0909 999 999</b> (8h30 - 12h) Tất cả các ngày trong tuần | </p>
+        <p id="thongBao">
+           <i class="fa-regular fa-bell"></i>
+           Thông báo của tôi
+       </p>
+
+        <div id="notification-box">
+            <ul>
+                <li>Hiện không có thông báo nào.</li>
+                <li>Đăng nhập để được nhận thêm nhiều ưu đãi.</li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="../img/gau.jpg" alt="SunnyBear Logo">
+        </div>
+
+        <div class="menu">
+            <ul>
+                <li><a href="index_login.jsp">Trang chủ</a></li>
+                <li ><a href="sanpham_login.jsp">Sản phẩm ▾</a>
+                    <ul class="sub">
+                        <li class="subItem"> <a href="listqabt_login.html">Quần áo bé trai</a> </li>
+                        <li class="subItem"> <a href="listbegai_login.jsp">Quần áo bé gái</a> </li>
+                        <li class="subItem"> <a href="phukien_login.jsp">Phụ kiện</a> </li>
+                    </ul>
+                </li>
+                <li><a href="tintuc_login.jsp">Tin tức</a></li>
+                <li><a href="khuyenmai_login.jsp">Khuyến mãi</a></li>
+                <li><a href="lienhe_login.jsp">Liên hệ</a></li>
+            </ul>
+        </div>
+
+        <div class="actions">
+            <a href="#" class="iconSearch"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <div class="user-menu">
+                <a href="#" class="iconUser"><i class="fa-regular fa-user"></i></a>
+                <ul class="user-dropdown">
+                    <li><a href="profile.jsp"><i class="fa-solid fa-user"></i> Thông tin cá nhân</a></li>
+                    <li><a href="donmua.jsp"><i class="fa-solid fa-clipboard-list"></i> Đơn hàng của tôi</a></li>
+                    <li><a href="trangchu.jsp"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
+                </ul>
+            </div>
+            <a href="giohang_login.jsp" class="iconCart"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+    </nav>
+</header>
+    <div class="search-overlay" id="searchOverlay">
+      <img class="logo" src="../img/gau.jpg" alt="Logo">
+
+      <div class="boxSearch">
+          <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
+          <button> <i class="fa-solid fa-magnifying-glass"></i> </button>
+      </div>
+
+      <span class="closeSearch" id="closeSearch">&times; </span>
+    </div>
+
+<!-- ========== DANH SÁCH SẢN PHẨM ========== -->
+<section class="products">
+    <h2>Quần áo bé trai</h2>
+    <!-- Thanh lọc sản phẩm -->
+    <div class="filter-bar">
+        <!-- Nhóm loại sản phẩm -->
+        <div class="filter-category">
+            <button>Đồ bộ</button>
+            <button>Vest</button>
+            <button>Áo, áo khoác</button>
+            <button>Quần</button>
+        </div>
+
+        <!-- Nhóm sắp xếp -->
+        <div class="filter-sort">
+            <div class="sort-buttons">
+                <button class="active">Mới nhất</button>
+                <button>Bán chạy</button>
+                <button>Khuyến mãi</button>
+
+                <!-- Dropdown: Cân nặng -->
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        Cân nặng <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">Dưới 10kg</a>
+                        <a href="#">10 - 20kg</a>
+                        <a href="#">Trên 20kg</a>
+                    </div>
+                </div>
+
+                <!-- Dropdown: Giá -->
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        Giá <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">Giá thấp đến cao</a>
+                        <a href="#">Giá cao đến thấp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-list" id="productList">
+        <div class="product-card" date-category="dobo">
+            <a href="pageatxl_login.jsp" class="link-cover">
+                <img src="../img/aox.webp" alt="Áo polo in hình khủng long">
+                <div class="product-info">
+                    <h3>Áo polo in hình khủng long</h3>
+                    <p>Chất cotton 100%, thoáng mát</p>
+                    <span>150.000₫</span>
+                </div>
+            </a>
+            <button class="btn-add">Thêm vào giỏ</button>
+        </div>
+
+        <div class="product-card" date-category="aoaokhoac">
+            <img src="../img/aohoatiet.jpg" alt="Áo sơ mi họa tiết">
+            <h3>Áo sơ mi họa tiết</h3>
+            <p>Bắt mắt, độc lạ, sành điệu</p>
+            <span>138.000₫</span>
+            <button class="btn-add">Thêm vào giỏ</button>
+        </div>
+
+
+
+        <div class="product-card" date-category="aoaokhoac">
+            <img src="../img/aosomitrang.jpg" alt="Áo sơ mi trắng">
+            <h3>Áo sơ mi trắng</h3>
+            <p>Lịch sự, dễ phối đồ</p>
+            <span>175.000₫</span>
+            <button class="btn-add">Thêm vào giỏ</button>
+        </div>
+
+        <div class="product-card" date-category="quan">
+            <img src="../img/quanjeanxanh.jpg" alt="Quần jean Tapered">
+            <h3>Quần jean Tapered</h3>
+            <p>Bền, co giãn nhẹ, sanh điệu</p>
+            <span>399.000₫</span>
+            <button class="btn-add">Thêm vào giỏ</button>
+        </div>
+
+        <div class="product-card" date-category="aoaokhoac">
+            <img src="../img/aokhoac.jpg" alt="Áo Khoác Hoodie">
+            <h3>Áo Khoác Hoodie</h3>
+            <p>Lịch sự, dễ phối đồ</p>
+            <span>329.000₫</span>
+            <button class="btn-add">Thêm vào giỏ</button>
+        </div>
+
+        <div class="product-card" date-category="dobo vest">
+            <img src="../img/blazer.jpg" alt="Set Áo Blazer & Quần Short">
+            <h3>Set Áo Blazer & Quần Short</h3>
+            <p>Phong Cách Lịch Lãm</p>
+            <span>429.000₫</span>
+            <button class="btn-add">Thêm vào giỏ</button>
+        </div>
+
+        <div class="product-card" date-category="dobo vest">
+            <img src="../img/vest.jpg" alt="Set Vest 2 In 1 SHEIN">
+            <h3>Set Vest 2 In 1 SHEIN</h3>
+            <p>Lịch Lãm & Thoải Mái</p>
+            <span>430.000₫</span>
+            <button class="btn-add">Thêm vào giỏ</button>
+        </div>
+
+        <div class="product-card" date-category="dobo vest">
+            <img src="../img/vestt.jpg" alt="Bộ vest bé trai">
+            <h3>Bộ vest bé trai</h3>
+            <p>Tặng thêm áo thun sành điệu</p>
+            <span>590.000₫</span>
+            <button class="btn-add">Thêm vào giỏ</button>
+        </div>
+
+        <div class="product-card" date-category="dobo">
+            <img src="../img/nasa.jpg" alt="Bộ thun tay ngắn cổ tròn NASA">
+            <h3>Bộ thun tay ngắn cổ tròn NASA</h3>
+            <p>Phù hợp bé trai năng động</p>
+            <span>192.000₫</span>
+            <button class="btn-add">Thêm vào giỏ</button>
+        </div>
+
+        <div class="product-card" date-category="quan">
+            <img src="../img/quankaki.jpg" alt="Quần kaki Jogger">
+            <h3>Quần kaki Jogger</h3>
+            <p>Bền, co giãn nhẹ thoải mái</p>
+            <span>199.000₫</span>
+            <button class="btn-add">Thêm vào giỏ</button>
+        </div>
+
+        <div class="product-card" date-category="aoaokhoac">
+            <img src="../img/aolen.jpg" alt="Áo len tay dài đính cúc đơn giản">
+            <h3>Áo len tay dài đính cúc đơn giảnh</h3>
+            <p>Đơn giản, ấp áp, dễ phối đồ</p>
+            <span>240.000₫</span>
+            <button class="btn-add">Thêm vào giỏ</button>
+        </div>
+
+        <div class="product-card" date-category="quan">
+            <img src="../img/quanjog.jpg" alt="Quần Jogger">
+            <h3>Quần Jogger</h3>
+            <p>chất co giãn phong cách thể thao</p>
+            <span>232.000₫</span>
+            <button class="btn-add">Thêm vào giỏ</button>
+        </div>
+
+        <div class="product-card" date-category="dobo">
+            <img src="../img/aokemtui.jpg" alt="Bộ thun cao cấp kèm túi đeo chéo">
+            <h3>Bộ thun cao cấp kèm túi đeo chéo</h3>
+            <p>Bền, gọn nhẹ, thoải mái</p>
+            <span>272.000₫</span>
+            <button class="btn-add">Thêm vào giỏ</button>
+        </div>
+
+        <div class="product-card" date-category="dobo">
+            <img src="../img/aochuV.jpg" alt="Bộ thun đùi chữ V Play with me">
+            <h3>Bộ thun đùi chữ V Play with me</h3>
+            <p>Phong cách cực ngầu</p>
+            <span>89.000₫</span>
+            <button class="btn-add">Thêm vào giỏ</button>
+        </div>
+
+        <div class="product-card" date-category="dobo">
+            <img src="../img/aohong.jpg" alt="Áo sơ mi ngắn tay R & quần short">
+            <h3>Áo sơ mi ngắn tay R & quần short</h3>
+            <p>Sành điệu, cá tính</p>
+            <span>230.000₫</span>
+            <button class="btn-add">Thêm vào giỏ</button>
+        </div>
+
+        <div class="product-card" date-category="dobo">
+            <img src="../img/hoathinh.jpg" alt="Bộ bé trai in hoạt hình cao cấp">
+            <h3>Bộ bé trai in hoạt hình cao cấp</h3>
+            <p>Hình in sắc nét từ áo đến quần</p>
+            <span>247.000₫</span>
+            <button class="btn-add">Thêm vào giỏ</button>
+        </div>
+        <div class="load-more-container">
+            <button id="load-more">Xem thêm</button>
+        </div>
+    </div>
+</section>
+<!-- ========== Khi nhấn thêm vào giỏ hàng-->
+      <div id="toast"></div>
+
+<!-- ========== FOOTER ========== -->
+<div class="footer">
+    <section class="s-footer-1">
+        <div class="footer-info">
+            <h3>SunnyBear Kids Clothing</h3>
+            <p class="slogan">Thời trang trẻ em chất lượng, an toàn cho bé yêu</p>
+            <p class="fa-phone"><i class="fa-solid fa-phone"></i> Hotline: 0909 999 999</p>
+            <p class="fa-mail"><i class="fa-solid fa-envelope"></i> Email: contact@sunnybear.vn</p>
+        </div>
+    </section>
+    <section class="s-footer-2">
+
+        <div class="footer-danhmuc">
+            <h3>Danh mục</h3>
+            <a href="index_login.jsp">Trang chủ</a>
+            <a href="sanpham_login.jsp">Sản Phẩm</a>
+            <a href="tintuc_login.jsp">Tin Tức</a>
+            <a href="khuyenmai_login.jsp">Khuyến mãi</a>
+            <a href="lienhe_login.jsp">Liên hệ</a>
+
+        </div>
+
+    </section>
+    <section class="s-footer-3">
+        <div class="footer-contact">
+          <h3>Địa chỉ & Thời gian làm việc</h3>
+          <p>123 Đường Hạnh Phúc, Quận 5, TP.HCM</p>
+          <p>Thời gian làm việc: </p>
+          <p>Thứ 2 - Thứ 6: 8h00 - 17h30</p>
+          <p>Thứ 7 - Chủ nhật: 9h00 - 17h00</p>
+        </div>
+    </section>
+
+    <section class="s-footer-4">
+        <div class="footer-social">
+        <h3>Kết nối với chúng tôi</h3>
+
+        <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><img src="../img/zalo.webp" alt="Zalo"></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        </div>
+    </section>
+</div>
+<p class="copyright">© 2025 SunnyBear. All rights reserved.</p>
+</body>
+<script>
+    document.addEventListener("click", function (e) {
+        const dropdowns = document.querySelectorAll(".dropdown");
+        dropdowns.forEach((dropdown) => {
+            if (dropdown.contains(e.target)) {
+                dropdown.classList.toggle("show");
+            } else {
+                dropdown.classList.remove("show");
+            }
+        });
+    });
+</script>
+<script src="../javaScript/pageatxl.js"></script>
+<script src="../javaScript/header.js"></script>
+<script src="../javaScript/thongBao.js"></script>
+<script src="../javaScript/search.js"></script>
+<script src="../javaScript/themvaogiohang.js"></script>
+<script src="../javaScript/loadMore.js"></script>
+</html>

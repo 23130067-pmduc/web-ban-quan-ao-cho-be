@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Áo thun xanh lá</title>
+    <link rel="stylesheet" href="../css/pageatxl.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    
+</head>
+<body>
+    <!-- ========== HEADER ========== -->
+        <header class="header" id="header">
+
+            <nav class="topbar">
+                <p id="hotline">Hotline: <b> 0909 999 999</b> (8h30 - 12h) Tất cả các ngày trong tuần | </p>
+                <p id="thongBao">
+           <i class="fa-regular fa-bell"></i>
+           Thông báo của tôi
+       </p>
+
+        <div id="notification-box">
+            <ul>
+                <li>Hiện không có thông báo nào.</li>
+                <li>Đăng nhập để được nhận thêm nhiều ưu đãi.</li>
+
+            </ul>
+
+        </div>
+            </nav>
+
+
+
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="../img/gau.jpg" alt="SunnyBear Logo">
+                </div>
+
+                <div class="menu">
+                    <ul>
+                        <li><a href="trangchu.jsp">Trang chủ</a></li>
+                        <li ><a href="sanpham.jsp">Sản phẩm ▾</a>
+                            <ul class="sub">
+                                <li class="subItem"> <a href="listqabt.jsp">Quần áo bé trai</a> </li>
+                                <li class="subItem"> <a href="listbegai.jsp">Quần áo bé gái</a> </li>
+                                <li class="subItem"> <a href="phukien.jsp">Phụ kiện</a> </li>
+                            </ul>
+                        </li>
+                        <li><a href="tintuc.jsp">Tin tức</a></li>
+                        <li><a href="khuyenmai.jsp">Khuyến mãi</a></li>
+                        <li><a href="lienhe.jsp">Liên hệ</a></li>
+                    </ul>
+                </div>
+
+                <div class="actions">
+                    <a href="#" class="icon iconSearch"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    <div class="user-menu">
+                        <a href="#" class="icon iconUser"><i class="fa-regular fa-user"></i></a>
+                        <ul class="user-dropdown">
+                            <li><a href="login.jsp">Đăng nhập</a></li>
+                            <li><a href="register.jsp">Đăng ký</a></li>
+                        </ul>
+                    </div>
+                    <a href="giohang.jsp" class="icon iconCart"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+            </nav>
+
+
+        </header>
+
+        <div class="search-overlay" id="searchOverlay">
+            <img class="logo" src="../img/gau.jpg" alt="Logo">
+
+            <div class="boxSearch">
+                 <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
+                <button> <i class="fa-solid fa-magnifying-glass"></i> </button>
+            </div>
+
+            <span class="closeSearch" id="closeSearch">&times; </span>
+        </div>
+<main class="product-detail">
+    <div class="product-container">
+
+        <!-- ========== HÌNH ẢNH ========== -->
+        <div class="product-image">
+            <img id="main-image" src="../img/aox.webp" alt="Áo polo in hình khủng long">
+            <div class="image-thumbs">
+                <img class="thumb active" src="../img/aox.webp" data-color="xanh" alt="Xanh lá">
+                <img class="thumb" src="../img/do.webp" data-color="do" alt="Đỏ">
+                <img class="thumb" src="../img/den.webp" data-color="den" alt="Đen">
+                <img class="thumb" src="../img/xanhnhat.webp" data-color="xanhnhat" alt="Xanh nhạt">
+                <img class="thumb" src="../img/trang.webp" data-color="trang" alt="Trắng">
+            </div>
+        </div>
+
+        <!-- ========== THÔNG TIN CHUNG ========== -->
+        <div class="product-info">
+            <h1 class="product-name">Áo polo in hình khủng long SunnyBear</h1>
+            <p class="product-price">Giá: <span>150.000₫</span></p>
+            <div class="product-rating">⭐⭐⭐⭐☆ (128 đánh giá)</div>
+
+            <!-- CHỌN MÀU -->
+            <div class="product-colors">
+                <p><strong>Màu sắc:</strong></p>
+                <div class="color-options">
+                    <img class="color-thumb" data-image="../img/aox.webp" src="../img/green.webp" alt="xanh">
+                    <img class="color-thumb" data-image="../img/do.webp" src="../img/red.webp" alt="do">
+                    <img class="color-thumb" data-image="../img/den.webp" src="../img/black.webp" alt="den">
+                    <img class="color-thumb" data-image="../img/xanhnhat.webp" src="../img/xn.jpg" alt="xanhnhat">
+                    <img class="color-thumb" data-image="../img/trang.webp" src="../img/t.jpg" alt="trang">
+
+                </div>
+            </div>
+
+            <!-- CHỌN SIZE -->
+            <div class="product-sizes">
+                <p><strong>Chọn size theo cân nặng:</strong></p>
+                <div class="size-options">
+                    <button class="size-btn">10-15kg</button>
+                    <button class="size-btn">16-20kg</button>
+                    <button class="size-btn">21-25kg</button>
+                    <button class="size-btn">26-30kg</button>
+                </div>
+            </div>
+
+            <!-- SỐ LƯỢNG -->
+            <div class="product-quantity">
+                <p><strong>Số lượng:</strong></p>
+                <div class="quantity-control">
+                    <button class="btn-decrease">−</button>
+                    <input type="number" id="quantity" min="1" value="1">
+                    <button class="btn-increase">+</button>
+                </div>
+            </div>
+
+            <!-- NÚT MUA -->
+            <div class="product-actions">
+                <a href="thanhtoan.jsp" class="link-cover"><button class="btn-buy-now">Mua ngay</button></a>
+                <button class="btn-add-cart">Thêm vào giỏ hàng</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== MÔ TẢ + THÔNG TIN ========== -->
+    <section class="product-description">
+        <h2>MÔ TẢ SẢN PHẨM</h2>
+        <p>
+            Áo polo trẻ em SunnyBear được làm từ chất liệu <strong>cotton 100%</strong> mềm mịn, thấm hút mồ hôi tốt,
+            giúp bé luôn thoải mái trong mọi hoạt động. Thiết kế <strong>in hình khủng long dễ thương</strong>
+            mang lại phong cách năng động, đáng yêu cho các bé trai.
+        </p>
+
+        <ul>
+            <li>Chất liệu: Cotton co giãn 4 chiều, thoáng mát.</li>
+            <li>Kiểu dáng: Áo polo cổ bẻ, tay ngắn.</li>
+            <li>Màu sắc: Xanh lá, đỏ, trắng, đen, xanh nhạt.</li>
+            <li>Size: Phù hợp cho bé từ 10kg – 35kg.</li>
+            <li>Xuất xứ: Việt Nam.</li>
+        </ul>
+
+        <p>
+            Sản phẩm phù hợp cho bé mặc đi học, đi chơi, hoặc trong các buổi dã ngoại cuối tuần.
+            Với đường may tỉ mỉ và chất liệu cao cấp, áo đảm bảo <strong>độ bền cao</strong> sau nhiều lần giặt.
+        </p>
+
+        <p><em>Hướng dẫn bảo quản:</em></p>
+        <ul>
+            <li>Giặt ở nhiệt độ dưới 40°C.</li>
+            <li>Không dùng thuốc tẩy mạnh.</li>
+            <li>Ủi ở nhiệt độ thấp, tránh in hình.</li>
+        </ul>
+    </section>
+
+    <!-- ========== ĐÁNH GIÁ ========== -->
+    <section class="product-review">
+        <h2>Đánh giá sản phẩm</h2>
+
+        <div class="star-select">
+            <span class="star" data-value="1">★</span>
+            <span class="star" data-value="2">★</span>
+            <span class="star" data-value="3">★</span>
+            <span class="star" data-value="4">★</span>
+            <span class="star" data-value="5">★</span>
+        </div>
+
+        <textarea id="review-text" placeholder="Nhập nhận xét của bạn..."></textarea>
+        <button id="submit-review">Gửi đánh giá</button>
+
+        <div class="review-list">
+            <h3>Nhận xét gần đây</h3>
+            <div class="review-item"><strong>Phương Linh:</strong> ⭐⭐⭐⭐⭐ Áo mềm mịn, bé mặc rất thích 💚</div>
+            <div class="review-item"><strong>Minh Khang:</strong> ⭐⭐⭐⭐ Màu đẹp, form vừa vặn, giao hàng nhanh.</div>
+        </div>
+    </section>
+
+    <!-- ========== GỢI Ý SẢN PHẨM ========== -->
+    <section class="suggested-products">
+        <h2>Sản phẩm phù hợp khác</h2>
+        <div class="suggested-list">
+            <div class="suggested-item">
+                <img src="../img/somi.png" alt="Áo sơ mi bé trai">
+                <p class="name">Áo sơ mi bé trai</p>
+                <p class="price">175.000₫</p>
+                <button class="btn-add">Thêm vào giỏ</button>
+            </div>
+            <div class="suggested-item">
+                <img src="../img/aobalogame.jpg" alt="Áo ba lỗ hình Game Play">
+                <p class="name">Áo ba lỗ hình Game Play</p>
+                <p class="price">96.000₫</p>
+                <button class="btn-add">Thêm vào giỏ</button>
+            </div>
+            <div class="suggested-item">
+                <img src="../img/satvqs.jpg" alt="Set Áo Thun & Quần Short">
+                <p class="name">Áo Thun & Quần Short</p>
+                <p class="price">259.749₫</p>
+                <button class="btn-add">Thêm vào giỏ</button>
+            </div>
+            <div class="suggested-item">
+                <img src="../img/aoghile.jpg" alt="Áo ghile phối đồ vest">
+                <p class="name">Áo ghile phối đồ vest</p>
+                <p class="price">259.749₫</p>
+                <button class="btn-add">Thêm vào giỏ</button>
+            </div>
+        </div>
+        <a href="listqabt.jsp" class="btn-view-more">Xem thêm</a>
+    </section>
+</main>
+
+<div class="footer">
+    <section class="s-footer-1">
+        <div class="footer-info">
+            <h3>SunnyBear Kids Clothing</h3>
+            <p class="slogan">Thời trang trẻ em chất lượng, an toàn cho bé yêu</p>
+            <p class="fa-phone"><i class="fa-solid fa-phone"></i> Hotline: 0909 999 999</p>
+            <p class="fa-mail"><i class="fa-solid fa-envelope"></i> Email: contact@sunnybear.vn</p>
+        </div>
+    </section>
+    <section class="s-footer-2">
+
+        <div class="footer-danhmuc">
+            <h3>Danh mục</h3>
+            <a href="trangchu.jsp">Trang chủ</a>
+            <a href="sanpham.jsp">Sản Phẩm</a>
+            <a href="tintuc.jsp">Tin Tức</a>
+            <a href="khuyenmai.jsp">Khuyến mãi</a>
+            <a href="lienhe.jsp">Liên hệ</a>
+
+        </div>
+
+    </section>
+    <section class="s-footer-3">
+        <div class="footer-contact">
+          <h3>Địa chỉ & Thời gian làm việc</h3>
+          <p>123 Đường Hạnh Phúc, Quận 5, TP.HCM</p>
+          <p>Thời gian làm việc: </p>
+          <p>Thứ 2 - Thứ 6: 8h00 - 17h30</p>
+          <p>Thứ 7 - Chủ nhật: 9h00 - 17h00</p>
+        </div>
+    </section>
+
+    <section class="s-footer-4">
+        <div class="footer-social">
+        <h3>Kết nối với chúng tôi</h3>
+
+        <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><img src="../img/zalo.webp" alt="Zalo"></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        </div>
+    </section>
+</div>
+<p class="copyright">© 2025 SunnyBear. All rights reserved.</p>
+
+<!-- Toast thông báo thêm giỏ hàng -->
+<div id="toast"></div>
+
+</body>
+<script src="../javaScript/pageatxl.js"></script>
+<script src="../javaScript/header.js"></script>
+<script src="../javaScript/thongBao.js"></script>
+<script src="../javaScript/search.js"></script>
+<script src="../javaScript/themvaogiohang.js"></script>
+</html>
