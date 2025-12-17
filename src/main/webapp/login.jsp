@@ -16,7 +16,7 @@
        <%
            String error = (String) request.getAttribute("error");
            if(error==null) error="";
-           String username = request.getParameter("email");
+           String username = request.getParameter("username");
            if(username==null) username="";
        %>
     <div class="login-box">
@@ -28,7 +28,7 @@
         <div class="input-group">
           <span style="color: red; width:100%; text-align:center; display:block; margin-bottom:5px;"><%=error%></span>
           <label for="username">Email/Tên đăng nhập</label>
-          <input type="email" id="username" name="username" placeholder="Nhập email/Tên tài khoản" required value="<%=username%>">
+          <input type="text" id="username" name="username" placeholder="Nhập email/Tên tài khoản" required value="<%=username%>">
         </div>
 
         <div class="input-group">
