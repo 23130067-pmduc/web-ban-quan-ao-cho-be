@@ -1,13 +1,15 @@
 package vn.edu.nlu.fit.shopquanao.Controller;
 
+import java.io.IOException;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import vn.edu.nlu.fit.shopquanao.Service.UserService;
 import vn.edu.nlu.fit.shopquanao.model.User;
-
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
-
-import java.io.IOException;
 
 @WebServlet(name = "loginController", value = "/login")
 public class loginController extends HttpServlet {
@@ -45,7 +47,14 @@ public class loginController extends HttpServlet {
             HttpSession session = request.getSession(true);
             session.setAttribute("userlogin", user);
 
-            response.sendRedirect(request.getContextPath() + "/index_login.jsp");
+            // Kiểm tra role để redirect đúng trang
+            if ("admin".equalsIgnoreCase(user.getRole())) {
+                // Admin → trang admin
+                response.sendRedirect(request.getContextPath() + "/admin.jsp");
+            } else {
+                // Customer → trang index_login
+                response.sendRedirect(request.getContextPath() + "/index_login.jsp");
+            }
         } else {
             // LOGIN FAIL
             request.setAttribute("error", "Tài khoản hoặc mật khẩu không đúng");
