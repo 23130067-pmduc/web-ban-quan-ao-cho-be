@@ -6,6 +6,7 @@ public class User {
         private String email;
         private String password;
         private String role;
+        private int isActive;
 
         // ===== constructor rỗng (BẮT BUỘC cho JDBI) =====
         public User() {}
@@ -52,6 +53,10 @@ public class User {
             this.role = role;
         }
 
+    public int getIsActive() {return isActive;}
+
+    public void setIsActive(int isActive) {this.isActive = isActive;}
+
         @Override
         public String toString() {
             return "User{" +
@@ -59,6 +64,7 @@ public class User {
                     ", name='" + username + '\'' +
                     ", email='" + email + '\'' +
                     ", role='" + role + '\'' +
+                    ", isActive=" + isActive +
                     '}';
         }
 

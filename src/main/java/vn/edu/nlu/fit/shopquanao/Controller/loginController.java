@@ -42,24 +42,31 @@ public class loginController extends HttpServlet {
 
         User user = userService.login(username, password);
 
-        if (user != null) {
-            // LOGIN OK
-            HttpSession session = request.getSession(true);
-            session.setAttribute("userlogin", user);
-
-            // Kiểm tra role để redirect đúng trang
-            if ("admin".equalsIgnoreCase(user.getRole())) {
-                // Admin → trang admin
-                response.sendRedirect(request.getContextPath() + "/admin.jsp");
-            } else {
-                // Customer → trang index_login
-                response.sendRedirect(request.getContextPath() + "/index_login.jsp");
-            }
-        } else {
-            // LOGIN FAIL
+        if (user == null) {
             request.setAttribute("error", "Tài khoản hoặc mật khẩu không đúng");
             request.setAttribute("username", username);
             request.getRequestDispatcher("/login.jsp").forward(request, response);
+            return;
+        }
+
+        if (user.getIsActive() == 0) {
+            request.setAttribute("error", "Tài khoản chưa xác nhận OTP. Vui lòng kiểm tra email.");
+            request.setAttribute("username", username);
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            return;
+        }
+
+        // reset session
+        HttpSession oldSession = request.getSession(false);
+        if (oldSession != null) oldSession.invalidate();
+
+        HttpSession session = request.getSession(true);
+        session.setAttribute("userlogin", user);
+
+        if ("admin".equalsIgnoreCase(user.getRole())) {
+            response.sendRedirect(request.getContextPath() + "/admin.jsp");
+        } else {
+            response.sendRedirect(request.getContextPath() + "/index_login.jsp");
         }
     }
 }

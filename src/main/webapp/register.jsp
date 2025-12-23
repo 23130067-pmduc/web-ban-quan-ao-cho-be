@@ -14,37 +14,44 @@
 <body>
     <!-- Main Register Form -->
     <main class="register-container">
+        <%
+            String error = (String) request.getAttribute("error");
+            if(error==null) error="";
+            String username = request.getParameter("username");
+            if(username==null) username="";
+        %>
         <a href="trangchu.jsp">
             <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
         </a>
         <h2 class="dangKy">Đăng ký tài khoản</h2>
-        <form class="registerForm">
+        <form class="registerForm" action="register" method="post">
             <!-- Họ tên -->
             <div class="input-group">
-                <label for="fullname">Tên đăng nhập</label>
-                <input type="text" id="fullname" placeholder="Nhập tên đăng nhập..." required>
+                <span style="color: red; width:100%; text-align:center; display:block; margin-bottom:5px;"><%=error%></span>
+                <label for="username">Tên đăng nhập</label>
+                <input type="text" name="username" id="username" placeholder="Nhập tên đăng nhập..." value="<%=username%>">
             </div>
 
             <!-- Email -->
             <div class="input-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Nhập email..." required>
+                <input type="email" name="email" id="email" placeholder="Nhập email...">
             </div>
 
             <!-- Mật khẩu -->
             <div class="input-group">
                 <label for="password">Mật khẩu</label>
-                <input type="password" id="password" placeholder="Nhập mật khẩu..." required>
+                <input type="password" name="password" id="password" placeholder="Nhập mật khẩu...">
             </div>
 
             <!-- Xác nhận mật khẩu -->
             <div class="input-group">
                 <label for="confirmPassword">Xác nhận mật khẩu</label>
-                <input type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu..." required>
+                <input type="password" name="repassword" id="confirmPassword" placeholder="Nhập lại mật khẩu...">
             </div>
 
             <!-- Nút đăng ký -->
-            <a href="login.jsp" class="btn">Đăng ký</a>
+            <button type="submit" class="btn">Đăng ký</button>
 
             <!-- Liên kết -->
             <div class="links">
