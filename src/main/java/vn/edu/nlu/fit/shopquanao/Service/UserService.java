@@ -49,4 +49,3 @@ public class UserService {
         return userDao.verifyOtp(email, otp);
     }
 }
-
