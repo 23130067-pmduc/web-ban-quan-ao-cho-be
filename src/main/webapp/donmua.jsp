@@ -40,7 +40,7 @@
 
         <div class="menu">
             <ul>
-                <li><a href="index_login.jsp">Trang chủ</a></li>
+                <li><a href="trangchu_login.jsp">Trang chủ</a></li>
                 <li ><a href="sanpham_login.jsp">Sản phẩm ▾</a>
                     <ul class="sub">
                         <li class="subItem"> <a href="listqabt_login.jsp">Quần áo bé trai</a> </li>
@@ -100,7 +100,7 @@
             <ul>
                 <li><a href="profile.jsp"><i class="fas fa-user"></i> Thông tin cá nhân</a></li>
                 <li><a href="diachi.jsp"><i class="fas fa-map-marker-alt"></i> Địa chỉ của tôi</a></li>
-                <li class="active"><a href="donmua.html"><i class="fas fa-clipboard-list"></i> Đơn hàng của tôi</a></li>
+                <li class="active"><a href="donmua.jsp"><i class="fas fa-clipboard-list"></i> Đơn hàng của tôi</a></li>
                 <li><a href="doimatkhau.jsp"><i class="fas fa-lock"></i> Đổi mật khẩu</a></li>
                 <li><a href="trangchu.jsp"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
             </ul>
@@ -238,7 +238,7 @@
 
                     <div class="order-buttons">
                         <button class="btn-mualai">Mua lại</button>
-                        <a href="./html/chitietdonhuy.html" class="btn-huydon">Xem chi tiết hủy đơn</a>
+                        <a href="chitietdonhuy.jsp" class="btn-huydon">Xem chi tiết hủy đơn</a>
                         <button class="contact">Liên Hệ Người Bán</button>
                     </div>
 
@@ -270,7 +270,7 @@
 
         <div class="footer-danhmuc">
             <h3>Danh mục</h3>
-            <a href="index_login.jsp">Trang chủ</a>
+            <a href="trangchu_login.jsp">Trang chủ</a>
             <a href="sanpham_login.jsp">Sản Phẩm</a>
             <a href="tintuc_login.jsp">Tin Tức</a>
             <a href="khuyenmai_login.jsp">Khuyến mãi</a>

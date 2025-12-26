@@ -39,7 +39,7 @@
 
         <div class="menu">
             <ul>
-                <li><a href="index_login.jsp">Trang chủ</a></li>
+                <li><a href="trangchu_login.jsp">Trang chủ</a></li>
                 <li ><a href="sanpham_login.jsp">Sản phẩm ▾</a>
                     <ul class="sub">
                         <li class="subItem"> <a href="listqabt_login.jsp">Quần áo bé trai</a> </li>
@@ -81,7 +81,7 @@
 <div class="success-box">
     <h1>✔ Đặt hàng thành công!</h1>
     <p>Vui lòng giữ máy & bắt máy để SunnyBear Shop liên lạc xác nhận đơn hàng. Cảm ơn Quý Khách.</p>
-    <a href="index_login.jsp">Quay về trang chủ</a>
+    <a href="trangchu_login.jsp">Quay về trang chủ</a>
 </div>
 
 <!-- Gợi ý sản phẩm -->
@@ -169,7 +169,7 @@
 
         <div class="footer-danhmuc">
             <h3>Danh mục</h3>
-            <a href="index_login.jsp">Trang chủ</a>
+            <a href="trangchu_login.jsp">Trang chủ</a>
             <a href="sanpham_login.jsp">Sản Phẩm</a>
             <a href="tintuc_login.jsp">Tin Tức</a>
             <a href="khuyenmai_login.jsp">Khuyến mãi</a>

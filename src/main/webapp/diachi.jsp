@@ -41,7 +41,7 @@
 
         <div class="menu">
             <ul>
-                <li><a href="index_login.jsp">Trang chủ</a></li>
+                <li><a href="trangchu_login.jsp">Trang chủ</a></li>
                 <li ><a href="sanpham_login.jsp">Sản phẩm ▾</a>
                     <ul class="sub">
                         <li class="subItem"> <a href="listqabt_login.jsp">Quần áo bé trai</a> </li>
@@ -100,7 +100,7 @@
         <nav class="profile-menu">
             <ul>
                 <li><a href="profile.jsp"><i class="fas fa-user"></i> Thông tin cá nhân</a></li>
-                <li class="active"><a href="diachi.html"><i class="fas fa-map-marker-alt"></i> Địa chỉ của tôi</a></li>
+                <li class="active"><a href="diachi.jsp"><i class="fas fa-map-marker-alt"></i> Địa chỉ của tôi</a></li>
                 <li><a href="donmua.jsp"><i class="fas fa-clipboard-list"></i> Đơn hàng của tôi</a></li>
                 <li><a href="doimatkhau.jsp"><i class="fas fa-lock"></i> Đổi mật khẩu</a></li>
                 <li><a href="trangchu.jsp"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>

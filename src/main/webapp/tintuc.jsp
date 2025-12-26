@@ -47,7 +47,7 @@
                             <li class="subItem"> <a href="phukien.jsp">Phụ kiện</a> </li>
                         </ul>
                     </li>
-                    <li><a href="tintuc.html">Tin tức</a></li>
+                    <li><a href="tintuc.jsp">Tin tức</a></li>
                     <li><a href="khuyenmai.jsp">Khuyến mãi</a></li>
                     <li><a href="lienhe.jsp">Liên hệ</a></li>
                 </ul>
@@ -133,7 +133,7 @@
                 <h3>Danh mục</h3>
                 <a href="trangchu.jsp">Trang chủ</a>
                 <a href="sanpham.jsp">Sản Phẩm</a>
-                <a href="tintuc.html">Tin Tức</a>
+                <a href="tintuc.jsp">Tin Tức</a>
                 <a href="khuyenmai.jsp">Khuyến mãi</a>
                 <a href="lienhe.jsp">Liên hệ</a>
 

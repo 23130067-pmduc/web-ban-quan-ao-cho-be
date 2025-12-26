@@ -46,7 +46,7 @@
                     <ul class="sub">
                         <li class="subItem"> <a href="listqabt.jsp">Quần áo bé trai</a> </li>
                         <li class="subItem"> <a href="listbegai.jsp">Quần áo bé gái</a> </li>
-                        <li class="subItem"> <a href="phukien.html">Phụ kiện</a> </li>
+                        <li class="subItem"> <a href="phukien.jsp">Phụ kiện</a> </li>
                     </ul>
                 </li>
                 <li><a href="tintuc.jsp">Tin tức</a></li>

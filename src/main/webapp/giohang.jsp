@@ -68,7 +68,7 @@
                     <li><a href="register.jsp">Đăng ký</a></li>
                 </ul>
             </div>
-            <a href="giohang.html" class="iconCart"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="giohang.jsp" class="iconCart"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
     </nav>
 

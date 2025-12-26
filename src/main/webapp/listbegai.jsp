@@ -44,7 +44,7 @@
                 <li ><a href="sanpham.jsp">Sản phẩm ▾</a>
                     <ul class="sub">
                         <li class="subItem"> <a href="listqabt.jsp">Quần áo bé trai</a> </li>
-                        <li class="subItem"> <a href="listbegai.html">Quần áo bé gái</a> </li>
+                        <li class="subItem"> <a href="listbegai.jsp">Quần áo bé gái</a> </li>
                         <li class="subItem"> <a href="phukien.jsp">Phụ kiện</a> </li>
                     </ul>
                 </li>

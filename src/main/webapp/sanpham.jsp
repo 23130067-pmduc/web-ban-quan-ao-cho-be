@@ -41,7 +41,7 @@
         <div class="menu">
             <ul>
                 <li><a href="trangchu.jsp">Trang chủ</a></li>
-                <li ><a href="sanpham.html">Sản phẩm ▾</a>
+                <li ><a href="sanpham.jsp">Sản phẩm ▾</a>
                     <ul class="sub">
                         <li class="subItem"> <a href="listqabt.jsp">Quần áo bé trai</a> </li>
                         <li class="subItem"> <a href="listbegai.jsp">Quần áo bé gái</a> </li>
@@ -505,7 +505,7 @@
             <div class="footer-danhmuc">
                 <h3>Danh mục</h3>
                 <a href="trangchu.jsp">Trang chủ</a>
-                <a href="sanpham.html">Sản Phẩm</a>
+                <a href="sanpham.jsp">Sản Phẩm</a>
                 <a href="tintuc.jsp">Tin Tức</a>
                 <a href="khuyenmai.jsp">Khuyến mãi</a>
                 <a href="lienhe.jsp">Liên hệ</a>

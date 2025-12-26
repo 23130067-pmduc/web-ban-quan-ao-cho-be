@@ -40,12 +40,12 @@
 
         <div class="menu">
             <ul>
-                <li><a href="index_login.jsp">Trang chủ</a></li>
+                <li><a href="trangchu_login.jsp">Trang chủ</a></li>
                 <li ><a href="sanpham_login.jsp">Sản phẩm ▾</a>
                     <ul class="sub">
                         <li class="subItem"> <a href="listqabt_login.jsp">Quần áo bé trai</a> </li>
                         <li class="subItem"> <a href="listbegai_login.jsp">Quần áo bé gái</a> </li>
-                        <li class="subItem"> <a href="phukien_login.html">Phụ kiện</a> </li>
+                        <li class="subItem"> <a href="phukien_login.jsp">Phụ kiện</a> </li>
                     </ul>
                 </li>
                 <li><a href="tintuc_login.jsp">Tin tức</a></li>
@@ -229,7 +229,7 @@
 
         <div class="footer-danhmuc">
             <h3>Danh mục</h3>
-            <a href="index_login.jsp">Trang chủ</a>
+            <a href="trangchu_login.jsp">Trang chủ</a>
             <a href="sanpham_login.jsp">Sản Phẩm</a>
             <a href="tintuc_login.jsp">Tin Tức</a>
             <a href="khuyenmai_login.jsp">Khuyến mãi</a>

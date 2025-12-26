@@ -50,7 +50,7 @@
                     </li>
                     <li><a href="tintuc.jsp">Tin tức</a></li>
                     <li><a href="khuyenmai.jsp">Khuyến mãi</a></li>
-                    <li><a href="lienhe.html">Liên hệ</a></li>
+                    <li><a href="lienhe.jsp">Liên hệ</a></li>
                 </ul>
             </div>
 
@@ -137,7 +137,7 @@
                 <a href="sanpham.jsp">Sản Phẩm</a>
                 <a href="tintuc.jsp">Tin Tức</a>
                 <a href="khuyenmai.jsp">Khuyến mãi</a>
-                <a href="lienhe.html">Liên hệ</a>
+                <a href="lienhe.jsp">Liên hệ</a>
 
             </div>
 
