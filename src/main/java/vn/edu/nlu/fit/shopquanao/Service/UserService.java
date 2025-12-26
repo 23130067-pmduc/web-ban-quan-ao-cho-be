@@ -20,8 +20,37 @@ public class UserService {
 
         return user;
     }
+    private String checkPasswordStrength(String password) {
+        if (password == null || password.length() < 8)
+            return "Mật khẩu phải có ít nhất 8 ký tự";
+
+        boolean hasUpper = false;
+        boolean hasLower = false;
+        boolean hasDigit = false;
+        boolean hasSpecial = false;
+
+        for (char c : password.toCharArray()) {
+            if (Character.isUpperCase(c)) hasUpper = true;
+            else if (Character.isLowerCase(c)) hasLower = true;
+            else if (Character.isDigit(c)) hasDigit = true;
+            else hasSpecial = true;
+        }
+
+        if (!hasUpper) return "Mật khẩu phải có ít nhất 1 chữ hoa";
+        if (!hasLower) return "Mật khẩu phải có ít nhất 1 chữ thường";
+        if (!hasDigit) return "Mật khẩu phải có ít nhất 1 chữ số";
+        if (!hasSpecial) return "Mật khẩu phải có ít nhất 1 ký tự đặc biệt";
+
+        return null; // hợp lệ
+    }
+
 
     public void registerSendOtp(String username, String email, String password) {
+
+        String passwordError = checkPasswordStrength(password);
+        if (passwordError != null) {
+            throw new RuntimeException(passwordError);
+        }
 
         String otp = String.format("%06d", new Random().nextInt(1_000_000));
         LocalDateTime expiredAt = LocalDateTime.now().plusMinutes(5);
