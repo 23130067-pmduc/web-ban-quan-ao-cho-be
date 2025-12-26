@@ -422,5 +422,6 @@
 
 <script src="../javaScript/admin.js"></script>
 <script src="../javaScript/doanhthu.js"></script>
+<script src="../javaScript/product-admin.js"></script>
 </body>
 </html>

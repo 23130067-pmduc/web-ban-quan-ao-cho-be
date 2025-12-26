@@ -886,3 +886,51 @@ body, .admin {
         transform: translateY(0);
     }
 }
+
+/* ===== CSS B? SUNG CHO QU?N LÝ S?N PH?M ===== */
+
+/* Tr?ng thái t?n kho */
+.stock-ok {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.stock-low {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* Status badges */
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.status-active {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-inactive {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Form textarea */
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    resize: vertical;
+    min-height: 80px;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #A9C87D;
+}

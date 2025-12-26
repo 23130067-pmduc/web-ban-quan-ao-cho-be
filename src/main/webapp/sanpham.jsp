@@ -1,9 +1,75 @@
 <%@ page contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page import="vn.edu.nlu.fit.shopquanao.Service.ProductService" %>
+<%@ page import="vn.edu.nlu.fit.shopquanao.Service.CategoryService" %>
+<%@ page import="vn.edu.nlu.fit.shopquanao.model.Product" %>
+<%@ page import="vn.edu.nlu.fit.shopquanao.model.Category" %>
+<%@ page import="java.util.List" %>
+
+<%
+    // Lấy tham số category từ URL (nếu có)
+    String categoryParam = request.getParameter("category");
+    Integer categoryId = null;
+    if (categoryParam != null && !categoryParam.isEmpty()) {
+        try {
+            categoryId = Integer.parseInt(categoryParam);
+        } catch (NumberFormatException e) {
+            // Ignore invalid category
+        }
+    }
+    
+    // Lấy dữ liệu sản phẩm từ database
+    try {
+        ProductService productService = new ProductService();
+        CategoryService categoryService = new CategoryService();
+        
+        // Lấy danh sách danh mục
+        List<Category> categories = categoryService.getAllCategories();
+        request.setAttribute("categories", categories);
+        
+        // Lấy danh sách sản phẩm (theo category nếu có, ngược lại lấy tất cả)
+        List<Product> list;
+        if (categoryId != null) {
+            list = productService.getProductsByCategory(categoryId);
+            Category selectedCategory = categoryService.getCategoryById(categoryId);
+            request.setAttribute("selectedCategory", selectedCategory);
+        } else {
+            list = productService.getAllProducts();
+        }
+        request.setAttribute("list", list);
+        
+        // Debug log CHI TIẾT
+        System.out.println("========================================");
+        System.out.println("=== SANPHAM.JSP DEBUG ===");
+        System.out.println("Thời gian: " + new java.util.Date());
+        System.out.println("Category ID: " + (categoryId != null ? categoryId : "Tất cả"));
+        System.out.println("Số danh mục: " + (categories != null ? categories.size() : "NULL"));
+        System.out.println("Số sản phẩm lấy được: " + (list != null ? list.size() : "NULL"));
+        
+        if (list != null && !list.isEmpty()) {
+            System.out.println("\n5 sản phẩm đầu tiên:");
+            for (int i = 0; i < Math.min(5, list.size()); i++) {
+                Product p = list.get(i);
+                System.out.println("  " + (i+1) + ". [ID:" + p.getId() + "] " + p.getName() 
+                    + " - Giá: " + p.getPrice() + " - Status: " + p.getStatus());
+            }
+        } else {
+            System.out.println("⚠️ CẢNH BÁO: Danh sách sản phẩm RỖNG!");
+        }
+        System.out.println("========================================");
+        
+    } catch (Exception e) {
+        System.err.println("❌ LỖI KHI LẤY SẢN PHẨM:");
+        e.printStackTrace();
+        request.setAttribute("list", new java.util.ArrayList<Product>());
+        request.setAttribute("categories", new java.util.ArrayList<Category>());
+        request.setAttribute("error", e.getMessage());
+    }
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +111,8 @@
         <div class="menu">
             <ul>
                 <li><a href="trangchu.jsp">Trang chủ</a></li>
-                <li ><a href="sanpham.jsp">Sản phẩm ▾</a>
+                <li ><a href="san-pham">Sản phẩm</a>
+
                     <ul class="sub">
                         <li class="subItem"> <a href="listqabt.jsp">Quần áo bé trai</a> </li>
                         <li class="subItem"> <a href="listbegai.jsp">Quần áo bé gái</a> </li>
@@ -86,41 +153,39 @@
 
 <!-- ========== DANH SÁCH SẢN PHẨM ========== -->
 <section class="products">
-    <h2>SẢN PHẨM</h2>
+    <h2>SẢN PHẨM
+        <c:if test="${not empty selectedCategory}">
+            - ${selectedCategory.name}
+        </c:if>
+    </h2>
+    
     <!-- Thanh lọc sản phẩm -->
     <div class="filter-bar">
-
-
-
-        <!-- Nhóm sắp xếp -->
-        <div class="filter-sort">
-            <div class="sort-buttons">
-                <button class="active">Mới nhất</button>
-                <button>Bán chạy</button>
-                <button>Khuyến mãi</button>
-
-
-                <!-- Dropdown: Giá -->
-                <div class="dropdown">
-                    <button class="dropbtn">
-                        Giá <i class="fa-solid fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="#">Giá thấp đến cao</a>
-                        <a href="#">Giá cao đến thấp</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- Danh mục sản phẩm -->
         <div class="filter-category">
-            <button>Bé trai</button>
-            <button>Bé gái</button>
-            <button>Phụ kiện</button>
+            <a href="sanpham.jsp">
+                <button class="${empty param.category ? 'active' : ''}">Tất cả</button>
+            </a>
+            <c:forEach var="cat" items="${categories}">
+                <a href="sanpham.jsp?category=${cat.id}">
+                    <button class="${param.category eq cat.id ? 'active' : ''}">${cat.name}</button>
+                </a>
+            </c:forEach>
         </div>
     </div>
 
     <div class="product-list">
-
+        <%-- Debug: Kiểm tra list có tồn tại không --%>
+        <% 
+            System.out.println(">>> TRƯỚC FOREACH: list = " + request.getAttribute("list")); 
+            Object listObj = request.getAttribute("list");
+            if (listObj != null) {
+                System.out.println(">>> Kiểu dữ liệu: " + listObj.getClass().getName());
+                if (listObj instanceof java.util.List) {
+                    System.out.println(">>> Kích thước list: " + ((java.util.List)listObj).size());
+                }
+            }
+        %>
 
         <c:forEach var="p" items="${list}" >
 
@@ -134,7 +199,7 @@
             
             <fmt:setLocale value="vi_VN"/>
             <span><a href="pageatxl.jsp">
-                <fmt:formatNumber value="${p.price}" type="number" groupingUsed="true"/>đ
+                <fmt:formatNumber value="${p.price * 1000}" pattern="#,###" groupingUsed="true"/>đ
             </a></span>
             
             <button class="btn-add">Thêm vào giỏ</button>
@@ -165,7 +230,7 @@
             <div class="footer-danhmuc">
                 <h3>Danh mục</h3>
                 <a href="trangchu.jsp">Trang chủ</a>
-                <a href="sanpham.jsp">Sản Phẩm</a>
+                <a href="san-pham">Sản phẩm</a>
                 <a href="tintuc.jsp">Tin Tức</a>
                 <a href="khuyenmai.jsp">Khuyến mãi</a>
                 <a href="lienhe.jsp">Liên hệ</a>

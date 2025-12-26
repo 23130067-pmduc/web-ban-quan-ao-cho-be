@@ -441,6 +441,10 @@ header li:hover .sub{
     justify-content: flex-start;
 }
 
+/* Link trong category button */
+.filter-category a {
+    text-decoration: none;
+}
 
 /* ===== NÚT CƠ BẢN ===== */
 .filter-bar button {
