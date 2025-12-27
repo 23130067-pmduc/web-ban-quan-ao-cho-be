@@ -20,18 +20,24 @@
 
         <h2 class="quenMatKhau">Thiết Lập Mật Khẩu</h2>
         <p class="desc">Tạo mật khẩu mới</p>
+        <p style="color:red; text-align:center; margin-bottom: 20px;">
+            ${error}
+        </p>
 
         <form action="reset_pass" method="post">
+            <input type="hidden" name="email" value="${param.email}">
+            <input type="hidden" name="otp" value="${param.otp}">
 
             <div class="input-group password-group">
-                <input type="password" name="password" placeholder="Mật khẩu">
+                <input type="password" id="password" name="password" placeholder="Mật khẩu mới">
             </div>
 
             <ul class="rules">
-                <li>Ít nhất một kí tự viết thường.</li>
-                <li>Ít nhất một kí tự viết hoa.</li>
-                <li>8–16 kí tự.</li>
-                <li>Chỉ các chữ cái, số và ký tự phổ biến mới có thể được sử dụng</li>
+                <li id="rule-lower">Ít nhất một kí tự viết thường.</li>
+                <li id="rule-upper">Ít nhất một kí tự viết hoa.</li>
+                <li id="rule-length">8–16 kí tự.</li>
+                <li id="rule-digit">Có số.</li>
+                <li id="rule-special">Ký tự đặc biệt.</li>
             </ul>
 
             <button type="submit" class="btn-primary">TIẾP THEO</button>

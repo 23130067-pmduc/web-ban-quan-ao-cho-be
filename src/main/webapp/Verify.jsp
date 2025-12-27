@@ -17,20 +17,27 @@
         </a>
         <h2>Nhập mã xác nhận</h2>
 
-        <p class="desc">
-            Mã xác minh đã được gửi đến Email<br>
-            <strong>${email}</strong>
+        <p style="color:red; text-align:center;">
+            ${error}
         </p>
 
-        <form action="otp" method="post">
+        <p class="desc">
+            Mã xác minh đã được gửi đến Email<br>
+            <strong>${param.email}</strong>
+        </p>
+
+        <form action="otp" method="post" onsubmit=" return joinOtp()">
+            <input type="hidden" name="email" value="${param.email}">
+            <input type="hidden" name="otp" id="otp">
+            <input type="hidden" name="type" value="${param.type}">
 
             <div class="otp-line">
-                <input type="text" maxlength="1" name="o1">
-                <input type="text" maxlength="1" name="o2">
-                <input type="text" maxlength="1" name="o3">
-                <input type="text" maxlength="1" name="o4">
-                <input type="text" maxlength="1" name="o5">
-                <input type="text" maxlength="1" name="o6">
+                <input type="text" maxlength="1" class="o" inputmode="numeric">
+                <input type="text" maxlength="1" class="o" inputmode="numeric">
+                <input type="text" maxlength="1" class="o" inputmode="numeric">
+                <input type="text" maxlength="1" class="o" inputmode="numeric">
+                <input type="text" maxlength="1" class="o" inputmode="numeric">
+                <input type="text" maxlength="1" class="o" inputmode="numeric">
             </div>
 
             <div class="resend">
@@ -38,11 +45,12 @@
                 <a href="#">Gửi lại</a>
             </div>
 
-            <button type="submit" class="btn-primary">KẾ TIẾP</button>
+            <button type="submit" class="btn-primary" id="submitBtn">TIẾP THEO</button>
         </form>
 
     </div>
 </main>
 
 </body>
+<script src="./javaScript/otp.js"></script>
 </html>

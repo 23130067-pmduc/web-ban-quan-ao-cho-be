@@ -19,13 +19,13 @@
             <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
         </a>
             <h2 class="quenMatKhau">Quên mật khẩu</h2>
-            <form id="forgetForm">
+            <form id="forgetForm" action="fpcl" method="post">
                 <div class="input-group">
                     <label for="email">Email đã đăng ký</label>
                     <input type="email" id="email" name="email" placeholder="Nhập email" required>
                 </div>
 
-                <button type="submit" class="btn-primary">Gửi yêu cầu</button>
+                <button type="submit" class="btn-primary">Tiếp theo</button>
             </form>
                 <div class="links">
                     <a href="login.jsp">Quay lại đăng nhập</a>

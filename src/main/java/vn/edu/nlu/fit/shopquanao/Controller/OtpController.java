@@ -8,7 +8,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import vn.edu.nlu.fit.shopquanao.Service.UserService;
-import vn.edu.nlu.fit.shopquanao.Service.EmailService;
 
 @WebServlet(name = "OtpController", value = "/otp")
 public class OtpController extends HttpServlet {
@@ -29,13 +28,30 @@ public class OtpController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String otp = request.getParameter("otp");
+        String type = request.getParameter("type");
 
-        boolean ok = userService.verifyOtp(email, otp);
+        System.out.println("EMAIL = " + email);
+        System.out.println("OTP = " + otp);
+        System.out.println("TYPE = " + type);
+
+
+        boolean ok;
+
+        if ("reset".equals(type)) {
+            ok = userService.checkOtpCuoi(email, otp);
+        } else {
+            ok = userService.verifyOtp(email, otp);
+        }
+
         if (ok) {
-            response.sendRedirect(request.getContextPath() + "/login");
+            if ("reset".equals(type)) {
+                response.sendRedirect("reset_password.jsp?email=" + email + "&otp=" + otp);
+            } else {response.sendRedirect(request.getContextPath() + "/login");
+            }
         } else {
             request.setAttribute("error", "OTP sai hoặc đã hết hạn");
-            request.getRequestDispatcher("/otplogin.jsp").forward(request, response);
+            request.getRequestDispatcher("/Verify.jsp").forward(request, response);
         }
+
     }
 }
