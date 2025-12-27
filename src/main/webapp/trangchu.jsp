@@ -158,75 +158,104 @@
   <section class="categories">
       <h2>Danh mục nổi bật</h2>
       <!-- Bé trai -->
-      <div class="category-products">
-          <c:forEach var="p" items="${boyProducts}">
-              <div class="product-mini">
-                  <a href="product-detail?id=${p.id}" class="link-cover"></a>
-                  <img src="${pageContext.request.contextPath}/${p.thumbnail}"
-                       alt="${p.name}">
-                  <p>${p.name}</p>
-                  <p class="price">
-                <span class="old-price">
-                    <fmt:formatNumber value="${p.price}" type="number"/>đ
-                </span>
-                      <span class="new-price">
-                    <fmt:formatNumber value="${p.sale_price}" type="number"/>đ
-                </span>
-                  </p>
-                  <button class="btn-add">Thêm vào giỏ</button>
-              </div>
-          </c:forEach>
+      <div class="category-block">
+          <div class="category-title">Bé trai 👕</div>
+
+          <div class="category-products">
+              <c:forEach var="p" items="${boyProducts}">
+                  <div class="product-mini">
+                      <a href="product-detail?id=${p.id}" class="link-cover"></a>
+
+                      <img src="${pageContext.request.contextPath}/${p.thumbnail}"
+                           alt="${p.name}">
+
+                      <p>${p.name}</p>
+
+                      <p class="price">
+                    <span class="old-price">
+                        <fmt:formatNumber value="${p.price}" type="number"/>đ
+                    </span>
+                          <span class="new-price">
+                        <fmt:formatNumber value="${p.sale_price}" type="number"/>đ
+                    </span>
+                      </p>
+
+                      <button class="btn-add">Thêm vào giỏ</button>
+                  </div>
+              </c:forEach>
+          </div>
+
+          <div class="load-more-container">
+              <a href="listqabt.jsp">Xem thêm</a>
+          </div>
       </div>
 
+
       <!-- Bé gái -->
-      <div class="category-products">
-          <c:forEach var="p" items="${girlProducts}">
-              <div class="product-mini">
-                  <a href="product-detail?id=${p.id}" class="link-cover"></a>
+      <div class="category-block">
+          <div class="category-title">Bé gái 👗</div>
 
-                  <img src="${pageContext.request.contextPath}/${p.thumbnail}"
-                       alt="${p.name}">
+          <div class="category-products">
+              <c:forEach var="p" items="${girlProducts}">
+                  <div class="product-mini">
+                      <a href="product-detail?id=${p.id}" class="link-cover"></a>
 
-                  <p>${p.name}</p>
+                      <img src="${pageContext.request.contextPath}/${p.thumbnail}"
+                           alt="${p.name}">
 
-                  <p class="price">
-                <span class="old-price">
-                    <fmt:formatNumber value="${p.price}" type="number"/>đ
-                </span>
-                      <span class="new-price">
-                    <fmt:formatNumber value="${p.sale_price}" type="number"/>đ
-                </span>
-                  </p>
+                      <p>${p.name}</p>
 
-                  <button class="btn-add">Thêm vào giỏ</button>
-              </div>
-          </c:forEach>
+                      <p class="price">
+                    <span class="old-price">
+                        <fmt:formatNumber value="${p.price}" type="number"/>đ
+                    </span>
+                          <span class="new-price">
+                        <fmt:formatNumber value="${p.sale_price}" type="number"/>đ
+                    </span>
+                      </p>
+
+                      <button class="btn-add">Thêm vào giỏ</button>
+                  </div>
+              </c:forEach>
+          </div>
+
+          <div class="load-more-container">
+              <a href="listbegai.jsp">Xem thêm</a>
+          </div>
       </div>
 
 
       <!-- Phụ kiện -->
-      <div class="category-products">
-          <c:forEach var="p" items="${girlProducts}">
-              <div class="product-mini">
-                  <a href="product-detail?id=${p.id}" class="link-cover"></a>
+      <div class="category-block">
+          <div class="category-title">Phụ kiện 🎒</div>
 
-                  <img src="${pageContext.request.contextPath}/${p.thumbnail}"
-                       alt="${p.name}">
+          <div class="category-products">
+              <c:forEach var="p" items="${accessoryProducts}">
+                  <div class="product-mini">
+                      <a href="product-detail?id=${p.id}" class="link-cover"></a>
 
-                  <p>${p.name}</p>
+                      <img src="${pageContext.request.contextPath}/${p.thumbnail}"
+                           alt="${p.name}">
 
-                  <p class="price">
-                <span class="old-price">
-                    <fmt:formatNumber value="${p.price}" type="number"/>đ
-                </span>
-                      <span class="new-price">
-                    <fmt:formatNumber value="${p.sale_price}" type="number"/>đ
-                </span>
-                  </p>
+                      <p>${p.name}</p>
 
-                  <button class="btn-add">Thêm vào giỏ</button>
-              </div>
-          </c:forEach>
+                      <p class="price">
+                    <span class="old-price">
+                        <fmt:formatNumber value="${p.price}" type="number"/>đ
+                    </span>
+                          <span class="new-price">
+                        <fmt:formatNumber value="${p.sale_price}" type="number"/>đ
+                    </span>
+                      </p>
+
+                      <button class="btn-add">Thêm vào giỏ</button>
+                  </div>
+              </c:forEach>
+          </div>
+
+          <div class="load-more-container">
+              <a href="phukien.jsp">Xem thêm</a>
+          </div>
       </div>
 
 
