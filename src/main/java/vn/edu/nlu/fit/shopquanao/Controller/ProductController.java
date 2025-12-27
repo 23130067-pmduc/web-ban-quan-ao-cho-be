@@ -32,16 +32,18 @@ public class ProductController extends HttpServlet {
 
         String group = request.getParameter("group");
         String category = request.getParameter("category");
+        String sort = request.getParameter("sort");
 
         List<Product> products;
+
         Integer categoryId = null;
-        if (category != null) {
+        if (category != null && !category.isEmpty()) {
             try{
                 categoryId = Integer.parseInt(category);
             } catch (NumberFormatException e){}
 
         }
-        // Ưu tiên lọc theo categoryID
+        // Ưu tiên lọc theo categoryID (Này là phần dưới)
         if (categoryId != null){
             products = productService.getProductsByCategory(categoryId);
 
@@ -56,6 +58,38 @@ public class ProductController extends HttpServlet {
 
         } else {
             products = productService.getAllProducts();
+        }
+
+
+        // Phần này là sort (Phần trên)
+        if ( sort != null && sort.isEmpty()){
+            switch (sort) {
+                case "new":
+                    products = productService.sortByNewest(products);
+                    break;
+
+
+                case "best":
+                    products = productService.sortByBestSeller(products);
+                    break;
+
+
+                case "sale":
+                    products = productService.sortBySale(products);
+                    break;
+
+
+                case "price_asc":
+                    products = productService.sortByPriceAsc(products);
+                    break;
+
+
+                case "price_desc":
+                    products = productService.sortByPriceDesc(products);
+                    break;
+            }
+
+
         }
 
         request.setAttribute("list", products);

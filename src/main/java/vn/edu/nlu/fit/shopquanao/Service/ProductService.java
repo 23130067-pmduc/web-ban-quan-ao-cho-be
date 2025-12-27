@@ -3,6 +3,7 @@ package vn.edu.nlu.fit.shopquanao.Service;
 import vn.edu.nlu.fit.shopquanao.Dao.ProductDao;
 import vn.edu.nlu.fit.shopquanao.model.Product;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class ProductService {
@@ -46,5 +47,38 @@ public class ProductService {
      */
     public List<Product> searchProducts(String keyword) {
         return productDao.searchByName(keyword);
+    }
+
+
+    // Mới nhất * theo ngày tạo
+    public List<Product> sortByNewest(List<Product> products) {
+        products.sort(Comparator.comparing(Product::getCreated_at).reversed());
+        return products;
+    }
+
+
+    //Bán chạy . Tạm theo view
+    public List<Product> sortByBestSeller(List<Product> products) {
+        products.sort(Comparator.comparing(Product::getViews).reversed());
+        return products;
+    }
+
+    // Khuyến mãi sale_price
+    public List<Product> sortBySale(List<Product> products) {
+        products.sort(Comparator.comparing((Product p) -> p.getSale_price() > 0 ? 0 : 1 )
+                .thenComparing(Product::getSale_price));
+        return products;
+    }
+    // Theo giá
+    public List<Product> sortByPriceAsc(List<Product> products) {
+        products.sort(Comparator.comparing((Product p) -> p.getSale_price() > 0 ? p.getSale_price() : p.getPrice() ));
+        return products;
+    }
+
+    public List<Product> sortByPriceDesc(List<Product> products) {
+        products.sort(Comparator.comparing((Product p) -> p.getSale_price() > 0 ? p.getSale_price() : p.getPrice() )
+                .reversed());
+
+        return products;
     }
 }

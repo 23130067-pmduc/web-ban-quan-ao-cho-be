@@ -96,19 +96,19 @@
         <div class="filter-sort">
             <div class="sort-buttons">
 
-                <a href="san-pham?group=${param.group}&category=${param.category}&sort=new">
+                <a href="san-pham?group=${param.group}&sort=new">
                     <button class="${param.sort eq 'new' || empty param.sort ? 'active' : ''}">
                         Mới nhất
                     </button>
                 </a>
 
-                <a href="san-pham?group=${param.group}&category=${param.category}&sort=best">
+                <a href="san-pham?group=${param.group}&sort=best">
                     <button class="${param.sort eq 'best' ? 'active' : ''}">
                         Bán chạy
                     </button>
                 </a>
 
-                <a href="san-pham?group=${param.group}&category=${param.category}&sort=sale">
+                <a href="san-pham?group=${param.group}&sort=sale">
                     <button class="${param.sort eq 'sale' ? 'active' : ''}">
                         Khuyến mãi
                     </button>
@@ -117,22 +117,23 @@
                 <!-- Dropdown: GIÁ -->
                 <div class="dropdown">
                     <button class="dropbtn
-                        ${param.sort eq 'price_asc' || param.sort eq 'price_desc' ? 'active' : ''}">
+        ${param.sort eq 'price_asc' || param.sort eq 'price_desc' ? 'active' : ''}">
                         Giá <i class="fa-solid fa-caret-down"></i>
                     </button>
+
                     <div class="dropdown-content">
                         <a class="${param.sort eq 'price_asc' ? 'active' : ''}"
-                           href="san-pham?group=${param.group}&category=${param.category}&sort=price_asc">
+                           href="san-pham?group=${param.group}&sort=price_asc">
                             Giá thấp đến cao
                         </a>
 
                         <a class="${param.sort eq 'price_desc' ? 'active' : ''}"
-                           href="san-pham?group=${param.group}&category=${param.category}&sort=price_desc">
+                           href="san-pham?group=${param.group}&sort=price_desc">
                             Giá cao đến thấp
                         </a>
                     </div>
-
                 </div>
+
 
             </div>
         </div>
