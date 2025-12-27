@@ -4,73 +4,6 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 
-<%@ page import="vn.edu.nlu.fit.shopquanao.Service.ProductService" %>
-<%@ page import="vn.edu.nlu.fit.shopquanao.Service.CategoryService" %>
-<%@ page import="vn.edu.nlu.fit.shopquanao.model.Product" %>
-<%@ page import="vn.edu.nlu.fit.shopquanao.model.Category" %>
-<%@ page import="java.util.List" %>
-
-<%
-    // Lấy tham số category từ URL (nếu có)
-    String categoryParam = request.getParameter("category");
-    Integer categoryId = null;
-    if (categoryParam != null && !categoryParam.isEmpty()) {
-        try {
-            categoryId = Integer.parseInt(categoryParam);
-        } catch (NumberFormatException e) {
-            // Ignore invalid category
-        }
-    }
-    
-    // Lấy dữ liệu sản phẩm từ database
-    try {
-        ProductService productService = new ProductService();
-        CategoryService categoryService = new CategoryService();
-        
-        // Lấy danh sách danh mục
-        List<Category> categories = categoryService.getAllCategories();
-        request.setAttribute("categories", categories);
-        
-        // Lấy danh sách sản phẩm (theo category nếu có, ngược lại lấy tất cả)
-        List<Product> list;
-        if (categoryId != null) {
-            list = productService.getProductsByCategory(categoryId);
-            Category selectedCategory = categoryService.getCategoryById(categoryId);
-            request.setAttribute("selectedCategory", selectedCategory);
-        } else {
-            list = productService.getAllProducts();
-        }
-        request.setAttribute("list", list);
-        
-        // Debug log CHI TIẾT
-        System.out.println("========================================");
-        System.out.println("=== SANPHAM.JSP DEBUG ===");
-        System.out.println("Thời gian: " + new java.util.Date());
-        System.out.println("Category ID: " + (categoryId != null ? categoryId : "Tất cả"));
-        System.out.println("Số danh mục: " + (categories != null ? categories.size() : "NULL"));
-        System.out.println("Số sản phẩm lấy được: " + (list != null ? list.size() : "NULL"));
-        
-        if (list != null && !list.isEmpty()) {
-            System.out.println("\n5 sản phẩm đầu tiên:");
-            for (int i = 0; i < Math.min(5, list.size()); i++) {
-                Product p = list.get(i);
-                System.out.println("  " + (i+1) + ". [ID:" + p.getId() + "] " + p.getName() 
-                    + " - Giá: " + p.getPrice() + " - Status: " + p.getStatus());
-            }
-        } else {
-            System.out.println("⚠️ CẢNH BÁO: Danh sách sản phẩm RỖNG!");
-        }
-        System.out.println("========================================");
-        
-    } catch (Exception e) {
-        System.err.println("❌ LỖI KHI LẤY SẢN PHẨM:");
-        e.printStackTrace();
-        request.setAttribute("list", new java.util.ArrayList<Product>());
-        request.setAttribute("categories", new java.util.ArrayList<Category>());
-        request.setAttribute("error", e.getMessage());
-    }
-%>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -114,9 +47,9 @@
                 <li ><a href="san-pham">Sản phẩm</a>
 
                     <ul class="sub">
-                        <li class="subItem"> <a href="listqabt.jsp">Quần áo bé trai</a> </li>
-                        <li class="subItem"> <a href="listbegai.jsp">Quần áo bé gái</a> </li>
-                        <li class="subItem"> <a href="phukien.jsp">Phụ kiện</a> </li>
+                        <li class="subItem"> <a href="san-pham?group=betrai">Quần áo bé trai</a> </li>
+                        <li class="subItem"> <a href="san-pham?group=begai">Quần áo bé gái</a> </li>
+                        <li class="subItem"> <a href="san-pham?group=phukien">Phụ kiện</a> </li>
                     </ul>
                 </li>
                 <li><a href="tintuc.jsp">Tin tức</a></li>
@@ -159,77 +92,130 @@
 
     <div class="filter-bar">
 
-
+        <!-- ===== PHẦN TRÊN: SORT ===== -->
         <div class="filter-sort">
             <div class="sort-buttons">
-                <button class="active">Mới nhất</button>
-                <button>Bán chạy</button>
-                <button>Khuyến mãi</button>
 
-                <!-- Dropdown: Cân nặng -->
-                <div class="dropdown">
-                    <button class="dropbtn">
-                        Cân nặng <i class="fa-solid fa-caret-down"></i>
+                <a href="san-pham?group=${param.group}&category=${param.category}&sort=new">
+                    <button class="${param.sort eq 'new' || empty param.sort ? 'active' : ''}">
+                        Mới nhất
                     </button>
-                    <div class="dropdown-content">
-                        <a href="#">Dưới 10kg</a>
-                        <a href="#">10 - 20kg</a>
-                        <a href="#">Trên 20kg</a>
-                    </div>
-                </div>
+                </a>
 
-                <!-- Dropdown: Giá -->
+                <a href="san-pham?group=${param.group}&category=${param.category}&sort=best">
+                    <button class="${param.sort eq 'best' ? 'active' : ''}">
+                        Bán chạy
+                    </button>
+                </a>
+
+                <a href="san-pham?group=${param.group}&category=${param.category}&sort=sale">
+                    <button class="${param.sort eq 'sale' ? 'active' : ''}">
+                        Khuyến mãi
+                    </button>
+                </a>
+
+                <!-- Dropdown: GIÁ -->
                 <div class="dropdown">
-                    <button class="dropbtn">
+                    <button class="dropbtn
+                        ${param.sort eq 'price_asc' || param.sort eq 'price_desc' ? 'active' : ''}">
                         Giá <i class="fa-solid fa-caret-down"></i>
                     </button>
                     <div class="dropdown-content">
-                        <a href="#">Giá thấp đến cao</a>
-                        <a href="#">Giá cao đến thấp</a>
+                        <a class="${param.sort eq 'price_asc' ? 'active' : ''}"
+                           href="san-pham?group=${param.group}&category=${param.category}&sort=price_asc">
+                            Giá thấp đến cao
+                        </a>
+
+                        <a class="${param.sort eq 'price_desc' ? 'active' : ''}"
+                           href="san-pham?group=${param.group}&category=${param.category}&sort=price_desc">
+                            Giá cao đến thấp
+                        </a>
                     </div>
+
                 </div>
+
             </div>
         </div>
 
         <div class="filter-category">
 
-            <!-- Tất cả -->
-            <a href="san-pham">
+            <!-- ===== TẤT CẢ ===== -->
+            <a href="san-pham?sort=${param.sort}">
                 <button class="${empty param.group && empty param.category ? 'active' : ''}">
                     Tất cả
                 </button>
             </a>
 
-            <!-- Bé trai -->
+            <!-- ===== BÉ TRAI ===== -->
             <div class="dropdown">
                 <button class="dropbtn ${param.group eq 'betrai' ? 'active' : ''}">
                     Bé trai <i class="fa-solid fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="san-pham?group=betrai&category=1">Quần bé trai</a>
-                    <a href="san-pham?group=betrai&category=3">Áo bé trai</a>
-                    <a href="san-pham?group=betrai&category=6">Set bé trai</a>
+                    <a class="${param.group eq 'betrai' && param.category eq '1' ? 'active' : ''}"
+                       href="san-pham?group=betrai&category=1&sort=${param.sort}">
+                        Áo
+                    </a>
+                    <a class="${param.group eq 'betrai' && param.category eq '2' ? 'active' : ''}"
+                       href="san-pham?group=betrai&category=2&sort=${param.sort}">
+                        Quần
+                    </a>
+                    <a class="${param.group eq 'betrai' && param.category eq '3' ? 'active' : ''}"
+                       href="san-pham?group=betrai&category=3&sort=${param.sort}">
+                        Đồ bộ
+                    </a>
+                    <a class="${param.group eq 'betrai' && param.category eq '9' ? 'active' : ''}"
+                       href="san-pham?group=betrai&category=9&sort=${param.sort}">
+                        Giày dép
+                    </a>
                 </div>
             </div>
 
-            <!-- Bé gái -->
+            <!-- ===== BÉ GÁI ===== -->
             <div class="dropdown">
                 <button class="dropbtn ${param.group eq 'begai' ? 'active' : ''}">
                     Bé gái <i class="fa-solid fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="san-pham?group=begai&category=2">Quần bé gái</a>
-                    <a href="san-pham?group=begai&category=4">Áo bé gái</a>
-                    <a href="san-pham?group=begai&category=7">Set bé gái</a>
+                    <a class="${param.group eq 'begai' && param.category eq '1' ? 'active' : ''}"
+                       href="san-pham?group=begai&category=1&sort=${param.sort}">
+                        Áo
+                    </a>
+                    <a class="${param.group eq 'begai' && param.category eq '2' ? 'active' : ''}"
+                       href="san-pham?group=begai&category=2&sort=${param.sort}">
+                        Quần
+                    </a>
+                    <a class="${param.group eq 'begai' && param.category eq '6' ? 'active' : ''}"
+                       href="san-pham?group=begai&category=6&sort=${param.sort}">
+                        Váy / Đầm
+                    </a>
+                    <a class="${param.group eq 'begai' && param.category eq '3' ? 'active' : ''}"
+                       href="san-pham?group=begai&category=3&sort=${param.sort}">
+                        Đồ bộ
+                    </a>
+                    <a class="${param.group eq 'begai' && param.category eq '9' ? 'active' : ''}"
+                       href="san-pham?group=begai&category=9&sort=${param.sort}">
+                        Giày dép
+                    </a>
                 </div>
             </div>
 
-            <!-- Phụ kiện -->
-            <a href="san-pham?group=phukien">
-                <button class="${param.group eq 'phukien' ? 'active' : ''}">
-                    Phụ kiện
+            <!-- ===== PHỤ KIỆN ===== -->
+            <div class="dropdown">
+                <button class="dropbtn ${param.group eq 'phukien' ? 'active' : ''}">
+                    Phụ kiện <i class="fa-solid fa-caret-down"></i>
                 </button>
-            </a>
+                <div class="dropdown-content">
+                    <a class="${param.group eq 'phukien' && param.category eq '8' ? 'active' : ''}"
+                       href="san-pham?group=phukien&category=8&sort=${param.sort}">
+                        Phụ kiện thời trang
+                    </a>
+                    <a class="${param.group eq 'phukien' && param.category eq '10' ? 'active' : ''}"
+                       href="san-pham?group=phukien&category=10&sort=${param.sort}">
+                        Phụ kiện tiện ích
+                    </a>
+                </div>
+            </div>
 
         </div>
 
@@ -240,18 +226,8 @@
 
 
 
+
     <div class="product-list">
-        <%-- Debug: Kiểm tra list có tồn tại không --%>
-        <% 
-            System.out.println(">>> TRƯỚC FOREACH: list = " + request.getAttribute("list")); 
-            Object listObj = request.getAttribute("list");
-            if (listObj != null) {
-                System.out.println(">>> Kiểu dữ liệu: " + listObj.getClass().getName());
-                if (listObj instanceof java.util.List) {
-                    System.out.println(">>> Kích thước list: " + ((java.util.List)listObj).size());
-                }
-            }
-        %>
 
         <c:forEach var="p" items="${list}" >
 

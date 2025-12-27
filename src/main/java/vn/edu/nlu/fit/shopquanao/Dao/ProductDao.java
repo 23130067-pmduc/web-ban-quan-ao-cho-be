@@ -53,6 +53,24 @@ public class ProductDao extends BaseDao {
         );
     }
 
+    public List<Product> findByCategories(List<Integer> categoryIds) {
+
+        if (categoryIds == null || categoryIds.isEmpty()) {
+            return List.of();
+        }
+
+        String sql = "SELECT * FROM products " +
+                "WHERE category_id IN (<ids>) AND status = 1";
+
+        return getJdbi().withHandle(handle ->
+                handle.createQuery(sql)
+                        .bindList("ids", categoryIds)
+                        .mapToBean(Product.class)
+                        .list()
+        );
+    }
+
+
     /**
      * Lấy sản phẩm mới nhất
      */

@@ -30,16 +30,36 @@ public class ProductController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // 1. Lấy danh sách sản phẩm từ Service
-        List<Product> products = productService.getAllProducts();
+        String group = request.getParameter("group");
+        String category = request.getParameter("category");
 
-        // 2. Debug nhanh (xóa khi chạy ổn)
-        System.out.println("Số sản phẩm lấy được: " + products.size());
+        List<Product> products;
+        Integer categoryId = null;
+        if (category != null) {
+            try{
+                categoryId = Integer.parseInt(category);
+            } catch (NumberFormatException e){}
 
-        // 3. Đẩy dữ liệu sang JSP
-        request.setAttribute("products", products);
+        }
+        // Ưu tiên lọc theo categoryID
+        if (categoryId != null){
+            products = productService.getProductsByCategory(categoryId);
 
-        // 4. Forward sang trang hiển thị
+
+            // Lọc theo group
+        } else if ("betrai".equals(group)) {
+            products = productService.getProductsByCategories(List.of(1, 2, 3, 9));
+        } else if ("begai".equals(group)) {
+            products = productService.getProductsByCategories(List.of(4, 5, 6, 7, 9));
+        } else if ("phukien".equals(group)) {
+            products = productService.getProductsByCategories(List.of(8, 10));
+
+        } else {
+            products = productService.getAllProducts();
+        }
+
+        request.setAttribute("list", products);
         request.getRequestDispatcher("/sanpham.jsp").forward(request, response);
+
     }
 }

@@ -30,6 +30,10 @@ public class ProductService {
         return productDao.findByCategory(categoryId);
     }
 
+
+    public List<Product> getProductsByCategories(List<Integer> categoryIds) {
+        return productDao.findByCategories(categoryIds);
+    }
     /**
      * Lấy sản phẩm mới nhất
      */
