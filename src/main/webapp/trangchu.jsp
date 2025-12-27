@@ -186,8 +186,12 @@
           </div>
 
           <div class="load-more-container">
-              <a href="listqabt.jsp">Xem thêm</a>
+              <button class="load-more">
+                  <a href="listqabt.jsp">Xem thêm</a>
+              </button>
           </div>
+
+
       </div>
 
 
@@ -220,8 +224,11 @@
           </div>
 
           <div class="load-more-container">
-              <a href="listbegai.jsp">Xem thêm</a>
+              <button class="load-more">
+                  <a href="listbegai.jsp">Xem thêm</a>
+              </button>
           </div>
+
       </div>
 
 
@@ -252,10 +259,13 @@
                   </div>
               </c:forEach>
           </div>
-
           <div class="load-more-container">
-              <a href="phukien.jsp">Xem thêm</a>
+              <button class="load-more">
+                  <a href="phukien.jsp">Xem thêm</a>
+              </button>
           </div>
+
+
       </div>
 
 
