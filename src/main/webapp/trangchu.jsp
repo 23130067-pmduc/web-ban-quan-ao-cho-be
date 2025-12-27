@@ -129,143 +129,106 @@
   <!-- ========== SẢN PHẨM ========== -->
   <section class="products">
     <h2>Sản phẩm mới nhất</h2>
-    <div class="product-list">
-      <div class="product-card">
-        <img src="./img/aox.webp" alt="Áo polo in hình khủng long">
-        <a href="pageatxl.jsp" class="link-cover"></a>
-        <h3>Áo polo in hình khủng long</h3>
-    <p>Giá: <span class="old-price">180.000đ</span> <span class="new-price">150.000đ</span></p>
-        <button class="btn-add">Thêm vào giỏ</button>
-      </div>
-      <div class="product-card">
-        <img src="./img/vayhong.png" alt="Váy hồng">
-        <h3>Váy hồng dễ thương</h3>
-    <p>Giá: <span class="old-price">264.000đ</span> <span class="new-price">220.000đ</span></p>
-        <button class="btn-add">Thêm vào giỏ</button>
-      </div>
-      <div class="product-card">
-        <img src="./img/dongu.webp" alt="Bộ đồ ngủ">
-        <h3>Bộ đồ ngủ gấu</h3>
-    <p>Giá: <span class="old-price">216.000đ</span> <span class="new-price">180.000đ</span></p>
-        <button class="btn-add">Thêm vào giỏ</button>
-      </div>
-      <div class="product-card">
-        <img src="./img/somi.png" alt="Áo sơ mi">
-        <h3>Áo sơ mi</h3>
-    <p>Giá: <span class="old-price">210.000đ</span> <span class="new-price">175.000đ</span></p>
-        <button class="btn-add">Thêm vào giỏ</button>
+      <div class="product-list">
+          <c:forEach var="p" items="${latestProducts}">
+              <div class="product-card">
+                  <img src="${pageContext.request.contextPath}/${p.thumbnail}"
+                       alt="${p.name}">
+                  <a href="product-detail?id=${p.id}" class="link-cover"></a>
+                  <h3>${p.name}</h3>
+
+                  <p>
+                      Giá:
+                      <span class="old-price">
+                    <fmt:formatNumber value="${p.price}" type="number"/>đ
+                </span>
+                      <span class="new-price">
+                    <fmt:formatNumber value="${p.sale_price}" type="number"/>đ
+                </span>
+                  </p>
+
+                  <button class="btn-add">Thêm vào giỏ</button>
+              </div>
+          </c:forEach>
       </div>
 
-
-    </div>
   </section>
 
   <!-- ========== DANH MỤC ========== -->
   <section class="categories">
       <h2>Danh mục nổi bật</h2>
       <!-- Bé trai -->
-      <div class="category-block">
-          <div class="category-title">Bé trai 👕</div>
-          <div class="category-products">
-              <div  class="product-mini">
-                  <a href="pageatxl.jsp" class="link-cover"></a>
-                  <img src="./img/aox.webp" alt="Áo polo in hình khủng long">
-                  <p>Áo polo in hình khủng long</p>
-                  <p class="price"><span class="old-price">180.000đ</span> <span class="new-price">150.000đ</span></p>
-                  <button class="btn-add">Thêm vào giỏ</button>
-              </div>
+      <div class="category-products">
+          <c:forEach var="p" items="${boyProducts}">
               <div class="product-mini">
-                  <img src="./img/somi.png" alt="Áo sơ mi bé trai">
-                  <p>Áo sơ mi bé trai</p>
-                  <p class="price"><span class="old-price">210.000đ</span> <span class="new-price">175.000đ</span></p>
+                  <a href="product-detail?id=${p.id}" class="link-cover"></a>
+                  <img src="${pageContext.request.contextPath}/${p.thumbnail}"
+                       alt="${p.name}">
+                  <p>${p.name}</p>
+                  <p class="price">
+                <span class="old-price">
+                    <fmt:formatNumber value="${p.price}" type="number"/>đ
+                </span>
+                      <span class="new-price">
+                    <fmt:formatNumber value="${p.sale_price}" type="number"/>đ
+                </span>
+                  </p>
                   <button class="btn-add">Thêm vào giỏ</button>
               </div>
-              <div class="product-mini">
-                  <img src="./img/quanjogger.jpg" alt="Quần Jogger">
-                  <p>Quần Jogger</p>
-                  <p class="price"><span class="old-price">221.000đ</span> <span class="new-price">184.000đ</span></p>
-                  <button class="btn-add">Thêm vào giỏ</button>
-              </div>
-              <div class="product-mini">
-                  <img src="./img/aobalogame.jpg" alt="Áo ba lỗ hình Game Play">
-                  <p>Áo ba lỗ hình Game Play</p>
-                  <p class="price"><span class="old-price">115.000đ</span> <span class="new-price">96.000đ</span></p>
-                  <button class="btn-add">Thêm vào giỏ</button>
-              </div>
-          </div>
-          <div class="load-more-container">
-              
-              <button id="load-more"><a href="listqabt.jsp">Xem thêm</a></button>
-          </div>
+          </c:forEach>
       </div>
 
       <!-- Bé gái -->
-      <div class="category-block">
-          <div class="category-title">Bé gái 👗</div>
-          <div class="category-products">
+      <div class="category-products">
+          <c:forEach var="p" items="${girlProducts}">
               <div class="product-mini">
-                  <img src="./img/vayhong.png" alt="Váy hồng dễ thương">
-                  <p>Váy hồng dễ thương</p>
-                  <p class="price"><span class="old-price">264.000đ</span> <span class="new-price">220.000đ</span></p>
+                  <a href="product-detail?id=${p.id}" class="link-cover"></a>
+
+                  <img src="${pageContext.request.contextPath}/${p.thumbnail}"
+                       alt="${p.name}">
+
+                  <p>${p.name}</p>
+
+                  <p class="price">
+                <span class="old-price">
+                    <fmt:formatNumber value="${p.price}" type="number"/>đ
+                </span>
+                      <span class="new-price">
+                    <fmt:formatNumber value="${p.sale_price}" type="number"/>đ
+                </span>
+                  </p>
+
                   <button class="btn-add">Thêm vào giỏ</button>
               </div>
-              <div class="product-mini">
-                  <img src="./img/vayhalo.jpg" alt="Váy Halloween">
-                  <p>Váy Halloween</p>
-                  <p class="price"><span class="old-price">642.000đ</span> <span class="new-price">535.000đ</span></p>
-                  <button class="btn-add">Thêm vào giỏ</button>
-              </div>
-              <div class="product-mini">
-                  <img src="./img/hoodie.jpg" alt="Sét áo hoodie và chân váy xếp ly">
-                  <p>Sét áo hoodie và chân váy xếp ly</p>
-                  <p class="price"><span class="old-price">420.000đ</span> <span class="new-price">350.000đ</span></p>
-                  <button class="btn-add">Thêm vào giỏ</button>
-              </div>
-              <div class="product-mini">
-                  <img src="./img/vaycongchua.jpg" alt="Váy công chúa tay phồng">
-                  <p>Váy công chúa tay phồng</p>
-                  <p class="price"><span class="old-price">408.000đ</span> <span class="new-price">340.000đ</span></p>
-                  <button class="btn-add">Thêm vào giỏ</button>
-              </div>
-          </div>
-          <div class="load-more-container">
-              <button id="load-more"><a href="listbegai.jsp">Xem thêm</a></button>
-          </div>
+          </c:forEach>
       </div>
 
+
       <!-- Phụ kiện -->
-      <div class="category-block">
-          <div class="category-title">Phụ kiện 🎒</div>
-          <div class="category-products">
+      <div class="category-products">
+          <c:forEach var="p" items="${girlProducts}">
               <div class="product-mini">
-                  <img src="./img/tathong.jpg" alt="Combo 5 đôi tất hoa màu hồng">
-                  <p>Combo 5 đôi tất hoa màu hồng</p>
-                  <p class="price"><span class="old-price">104.000đ</span> <span class="new-price">87.000đ</span></p>
+                  <a href="product-detail?id=${p.id}" class="link-cover"></a>
+
+                  <img src="${pageContext.request.contextPath}/${p.thumbnail}"
+                       alt="${p.name}">
+
+                  <p>${p.name}</p>
+
+                  <p class="price">
+                <span class="old-price">
+                    <fmt:formatNumber value="${p.price}" type="number"/>đ
+                </span>
+                      <span class="new-price">
+                    <fmt:formatNumber value="${p.sale_price}" type="number"/>đ
+                </span>
+                  </p>
+
                   <button class="btn-add">Thêm vào giỏ</button>
               </div>
-              <div class="product-mini">
-                  <img src="./img/muvanh.jpg" alt="Mũ vành kiểu dáng basic">
-                  <p>Mũ vành kiểu dáng basic</p>
-                  <p class="price"><span class="old-price">190.000đ</span> <span class="new-price">158.000đ</span></p>
-                  <button class="btn-add">Thêm vào giỏ</button>
-              </div>
-              <div class="product-mini">
-                  <img src="./img/balomeo.jpg" alt="Balo dạng trứng hình MÈO">
-                  <p>Balo dạng trứng hình MÈO</p>
-                  <p class="price"><span class="old-price">143.000đ</span> <span class="new-price">119.000đ</span></p>
-                  <button class="btn-add">Thêm vào giỏ</button>
-              </div>
-              <div class="product-mini">
-                  <img src="./img/donghokl.jpg" alt="Đồng hồ kim khủng long 3D">
-                  <p>Đồng hồ kim khủng long 3D</p>
-                  <p class="price"><span class="old-price">107.000đ</span> <span class="new-price">89.000đ</span></p>
-                  <button class="btn-add">Thêm vào giỏ</button>
-              </div>
-          </div>
-          <div class="load-more-container">
-              <button id="load-more"><a href="phukien.jsp">Xem thêm</a></button>
-          </div>
+          </c:forEach>
       </div>
+
 
 
       <!-- ========== Khi nhấn thêm vào giỏ hàng-->

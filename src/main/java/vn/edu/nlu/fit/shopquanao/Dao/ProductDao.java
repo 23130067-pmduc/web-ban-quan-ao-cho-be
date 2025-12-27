@@ -82,32 +82,47 @@ public class ProductDao extends BaseDao {
                         .list()
         );
     }
+    public List<Product> findBoyProducts(int limit) {
+        return getJdbi().withHandle(handle ->
+                handle.createQuery("""
+            SELECT * FROM products
+            WHERE category_id IN (1,2,3)
+              AND status = 'Đang bán'
+            ORDER BY created_at DESC
+            LIMIT :limit
+        """)
+                        .bind("limit", limit)
+                        .mapToBean(Product.class)
+                        .list()
+        );
+    }
 
-    /**
-     * Test method để kiểm tra kết nối database
-     */
-    public static void main(String[] args) {
-        System.out.println("=== TEST ProductDao ===");
-        ProductDao dao = new ProductDao();
-        
-        try {
-            List<Product> products = dao.findAll();
-            System.out.println("Kết nối database thành công!");
-            System.out.println("Số sản phẩm tìm thấy: " + products.size());
-            
-            if (!products.isEmpty()) {
-                Product first = products.get(0);
-                System.out.println("\nSản phẩm đầu tiên:");
-                System.out.println("  ID: " + first.getId());
-                System.out.println("  Tên: " + first.getName());
-                System.out.println("  Giá: " + first.getPrice());
-                System.out.println("  Status: " + first.getStatus());
-            }
-        } catch (Exception e) {
-            System.err.println("LỖI: " + e.getMessage());
-            e.printStackTrace();
-        }
-        
-        System.out.println("\n=== KẾT THÚC TEST ===");
+    public List<Product> findGirlProducts(int limit) {
+        return getJdbi().withHandle(handle ->
+                handle.createQuery("""
+            SELECT * FROM products
+            WHERE category_id IN (4,5,6,7)
+              AND status = 'Đang bán'
+            ORDER BY created_at DESC
+            LIMIT :limit
+        """)
+                        .bind("limit", limit)
+                        .mapToBean(Product.class)
+                        .list()
+        );
+    }
+    public List<Product> findAccessoryProducts(int limit) {
+        return getJdbi().withHandle(handle ->
+                handle.createQuery("""
+            SELECT * FROM products
+            WHERE category_id IN (8,9,10)
+              AND status = 'Đang bán'
+            ORDER BY created_at DESC
+            LIMIT :limit
+        """)
+                        .bind("limit", limit)
+                        .mapToBean(Product.class)
+                        .list()
+        );
     }
 }

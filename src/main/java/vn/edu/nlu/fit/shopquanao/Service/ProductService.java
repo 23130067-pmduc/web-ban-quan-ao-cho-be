@@ -43,4 +43,15 @@ public class ProductService {
     public List<Product> searchProducts(String keyword) {
         return productDao.searchByName(keyword);
     }
+    public List<Product> getBoyProducts(int limit) {
+        return productDao.findBoyProducts(limit);
+    }
+
+    public List<Product> getGirlProducts(int limit) {
+        return productDao.findGirlProducts(limit);
+    }
+
+    public List<Product> getAccessoryProducts(int limit) {
+        return productDao.findAccessoryProducts(limit);
+    }
 }
