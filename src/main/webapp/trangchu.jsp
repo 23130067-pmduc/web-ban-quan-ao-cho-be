@@ -89,32 +89,17 @@
 
   <!-- ========== BANNER ========== -->
   <section class="banner">
+
     <div class="slider">
         <div class="img-slides">
+            <c:forEach var="b" items="${banners}">
+                <div class="slide">
+                    <a href="${b.navigateTo}">
+                        <img src="${b.imageUrl}" alt="${b.title}">
+                    </a>
+                </div>
+            </c:forEach>
 
-            <div class="slide">
-                <a href="sanpham.jsp">
-                    <img src="./img/banner1.png" alt="Slide 1">
-                </a> 
-            </div>
-
-            <div class="slide">
-                <a href="sanpham.jsp">
-                    <img src="./img/ab.png" alt="Banner - Tên website">
-                </a> 
-            </div>
-
-            <div class="slide">
-                <a href="sanpham.jsp">
-                    <img src="./img/dodep1.png" alt="Slide 2">
-                </a> 
-            </div>
-
-            <div class="slide">
-                <a href="sanpham.jsp">
-                    <img src="./img/ban.png" alt="Slide 3">
-                </a> 
-            </div>
 
         </div>
         <button class="prev">&#10094;</button>

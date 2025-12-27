@@ -53,7 +53,7 @@ public class ProductDao extends BaseDao {
         );
     }
 
-    public List<Product> findByCategories(List<Integer> categoryIds) {
+     public List<Product> findByCategories(List<Integer> categoryIds) {
 
         if (categoryIds == null || categoryIds.isEmpty()) {
             return List.of();
