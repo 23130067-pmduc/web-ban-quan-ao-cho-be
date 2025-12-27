@@ -199,7 +199,7 @@
             
             <fmt:setLocale value="vi_VN"/>
             <span><a href="pageatxl.jsp">
-                <fmt:formatNumber value="${p.price * 1000}" pattern="#,###" groupingUsed="true"/>đ
+                <fmt:formatNumber value="${p.price}" pattern="#,###" groupingUsed="true"/>đ
             </a></span>
             
             <button class="btn-add">Thêm vào giỏ</button>
