@@ -128,4 +128,47 @@ public class ProductDao extends BaseDao {
         
         System.out.println("\n=== KẾT THÚC TEST ===");
     }
+    public List<Product> findBoyProducts(int limit) {
+        return getJdbi().withHandle(handle ->
+                handle.createQuery("""
+            SELECT * FROM products
+            WHERE category_id IN (1,2,3)
+              AND status = 'Đang bán'
+            ORDER BY created_at DESC
+            LIMIT :limit
+        """)
+                        .bind("limit", limit)
+                        .mapToBean(Product.class)
+                        .list()
+        );
+    }
+    public List<Product> findGirlProducts(int limit) {
+        return getJdbi().withHandle(handle ->
+                handle.createQuery("""
+            SELECT * FROM products
+            WHERE category_id IN (4,5,6,7)
+              AND status = 'Đang bán'
+            ORDER BY created_at DESC
+            LIMIT :limit
+        """)
+                        .bind("limit", limit)
+                        .mapToBean(Product.class)
+                        .list()
+        );
+    }
+    public List<Product> findAccessoryProducts(int limit) {
+        return getJdbi().withHandle(handle ->
+                handle.createQuery("""
+            SELECT * FROM products
+            WHERE category_id IN (8,9,10)
+              AND status = 'Đang bán'
+            ORDER BY created_at DESC
+            LIMIT :limit
+        """)
+                        .bind("limit", limit)
+                        .mapToBean(Product.class)
+                        .list()
+        );
+    }
+
 }

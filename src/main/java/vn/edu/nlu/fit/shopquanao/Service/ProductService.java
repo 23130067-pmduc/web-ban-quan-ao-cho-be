@@ -35,6 +35,7 @@ public class ProductService {
     public List<Product> getProductsByCategories(List<Integer> categoryIds) {
         return productDao.findByCategories(categoryIds);
     }
+
     /**
      * Lấy sản phẩm mới nhất
      */
@@ -65,10 +66,11 @@ public class ProductService {
 
     // Khuyến mãi sale_price
     public List<Product> sortBySale(List<Product> products) {
-        products.sort(Comparator.comparing((Product p) -> p.getSale_price() > 0 ? 0 : 1 )
+        products.sort(Comparator.comparing((Product p) -> p.getSale_price() > 0 ? 0 : 1)
                 .thenComparing(Product::getSale_price));
         return products;
     }
+
     // Theo giá
     public List<Product> sortByPriceAsc(List<Product> products) {
         products.sort(Comparator.comparing(Product::getSale_price));
@@ -80,5 +82,17 @@ public class ProductService {
                 .reversed());
 
         return products;
+    }
+
+    public List<Product> getBoyProducts(int limit) {
+        return productDao.findBoyProducts(limit);
+    }
+
+    public List<Product> getGirlProducts(int limit) {
+        return productDao.findGirlProducts(limit);
+    }
+
+    public List<Product> getAccessoryProducts(int limit) {
+        return productDao.findAccessoryProducts(limit);
     }
 }
