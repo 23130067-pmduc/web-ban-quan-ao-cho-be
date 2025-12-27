@@ -62,7 +62,7 @@ public class ProductController extends HttpServlet {
 
 
         // Phần này là sort (Phần trên)
-        if ( sort != null && sort.isEmpty()){
+        if ( sort != null && !sort.isEmpty()){
             switch (sort) {
                 case "new":
                     products = productService.sortByNewest(products);

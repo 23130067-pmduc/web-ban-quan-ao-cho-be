@@ -71,12 +71,12 @@ public class ProductService {
     }
     // Theo giá
     public List<Product> sortByPriceAsc(List<Product> products) {
-        products.sort(Comparator.comparing((Product p) -> p.getSale_price() > 0 ? p.getSale_price() : p.getPrice() ));
+        products.sort(Comparator.comparing(Product::getSale_price));
         return products;
     }
 
     public List<Product> sortByPriceDesc(List<Product> products) {
-        products.sort(Comparator.comparing((Product p) -> p.getSale_price() > 0 ? p.getSale_price() : p.getPrice() )
+        products.sort(Comparator.comparing((Product::getSale_price))
                 .reversed());
 
         return products;

@@ -96,19 +96,19 @@
         <div class="filter-sort">
             <div class="sort-buttons">
 
-                <a href="san-pham?group=${param.group}&sort=new">
+                <a href="san-pham?group=${param.group}&category=${param.category}&sort=new">
                     <button class="${param.sort eq 'new' || empty param.sort ? 'active' : ''}">
                         Mới nhất
                     </button>
                 </a>
 
-                <a href="san-pham?group=${param.group}&sort=best">
+                <a href="san-pham?group=${param.group}&category=${param.category}&sort=best">
                     <button class="${param.sort eq 'best' ? 'active' : ''}">
                         Bán chạy
                     </button>
                 </a>
 
-                <a href="san-pham?group=${param.group}&sort=sale">
+                <a href="san-pham?group=${param.group}&category=${param.category}&sort=sale">
                     <button class="${param.sort eq 'sale' ? 'active' : ''}">
                         Khuyến mãi
                     </button>
@@ -117,26 +117,26 @@
                 <!-- Dropdown: GIÁ -->
                 <div class="dropdown">
                     <button class="dropbtn
-        ${param.sort eq 'price_asc' || param.sort eq 'price_desc' ? 'active' : ''}">
+                ${param.sort eq 'price_asc' || param.sort eq 'price_desc' ? 'active' : ''}">
                         Giá <i class="fa-solid fa-caret-down"></i>
                     </button>
 
                     <div class="dropdown-content">
                         <a class="${param.sort eq 'price_asc' ? 'active' : ''}"
-                           href="san-pham?group=${param.group}&sort=price_asc">
+                           href="san-pham?group=${param.group}&category=${param.category}&sort=price_asc">
                             Giá thấp đến cao
                         </a>
 
                         <a class="${param.sort eq 'price_desc' ? 'active' : ''}"
-                           href="san-pham?group=${param.group}&sort=price_desc">
+                           href="san-pham?group=${param.group}&category=${param.category}&sort=price_desc">
                             Giá cao đến thấp
                         </a>
                     </div>
                 </div>
 
-
             </div>
         </div>
+
 
         <div class="filter-category">
 
@@ -179,11 +179,11 @@
                 </button>
                 <div class="dropdown-content">
                     <a class="${param.group eq 'begai' && param.category eq '1' ? 'active' : ''}"
-                       href="san-pham?group=begai&category=1&sort=${param.sort}">
+                       href="san-pham?group=begai&category=4&sort=${param.sort}">
                         Áo
                     </a>
                     <a class="${param.group eq 'begai' && param.category eq '2' ? 'active' : ''}"
-                       href="san-pham?group=begai&category=2&sort=${param.sort}">
+                       href="san-pham?group=begai&category=5&sort=${param.sort}">
                         Quần
                     </a>
                     <a class="${param.group eq 'begai' && param.category eq '6' ? 'active' : ''}"
@@ -191,7 +191,7 @@
                         Váy / Đầm
                     </a>
                     <a class="${param.group eq 'begai' && param.category eq '3' ? 'active' : ''}"
-                       href="san-pham?group=begai&category=3&sort=${param.sort}">
+                       href="san-pham?group=begai&category=7&sort=${param.sort}">
                         Đồ bộ
                     </a>
                     <a class="${param.group eq 'begai' && param.category eq '9' ? 'active' : ''}"
@@ -242,7 +242,7 @@
             
             <fmt:setLocale value="vi_VN"/>
             <span><a href="pageatxl.jsp">
-                <fmt:formatNumber value="${p.price * 1000}" pattern="#,###" groupingUsed="true"/>đ
+                <fmt:formatNumber value="${p.sale_price}" type="number" groupingUsed="true"/>đ
             </a></span>
             
             <button class="btn-add">Thêm vào giỏ</button>
