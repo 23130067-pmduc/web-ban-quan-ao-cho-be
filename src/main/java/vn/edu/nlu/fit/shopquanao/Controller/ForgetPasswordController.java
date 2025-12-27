@@ -23,6 +23,12 @@ public class ForgetPasswordController extends HttpServlet {
 
         String email = request.getParameter("email");
 
+        if (email == null || email.trim().isEmpty()) {
+            request.setAttribute("error", "Vui lòng nhập email");
+            request.getRequestDispatcher("/forget.jsp").forward(request, response);
+            return;
+        }
+
         try {
             userService.sendOtpResetPassword(email);
 

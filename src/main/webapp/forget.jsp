@@ -16,9 +16,12 @@
     <main class="forgot-container">
         <div class="forget-box">
         <a href="trangchu.jsp">
-            <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+            <button class="close-btn"><i class="fa-solid fa-arrow-left"></i></button>
         </a>
             <h2 class="quenMatKhau">Quên mật khẩu</h2>
+            <p style="color:red; text-align:center;">
+                ${error}
+            </p>
             <form id="forgetForm" action="fpcl" method="post">
                 <div class="input-group">
                     <label for="email">Email đã đăng ký</label>
