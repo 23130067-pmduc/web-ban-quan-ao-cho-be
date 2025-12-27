@@ -153,26 +153,92 @@
 
 <!-- ========== DANH SÁCH SẢN PHẨM ========== -->
 <section class="products">
-    <h2>SẢN PHẨM
-        <c:if test="${not empty selectedCategory}">
-            - ${selectedCategory.name}
-        </c:if>
-    </h2>
+    <h2>SẢN PHẨM</h2>
     
     <!-- Thanh lọc sản phẩm -->
+
     <div class="filter-bar">
-        <!-- Danh mục sản phẩm -->
-        <div class="filter-category">
-            <a href="sanpham.jsp">
-                <button class="${empty param.category ? 'active' : ''}">Tất cả</button>
-            </a>
-            <c:forEach var="cat" items="${categories}">
-                <a href="sanpham.jsp?category=${cat.id}">
-                    <button class="${param.category eq cat.id ? 'active' : ''}">${cat.name}</button>
-                </a>
-            </c:forEach>
+
+
+        <div class="filter-sort">
+            <div class="sort-buttons">
+                <button class="active">Mới nhất</button>
+                <button>Bán chạy</button>
+                <button>Khuyến mãi</button>
+
+                <!-- Dropdown: Cân nặng -->
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        Cân nặng <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">Dưới 10kg</a>
+                        <a href="#">10 - 20kg</a>
+                        <a href="#">Trên 20kg</a>
+                    </div>
+                </div>
+
+                <!-- Dropdown: Giá -->
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        Giá <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">Giá thấp đến cao</a>
+                        <a href="#">Giá cao đến thấp</a>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <div class="filter-category">
+
+            <!-- Tất cả -->
+            <a href="san-pham">
+                <button class="${empty param.group && empty param.category ? 'active' : ''}">
+                    Tất cả
+                </button>
+            </a>
+
+            <!-- Bé trai -->
+            <div class="dropdown">
+                <button class="dropbtn ${param.group eq 'betrai' ? 'active' : ''}">
+                    Bé trai <i class="fa-solid fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="san-pham?group=betrai&category=1">Quần bé trai</a>
+                    <a href="san-pham?group=betrai&category=3">Áo bé trai</a>
+                    <a href="san-pham?group=betrai&category=6">Set bé trai</a>
+                </div>
+            </div>
+
+            <!-- Bé gái -->
+            <div class="dropdown">
+                <button class="dropbtn ${param.group eq 'begai' ? 'active' : ''}">
+                    Bé gái <i class="fa-solid fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="san-pham?group=begai&category=2">Quần bé gái</a>
+                    <a href="san-pham?group=begai&category=4">Áo bé gái</a>
+                    <a href="san-pham?group=begai&category=7">Set bé gái</a>
+                </div>
+            </div>
+
+            <!-- Phụ kiện -->
+            <a href="san-pham?group=phukien">
+                <button class="${param.group eq 'phukien' ? 'active' : ''}">
+                    Phụ kiện
+                </button>
+            </a>
+
+        </div>
+
+
     </div>
+
+
+
+
 
     <div class="product-list">
         <%-- Debug: Kiểm tra list có tồn tại không --%>
