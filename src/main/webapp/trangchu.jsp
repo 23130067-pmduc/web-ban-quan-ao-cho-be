@@ -166,7 +166,7 @@
               </div>
 
               <div class="load-more">
-                  <a href="listqabt.jsp">Xem thêm</a>
+                  <a href="san-pham">Xem thêm</a>
               </div>
           </div>
 
@@ -197,7 +197,7 @@
               </div>
 
               <div class="load-more">
-                  <a href="listbegai.jsp">Xem thêm</a>
+                  <a href="san-pham">Xem thêm</a>
               </div>
           </div>
 
@@ -228,7 +228,7 @@
               </div>
 
               <div class="load-more">
-                  <a href="phukien.jsp">Xem thêm</a>
+                  <a href="san-pham">Xem thêm</a>
               </div>
           </div>
 

@@ -1,10 +1,10 @@
 package vn.edu.nlu.fit.shopquanao.Service;
 
-import vn.edu.nlu.fit.shopquanao.Dao.ProductDao;
-import vn.edu.nlu.fit.shopquanao.model.Product;
-
 import java.util.Comparator;
 import java.util.List;
+
+import vn.edu.nlu.fit.shopquanao.Dao.ProductDao;
+import vn.edu.nlu.fit.shopquanao.model.Product;
 
 public class ProductService {
 
