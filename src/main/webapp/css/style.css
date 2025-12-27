@@ -1010,3 +1010,52 @@ header li:hover .sub{
 .footer-social a:hover img {
     transform: scale(1.05)        
 }
+/* ================= XEM THÊM ================= */
+.load-more {
+    position: relative;
+    margin: 45px auto 0;
+    text-align: center;
+    width: fit-content;
+}
+
+/* line trái + phải */
+.load-more::before,
+.load-more::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 180px;
+    height: 2px;
+    background-color: #C89F7B;
+}
+
+.load-more::before {
+    right: 100%;
+    margin-right: 20px;
+}
+
+.load-more::after {
+    left: 100%;
+    margin-left: 20px;
+}
+
+/* nút */
+.load-more a {
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 999px;
+    background-color: #fff;
+    border: 1.5px solid #C89F7B;
+    color: #5B3A29;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+/* hover */
+.load-more a:hover {
+    background-color: #5B3A29;
+    color: #fff;
+    transform: scale(1.05);
+}

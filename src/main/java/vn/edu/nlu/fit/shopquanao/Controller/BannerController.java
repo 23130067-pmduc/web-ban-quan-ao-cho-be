@@ -9,7 +9,6 @@ import vn.edu.nlu.fit.shopquanao.model.Banner;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/trang-chu")
 public class BannerController extends HttpServlet {
 
     private BannerService bannerService;

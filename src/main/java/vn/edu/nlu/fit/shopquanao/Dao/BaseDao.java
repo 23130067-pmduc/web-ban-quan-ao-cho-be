@@ -31,7 +31,6 @@ public class BaseDao {
         dataSource.setPassword(DBProperties.password);
         try {
             dataSource.setUseCompression(true);
-            dataSource.setAutoReconnect(true);
         }
         catch (SQLException e) {
             throw new RuntimeException(e);
