@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -6,6 +7,10 @@
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
+    <c:if test="${not empty pageCss}">
+        <link rel="stylesheet"
+              href="${pageContext.request.contextPath}/css/${pageCss}">
+    </c:if>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
@@ -37,12 +42,12 @@
 
             <div class="menu">
                 <ul>
-                    <li><a href="trangchu.jsp">Trang chủ</a></li>
+                    <li><a href="${pageContext.request.contextPath}/trang-chu">Trang chủ</a></li>
                     <li ><a href="sanpham.jsp">Sản phẩm ▾</a>
                         <ul class="sub">
-                            <li class="subItem"> <a href="listqabt.jsp">Quần áo bé trai</a> </li>
-                            <li class="subItem"> <a href="listbegai.jsp">Quần áo bé gái</a> </li>
-                            <li class="subItem"> <a href="phukien.jsp">Phụ kiện</a> </li>
+                            <li class="subItem"> <a href="san-pham?group=betrai">Quần áo bé trai</a> </li>
+                            <li class="subItem"> <a href="san-pham?group=begai">Quần áo bé gái</a> </li>
+                            <li class="subItem"> <a href="san-pham?group=phukien">Phụ kiện</a> </li>
                         </ul>
                     </li>
                     <li><a href="tintuc.jsp">Tin tức</a></li>

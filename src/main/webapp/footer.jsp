@@ -1,6 +1,5 @@
-
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ page contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
 <footer class="footer">
     <section class="s-footer-1">
         <div class="footer-info">
@@ -54,5 +53,7 @@
 <script src="${pageContext.request.contextPath}/javaScript/header.js"></script>
 <script src="${pageContext.request.contextPath}/javaScript/thongBao.js"></script>
 <script src="${pageContext.request.contextPath}/javaScript/search.js"></script>
+<script src="${pageContext.request.contextPath}/javaScript/slider.js"></script>
+<script src="${pageContext.request.contextPath}/javaScript/themvaogiohang.js"></script>
 </body>
 </html>
