@@ -20,9 +20,6 @@
 
         <h2 class="quenMatKhau">Thiết Lập Mật Khẩu</h2>
         <p class="desc">Tạo mật khẩu mới</p>
-        <p style="color:red; text-align:center; margin-bottom: 20px;">
-            ${error}
-        </p>
 
         <form action="reset_pass" method="post">
             <input type="hidden" name="email" value="${param.email}">
@@ -40,11 +37,12 @@
                 <li id="rule-special">Ký tự đặc biệt.</li>
             </ul>
 
-            <button type="submit" class="btn-primary">TIẾP THEO</button>
+            <button type="submit" class="btn-primary" id="submitBtn" disabled>TIẾP THEO</button>
         </form>
 
     </div>
 </main>
 
 </body>
+<script src="./javaScript/reset_pass.js"></script>
 </html>
