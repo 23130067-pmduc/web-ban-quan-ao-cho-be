@@ -38,10 +38,6 @@
 
 
         <div class="remember-forgot">
-            <div class="remember">
-                <input type="checkbox" id="remember" name="remember" style="cursor: pointer;">
-                <label for="remember">Nhớ mật khẩu</label>
-            </div>
             <a href="./forget.jsp">Quên mật khẩu?</a>
         </div>
           <button type="submit" class="btn-primary">Đăng nhập</button>

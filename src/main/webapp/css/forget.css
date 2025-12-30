@@ -26,12 +26,12 @@ body{
     text-align: center;
     border: 1px solid #5B3A29;
 }
-.close-btn{
+.forget-box .back-btn{
     position: absolute;
     left: 20px;
     top: 20px;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 22px;
     color: #333;
     font-family: initial;
     background: none;
@@ -40,7 +40,7 @@ body{
     transition: color 0.3s ease;
 }
 
-.close-btn:hover{
+.back-btn:hover{
     color: red;
 }
 

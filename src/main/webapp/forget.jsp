@@ -15,9 +15,10 @@
     <!-- ======== Form Quên Mật Khẩu ======== -->
     <main class="forgot-container">
         <div class="forget-box">
-        <a href="trangchu.jsp">
-            <button class="close-btn"><i class="fa-solid fa-arrow-left"></i></button>
-        </a>
+            <a href="trangchu.jsp">
+                <button class="back-btn"><i class="fa-solid fa-arrow-left"></i></button>
+            </a>
+
             <h2 class="quenMatKhau">Quên mật khẩu</h2>
             <p style="color:red; text-align:center;">
                 ${error}
@@ -33,7 +34,9 @@
                 <div class="links">
                     <a href="login.jsp">Quay lại đăng nhập</a>
                     </div>
+        </div>
     </main>
-    <script src="./javaScript/forget.js"></script>
+
 </body>
+<script src="./javaScript/forget.js"></script>
 </html>

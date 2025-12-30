@@ -39,13 +39,13 @@ body{
     margin-bottom: 40px;
     text-shadow: 0 2px 4px #00000033;
 }
-.close-btn{
+.login-box .close-btn{
     position: absolute;
     right : 25px;
     top: 20px;
     background: none;
     border: none;
-    font-size: 20px;
+    font-size: 22px;
     cursor: pointer;
     color: #333;
     transition: color 0.3s ease;
@@ -54,7 +54,7 @@ body{
     color: red;
 }
 .input-group{
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 .input-group input{
     width: 100%;
@@ -85,8 +85,7 @@ body{
 
 .remember-forgot{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-end;
     
 }
 .remember-forgot a{
@@ -101,7 +100,7 @@ body{
     background: black;
     color: white;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 20px;
     border: none;
     border-radius: 20px;
     font-size: 16px;
