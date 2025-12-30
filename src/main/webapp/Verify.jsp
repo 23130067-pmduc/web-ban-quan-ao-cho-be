@@ -41,8 +41,13 @@
             </div>
 
             <div class="resend">
-                Bạn vẫn chưa nhận được?
-                <a href="#">Gửi lại</a>
+                <span id="resendText">
+                    Bạn vẫn chưa nhận được?
+                    <a href="#" id="resendLink">Gửi lại</a>
+                </span>
+                <span id="countdown" style="display:none; color:#999999;">
+                    Vui lòng chờ <b id="time">60</b> giây để gửi lại
+                </span>
             </div>
 
             <button type="submit" class="btn-primary" id="submitBtn">TIẾP THEO</button>
