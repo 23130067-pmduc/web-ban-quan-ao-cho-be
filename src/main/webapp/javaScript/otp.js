@@ -1,24 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    // ===== OTP INPUT AUTO MOVE =====
     const inputs = document.querySelectorAll('.o');
-
-    // focus ô đầu tiên
     if (inputs.length > 0) inputs[0].focus();
 
     inputs.forEach((input, index) => {
-
-        // Khi nhập
         input.addEventListener('input', () => {
-            // chỉ cho nhập số
             input.value = input.value.replace(/[^0-9]/g, '');
-
-            // tự nhảy sang ô tiếp theo
             if (input.value && index < inputs.length - 1) {
                 inputs[index + 1].focus();
             }
         });
 
-        // Khi nhấn backspace
         input.addEventListener('keydown', (e) => {
             if (e.key === 'Backspace' && !input.value && index > 0) {
                 inputs[index - 1].focus();
@@ -26,20 +19,70 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    // ===== RESEND OTP =====
+    const resendLink = document.getElementById("resendLink");
+    const resendText = document.getElementById("resendText");
+    const countdownBox = document.getElementById("countdown");
+    const timeSpan = document.getElementById("time");
+
+    let seconds = 60;
+    let timer = null;
+
+    resendLink.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        if (timer) return;
+
+        const email = document.querySelector("input[name='email']").value;
+
+        fetch("otp", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: "action=resend&email=" + encodeURIComponent(email)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    startCountdown();
+                } else {
+                    alert(data.message || "Không thể gửi lại OTP");
+                }
+            });
+    });
+
+
+    function startCountdown() {
+        resendText.style.display = "none";
+        countdownBox.style.display = "inline";
+        seconds = 60;
+        timeSpan.innerText = seconds;
+
+        timer = setInterval(() => {
+            seconds--;
+            timeSpan.innerText = seconds;
+
+            if (seconds <= 0) {
+                clearInterval(timer);
+                countdownBox.style.display = "none";
+                resendText.style.display = "inline";
+            }
+        }, 1000);
+    }
 });
 
-// Gộp OTP trước khi submit
+
+// ===== JOIN OTP (GLOBAL – HTML GỌI ĐƯỢC) =====
 function joinOtp() {
     let otp = '';
-    document.querySelectorAll('.o').forEach(input => {otp += input.value;});
+    document.querySelectorAll('.o').forEach(i => otp += i.value);
 
     if (otp.length !== 6) {
         alert("Vui lòng nhập đủ 6 số OTP");
-        return false; // chặn submit
+        return false;
     }
 
     document.getElementById('otp').value = otp;
-    // khóa nút submit
-    document.getElementById('submitBtn').disabled = true;
-    return true; // cho submit
+    return true;
 }

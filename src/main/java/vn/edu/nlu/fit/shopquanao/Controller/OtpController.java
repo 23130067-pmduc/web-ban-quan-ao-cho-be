@@ -26,6 +26,26 @@ public class OtpController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // ===== RESEND OTP =====
+        String action = request.getParameter("action");
+        if ("resend".equals(action)) {
+            String email = request.getParameter("email");
+
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+
+            try {
+                userService.sendOtpResetPassword(email);
+                response.getWriter().write("{\"success\":true}");
+            } catch (RuntimeException e) {
+                response.getWriter().write(
+                        "{\"success\":false,\"message\":\"" + e.getMessage() + "\"}"
+                );
+            }
+            return;
+        }
+
+
         String email = request.getParameter("email");
         String otp = request.getParameter("otp");
         String type = request.getParameter("type");
