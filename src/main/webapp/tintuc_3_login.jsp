@@ -7,6 +7,8 @@
     <meta charset="UTF-8">
     <title>Xu hướng thời trang 2025</title>
     <link rel="stylesheet" href="css/tintuc_3.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>

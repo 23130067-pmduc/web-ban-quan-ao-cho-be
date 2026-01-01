@@ -1,10 +1,3 @@
-/* ================================================================================================
-   ADMIN PANEL CSS - HƯỚNG DẪN CHI TIẾT
-   ================================================================================================
-   File này chứa CSS cho toàn bộ admin panel
-   Bao gồm: Layout, Components, Toast, Pagination, Buttons, Status badges
-   ================================================================================================ */
-
 /* RESET & GLOBAL */
 * {
     margin: 0;
@@ -85,7 +78,7 @@ body, .admin {
     font-weight: 600;
 }
 
-/* CONTENT AREA - PHẦN NỘI DUNG */
+/* CONTENT AREA - PH?N N?I DUNG */
 .content {
     flex: 1;
     background: #f5f7fb;
@@ -123,7 +116,7 @@ body, .admin {
     transform: scale(1.05);
 }
 
-/* CARDS - THẺ THỐNG KÊ */
+/* CARDS - TH? TH?NG KÊ */
 .cards {
     display: flex;
     gap: 15px;
@@ -154,7 +147,7 @@ body, .admin {
     color: #A9C87D;
 }
 
-/* TOOLBAR - THANH CÔNG CỤ */
+/* TOOLBAR - THANH CÔNG C? */
 .toolbar {
     display: flex;
     gap: 15px;
@@ -193,7 +186,7 @@ body, .admin {
     box-shadow: 0 0 0 3px rgba(169, 200, 125, 0.1);
 }
 
-/* TABLE - BẢNG DỮ LIỆU */
+/* TABLE - B?NG D? LI?U */
 .table {
     width: 100%;
     border-collapse: collapse;
@@ -247,7 +240,7 @@ body, .admin {
     border-radius: 6px;
 }
 
-/* BUTTONS IN TABLE - NÚT TRONG BẢNG */
+/* BUTTONS IN TABLE - NÚT TRONG B?NG */
 .btn-edit,
 .btn-delete {
     padding: 6px 12px;
@@ -280,7 +273,7 @@ body, .admin {
     transform: scale(1.05);
 }
 
-/* STATUS BADGES - NHÃN TRẠNG THÁI */
+/* STATUS BADGES - NHÃN TR?NG THÁI */
 .status-badge {
     display: inline-block;
     padding: 5px 12px;
@@ -290,13 +283,13 @@ body, .admin {
     text-transform: uppercase;
 }
 
-/* Trạng thái sản phẩm */
+/* Tr?ng thái s?n ph?m */
 .status-badge.out-of-stock {
     background: #ffebee;
     color: #c62828;
 }
 
-/* Trạng thái đơn hàng */
+/* Tr?ng thái ??n hàng */
 .status-pending {
     background: #fff3e0;
     color: #e65100;
@@ -317,7 +310,7 @@ body, .admin {
     color: #c62828;
 }
 
-/* Trạng thái mã giảm giá */
+/* Tr?ng thái mã gi?m giá */
 .status-active {
     background: #e8f5e9;
     color: #2e7d32;
@@ -343,7 +336,7 @@ body, .admin {
     animation: fadeIn 0.3s;
 }
 
-/* Tiêu đề trang */
+/* Tiêu ?? trang */
 .page-title {
     font-size: 24px;
     font-weight: 600;
@@ -353,7 +346,7 @@ body, .admin {
     border-bottom: 2px solid #A9C87D;
 }
 
-/* Header cho mỗi page */
+/* Header cho m?i page */
 .page-header {
     display: flex;
     justify-content: space-between;
@@ -521,7 +514,7 @@ body, .admin {
     margin-top: 0;
 }
 
-/* Revenue cards - giống với dashboard cards (trắng + chữ xanh) */
+/* Revenue cards - gi?ng v?i dashboard cards (tr?ng + ch? xanh) */
 #doanhthu .cards .card {
     background: #fff;
     color: #333;
@@ -533,12 +526,12 @@ body, .admin {
     color: #A9C87D;
 }
 
-/* Ẩn scrollbar cho trang doanh thu */
+/* ?n scrollbar cho trang doanh thu */
 #doanhthu {
     overflow: visible !important;
 }
 
-/* SETTINGS SECTION - PHẦN CÀI ĐẶT */
+/* SETTINGS SECTION - PH?N CÀI ??T */
 .settings-section {
     background: #fff;
     padding: 20px 25px;
@@ -669,28 +662,28 @@ body, .admin {
     .sidebar {
         display: none;
     }
-    
+
     .content {
         padding: 15px;
     }
-    
+
     .cards {
         flex-direction: column;
     }
-    
+
     .toolbar {
         flex-direction: column;
         align-items: stretch;
     }
-    
+
     .toolbar input {
         width: 100%;
     }
-    
+
     .table {
         font-size: 12px;
     }
-    
+
     .table th,
     .table td {
         padding: 8px;
@@ -698,10 +691,10 @@ body, .admin {
 }
 
 /* ================================================================================================
-   MODAL - CỬA SỔ THÊM/SỬA SẢN PHẨM
+   MODAL - C?A S? THÊM/S?A S?N PH?M
    ================================================================================================ */
 
-/* Overlay tối phía sau modal */
+/* Overlay t?i phía sau modal */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -720,7 +713,7 @@ body, .admin {
     display: flex;
 }
 
-/* Hộp modal */
+/* H?p modal */
 .modal {
     background: white;
     border-radius: 12px;
@@ -815,7 +808,7 @@ body, .admin {
     color: #999;
 }
 
-/* Form row - 2 cột */
+/* Form row - 2 c?t */
 .form-row {
     display: flex;
     gap: 15px;
@@ -887,9 +880,9 @@ body, .admin {
     }
 }
 
-/* ===== CSS B? SUNG CHO QU?N L� S?N PH?M ===== */
+/* ===== CSS B? SUNG CHO QU?N L? S?N PH?M ===== */
 
-/* Tr?ng th�i t?n kho */
+/* Tr?ng th?i t?n kho */
 .stock-ok {
     color: #28a745;
     font-weight: bold;
