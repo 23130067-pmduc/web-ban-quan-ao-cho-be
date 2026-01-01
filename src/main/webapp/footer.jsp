@@ -46,8 +46,8 @@
             </div>
         </div>
     </section>
-    <p class="copyright">© 2025 SunnyBear. All rights reserved.</p>
 </footer>
+<p class="copyright">© 2025 SunnyBear. All rights reserved.</p>
 
 
 <script src="${pageContext.request.contextPath}/javaScript/header.js"></script>
@@ -55,5 +55,9 @@
 <script src="${pageContext.request.contextPath}/javaScript/search.js"></script>
 <script src="${pageContext.request.contextPath}/javaScript/slider.js"></script>
 <script src="${pageContext.request.contextPath}/javaScript/themvaogiohang.js"></script>
+<script src="${pageContext.request.contextPath}/javaScript/dropdown.js"></script>
+<script src="${pageContext.request.contextPath}/javaScript/pageatxl.js"></script>
+<script src="${pageContext.request.contextPath}/javaScript/loadMore.js"></script>
+
 </body>
 </html>
