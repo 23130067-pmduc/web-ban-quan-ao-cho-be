@@ -81,6 +81,11 @@
                     Bé trai <i class="fa-solid fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
+                    <a class="${param.group eq 'betrai' && empty param.category ? 'active' : ''}"
+                       href="san-pham?group=betrai&sort=${param.sort}">
+                        Tất cả
+                    </a>
+
                     <a class="${param.group eq 'betrai' && param.category eq '1' ? 'active' : ''}"
                        href="san-pham?group=betrai&category=1&sort=${param.sort}">
                         Áo
@@ -106,11 +111,17 @@
                     Bé gái <i class="fa-solid fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a class="${param.group eq 'begai' && param.category eq '1' ? 'active' : ''}"
+                    <a class="${param.group eq 'begai' && empty param.category ? 'active' : ''}"
+                       href="san-pham?group=begai&sort=${param.sort}">
+                        Tất cả
+                    </a>
+
+
+                    <a class="${param.group eq 'begai' && param.category eq '4' ? 'active' : ''}"
                        href="san-pham?group=begai&category=4&sort=${param.sort}">
                         Áo
                     </a>
-                    <a class="${param.group eq 'begai' && param.category eq '2' ? 'active' : ''}"
+                    <a class="${param.group eq 'begai' && param.category eq '5' ? 'active' : ''}"
                        href="san-pham?group=begai&category=5&sort=${param.sort}">
                         Quần
                     </a>
@@ -118,7 +129,7 @@
                        href="san-pham?group=begai&category=6&sort=${param.sort}">
                         Váy / Đầm
                     </a>
-                    <a class="${param.group eq 'begai' && param.category eq '3' ? 'active' : ''}"
+                    <a class="${param.group eq 'begai' && param.category eq '7' ? 'active' : ''}"
                        href="san-pham?group=begai&category=7&sort=${param.sort}">
                         Đồ bộ
                     </a>
@@ -135,6 +146,12 @@
                     Phụ kiện <i class="fa-solid fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
+                    <a class="${param.group eq 'phukien' && empty param.category ? 'active' : ''}"
+                       href="san-pham?group=phukien&sort=${param.sort}">
+                        Tất cả
+                    </a>
+
+
                     <a class="${param.group eq 'phukien' && param.category eq '8' ? 'active' : ''}"
                        href="san-pham?group=phukien&category=8&sort=${param.sort}">
                         Phụ kiện thời trang

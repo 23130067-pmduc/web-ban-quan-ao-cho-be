@@ -60,7 +60,7 @@ public class ProductDao extends BaseDao {
         }
 
         String sql = "SELECT * FROM products " +
-                "WHERE category_id IN (<ids>) AND status = 1";
+                "WHERE category_id IN (<ids>) AND status = 'Đang bán'";
 
         return getJdbi().withHandle(handle ->
                 handle.createQuery(sql)
