@@ -43,7 +43,7 @@
             <div class="menu">
                 <ul>
                     <li><a href="${pageContext.request.contextPath}/trang-chu">Trang chủ</a></li>
-                    <li ><a href="sanpham.jsp">Sản phẩm ▾</a>
+                    <li ><a href="san-pham">Sản phẩm ▾</a>
                         <ul class="sub">
                             <li class="subItem"> <a href="san-pham?group=betrai">Quần áo bé trai</a> </li>
                             <li class="subItem"> <a href="san-pham?group=begai">Quần áo bé gái</a> </li>
