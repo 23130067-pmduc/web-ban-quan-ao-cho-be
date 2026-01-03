@@ -42,7 +42,7 @@
           <div class="product-list">
               <c:forEach var="p" items="${latestProducts}">
                   <div class="product-card">
-                      <a href="product-detail?id=${p.id}" class="link-cover"></a>
+                      <a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}" class="link-cover"></a>
                       <img src="${pageContext.request.contextPath}/${p.thumbnail}" alt="${p.name}">
                       <h3>${p.name}</h3>
 
@@ -72,7 +72,7 @@
               <div class="category-products">
                   <c:forEach var="p" items="${boyProducts}">
                       <div class="product-mini">
-                          <a href="product-detail?id=${p.id}" class="link-cover"></a>
+                          <a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}" class="link-cover"></a>
                           <img src="${pageContext.request.contextPath}/${p.thumbnail}" alt="${p.name}">
                           <p>${p.name}</p>
 
@@ -103,7 +103,7 @@
               <div class="category-products">
                   <c:forEach var="p" items="${girlProducts}">
                       <div class="product-mini">
-                          <a href="product-detail?id=${p.id}" class="link-cover"></a>
+                          <a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}" class="link-cover"></a>
                           <img src="${pageContext.request.contextPath}/${p.thumbnail}" alt="${p.name}">
                           <p>${p.name}</p>
 
@@ -134,7 +134,7 @@
               <div class="category-products">
                   <c:forEach var="p" items="${accessoryProducts}">
                       <div class="product-mini">
-                          <a href="product-detail?id=${p.id}" class="link-cover"></a>
+                          <a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}" class="link-cover"></a>
                           <img src="${pageContext.request.contextPath}/${p.thumbnail}" alt="${p.name}">
                           <p>${p.name}</p>
 
