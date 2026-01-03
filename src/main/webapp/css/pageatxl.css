@@ -1,3 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+/* PHẦN NỘI DUNG */
+.product-detail {
+    padding: 50px 80px;
+    background-color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.product-container {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 60px;
+}
+
+
 /* ========== HÌNH ẢNH ========== */
 .product-image {
     flex: 1;
