@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%
+
     request.setAttribute("pageCss", "search.css");
     request.setAttribute("pageTitle" , "Tìm kiếm");
 %>
@@ -20,26 +22,24 @@
     </c:if>
 
     <div class="product-list search-results">
-        <c:forEach var="p" items="${list}">
+        <c:forEach var="p" items="${list}" >
+
+
             <div class="product-card">
-                <img src="${p.thumbnail}" alt="${p.name}">
-                <h3>${p.name}</h3>
-
-                <div class="price">
-                    <c:choose>
-                        <c:when test="${p.sale_price > 0}">
-                            <span class="new-price">${p.sale_price}đ</span>
-                            <span class="old-price">${p.price}đ</span>
-                        </c:when>
-                        <c:otherwise>
-                            <span class="new-price">${p.price}đ</span>
-                        </c:otherwise>
-                    </c:choose>
-                </div>
-
-                <a class="btn-add" href="chi-tiet-san-pham?id=${p.id}">Xem chi tiết
+                <a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}" class="link-cover">
+                    <img src="${p.thumbnail}" alt="${p.name}">
                 </a>
+                <h3><a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}">${p.name}</a></h3>
+                <p><a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}">${p.description}</a></p>
+
+                <fmt:setLocale value="vi_VN"/>
+                <span><a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}">
+                <fmt:formatNumber value="${p.sale_price}" type="number" groupingUsed="true"/></a>
+                </span>
+
+                <button class="btn-add">Thêm vào giỏ</button>
             </div>
+
         </c:forEach>
     </div>
 
