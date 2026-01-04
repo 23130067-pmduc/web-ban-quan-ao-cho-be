@@ -76,9 +76,14 @@
         <img class="logo" src="./img/gau.jpg" alt="Logo">
 
         <div class="boxSearch">
-            <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
-            <button> <i class="fa-solid fa-magnifying-glass"></i> </button>
+            <form action="SearchController" method="get">
+                <input type="text" name="keyword"  value="${param.keyword}" placeholder="Tìm kiếm sản phẩm..." required />
+                <button type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
         </div>
+
 
         <span class="closeSearch" id="closeSearch">&times; </span>
     </div>

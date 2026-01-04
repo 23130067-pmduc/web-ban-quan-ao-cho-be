@@ -1,0 +1,54 @@
+.search-page {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background-color: #ffffff;
+}
+
+.search-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #222222;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.search-title .keyword {
+    color: #5B3A29;
+}
+
+/* Empty state */
+.search-empty {
+    text-align: center;
+    font-size: 18px;
+    color: #666666;
+    margin-top: 40px;
+}
+
+.search-results {
+    margin-top: 20px;
+}
+
+/* Card chỉnh lại cho search (đồng bộ sản phẩm) */
+.search-results .product-card {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.search-results .product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* Button */
+.search-results .btn-add {
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;
+}
+/* GHI ĐÈ layout cho search */
+.search-page .product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 32px;
+
+    overflow: visible;
+}

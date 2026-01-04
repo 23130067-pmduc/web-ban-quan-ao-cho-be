@@ -6,6 +6,8 @@ import org.jdbi.v3.core.Jdbi;
 
 import vn.edu.nlu.fit.shopquanao.model.Category;
 
+import static java.lang.reflect.Array.get;
+
 public class CategoryDao extends BaseDao {
 
     /**
@@ -35,6 +37,17 @@ public class CategoryDao extends BaseDao {
                         .orElse(null)
         );
     }
+
+    public List<Category> getCategoryChild(int parentId) {
+        String sql = "SELECT * FROM categories WHERE parent_id = :pid AND status = 1";
+        return getJdbi().withHandle(h ->
+                h.createQuery(sql)
+                        .bind("pid", parentId)
+                        .mapToBean(Category.class)
+                        .list()
+        );
+    }
+
 
     /**
      * Đếm số sản phẩm theo danh mục
