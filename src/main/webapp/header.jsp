@@ -58,14 +58,30 @@
 
             <div class="actions">
                 <a href="#" class="iconSearch"><i class="fa-solid fa-magnifying-glass"></i></a>
-                <div class="user-menu">
-                    <a href="#" class="iconUser"><i class="fa-regular fa-user"></i></a>
-                    <ul class="user-dropdown">
-                        <li><a href="login.jsp">Đăng nhập</a></li>
-                        <li><a href="register.jsp">Đăng ký</a></li>
-                    </ul>
-                </div>
-                <a href="giohang.jsp" class="iconCart"><i class="fa-solid fa-cart-shopping"></i></a>
+                
+                <%-- Check if user is logged in --%>
+                <% if (session.getAttribute("user") != null) { %>
+                    <%-- User is logged in --%>
+                    <div class="user-menu">
+                        <a href="#" class="iconUser"><i class="fa-regular fa-user"></i></a>
+                        <ul class="user-dropdown">
+                            <li><a href="${pageContext.request.contextPath}/profile.jsp">Tài khoản của tôi</a></li>
+                            <li><a href="${pageContext.request.contextPath}/donmua.jsp">Đơn mua</a></li>
+                            <li><a href="${pageContext.request.contextPath}/LogoutController">Đăng xuất</a></li>
+                        </ul>
+                    </div>
+                    <a href="${pageContext.request.contextPath}/giohang_login.jsp" class="iconCart"><i class="fa-solid fa-cart-shopping"></i></a>
+                <% } else { %>
+                    <%-- User is not logged in --%>
+                    <div class="user-menu">
+                        <a href="#" class="iconUser"><i class="fa-regular fa-user"></i></a>
+                        <ul class="user-dropdown">
+                            <li><a href="${pageContext.request.contextPath}/login.jsp">Đăng nhập</a></li>
+                            <li><a href="${pageContext.request.contextPath}/register.jsp">Đăng ký</a></li>
+                        </ul>
+                    </div>
+                    <a href="${pageContext.request.contextPath}/giohang.jsp" class="iconCart"><i class="fa-solid fa-cart-shopping"></i></a>
+                <% } %>
             </div>
         </nav>
 
