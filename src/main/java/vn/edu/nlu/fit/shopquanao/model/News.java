@@ -7,6 +7,10 @@ public class News {
     private String title, slug, thumbnail, short_description, content;
     private Timestamp created_at, updated_at;
 
+    // No-args constructor for JDBI
+    public News() {
+    }
+
     public News(int id, int author_id, int status, String title, String slug, String thumbnail, String short_description, String content, Timestamp created_at, Timestamp updated_at) {
         this.id = id;
         this.author_id = author_id;
