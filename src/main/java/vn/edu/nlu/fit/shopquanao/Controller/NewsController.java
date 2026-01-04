@@ -1,6 +1,6 @@
 package vn.edu.nlu.fit.shopquanao.Controller;
 
-import vn.edu.nlu.fit.shopquanao.Dao.NewsDao;
+import vn.edu.nlu.fit.shopquanao.Service.NewsService;
 import vn.edu.nlu.fit.shopquanao.model.News;
 
 import jakarta.servlet.ServletException;
@@ -16,11 +16,11 @@ import java.util.Optional;
 @WebServlet("/tin-tuc")
 public class NewsController extends HttpServlet {
 
-    private transient NewsDao newsDao;
+    private transient NewsService newsService;
 
     @Override
     public void init() {
-        newsDao = new NewsDao();
+        newsService = new NewsService();
     }
 
     @Override
@@ -32,7 +32,7 @@ public class NewsController extends HttpServlet {
         String pageParam = request.getParameter("page");
 
         if (slug != null && !slug.isEmpty()) {
-            showNewsDetail(request, response, slug);
+            showDetail(request, response, slug);
             return;
         }
 
@@ -41,71 +41,59 @@ public class NewsController extends HttpServlet {
             return;
         }
 
-        showNewsList(request, response, pageParam);
+        showList(request, response, pageParam);
     }
 
-    private void showNewsList(HttpServletRequest request, HttpServletResponse response, String pageParam)
+    private void showList(HttpServletRequest request, HttpServletResponse response, String pageParam)
             throws ServletException, IOException {
 
-        int currentPage = 1;
         int pageSize = 9;
+        int currentPage = 1;
 
-        if (pageParam != null && !pageParam.isEmpty()) {
-            try {
+        try {
+            if (pageParam != null) {
                 currentPage = Integer.parseInt(pageParam);
-                if (currentPage < 1) currentPage = 1;
-            } catch (NumberFormatException e) {
-                currentPage = 1;
             }
-        }
+        } catch (NumberFormatException ignored) {}
 
-        List<News> newsList = newsDao.getNewsPaginated(currentPage, pageSize);
-        List<News> latestNews = newsDao.getLatestNews(5);
-        int totalPages = newsDao.getTotalPages(pageSize);
-        int totalNews = newsDao.getTotalNewsCount();
+        List<News> newsList = newsService.getNewsPage(currentPage, pageSize);
+        int totalPages = newsService.getTotalPages(pageSize);
 
         request.setAttribute("newsList", newsList);
-        request.setAttribute("latestNews", latestNews);
         request.setAttribute("currentPage", currentPage);
         request.setAttribute("totalPages", totalPages);
-        request.setAttribute("totalNews", totalNews);
 
-        // Chỉ dùng 1 file JSP - header tự động xử lý login/logout
         request.getRequestDispatcher("/tintuc.jsp").forward(request, response);
     }
 
-    private void showNewsDetail(HttpServletRequest request, HttpServletResponse response, String slug)
+    private void showDetail(HttpServletRequest request, HttpServletResponse response, String slug)
             throws ServletException, IOException {
 
-        Optional<News> newsOptional = newsDao.getNewsBySlug(slug);
+        Optional<News> opt = newsService.getBySlug(slug);
 
-        if (newsOptional.isPresent()) {
-            News news = newsOptional.get();
-            List<News> relatedNews = newsDao.getRelatedNews(news.getId(), 4);
-
-            request.setAttribute("news", news);
-            request.setAttribute("relatedNews", relatedNews);
-
-            // Chỉ dùng 1 file JSP - header tự động xử lý login/logout
-            request.getRequestDispatcher("/chitiet_tintuc.jsp").forward(request, response);
-
-        } else {
+        if (opt.isEmpty()) {
             response.sendRedirect(request.getContextPath() + "/tin-tuc");
+            return;
         }
+
+        News news = opt.get();
+        List<News> related = newsService.getRelatedNews(news.getId(), 4);
+
+        request.setAttribute("news", news);
+        request.setAttribute("relatedNews", related);
+
+        request.getRequestDispatcher("/chitiet_tintuc.jsp").forward(request, response);
     }
 
     private void searchNews(HttpServletRequest request, HttpServletResponse response, String keyword)
             throws ServletException, IOException {
 
-        List<News> searchResults = newsDao.searchNews(keyword);
-        List<News> latestNews = newsDao.getLatestNews(5);
+        List<News> result = newsService.search(keyword);
 
-        request.setAttribute("newsList", searchResults);
-        request.setAttribute("latestNews", latestNews);
+        request.setAttribute("newsList", result);
         request.setAttribute("searchKeyword", keyword);
-        request.setAttribute("totalNews", searchResults.size());
+        request.setAttribute("totalNews", result.size());
 
-        // Chỉ dùng 1 file JSP - header tự động xử lý login/logout
         request.getRequestDispatcher("/tintuc.jsp").forward(request, response);
     }
 }
