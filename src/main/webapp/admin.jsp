@@ -8,309 +8,309 @@
     <link rel="stylesheet" href="./css/admin.css">
 </head>
 <body>
-    <div class="admin">
+<div class="admin">
 
-        <!-- THANH CÔNG CỤ -->
+    <!-- THANH CÔNG CỤ -->
 
-        <aside class="sidebar">
-            <img src="../img/gau.jpg" alt=""Logo>
-            <p>ADMIN</p>
+    <aside class="sidebar">
+        <img src="../img/gau.jpg" alt=""Logo>
+        <p>ADMIN</p>
 
-            <div class="nav" id="menu">
-                    <button data-page="dashboard">DashBoard</button>
-                    <button data-page="doanhthu">Doanh thu</button>
-                    <button data-page="sanpham">Sản phẩm</button>
-                    <button data-page="donhang">Đơn hàng</button>
-                    <button data-page="khachhang">Khách hàng</button>
-                    <button data-page="magiamgia">Mã giảm giá</button>
-                    <button data-page="caidat">Cài đặt</button>
+        <div class="nav" id="menu">
+            <button data-page="dashboard">DashBoard</button>
+            <button data-page="doanhthu">Doanh thu</button>
+            <button data-page="sanpham">Sản phẩm</button>
+            <button data-page="donhang">Đơn hàng</button>
+            <button data-page="khachhang">Khách hàng</button>
+            <button data-page="magiamgia">Mã giảm giá</button>
+            <button data-page="caidat">Cài đặt</button>
+        </div>
+    </aside>
+
+
+    <!-- PHẦN NỘI DUNG -->
+    <section class="content">
+        <!-- PHẦN HEADER -->
+        <header class="topbar" style="display: none;">
+            <h1 id="pageTitle">DashBoard</h1>
+            <div class="actions">
+                <button id="logout">Đăng xuất</button>
             </div>
-        </aside>
+        </header>
 
 
-        <!-- PHẦN NỘI DUNG -->
-        <section class="content">
-            <!-- PHẦN HEADER -->
-            <header class="topbar" style="display: none;">
-                <h1 id="pageTitle">DashBoard</h1>
-                <div class="actions">
-                    <button id="logout">Đăng xuất</button>
+        <!-- PHẦN MAIN -->
+        <main id="page">
+            <!-- DASHBROAD -->
+            <section id="dashboard" class="page active">
+                <div class="page-header">
+                    <h1>DashBoard</h1>
+                    <button id="logout" class="logout-btn">Đăng xuất</button>
                 </div>
-            </header>
+                <div class="cards">
+                    <div class="card">Tổng sản phẩm<br><span id="dashboard-total-products">0</span></div>
+                    <div class="card">Đơn hàng<br><span id="dashboard-total-orders">0</span></div>
+                    <div class="card">Khách hàng<br><span id="dashboard-total-customers">0</span></div>
+                    <div class="card">Doanh thu<br><span id="dashboard-total-revenue">0₫</span></div>
+                </div>
+            </section>
 
+            <!-- DOANH THU -->
+            <section id="doanhthu" class="page">
+                <div class="page-header">
+                    <h1>Doanh thu</h1>
+                    <button class="logout-btn">Đăng xuất</button>
+                </div>
+                <div class="cards">
+                    <div class="card">Doanh thu hôm nay<br>
+                        <span id="revenue-today">0₫</span>
+                    </div>
+                    <div class="card">Doanh thu tuần này<br>
+                        <span id="revenue-week">0₫</span>
+                    </div>
+                    <div class="card">Doanh thu tháng này<br>
+                        <span id="revenue-month">0₫</span>
+                    </div>
+                    <div class="card">Tổng doanh thu<br>
+                        <span id="revenue-total">0₫</span>
+                    </div>
+                </div>
 
-            <!-- PHẦN MAIN -->
-            <main id="page">
-                <!-- DASHBROAD -->
-                <section id="dashboard" class="page active">
-                    <div class="page-header">
-                        <h1>DashBoard</h1>
-                        <button id="logout" class="logout-btn">Đăng xuất</button>
+                <div class="revenue-filters">
+                    <h3>Lọc theo thời gian</h3>
+                    <div class="filter-group">
+                        <label>Từ ngày: <input type="date" id="revenue-from-date"></label>
+                        <label>Đến ngày: <input type="date" id="revenue-to-date"></label>
+                        <button id="filter-revenue">Lọc</button>
+                        <button id="reset-revenue-filter">Đặt lại</button>
                     </div>
-                    <div class="cards">
-                        <div class="card">Tổng sản phẩm<br><span id="dashboard-total-products">0</span></div>
-                        <div class="card">Đơn hàng<br><span id="dashboard-total-orders">0</span></div>
-                        <div class="card">Khách hàng<br><span id="dashboard-total-customers">0</span></div>
-                        <div class="card">Doanh thu<br><span id="dashboard-total-revenue">0₫</span></div>
-                    </div>
-                </section>
+                </div>
 
-                <!-- DOANH THU -->
-                <section id="doanhthu" class="page">
-                    <div class="page-header">
-                        <h1>Doanh thu</h1>
-                        <button class="logout-btn">Đăng xuất</button>
+                <div class="revenue-chart">
+                    <h3>Biểu đồ doanh thu</h3>
+                    <div class="chart-container">
                     </div>
-                    <div class="cards">
-                        <div class="card">Doanh thu hôm nay<br>
-                            <span id="revenue-today">0₫</span>
-                        </div>
-                        <div class="card">Doanh thu tuần này<br>
-                            <span id="revenue-week">0₫</span>
-                        </div>
-                        <div class="card">Doanh thu tháng này<br>
-                            <span id="revenue-month">0₫</span>
-                        </div>
-                        <div class="card">Tổng doanh thu<br>
-                            <span id="revenue-total">0₫</span>
-                        </div>
-                    </div>
+                </div>
 
-                    <div class="revenue-filters">
-                        <h3>Lọc theo thời gian</h3>
-                        <div class="filter-group">
-                            <label>Từ ngày: <input type="date" id="revenue-from-date"></label>
-                            <label>Đến ngày: <input type="date" id="revenue-to-date"></label>
-                            <button id="filter-revenue">Lọc</button>
-                            <button id="reset-revenue-filter">Đặt lại</button>
-                        </div>
-                    </div>
-
-                    <div class="revenue-chart">
-                        <h3>Biểu đồ doanh thu</h3>
-                        <div class="chart-container">
-                        </div>
-                    </div>
-
-                    <div class="revenue-details">
-                        <h3>Chi tiết doanh thu theo đơn hàng</h3>
-                        <table class="table" id="revenue-table">
-                            <thead>
-                            <tr>
-                                <th>Mã đơn hàng</th>
-                                <th>Ngày</th>
-                                <th>Khách hàng</th>
-                                <th>Sản phẩm</th>
-                                <th>Trạng thái</th>
-                                <th>Doanh thu</th>
-                            </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-                </section>
-
-                <!-- SẢN PHẨM -->
-                <section id="sanpham" class="page">
-                    <div class="page-header">
-                        <h1>Sản phẩm</h1>
-                        <button class="logout-btn">Đăng xuất</button>
-                    </div>
-                    <div class="cards">
-                        <div class="card">Tổng sản phẩm<br>
-                            <span id="total-products">0</span>
-                        </div>
-                        <div class="card">Sản phẩm còn hàng<br>
-                            <span id="in-stock">0</span>
-                        </div>
-                        <div class="card">Sản phẩm hết hàng<br>
-                            <span id="out-of-stock">0</span>
-                        </div>
-                    </div>
-                    <div class="toolbar">
-                        <button id="add-product">Thêm sản phẩm</button>
-                        <input type="text" id="search" placeholder="Tìm sản phẩm...">
-                    </div>
-
-                    <table class="table" id="products-table">
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Ảnh</th>
-                            <th data-sort="name">Tên ⇅</th>
-                            <th data-sort="price">Giá ⇅</th>
-                            <th data-sort="category">Loại ⇅</th>
-                            <th data-sort="purchases">Lượt mua ⇅</th>
-                            <th>Trạng thái</th>
-                            <th>Hành động</th>
-                        </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                </section>
-
-                <!-- ĐƠN HÀNG -->
-                <section id="donhang" class="page">
-                    <div class="page-header">
-                        <h1>Đơn hàng</h1>
-                        <button class="logout-btn">Đăng xuất</button>
-                    </div>
-                    <div class="cards">
-                        <div class="card">Tổng đơn hàng<br>
-                            <span id="total-orders">0</span>
-                        </div>
-                        <div class="card">Đơn đang xử lý<br>
-                            <span id="pending-orders">0</span>
-                        </div>
-                        <div class="card">Đơn hoàn thành<br>
-                            <span id="completed-orders">0</span>
-                        </div>
-                    </div>
-                    <div class="toolbar">
-                        <button id="add-order">Thêm đơn hàng</button>
-                        <input type="text" id="search-donhang" placeholder="Tìm đơn hàng...">
-                    </div>
-
-                    <table class="table" id="donhang-table">
+                <div class="revenue-details">
+                    <h3>Chi tiết doanh thu theo đơn hàng</h3>
+                    <table class="table" id="revenue-table">
                         <thead>
                         <tr>
                             <th>Mã đơn hàng</th>
-                            <th>Mã khách hàng</th>
-                            <th>Tên khách hàng</th>
-                            <th>Email</th>
-                            <th>Số điện thoại</th>
-                            <th>Ngày đặt hàng</th>
-                            <th>Trạng thái đơn hàng</th>
-                            <th>Tổng tiền</th>
-                        </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                </section>
-
-
-
-                <!-- KHÁCH HÀNG -->
-                <section id="khachhang" class="page">
-                    <div class="page-header">
-                        <h1>Khách hàng</h1>
-                        <button class="logout-btn">Đăng xuất</button>
-                    </div>
-                    <div class="cards">
-                        <div class="card">Tổng khách hàng<br>
-                            <span id="total-customers">0</span>
-                        </div>
-                        <div class="card">Khách hàng mới trong tuần<br>
-                            <span id="new-customers-week">0</span>
-                        </div>
-                        <div class="card">Khách hàng thân thiết<br>
-                            <span id="vip-customers">0</span>
-                        </div>
-                    </div>
-                    <div class="toolbar">
-                        <button id="add-customer">Thêm khách hàng</button>
-                        <input type="text" id="search-khachhang" placeholder="Tìm khách hàng...">
-                    </div>
-
-                    <table class="table" id="khachhang-table">
-                        <thead>
-                        <tr>
-                            <th>Mã khách hàng</th>
-                            <th>Tên</th>
-                            <th>Email</th>
-                            <th>Số điện thoại</th>
-                            <th>Ngày đăng ký</th>
-                            <th>Số đơn hàng</th>
-                            <th>Trạng thái hoạt động</th>
-                        </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                </section>
-
-
-
-                <!-- MÃ GIẢM GIÁ -->
-                <section id="magiamgia" class="page">
-                    <div class="page-header">
-                        <h1>Mã giảm giá</h1>
-                        <button class="logout-btn">Đăng xuất</button>
-                    </div>
-                    <div class="cards">
-                        <div class="card">Tổng mã giảm giá<br>
-                            <span id="total-discounts">0</span>
-                        </div>
-                        <div class="card">Mã đang hoạt động<br>
-                            <span id="active-discounts">0</span>
-                        </div>
-                        <div class="card">Mã hết hạn<br>
-                            <span id="expired-discounts">0</span>
-                        </div>
-                    </div>
-                    <div class="toolbar">
-                        <button id="add-discount">Thêm mã giảm giá</button>
-                        <input type="text" id="search-discount" placeholder="Tìm mã giảm giá...">
-                    </div>
-
-                    <table class="table" id="discount-table">
-                        <thead>
-                        <tr>
-                            <th>Mã giảm giá</th>
-                            <th>Mức giảm (%)</th>
-                            <th>Ngày bắt đầu</th>
-                            <th>Ngày kết thúc</th>
-                            <th>Số lượng sử dụng</th>
+                            <th>Ngày</th>
+                            <th>Khách hàng</th>
+                            <th>Sản phẩm</th>
                             <th>Trạng thái</th>
-                            <th>Hành động</th>
+                            <th>Doanh thu</th>
                         </tr>
                         </thead>
-                        <tbody id="discounts-table"></tbody>
+                        <tbody></tbody>
                     </table>
-                </section>
+                </div>
+            </section>
 
-
-
-                <!-- CÀI ĐẶT -->
-                <section id="caidat" class="page">
-                    <div class="page-header">
-                        <h1>Cài đặt</h1>
-                        <button class="logout-btn">Đăng xuất</button>
+            <!-- SẢN PHẨM -->
+            <section id="sanpham" class="page">
+                <div class="page-header">
+                    <h1>Sản phẩm</h1>
+                    <button class="logout-btn">Đăng xuất</button>
+                </div>
+                <div class="cards">
+                    <div class="card">Tổng sản phẩm<br>
+                        <span id="total-products">0</span>
                     </div>
-
-                    <div class="settings-section">
-                        <h3>Thông tin cửa hàng</h3>
-                        <label>Tên cửa hàng: <input type="text" id="shop-name" value="SuunyBear Kids Clothongs"></label>
-                        <label>Email: <input type="email" id="shop-email" value="contact@sunnybear.vn"></label>
-                        <label>Số điện thoại: <input type="text" id="shop-phone" value="0909 999 999"></label>
-                        <button id="save-shop-info">Lưu thay đổi</button>
+                    <div class="card">Sản phẩm còn hàng<br>
+                        <span id="in-stock">0</span>
                     </div>
-
-                    <div class="settings-section">
-                        <h3>Giao diện admin</h3>
-                        <label>Chủ đề:
-                            <select id="theme-select">
-                                <option value="light">Sáng</option>
-                                <option value="dark">Tối</option>
-                                <option value="pastel">Màu pastel</option>
-                            </select>
-                        </label>
-                        <button id="save-theme">Lưu chủ đề</button>
+                    <div class="card">Sản phẩm hết hàng<br>
+                        <span id="out-of-stock">0</span>
                     </div>
+                </div>
+                <div class="toolbar">
+                    <button id="add-product">Thêm sản phẩm</button>
+                    <input type="text" id="search" placeholder="Tìm sản phẩm...">
+                </div>
 
-                    <div class="settings-section">
-                        <h3>Bảo mật</h3>
-                        <label>Đổi mật khẩu: <input type="password" id="new-password" placeholder="Nhập mật khẩu mới"></label>
-                        <button id="change-password">Đổi mật khẩu</button>
+                <table class="table" id="products-table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ảnh</th>
+                        <th data-sort="name">Tên ⇅</th>
+                        <th data-sort="price">Giá ⇅</th>
+                        <th data-sort="category">Loại ⇅</th>
+                        <th data-sort="purchases">Lượt mua ⇅</th>
+                        <th>Trạng thái</th>
+                        <th>Hành động</th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+
+            <!-- ĐƠN HÀNG -->
+            <section id="donhang" class="page">
+                <div class="page-header">
+                    <h1>Đơn hàng</h1>
+                    <button class="logout-btn">Đăng xuất</button>
+                </div>
+                <div class="cards">
+                    <div class="card">Tổng đơn hàng<br>
+                        <span id="total-orders">0</span>
                     </div>
-                </section>
-            </main>
+                    <div class="card">Đơn đang xử lý<br>
+                        <span id="pending-orders">0</span>
+                    </div>
+                    <div class="card">Đơn hoàn thành<br>
+                        <span id="completed-orders">0</span>
+                    </div>
+                </div>
+                <div class="toolbar">
+                    <button id="add-order">Thêm đơn hàng</button>
+                    <input type="text" id="search-donhang" placeholder="Tìm đơn hàng...">
+                </div>
+
+                <table class="table" id="donhang-table">
+                    <thead>
+                    <tr>
+                        <th>Mã đơn hàng</th>
+                        <th>Mã khách hàng</th>
+                        <th>Tên khách hàng</th>
+                        <th>Email</th>
+                        <th>Số điện thoại</th>
+                        <th>Ngày đặt hàng</th>
+                        <th>Trạng thái đơn hàng</th>
+                        <th>Tổng tiền</th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
 
 
-        </section>
+
+            <!-- KHÁCH HÀNG -->
+            <section id="khachhang" class="page">
+                <div class="page-header">
+                    <h1>Khách hàng</h1>
+                    <button class="logout-btn">Đăng xuất</button>
+                </div>
+                <div class="cards">
+                    <div class="card">Tổng khách hàng<br>
+                        <span id="total-customers">0</span>
+                    </div>
+                    <div class="card">Khách hàng mới trong tuần<br>
+                        <span id="new-customers-week">0</span>
+                    </div>
+                    <div class="card">Khách hàng thân thiết<br>
+                        <span id="vip-customers">0</span>
+                    </div>
+                </div>
+                <div class="toolbar">
+                    <button id="add-customer">Thêm khách hàng</button>
+                    <input type="text" id="search-khachhang" placeholder="Tìm khách hàng...">
+                </div>
+
+                <table class="table" id="khachhang-table">
+                    <thead>
+                    <tr>
+                        <th>Mã khách hàng</th>
+                        <th>Tên</th>
+                        <th>Email</th>
+                        <th>Số điện thoại</th>
+                        <th>Ngày đăng ký</th>
+                        <th>Số đơn hàng</th>
+                        <th>Trạng thái hoạt động</th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
 
 
 
-    </div>
+            <!-- MÃ GIẢM GIÁ -->
+            <section id="magiamgia" class="page">
+                <div class="page-header">
+                    <h1>Mã giảm giá</h1>
+                    <button class="logout-btn">Đăng xuất</button>
+                </div>
+                <div class="cards">
+                    <div class="card">Tổng mã giảm giá<br>
+                        <span id="total-discounts">0</span>
+                    </div>
+                    <div class="card">Mã đang hoạt động<br>
+                        <span id="active-discounts">0</span>
+                    </div>
+                    <div class="card">Mã hết hạn<br>
+                        <span id="expired-discounts">0</span>
+                    </div>
+                </div>
+                <div class="toolbar">
+                    <button id="add-discount">Thêm mã giảm giá</button>
+                    <input type="text" id="search-discount" placeholder="Tìm mã giảm giá...">
+                </div>
+
+                <table class="table" id="discount-table">
+                    <thead>
+                    <tr>
+                        <th>Mã giảm giá</th>
+                        <th>Mức giảm (%)</th>
+                        <th>Ngày bắt đầu</th>
+                        <th>Ngày kết thúc</th>
+                        <th>Số lượng sử dụng</th>
+                        <th>Trạng thái</th>
+                        <th>Hành động</th>
+                    </tr>
+                    </thead>
+                    <tbody id="discounts-table"></tbody>
+                </table>
+            </section>
+
+
+
+            <!-- CÀI ĐẶT -->
+            <section id="caidat" class="page">
+                <div class="page-header">
+                    <h1>Cài đặt</h1>
+                    <button class="logout-btn">Đăng xuất</button>
+                </div>
+
+                <div class="settings-section">
+                    <h3>Thông tin cửa hàng</h3>
+                    <label>Tên cửa hàng: <input type="text" id="shop-name" value="SuunyBear Kids Clothongs"></label>
+                    <label>Email: <input type="email" id="shop-email" value="contact@sunnybear.vn"></label>
+                    <label>Số điện thoại: <input type="text" id="shop-phone" value="0909 999 999"></label>
+                    <button id="save-shop-info">Lưu thay đổi</button>
+                </div>
+
+                <div class="settings-section">
+                    <h3>Giao diện admin</h3>
+                    <label>Chủ đề:
+                        <select id="theme-select">
+                            <option value="light">Sáng</option>
+                            <option value="dark">Tối</option>
+                            <option value="pastel">Màu pastel</option>
+                        </select>
+                    </label>
+                    <button id="save-theme">Lưu chủ đề</button>
+                </div>
+
+                <div class="settings-section">
+                    <h3>Bảo mật</h3>
+                    <label>Đổi mật khẩu: <input type="password" id="new-password" placeholder="Nhập mật khẩu mới"></label>
+                    <button id="change-password">Đổi mật khẩu</button>
+                </div>
+            </section>
+        </main>
+
+
+    </section>
+
+
+
+</div>
 
 <!-- MODAL THÊM/SỬA SẢN PHẨM -->
 <div class="modal-overlay" id="product-modal">
@@ -321,12 +321,12 @@
         </div>
         <div class="modal-body">
             <input type="hidden" id="product-id">
-            
+
             <div class="form-group">
                 <label>Tên sản phẩm <span class="required">*</span></label>
                 <input type="text" id="product-name" placeholder="Nhập tên sản phẩm">
             </div>
-            
+
             <div class="form-row">
                 <div class="form-group">
                     <label>Giá (VNĐ) <span class="required">*</span></label>
@@ -342,7 +342,7 @@
                     </select>
                 </div>
             </div>
-            
+
             <div class="form-row">
                 <div class="form-group">
                     <label>Lượt mua</label>
@@ -356,7 +356,7 @@
                     </select>
                 </div>
             </div>
-            
+
             <div class="form-group">
                 <label>Ảnh (URL)</label>
                 <input type="text" id="product-image" placeholder="https://example.com/image.jpg">
@@ -381,7 +381,7 @@
                 <label>Mã giảm giá <span class="required">*</span></label>
                 <input type="text" id="discount-code" placeholder="VD: SUMMER2025">
             </div>
-            
+
             <div class="form-row">
                 <div class="form-group">
                     <label>Phần trăm giảm <span class="required">*</span></label>
@@ -392,7 +392,7 @@
                     <input type="number" id="discount-uses" value="0">
                 </div>
             </div>
-            
+
             <div class="form-row">
                 <div class="form-group">
                     <label>Ngày bắt đầu <span class="required">*</span></label>
@@ -403,7 +403,7 @@
                     <input type="date" id="discount-end">
                 </div>
             </div>
-            
+
             <div class="form-group">
                 <label>Trạng thái</label>
                 <select id="discount-status">
