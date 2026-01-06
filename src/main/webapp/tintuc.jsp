@@ -34,25 +34,26 @@
             <c:when test="${not empty newsList}">
                 <c:forEach var="news" items="${newsList}">
                     <div class="newsItem">
-
                         <a href="${pageContext.request.contextPath}/tin-tuc?slug=${news.slug}">
-                            <img src="${pageContext.request.contextPath}/${news.thumbnail}"
-                                 alt="${news.title}">
+                            <img src="${pageContext.request.contextPath}/${news.thumbnail}" alt="${news.title}">
                         </a>
 
-                        <h3>
-                            <a href="${pageContext.request.contextPath}/tin-tuc?slug=${news.slug}">
+                        <div class="news-content">
+                            <h3>
+                                <a href="${pageContext.request.contextPath}/tin-tuc?slug=${news.slug}">
                                     ${news.title}
-                            </a>
-                        </h3>
+                                </a>
+                            </h3>
 
-                        <p>${news.shortDescription}</p>
+                            <p>${news.shortDescription}</p>
 
-                        <div class="news-meta">
-                            <i class="fa-regular fa-calendar"></i>
-                            <fmt:formatDate value="${news.createdAt}" pattern="dd/MM/yyyy"/>
+                            <div class="news-meta">
+                                <span class="news-date">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <fmt:formatDate value="${news.createdAt}" pattern="dd/MM/yyyy"/>
+                                </span>
+                            </div>
                         </div>
-
                     </div>
                 </c:forEach>
             </c:when>
