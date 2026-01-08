@@ -47,10 +47,12 @@
                                 </td>
 
                                 <td>
-                                    <input type="number"
-                                           value="${item.quantity}"
-                                           min="1"
-                                           readonly>
+                                    <form action="update-cart" method="post" style="display:flex; gap:5px;">
+                                        <input type="hidden" name="productId" value="${item.product.id}">
+                                        <input type="number" name="quantity"
+                                               value="${item.quantity}" min="1">
+                                        <button type="submit">✔</button>
+                                    </form>
                                 </td>
 
                                 <td>
@@ -60,9 +62,10 @@
                                 </td>
 
                                 <td>
-                                    <a href="remove-cart?productId=${item.product.id}">
-                                        <span style="cursor:pointer">X</span>
-                                    </a>
+                                    <form action="${pageContext.request.contextPath}/del-item" method="post">
+                                        <input type="hidden" name="productId" value="${item.product.id}">
+                                        <button type="submit"> <i class="fa fa-trash"></i></button>
+                                    </form>
                                 </td>
                             </tr>
                         </c:forEach>
