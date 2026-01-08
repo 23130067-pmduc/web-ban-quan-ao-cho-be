@@ -15,7 +15,6 @@ public class UserService {
 
         if (user == null) return null;
 
-        // tạm thời so plain text (sau đổi sang hash)
         if (!user.getPassword().equals(password)) return null;
 
         return user;

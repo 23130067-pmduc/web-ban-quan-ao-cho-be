@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -58,14 +59,56 @@
 
             <div class="actions">
                 <a href="#" class="iconSearch"><i class="fa-solid fa-magnifying-glass"></i></a>
-                <div class="user-menu">
-                    <a href="#" class="iconUser"><i class="fa-regular fa-user"></i></a>
-                    <ul class="user-dropdown">
-                        <li><a href="login.jsp">Đăng nhập</a></li>
-                        <li><a href="register.jsp">Đăng ký</a></li>
-                    </ul>
-                </div>
-                <a href="giohang.jsp" class="iconCart"><i class="fa-solid fa-cart-shopping"></i></a>
+<%--                <div class="user-menu">--%>
+<%--                    <a href="#" class="iconUser"><i class="fa-regular fa-user"></i>${sessionScope.userlogin.username}</a>--%>
+<%--                    <ul class="user-dropdown">--%>
+<%--                        <li><a href="login.jsp">Đăng nhập</a></li>--%>
+<%--                        <li><a href="register.jsp">Đăng ký</a></li>--%>
+<%--                    </ul>--%>
+<%--                </div>--%>
+                    <c:choose>
+                        <c:when test="${not empty sessionScope.userlogin}">
+                            <!-- ĐÃ LOGIN -->
+                            <div class="user-menu">
+                                <a href="#" class="iconUser">
+                                    <i class="fa-regular fa-user"></i>
+                                        ${sessionScope.userlogin.username}
+                                </a>
+                                <ul class="user-dropdown">
+                                    <li><a href="profile.jsp">Thông tin cá nhân</a></li>
+                                    <li><a href="donmua.jsp">Đơn hàng của tôi</a></li>
+                                    <li><a href="logout">Đăng xuất</a></li>
+                                </ul>
+                            </div>
+                        </c:when>
+
+                        <c:otherwise>
+                            <!-- CHƯA LOGIN -->
+                            <div class="user-menu">
+                                <a href="#" class="iconUser">
+                                    <i class="fa-regular fa-user"></i>
+                                </a>
+                                <ul class="user-dropdown">
+                                    <li><a href="login.jsp">Đăng nhập</a></li>
+                                    <li><a href="register.jsp">Đăng ký</a></li>
+                                </ul>
+                            </div>
+                        </c:otherwise>
+                    </c:choose>
+
+                <c:choose>
+                    <c:when test="${not empty sessionScope.userlogin}">
+                        <a href="giohang.jsp" class="iconCart">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                    </c:when>
+                    <c:otherwise>
+                        <a href="#" class="iconCart">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                    </c:otherwise>
+                </c:choose>
+
             </div>
         </nav>
 
