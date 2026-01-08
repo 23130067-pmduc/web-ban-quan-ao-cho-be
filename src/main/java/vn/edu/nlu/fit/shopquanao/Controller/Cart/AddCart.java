@@ -25,11 +25,12 @@ public class AddCart extends HttpServlet {
         if(product!=null){
             cart.addItem(product,quantity);
             session.setAttribute("cart",cart);
-            response.sendRedirect("san-pham");
+            String referer = request.getHeader("Referer");
+            response.sendRedirect(referer != null ? referer : "san-pham");
             return;
         }
 
-        request.setAttribute("msg", "Không tìm sản phầm");
+        request.setAttribute("msg", "Product not found");
         request.getRequestDispatcher("trang_chu.jsp").forward(request,response);
     }
 
