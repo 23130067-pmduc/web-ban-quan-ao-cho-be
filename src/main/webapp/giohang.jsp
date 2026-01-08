@@ -3,7 +3,6 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
-
 <%
     request.setAttribute("pageCss", "giohang.css");
     request.setAttribute("pageTitle" , "Giỏ hàng");
@@ -27,37 +26,59 @@
                 </c:when>
 
                 <c:otherwise>
-                    <table>
+                    <table class="table table-bordered table-striped">
                         <tr>
-                            <th>Sản phẩm</th>
+                            <th>#</th>
                             <th>Tên sản phẩm</th>
+                            <th>Hình ảnh</th>
                             <th>Số lượng</th>
-                            <th>Thành tiền</th>
+                            <th>Giá tiền</th>
                             <th>Xóa</th>
                         </tr>
-
+                        <c:set var="count" value="1"/>
                         <c:forEach var="item" items="${sessionScope.cart.items}">
                             <tr>
-                                <td>
-                                    <img src="${item.product.thumbnail}" alt="${item.product.name}">
-                                </td>
+                                <td>${count}</td>
 
                                 <td>
                                     <p>${item.product.name}</p>
                                 </td>
 
                                 <td>
-                                    <form action="update-cart" method="post" style="display:flex; gap:5px;">
+                                    <img src="${item.product.thumbnail}" alt="${item.product.name}"style="height: 80px">
+                                </td>
+
+                                <td style="vertical-align: middle;">
+                                    <form action="update-cart" method="post" style="display:flex; align-items:center; gap:6px;">
+
                                         <input type="hidden" name="productId" value="${item.product.id}">
-                                        <input type="number" name="quantity"
-                                               value="${item.quantity}" min="1">
-                                        <button type="submit">✔</button>
+
+                                        <!-- NÚT GIẢM -->
+                                        <button type="submit"
+                                                name="quantity"
+                                                value="${item.quantity - 1}"
+                                            ${item.quantity == 1 ? "disabled" : ""}>
+                                            −
+                                        </button>
+
+                                        <!-- HIỂN THỊ SỐ -->
+                                        <input type="text"
+                                               value="${item.quantity}"
+                                               readonly
+                                               style="width:40px; text-align:center;">
+
+                                        <!-- NÚT TĂNG -->
+                                        <button type="submit"
+                                                name="quantity"
+                                                value="${item.quantity + 1}">
+                                            +
+                                        </button>
                                     </form>
                                 </td>
 
                                 <td>
                                     <fmt:formatNumber
-                                            value="${item.quantity * item.price}"
+                                            value="${item.price}"
                                             type="number"/>₫
                                 </td>
 

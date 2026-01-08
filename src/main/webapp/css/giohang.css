@@ -154,3 +154,29 @@
     border: 1px solid black;
     transform: scale(1.03);
 }
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+/* XEN MÀU DÒNG */
+.table-striped tbody tr:nth-child(odd) {
+    background-color: #f7f7f7;
+}
+
+.table-striped tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.card-content-left table td form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
