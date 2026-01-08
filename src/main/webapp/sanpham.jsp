@@ -189,8 +189,10 @@
             <span><a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}">
                 <fmt:formatNumber value="${p.sale_price}" type="number" groupingUsed="true"/>đ
             </a></span>
-            
-            <button class="btn-add">Thêm vào giỏ</button>
+
+            <a href="add-cart?productId=${p.id}&quantity=1" class="btn-add">
+                Thêm vào giỏ
+            </a>
         </div>
 
         </c:forEach>
@@ -201,7 +203,7 @@
         <button id="load-more">Xem thêm</button>
     </div>
 </section>
-<!-- ========== Khi nhấn thêm vào giỏ hàng-->
-      <div id="toast"></div>
+<%--<!-- ========== Khi nhấn thêm vào giỏ hàng-->--%>
+<%--      <div id="toast"></div>--%>
 
 <%@ include file="footer.jsp"%>

@@ -391,3 +391,23 @@ header li:hover .sub{
     cursor: pointer;
 
 }
+
+.iconCart {
+    position: relative;
+    display: inline-block;
+}
+
+.cart-count {
+    position: absolute;
+    top: -6px;
+    right: 5px;
+    background: red;
+    color: white;
+    font-size: 11px;
+    min-width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    border-radius: 50%;
+    font-weight: 600;
+}

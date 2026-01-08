@@ -100,6 +100,12 @@
                     <c:when test="${not empty sessionScope.userlogin}">
                         <a href="giohang.jsp" class="iconCart">
                             <i class="fa-solid fa-cart-shopping"></i>
+                            <c:if test="${not empty sessionScope.userlogin && not empty sessionScope.cart}">
+                                <span class="cart-count">
+                                        ${sessionScope.cart.totalQuantity}
+                                </span>
+                            </c:if>
+
                         </a>
                     </c:when>
                     <c:otherwise>
