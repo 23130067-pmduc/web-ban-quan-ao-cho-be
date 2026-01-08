@@ -19,7 +19,7 @@
 <body>
 
 <!-- HEADER -->
-<jsp:include page="header.jsp"/>
+<%@include file="header.jsp"%>
 
 <!-- TITLE -->
 <div class="title">
