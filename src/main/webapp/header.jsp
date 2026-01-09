@@ -51,7 +51,7 @@
                             <li class="subItem"> <a href="san-pham?group=phukien">Phụ kiện</a> </li>
                         </ul>
                     </li>
-                    <li><a href="tintuc.jsp">Tin tức</a></li>
+                    <li><a href="tin-tuc">Tin tức</a></li>
                     <li><a href="khuyenmai.jsp">Khuyến mãi</a></li>
                     <li><a href="lienhe.jsp">Liên hệ</a></li>
                 </ul>
@@ -62,8 +62,8 @@
 <%--                <div class="user-menu">--%>
 <%--                    <a href="#" class="iconUser"><i class="fa-regular fa-user"></i>${sessionScope.userlogin.username}</a>--%>
 <%--                    <ul class="user-dropdown">--%>
-<%--                        <li><a href="login.jsp">Đăng nhập</a></li>--%>
-<%--                        <li><a href="register.jsp">Đăng ký</a></li>--%>
+<%--                        <li><a href="login">Đăng nhập</a></li>--%>
+<%--                        <li><a href="register">Đăng ký</a></li>--%>
 <%--                    </ul>--%>
 <%--                </div>--%>
                     <c:choose>
@@ -89,8 +89,8 @@
                                     <i class="fa-regular fa-user"></i>
                                 </a>
                                 <ul class="user-dropdown">
-                                    <li><a href="login.jsp">Đăng nhập</a></li>
-                                    <li><a href="register.jsp">Đăng ký</a></li>
+                                    <li><a href="login">Đăng nhập</a></li>
+                                    <li><a href="register">Đăng ký</a></li>
                                 </ul>
                             </div>
                         </c:otherwise>
