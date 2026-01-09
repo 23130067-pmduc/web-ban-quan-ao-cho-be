@@ -8,6 +8,22 @@ import java.util.List;
 public class ReviewDao extends BaseDao {
 
 
+    public Review findByProductAndUser(int productId, int userId) {
+        return getJdbi().withHandle(handle ->
+                handle.createQuery("""
+            SELECT * 
+            FROM product_reviews
+            WHERE product_id = :pid AND customer_id = :uid
+        """)
+                        .bind("pid", productId)
+                        .bind("uid", userId)
+                        .mapToBean(Review.class)
+                        .findOne()
+                        .orElse(null)
+        );
+    }
+
+
     public void insert(Review review) {
         getJdbi().useHandle(handle -> handle.createUpdate(
                 """
@@ -22,6 +38,24 @@ public class ReviewDao extends BaseDao {
         );
 
     }
+
+    public void update(Review review) {
+        getJdbi().useHandle(handle ->
+                handle.createUpdate("""
+            UPDATE product_reviews
+            SET rating = :rating,
+                comment = :comment,
+                created_at = NOW()
+            WHERE product_id = :pid AND customer_id = :uid
+        """)
+                        .bind("pid", review.getProductId())
+                        .bind("uid", review.getCustomerId())
+                        .bind("rating", review.getRating())
+                        .bind("comment", review.getComment())
+                        .execute()
+        );
+    }
+
 
 
     public List<Review> findByProductID(int productId) {

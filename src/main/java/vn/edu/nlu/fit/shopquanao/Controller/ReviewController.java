@@ -31,7 +31,7 @@ public class ReviewController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
 
-        User user = (User) request.getSession().getAttribute("user");
+        User user = (User) request.getSession().getAttribute("userlogin");
 
         if (user == null) {
             response.sendRedirect("login.jsp");
@@ -50,9 +50,9 @@ public class ReviewController extends HttpServlet {
         review.setRating(rating);
         review.setComment(comment);
 
-        reviewService.addReview(review);
+        reviewService.addOrUpdateReview(review);
 
         // Quay lại trang chi tiết sản phẩm
-        response.sendRedirect("product-detail?id=" + productId);
+        response.sendRedirect("chi-tiet-san-pham?id=" + productId);
     }
 }

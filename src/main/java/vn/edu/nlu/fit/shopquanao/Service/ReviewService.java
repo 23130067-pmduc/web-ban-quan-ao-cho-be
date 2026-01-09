@@ -9,9 +9,19 @@ public class ReviewService {
 
     private ReviewDao reviewDao = new ReviewDao();
 
-    public void addReview(Review review){
-        reviewDao.insert(review);
+    public void addOrUpdateReview(Review review) {
+        Review exist = reviewDao.findByProductAndUser(
+                review.getProductId(),
+                review.getCustomerId()
+        );
+
+        if (exist == null) {
+            reviewDao.insert(review);
+        } else {
+            reviewDao.update(review);
+        }
     }
+
 
     public List<Review> getReviewByProductID(int productID){
         return reviewDao.findByProductID(productID);
