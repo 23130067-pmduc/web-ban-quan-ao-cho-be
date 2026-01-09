@@ -30,7 +30,7 @@ public class ReviewDao extends BaseDao {
                         SELECT * 
                         FROM product_reviews
                         WHERE product_id = :productId
-                        ORDER BY create_ad DESC
+                        ORDER BY created_at DESC
                         """
         ).bind("productId", productId)
                 .mapToBean(Review.class)

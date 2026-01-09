@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
@@ -124,6 +125,27 @@
 
             <button type="submit" id="submit-review">Gửi đánh giá</button>
         </form>
+
+
+
+        <section class="review-list">
+            <h3>Đánh giá của khách hàng</h3>
+
+            <c:if test="${empty reviews}">
+                <p>Chưa có đánh giá nào.</p>
+            </c:if>
+
+            <c:forEach var="r" items="${reviews}">
+                <div class="review-item">
+                    <strong>User #${r.customerId}</strong>
+                    <div>
+                        <c:forEach begin="1" end="${r.rating}">⭐</c:forEach>
+                    </div>
+                    <p>${r.comment}</p>
+                    <small>${r.createdAt}</small>
+                </div>
+            </c:forEach>
+        </section>
 
     </section>
 
