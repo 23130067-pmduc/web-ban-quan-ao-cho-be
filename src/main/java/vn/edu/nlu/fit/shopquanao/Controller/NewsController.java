@@ -1,17 +1,17 @@
 package vn.edu.nlu.fit.shopquanao.Controller;
 
-import vn.edu.nlu.fit.shopquanao.Service.NewsService;
-import vn.edu.nlu.fit.shopquanao.model.News;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Optional;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
-import java.io.IOException;
-import java.util.List;
-import java.util.Optional;
+import vn.edu.nlu.fit.shopquanao.Service.NewsService;
+import vn.edu.nlu.fit.shopquanao.model.News;
 
 @WebServlet("/tin-tuc")
 public class NewsController extends HttpServlet {
@@ -79,7 +79,11 @@ public class NewsController extends HttpServlet {
             return;
         }
 
-        request.setAttribute("news", opt.get());
+        News news = opt.get();
+        List<News> relatedNews = newsService.getRelated(news.getId(), 4);
+
+        request.setAttribute("news", news);
+        request.setAttribute("relatedNews", relatedNews);
         request.getRequestDispatcher("/chitiet_tintuc.jsp").forward(request, response);
     }
 

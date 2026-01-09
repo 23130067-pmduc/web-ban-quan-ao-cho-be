@@ -1,10 +1,10 @@
 package vn.edu.nlu.fit.shopquanao.Service;
 
-import vn.edu.nlu.fit.shopquanao.Dao.NewsDao;
-import vn.edu.nlu.fit.shopquanao.model.News;
-
 import java.util.List;
 import java.util.Optional;
+
+import vn.edu.nlu.fit.shopquanao.Dao.NewsDao;
+import vn.edu.nlu.fit.shopquanao.model.News;
 
 public class NewsService {
 
@@ -28,5 +28,9 @@ public class NewsService {
 
     public Optional<News> getBySlug(String slug) {
         return newsDao.getNewsBySlug(slug);
+    }
+
+    public List<News> getRelated(int currentId, int limit) {
+        return newsDao.getRelatedNews(currentId, limit);
     }
 }
