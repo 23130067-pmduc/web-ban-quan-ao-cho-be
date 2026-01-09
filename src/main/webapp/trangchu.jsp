@@ -55,7 +55,9 @@
                         </span>
                 </p>
 
-                <button class="btn-add">Thêm vào giỏ</button>
+                <a href="add-cart?productId=${p.id}&quantity=1" class="btn-add">
+                    Thêm vào giỏ
+                </a>
             </div>
         </c:forEach>
     </div>
@@ -85,7 +87,9 @@
                         </span>
                     </p>
 
-                    <button class="btn-add">Thêm vào giỏ</button>
+                    <a href="add-cart?productId=${p.id}&quantity=1" class="btn-add">
+                        Thêm vào giỏ
+                    </a>
                 </div>
             </c:forEach>
         </div>
@@ -116,7 +120,9 @@
                         </span>
                     </p>
 
-                    <button class="btn-add">Thêm vào giỏ</button>
+                    <a href="add-cart?productId=${p.id}&quantity=1" class="btn-add">
+                        Thêm vào giỏ
+                    </a>
                 </div>
             </c:forEach>
         </div>
@@ -147,7 +153,9 @@
                         </span>
                     </p>
 
-                    <button class="btn-add">Thêm vào giỏ</button>
+                    <a href="add-cart?productId=${p.id}&quantity=1" class="btn-add">
+                        Thêm vào giỏ
+                    </a>
                 </div>
             </c:forEach>
         </div>

@@ -28,7 +28,7 @@
                 <c:otherwise>
                     <table class="table table-bordered table-striped">
                         <tr>
-                            <th>#</th>
+                            <th>Chọn</th>
                             <th>Tên sản phẩm</th>
                             <th>Hình ảnh</th>
                             <th>Số lượng</th>
@@ -38,7 +38,12 @@
                         <c:set var="count" value="1"/>
                         <c:forEach var="item" items="${sessionScope.cart.items}">
                             <tr>
-                                <td>${count}</td>
+                                <td>
+                                    <input type="checkbox"
+                                           class="item-check"
+                                           data-id="${item.product.id}"
+                                           data-price="${item.price}">
+                                </td>
 
                                 <td>
                                     <p>${item.product.name}</p>
@@ -48,48 +53,84 @@
                                     <img src="${item.product.thumbnail}" alt="${item.product.name}"style="height: 80px">
                                 </td>
 
-                                <td style="vertical-align: middle;">
-                                    <form action="update-cart" method="post" style="display:flex; align-items:center; gap:6px;">
+<%--                                <td style="vertical-align: middle;">--%>
+<%--                                    <form action="update-cart" method="post" style="display:flex; align-items:center; gap:6px;">--%>
+
+<%--                                        <input type="hidden" name="productId" value="${item.product.id}">--%>
+
+<%--                                        <!-- NÚT GIẢM -->--%>
+<%--                                        <button type="submit"--%>
+<%--                                                name="quantity"--%>
+<%--                                                value="${item.quantity - 1}"--%>
+<%--                                            ${item.quantity == 1 ? "disabled" : ""}>--%>
+<%--                                            −--%>
+<%--                                        </button>--%>
+
+<%--                                        <!-- HIỂN THỊ SỐ -->--%>
+<%--                                        <input type="text"--%>
+<%--                                               value="${item.quantity}"--%>
+<%--                                               readonly--%>
+<%--                                               style="width:40px; text-align:center;">--%>
+
+<%--                                        <!-- NÚT TĂNG -->--%>
+<%--                                        <button type="submit"--%>
+<%--                                                name="quantity"--%>
+<%--                                                value="${item.quantity + 1}">--%>
+<%--                                            +--%>
+<%--                                        </button>--%>
+<%--                                    </form>--%>
+<%--                                </td>--%>
+
+<%--                                <td>--%>
+<%--                                    <fmt:formatNumber--%>
+<%--                                            value="${item.price}"--%>
+<%--                                            type="number"/>₫--%>
+<%--                                </td>--%>
+
+                                <td>
+                                    <form action="update-cart"
+                                          method="post"
+                                          class="qty-form"
+                                          style="display:flex; justify-content:center; align-items:center; gap:6px;">
 
                                         <input type="hidden" name="productId" value="${item.product.id}">
 
-                                        <!-- NÚT GIẢM -->
-                                        <button type="submit"
-                                                name="quantity"
-                                                value="${item.quantity - 1}"
-                                            ${item.quantity == 1 ? "disabled" : ""}>
-                                            −
-                                        </button>
+                                        <button type="button" class="btn-minus">−</button>
 
-                                        <!-- HIỂN THỊ SỐ -->
                                         <input type="text"
+                                               name="quantity"
+                                               class="qty-display"
                                                value="${item.quantity}"
                                                readonly
                                                style="width:40px; text-align:center;">
 
-                                        <!-- NÚT TĂNG -->
-                                        <button type="submit"
-                                                name="quantity"
-                                                value="${item.quantity + 1}">
-                                            +
-                                        </button>
+                                        <button type="button" class="btn-plus">+</button>
                                     </form>
+
                                 </td>
 
                                 <td>
-                                    <fmt:formatNumber
-                                            value="${item.price}"
-                                            type="number"/>₫
+                                    <fmt:formatNumber value="${item.price}" type="number"/>₫
                                 </td>
 
                                 <td>
-                                    <form action="${pageContext.request.contextPath}/del-item" method="post">
+                                    <form action="${pageContext.request.contextPath}/del-item" method="post"
+                                        onsubmit="saveCheckedBeforeDelete(${item.product.id})">
                                         <input type="hidden" name="productId" value="${item.product.id}">
                                         <button type="submit"> <i class="fa fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>
                         </c:forEach>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" id="checkAll">
+                                </td>
+                                <td colspan="5" style="text-align:center; font-weight:600">
+                                    Chọn tất cả sản phẩm
+                                </td>
+                            </tr>
+
                     </table>
                 </c:otherwise>
             </c:choose>
@@ -103,20 +144,20 @@
 
                 <tr>
                     <td>TỔNG SẢN PHẨM</td>
-                    <td>${sessionScope.cart.totalQuantity}</td>
+                    <td><span id="totalQuantity">0</span></td>
                 </tr>
 
                 <tr>
                     <td>TỔNG TIỀN HÀNG</td>
                     <td>
-                        <fmt:formatNumber value="${sessionScope.cart.total()}" type="number"/>₫
+                        <span id="totalPrice">0</span>₫
                     </td>
                 </tr>
 
                 <tr>
                     <td>TẠM TÍNH</td>
                     <td style="font-weight:bold">
-                        <fmt:formatNumber value="${sessionScope.cart.total()}" type="number"/>₫
+                        <span id="totalFinal">0</span>₫
                     </td>
                 </tr>
             </table>
@@ -129,7 +170,7 @@
 
                 <c:if test="${not empty sessionScope.cart && sessionScope.cart.totalQuantity > 0}">
                     <a href="thanhtoan.jsp">
-                        <button id="tt">THANH TOÁN</button>
+                        <button id="tt" onclick="return checkBeforePay()">THANH TOÁN</button>
                     </a>
                 </c:if>
             </div>
@@ -141,3 +182,4 @@
 
 <!-- ========== FOOTER ========== -->
 <%@include file="footer.jsp"%>
+<script src="./javaScript/giohang.js"></script>
