@@ -108,24 +108,23 @@
 
     <!-- ========== ĐÁNH GIÁ ========== -->
     <section class="product-review">
-        <h2>Đánh giá sản phẩm</h2>
+        <form action="review" method="post" class="review-form">
+            <input type="hidden" name="product_id" value="${product.id}">
+            <input type="hidden" name="rating" id="rating-value">
 
-        <div class="star-select">
-            <span class="star" data-value="1">★</span>
-            <span class="star" data-value="2">★</span>
-            <span class="star" data-value="3">★</span>
-            <span class="star" data-value="4">★</span>
-            <span class="star" data-value="5">★</span>
-        </div>
+            <div class="star-select">
+                <span class="star" data-value="1">★</span>
+                <span class="star" data-value="2">★</span>
+                <span class="star" data-value="3">★</span>
+                <span class="star" data-value="4">★</span>
+                <span class="star" data-value="5">★</span>
+            </div>
 
-        <textarea id="review-text" placeholder="Nhập nhận xét của bạn..."></textarea>
-        <button id="submit-review">Gửi đánh giá</button>
+            <textarea id="review-text" name="comment" required placeholder="Nhập nhận xét của bạn..."></textarea>
 
-        <div class="review-list">
-            <h3>Nhận xét gần đây</h3>
-            <div class="review-item"><strong>Phương Linh:</strong> ⭐⭐⭐⭐⭐ Áo mềm mịn, bé mặc rất thích 💚</div>
-            <div class="review-item"><strong>Minh Khang:</strong> ⭐⭐⭐⭐ Màu đẹp, form vừa vặn, giao hàng nhanh.</div>
-        </div>
+            <button type="submit" id="submit-review">Gửi đánh giá</button>
+        </form>
+
     </section>
 
     <!-- ========== GỢI Ý SẢN PHẨM ========== -->

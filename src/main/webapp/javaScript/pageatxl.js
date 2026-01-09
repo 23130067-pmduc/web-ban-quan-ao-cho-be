@@ -68,9 +68,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // === SAO ĐÁNH GIÁ ===
     let selectedRating = 0;
+    const ratingInput = document.getElementById("rating-value");
+
     stars.forEach(star => {
         star.addEventListener("click", () => {
             selectedRating = parseInt(star.dataset.value);
+
+            // ⭐ DÒNG QUAN TRỌNG NHẤT
+            ratingInput.value = selectedRating;
+
             stars.forEach(s => s.classList.remove("active"));
             for (let i = 0; i < selectedRating; i++) {
                 stars[i].classList.add("active");
@@ -78,10 +84,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+
     // === GỬI ĐÁNH GIÁ ===
-    submitBtn.addEventListener("click", () => {
-        const starDisplay = "⭐".repeat(selectedRating);
+    submitBtn.addEventListener("click", (e) => {
+        if (selectedRating === 0) {
+            e.preventDefault();
+            alert("Vui lòng chọn số sao trước khi gửi đánh giá!");
+        }
     });
+
 
     // === THÊM VÀO GIỎ HÀNG ===
     const btnAddCart = document.querySelector(".btn-add-cart");
