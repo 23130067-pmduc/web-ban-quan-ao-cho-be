@@ -42,11 +42,11 @@ public class ReviewController extends HttpServlet {
         int rating = Integer.parseInt(request.getParameter("rating"));
         String comment = request.getParameter("comment");
 
-        int customerId = user.getId();
+        int userId = user.getId();
 
         Review review = new Review();
         review.setProductId(productId);
-        review.setCustomerId(customerId);
+        review.setCustomerId(userId);
         review.setRating(rating);
         review.setComment(comment);
 
