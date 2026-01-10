@@ -171,4 +171,22 @@ public class ProductDao extends BaseDao {
         );
     }
 
+    public List<Product> getRelatedProductByCategory(int categoryId, int currentProductId, int limit){
+        return getJdbi().withHandle(handle ->
+                handle.createQuery("""
+                                SELECT *
+                                FROM products
+                                WHERE category_id = :categoryId
+                                AND id <> :currentProductId
+                                AND status = 'Đang bán'
+                                ORDER BY created_at DESC
+                                LIMIT :limit
+                                """
+                ).bind("categoryId", categoryId)
+                        .bind("currentProductId",currentProductId)
+                        .bind("limit", limit).
+                        mapToBean(Product.class)
+                        .list());
+    }
+
 }

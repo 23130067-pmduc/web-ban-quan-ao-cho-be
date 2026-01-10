@@ -95,4 +95,17 @@ public class ProductService {
     public List<Product> getAccessoryProducts(int limit) {
         return productDao.findAccessoryProducts(limit);
     }
+
+    public List<Product> ralatedProduct(int currentProductId, int limit){
+
+        Product currentProduct = productDao.findById(currentProductId);
+
+        if(currentProduct == null || currentProduct.getCategory_id() <= 0){
+            return List.of();
+        }
+
+        int categoryId = currentProduct.getCategory_id();
+
+        return productDao.getRelatedProductByCategory(categoryId, currentProductId, limit);
+    }
 }

@@ -44,9 +44,12 @@ public class ProductDetailController extends HttpServlet {
 
         List<Review> reviews = reviewService.getReviewByProductID(id);
 
+        List<Product> ralatedProducts = productService.ralatedProduct(id, 4);
+
 
         request.setAttribute("product", product);
         request.setAttribute("reviews",reviews);
+        request.setAttribute("ralatedProducts",ralatedProducts);
         request.getRequestDispatcher("/pageatxl.jsp").forward(request, response);
     }
 

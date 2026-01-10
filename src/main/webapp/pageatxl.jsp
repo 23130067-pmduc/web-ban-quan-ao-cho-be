@@ -153,32 +153,20 @@
     <section class="suggested-products">
         <h2>Sản phẩm phù hợp khác</h2>
         <div class="suggested-list">
-            <div class="suggested-item">
-                <img src="./img/somi.png" alt="Áo sơ mi bé trai">
-                <p class="name">Áo sơ mi bé trai</p>
-                <p class="price">175.000₫</p>
-                <button class="btn-add">Thêm vào giỏ</button>
-            </div>
-            <div class="suggested-item">
-                <img src="./img/aobalogame.jpg" alt="Áo ba lỗ hình Game Play">
-                <p class="name">Áo ba lỗ hình Game Play</p>
-                <p class="price">96.000₫</p>
-                <button class="btn-add">Thêm vào giỏ</button>
-            </div>
-            <div class="suggested-item">
-                <img src="./img/satvqs.jpg" alt="Set Áo Thun & Quần Short">
-                <p class="name">Áo Thun & Quần Short</p>
-                <p class="price">259.749₫</p>
-                <button class="btn-add">Thêm vào giỏ</button>
-            </div>
-            <div class="suggested-item">
-                <img src="./img/aoghile.jpg" alt="Áo ghile phối đồ vest">
-                <p class="name">Áo ghile phối đồ vest</p>
-                <p class="price">259.749₫</p>
-                <button class="btn-add">Thêm vào giỏ</button>
-            </div>
+            <c:forEach var="item" items="${ralatedProducts}">
+                <div class="suggested-item">
+                    <img src="${item.thumbnail}" alt="${item.name}">
+                    <p class="name">${item.name}</p>
+                    <p class="price">${item.sale_price}</p>
+                    <button class="btn-add">Thêm vào giỏ</button>
+                </div>
+            </c:forEach>
+
+            <c:if test="${empty ralatedProducts}">
+                <p>Không tìm thấy sản phẩm phù hợp khác.</p>
+            </c:if>
         </div>
-        <a href="listqabt.jsp" class="btn-view-more">Xem thêm</a>
+        <a href="san-pham" class="btn-view-more">Xem thêm</a>
     </section>
 </main>
 
