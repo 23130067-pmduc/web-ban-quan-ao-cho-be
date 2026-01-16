@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class Contact {
     private int id;
-    private int userId;
+    private Integer userId;
     private String name;
     private String email;
     private String phone;
@@ -13,7 +13,8 @@ public class Contact {
     private String address;
     private LocalDateTime createdAt;
 
-    public Contact(int id, int userId, String name, String email, String phone, String message, String status, String address, LocalDateTime createdAt) {
+
+    public Contact(int id, Integer userId, String name, String email, String phone, String message, String status, String address, LocalDateTime createdAt) {
         this.id = id;
         this.userId = userId;
         this.name = name;
@@ -36,11 +37,11 @@ public class Contact {
         this.id = id;
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
@@ -99,6 +100,4 @@ public class Contact {
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
-
-
 }

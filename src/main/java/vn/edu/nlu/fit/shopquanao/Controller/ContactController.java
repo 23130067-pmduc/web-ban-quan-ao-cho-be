@@ -48,14 +48,14 @@ public class ContactController extends HttpServlet {
             int userId = user.getId();
             contact.setUserId(userId);
         } else {
-            contact.setUserId(0);
+            contact.setUserId(null);
         }
 
         contact.setName(name);
         contact.setEmail(email);
         contact.setPhone(phone);
-        contact.setMessage(message);
         contact.setAddress(address);
+        contact.setMessage(message);
         contact.setStatus("Mới");
 
         contactService.addContact(contact);
