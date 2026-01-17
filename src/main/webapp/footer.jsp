@@ -59,5 +59,6 @@
 <script src="${pageContext.request.contextPath}/javaScript/pageatxl.js"></script>
 <script src="${pageContext.request.contextPath}/javaScript/loadMore.js"></script>
 <script src="${pageContext.request.contextPath}/javaScript/profile.js"></script>
+<script src="${pageContext.request.contextPath}/javaScript/chuyensanpham.js"></script>
 </body>
 </html>

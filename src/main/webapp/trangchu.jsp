@@ -39,44 +39,14 @@
 <!-- ========== SẢN PHẨM ========== -->
 <section class="products">
     <h2>Sản phẩm mới nhất</h2>
-    <div class="product-list">
-        <c:forEach var="p" items="${latestProducts}">
-            <div class="product-card">
-                <a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}" class="link-cover"></a>
-                <img src="${pageContext.request.contextPath}/${p.thumbnail}" alt="${p.name}">
-                <h3>${p.name}</h3>
 
-                <p class="price">
-                        <span class="new-price">
-                            <fmt:formatNumber value="${p.sale_price}" type="number"/>đ
-                        </span>
-                    <span class="old-price">
-                            <fmt:formatNumber value="${p.price}" type="number"/>đ
-                        </span>
-                </p>
-
-                <a href="add-cart?productId=${p.id}&quantity=1" class="btn-add">
-                    Thêm vào giỏ
-                </a>
-            </div>
-        </c:forEach>
-    </div>
-</section>
-
-
-<!-- ========== DANH MỤC ========== -->
-<section class="categories">
-    <h2>Danh mục nổi bật</h2>
-    <!-- Bé trai -->
-    <div class="category-block">
-        <div class="category-title">Bé trai 👕</div>
-
-        <div class="category-products">
-            <c:forEach var="p" items="${boyProducts}">
-                <div class="product-mini">
+    <div class="slider-wrapper">
+        <div class="product-list" id="new-slider">
+            <c:forEach var="p" items="${latestProducts}">
+                <div class="product-card">
                     <a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}" class="link-cover"></a>
                     <img src="${pageContext.request.contextPath}/${p.thumbnail}" alt="${p.name}">
-                    <p>${p.name}</p>
+                    <h3>${p.name}</h3>
 
                     <p class="price">
                         <span class="new-price">
@@ -92,6 +62,37 @@
                     </a>
                 </div>
             </c:forEach>
+        </div>
+        <div class="dots-container" id="new-dots"></div>
+    </div>
+
+</section>
+
+
+<!-- ========== DANH MỤC ========== -->
+<section class="categories">
+    <h2>Danh mục nổi bật</h2>
+    <!-- Bé trai -->
+    <div class="category-block">
+        <div class="category-title">Bé trai 👕</div>
+
+        <div class="slider-wrapper">
+            <div class="category-products" id="boy-slider">
+                <c:forEach var="p" items="${boyProducts}">
+                    <div class="product-mini">
+                        <a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}" class="link-cover"></a>
+                        <img src="${pageContext.request.contextPath}/${p.thumbnail}" alt="${p.name}">
+                        <p>${p.name}</p>
+                        <p class="price">
+                            <span class="new-price"><fmt:formatNumber value="${p.sale_price}" type="number"/>đ</span>
+                            <span class="old-price"><fmt:formatNumber value="${p.price}" type="number"/>đ</span>
+                        </p>
+                        <a href="add-cart?productId=${p.id}&quantity=1" class="btn-add">Thêm vào giỏ</a>
+                    </div>
+                </c:forEach>
+            </div>
+
+            <div class="dots-container" id="boy-dots"></div>
         </div>
 
         <div class="load-more">
@@ -104,28 +105,33 @@
     <div class="category-block">
         <div class="category-title">Bé gái 👗</div>
 
-        <div class="category-products">
-            <c:forEach var="p" items="${girlProducts}">
-                <div class="product-mini">
-                    <a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}" class="link-cover"></a>
-                    <img src="${pageContext.request.contextPath}/${p.thumbnail}" alt="${p.name}">
-                    <p>${p.name}</p>
+        <div class="slider-wrapper">
+            <div class="category-products" id="girl-slider">
+                <c:forEach var="p" items="${girlProducts}">
+                    <div class="product-mini">
+                        <a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}" class="link-cover"></a>
+                        <img src="${pageContext.request.contextPath}/${p.thumbnail}" alt="${p.name}">
+                        <p>${p.name}</p>
 
-                    <p class="price">
+                        <p class="price">
                         <span class="new-price">
                             <fmt:formatNumber value="${p.sale_price}" type="number"/>đ
                         </span>
-                        <span class="old-price">
+                            <span class="old-price">
                             <fmt:formatNumber value="${p.price}" type="number"/>đ
                         </span>
-                    </p>
+                        </p>
 
-                    <a href="add-cart?productId=${p.id}&quantity=1" class="btn-add">
-                        Thêm vào giỏ
-                    </a>
-                </div>
-            </c:forEach>
+                        <a href="add-cart?productId=${p.id}&quantity=1" class="btn-add">
+                            Thêm vào giỏ
+                        </a>
+                    </div>
+                </c:forEach>
+            </div>
+
+            <div class="dots-container" id="girl-dots"></div>
         </div>
+
 
         <div class="load-more">
             <a href="san-pham">Xem thêm</a>
@@ -137,28 +143,33 @@
     <div class="category-block">
         <div class="category-title">Phụ kiện 🎒</div>
 
-        <div class="category-products">
-            <c:forEach var="p" items="${accessoryProducts}">
-                <div class="product-mini">
-                    <a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}" class="link-cover"></a>
-                    <img src="${pageContext.request.contextPath}/${p.thumbnail}" alt="${p.name}">
-                    <p>${p.name}</p>
+        <div class="slider-wrapper">
+            <div class="category-products" id="acc-slider">
+                <c:forEach var="p" items="${accessoryProducts}">
+                    <div class="product-mini">
+                        <a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}" class="link-cover"></a>
+                        <img src="${pageContext.request.contextPath}/${p.thumbnail}" alt="${p.name}">
+                        <p>${p.name}</p>
 
-                    <p class="price">
+                        <p class="price">
                         <span class="new-price">
                             <fmt:formatNumber value="${p.sale_price}" type="number"/>đ
                         </span>
-                        <span class="old-price">
+                            <span class="old-price">
                             <fmt:formatNumber value="${p.price}" type="number"/>đ
                         </span>
-                    </p>
+                        </p>
 
-                    <a href="add-cart?productId=${p.id}&quantity=1" class="btn-add">
-                        Thêm vào giỏ
-                    </a>
-                </div>
-            </c:forEach>
+                        <a href="add-cart?productId=${p.id}&quantity=1" class="btn-add">
+                            Thêm vào giỏ
+                        </a>
+                    </div>
+                </c:forEach>
+            </div>
+
+            <div class="dots-container" id="acc-dots"></div>
         </div>
+
 
         <div class="load-more">
             <a href="san-pham">Xem thêm</a>

@@ -456,7 +456,7 @@
 
         display: flex;
         flex-wrap: nowrap;        /* LUÔN 1 HÀNG */
-        gap: 24px;
+        gap: 25px;
 
         overflow-x: auto;         /* KÉO NGANG */
         scroll-behavior: smooth;
@@ -464,13 +464,39 @@
     }
 
 
-    .product-list .product-card,
-    .category-products .product-mini {
-        flex: 0 0 280px;
-        min-width: 280px;
-        max-width: 280px;
-        flex-shrink: 0;
+    /* ===== SẢN PHẨM MỚI NHẤT ===== */
+    #new-slider {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 24px;
+        overflow-x: auto;
+        overflow-y: hidden;
     }
+
+    /* 4 sản phẩm / 1 hàng */
+    #new-slider .product-card {
+        flex: 0 0 calc((100% - 3 * 24px) / 4);
+        max-width: calc((100% - 3 * 24px) / 4);
+    }
+
+    /* ===== CATEGORY SLIDER: BÉ TRAI / GÁI / PHỤ KIỆN ===== */
+    .category-products {
+        display: flex;
+        flex-wrap: nowrap;        /* 1 HÀNG DUY NHẤT */
+        gap: 25px;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    /* 4 sản phẩm / 1 hàng */
+    .category-products .product-mini {
+        flex: 0 0 calc((100% - 3 * 24px) / 4);
+        max-width: calc((100% - 3 * 24px) / 4);
+    }
+
+
+
+
 
 
     /* Ẩn thanh scroll cho đẹp */
@@ -481,3 +507,50 @@
 
 
 
+    /* Phần . để chuyeenr sản phẩm */
+    /* Container bao ngoài */
+    .slider-wrapper {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    /* Danh sách sản phẩm: cho phép cuộn ngang mượt mà */
+    .slider-wrapper {
+        position: relative;
+        width: 100%;
+    }
+
+    .category-products {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        gap: 20px;
+        padding-bottom: 15px;
+    }
+
+    /* Ẩn thanh cuộn mặc định của trình duyệt */
+    .category-products::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Style cho hàng dấu chấm */
+    .dots-container {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .dot {
+        height: 12px;
+        width: 12px;
+        margin: 0 5px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .dot.active {
+        background-color: #717171; /* Màu khi đang được chọn */
+    }
