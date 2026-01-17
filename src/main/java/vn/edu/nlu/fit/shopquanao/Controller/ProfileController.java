@@ -75,7 +75,7 @@ public class ProfileController extends HttpServlet {
         String phone = request.getParameter("phone");
         String email = request.getParameter("email");
         String birthdayStr = request.getParameter("birthday"); // yyyy-MM-dd
-
+        String address = request.getParameter("address");
 
         String gender = request.getParameter("gender");
 
@@ -86,6 +86,7 @@ public class ProfileController extends HttpServlet {
         user.setFullName(fullName);
         user.setPhone(phone);
         user.setEmail(email);
+        user.setAddress(address);
 
 
         user.setGender(gender);
