@@ -118,5 +118,26 @@ public class UserDao extends BaseDao {
                 .findOne()
                 .orElse(null));
     }
+
+    public void update(User user) {
+         getJdbi().withHandle(handle -> handle.createUpdate("""
+                        UPDATE users
+                                    SET full_name = :fullName,
+                                        phone = :phone,
+                                        email = :email,
+                                        birthday = :birthday,
+                                        gender = :gender
+                                    WHERE id = :id
+                        """)
+                .bind("fullName", user.getFullName())
+                .bind("phone", user.getPhone())
+                .bind("email", user.getEmail())
+                .bind("birthday", user.getBirthday()) // LocalDate OK
+                .bind("gender", user.getGender())
+                .bind("id", user.getId())
+                .execute()
+        );
+
+    }
 }
 

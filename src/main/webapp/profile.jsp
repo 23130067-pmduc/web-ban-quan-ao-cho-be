@@ -39,27 +39,33 @@
     <div class="profile-content">
         <h2>Thông tin cá nhân</h2>
 
-        <form class="profile-form">
+        <form class="profile-form" method="post" action="profile" onsubmit="syncBirthday()">
             <div class="form-row">
                 <div class="form-group">
                     <label for="fullname">Họ và tên</label>
-                    <input type="text" id="fullname" value="${user.fullName}" disabled>
+                    <input type="text" id="fullname" name="fullname" value="${user.fullName}" disabled>
                 </div>
                 <div class="form-group">
                     <label for="phone">Số điện thoại</label>
-                    <input type="tel" id="phone" value="${user.phone}" disabled>
+                    <input type="tel" id="phone" name="phone" value="${user.phone}" disabled>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" value="${user.email}" disabled>
+                    <input type="email" id="email" name="email" value="${user.email}" disabled>
                 </div>
                 <div class="form-group">
                     <label for="birthday">Ngày sinh</label>
-                    <input type="text" id="birthday"
+                    <input type="text" id="birthdayDisplay"
                            value="<fmt:formatDate value='${birthdayDate}' pattern='dd-MM-yyyy'/>" disabled>
+
+
+                    <input type="hidden"
+                           id="birthday"
+                           name="birthday"
+                           value="<fmt:formatDate value='${birthdayDate}' pattern='yyyy-MM-dd'/>">
                 </div>
             </div>
 
@@ -74,9 +80,24 @@
                 <div class="form-group">
                     <label>Giới tính</label>
                     <div class="radio-group">
-                        <label><input type="radio" name="gender" value="male" checked disabled> Nam</label>
-                        <label><input type="radio" name="gender" value="female" disabled> Nữ</label>
-                        <label><input type="radio" name="gender" value="other" disabled> Khác</label>
+                        <label>
+                            <input type="radio" name="gender" value="male"
+                            ${user.gender == 'male' ? 'checked' : ''} disabled>
+                            Nam
+                        </label>
+
+                        <label>
+                            <input type="radio" name="gender" value="female"
+                            ${user.gender == 'female' ? 'checked' : ''} disabled>
+                            Nữ
+                        </label>
+
+                        <label>
+                            <input type="radio" name="gender" value="other"
+                            ${user.gender == 'other' ? 'checked' : ''} disabled>
+                            Khác
+                        </label>
+
                     </div>
                 </div>
             </div>

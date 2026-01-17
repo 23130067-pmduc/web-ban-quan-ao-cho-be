@@ -58,6 +58,6 @@
 <script src="${pageContext.request.contextPath}/javaScript/dropdown.js"></script>
 <script src="${pageContext.request.contextPath}/javaScript/pageatxl.js"></script>
 <script src="${pageContext.request.contextPath}/javaScript/loadMore.js"></script>
-
+<script src="${pageContext.request.contextPath}/javaScript/profile.js"></script>
 </body>
 </html>
