@@ -135,9 +135,8 @@
                 </a>
 
                 <c:if test="${not empty sessionScope.cart && sessionScope.cart.totalQuantity > 0}">
-                    <form action="checkout" method="post" id="checkoutForm">
+                    <form action="checkout" method="post" id="checkoutForm" class="checkout-form">
 
-                        <!-- chứa danh sách productId được tick -->
                         <input type="hidden" name="selectedIds" id="selectedIds">
 
                         <button type="submit"

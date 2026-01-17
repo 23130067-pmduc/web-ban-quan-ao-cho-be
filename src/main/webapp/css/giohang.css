@@ -121,7 +121,6 @@
     color: #333;
 }
 .card-content-right-button{
-    text-align: center;
     align-items: center;
 
 }
@@ -179,4 +178,72 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+}
+.card-content-right-button {
+    display: flex;
+    gap: 16px;
+    margin-top: 20px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* form không được chiếm full width */
+.checkout-form {
+    width: auto;
+    display: inline-flex;
+    margin: 0;
+}
+
+
+/* nút thanh toán */
+#tt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e53935;
+    color: #fff;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    width: auto;
+}
+
+#tt:hover {
+    background-color: #c62828;
+}
+
+
+/* link mua sắm */
+.card-content-right-button .btn-outline {
+    display: inline-block;
+    padding: 10px 26px;
+    border: 1px solid #333;
+    border-radius: 30px;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+/* nút thanh toán */
+.btn-checkout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e53935;
+    color: #fff;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    width: auto;
+}
+
+.btn-checkout:hover {
+    background-color: #c62828;
 }
