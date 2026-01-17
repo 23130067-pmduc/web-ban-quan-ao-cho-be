@@ -91,24 +91,11 @@
     padding-bottom: 20px;
 }
 
-.payment-content-right-button {
-    display: flex;
-    padding: 12px;
-    border-bottom: 1px dashed #dddddd;
-}
 .payment-content-right-button input{
     height: 30px;
     width: 200px;
     margin-right: 100px;
     padding-left: 12px;
-}
-.payment-content-right-button button{
-    height: 30px;
-    width: 100px;
-    background-color: black;
-    color: white;
-    border: none;
-    cursor: pointer;
 }
 
 .payment-content-right-payment {
