@@ -110,7 +110,7 @@ public class UserDao extends BaseDao {
 
     public User findUserById(int id) {
         return getJdbi().withHandle(handle -> handle.createQuery("""
-                SELECT id, username , email, created_at, full_name , birthday, gender, phone
+                SELECT id, username , email, created_at, full_name , birthday, gender, phone , address
                 FROM users
                 WHERE id = :id""")
                 .bind("id", id)
@@ -126,7 +126,8 @@ public class UserDao extends BaseDao {
                                         phone = :phone,
                                         email = :email,
                                         birthday = :birthday,
-                                        gender = :gender
+                                        gender = :gender,
+                                        address = :address
                                     WHERE id = :id
                         """)
                 .bind("fullName", user.getFullName())
@@ -134,6 +135,7 @@ public class UserDao extends BaseDao {
                 .bind("email", user.getEmail())
                 .bind("birthday", user.getBirthday()) // LocalDate OK
                 .bind("gender", user.getGender())
+                .bind("address", user.getAddress())
                 .bind("id", user.getId())
                 .execute()
         );

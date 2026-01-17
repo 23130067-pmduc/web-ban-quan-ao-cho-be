@@ -72,7 +72,7 @@
             <div class="form-row">
             <div class="form-group">
                 <label for="address">Địa chỉ</label>
-                <input type="text" id="address" value="123 Đường Hạnh Phúc, Quận 5, TP.HCM" disabled>
+                <input type="text" id="address" name="address" value="${user.address}" disabled>
             </div>
             </div>
 

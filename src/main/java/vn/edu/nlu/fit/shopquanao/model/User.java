@@ -16,6 +16,7 @@ public class User {
     private LocalDate birthday;
     private String gender;
     private String phone;
+    private String address;
 
     public User(int id, String username, String email, String password, String role, int isActive, LocalDateTime createdAt, String otpCode, String fullName, LocalDate birthday, String gender, String phone) {
         this.id = id;
@@ -30,6 +31,31 @@ public class User {
         this.birthday = birthday;
         this.gender = gender;
         this.phone = phone;
+
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public User(int id, String username, String email, String password, String role, int isActive, LocalDateTime createdAt, String otpCode, String fullName, LocalDate birthday, String gender, String phone, String address) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.isActive = isActive;
+        this.createdAt = createdAt;
+        this.otpCode = otpCode;
+        this.fullName = fullName;
+        this.birthday = birthday;
+        this.gender = gender;
+        this.phone = phone;
+        this.address = address;
     }
 
     // ===== constructor rỗng (BẮT BUỘC cho JDBI) =====
