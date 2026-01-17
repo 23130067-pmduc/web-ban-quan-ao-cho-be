@@ -53,40 +53,6 @@
                                     <img src="${item.product.thumbnail}" alt="${item.product.name}"style="height: 80px">
                                 </td>
 
-<%--                                <td style="vertical-align: middle;">--%>
-<%--                                    <form action="update-cart" method="post" style="display:flex; align-items:center; gap:6px;">--%>
-
-<%--                                        <input type="hidden" name="productId" value="${item.product.id}">--%>
-
-<%--                                        <!-- NÚT GIẢM -->--%>
-<%--                                        <button type="submit"--%>
-<%--                                                name="quantity"--%>
-<%--                                                value="${item.quantity - 1}"--%>
-<%--                                            ${item.quantity == 1 ? "disabled" : ""}>--%>
-<%--                                            −--%>
-<%--                                        </button>--%>
-
-<%--                                        <!-- HIỂN THỊ SỐ -->--%>
-<%--                                        <input type="text"--%>
-<%--                                               value="${item.quantity}"--%>
-<%--                                               readonly--%>
-<%--                                               style="width:40px; text-align:center;">--%>
-
-<%--                                        <!-- NÚT TĂNG -->--%>
-<%--                                        <button type="submit"--%>
-<%--                                                name="quantity"--%>
-<%--                                                value="${item.quantity + 1}">--%>
-<%--                                            +--%>
-<%--                                        </button>--%>
-<%--                                    </form>--%>
-<%--                                </td>--%>
-
-<%--                                <td>--%>
-<%--                                    <fmt:formatNumber--%>
-<%--                                            value="${item.price}"--%>
-<%--                                            type="number"/>₫--%>
-<%--                                </td>--%>
-
                                 <td>
                                     <form action="update-cart"
                                           method="post"
@@ -169,9 +135,17 @@
                 </a>
 
                 <c:if test="${not empty sessionScope.cart && sessionScope.cart.totalQuantity > 0}">
-                    <a href="thanhtoan.jsp">
-                        <button id="tt" onclick="return checkBeforePay()">THANH TOÁN</button>
-                    </a>
+                    <form action="checkout" method="post" id="checkoutForm">
+
+                        <!-- chứa danh sách productId được tick -->
+                        <input type="hidden" name="selectedIds" id="selectedIds">
+
+                        <button type="submit"
+                                id="tt"
+                                onclick="return prepareCheckout()">
+                            THANH TOÁN
+                        </button>
+                    </form>
                 </c:if>
             </div>
 

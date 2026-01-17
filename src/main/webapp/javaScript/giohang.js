@@ -80,13 +80,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     updateTotal();
-});
+    });
 
-/* ===== XÓA SẢN PHẨM ===== */
-window.saveCheckedBeforeDelete = function (deletedId) {
-    const checkedIds = [...document.querySelectorAll(".item-check:checked")]
-        .map(cb => cb.dataset.id)
-        .filter(id => id !== deletedId.toString());
+    function prepareCheckout() {
+        const checked = document.querySelectorAll(".item-check:checked");
 
-    sessionStorage.setItem("checkedItems", JSON.stringify(checkedIds));
-};
+        if (checked.length === 0) {
+            return false;
+        }
+
+        const ids = [...checked].map(cb => cb.dataset.id).join(",");
+        document.getElementById("selectedIds").value = ids;
+
+        return true;
+    }
+
+
+    /* ===== XÓA SẢN PHẨM ===== */
+    window.saveCheckedBeforeDelete = function (deletedId) {
+        const checkedIds = [...document.querySelectorAll(".item-check:checked")]
+            .map(cb => cb.dataset.id)
+            .filter(id => id !== deletedId.toString());
+
+        sessionStorage.setItem("checkedItems", JSON.stringify(checkedIds));
+    };
