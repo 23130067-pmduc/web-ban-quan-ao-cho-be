@@ -62,7 +62,6 @@ public class loginController extends HttpServlet {
 
         HttpSession session = request.getSession(true);
         session.setAttribute("userlogin", user);
-
         if ("admin".equalsIgnoreCase(user.getRole())) {
             response.sendRedirect(request.getContextPath() + "/admin.jsp");
         } else {
