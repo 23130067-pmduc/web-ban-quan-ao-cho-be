@@ -115,4 +115,8 @@ public class UserService {
 
         userDao.updatePassword(email, newPassword);
     }
+
+    public User findById(int id) {
+        return userDao.findUserById(id);
+    }
 }

@@ -1,5 +1,8 @@
 package vn.edu.nlu.fit.shopquanao.model;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 public class User {
     private int id;
     private String username;
@@ -7,6 +10,27 @@ public class User {
     private String password;
     private String role;
     private int isActive;
+    private LocalDateTime createdAt;
+    private String otpCode;
+    private String fullName;
+    private LocalDate birthday;
+    private String gender;
+    private String phone;
+
+    public User(int id, String username, String email, String password, String role, int isActive, LocalDateTime createdAt, String otpCode, String fullName, LocalDate birthday, String gender, String phone) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.isActive = isActive;
+        this.createdAt = createdAt;
+        this.otpCode = otpCode;
+        this.fullName = fullName;
+        this.birthday = birthday;
+        this.gender = gender;
+        this.phone = phone;
+    }
 
     // ===== constructor rỗng (BẮT BUỘC cho JDBI) =====
     public User() {}
@@ -56,6 +80,54 @@ public class User {
     public int getIsActive() {return isActive;}
 
     public void setIsActive(int isActive) {this.isActive = isActive;}
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getOtpCode() {
+        return otpCode;
+    }
+
+    public void setOtpCode(String otpCode) {
+        this.otpCode = otpCode;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 
     @Override
     public String toString() {

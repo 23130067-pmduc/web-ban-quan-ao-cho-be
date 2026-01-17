@@ -75,7 +75,7 @@
                                         ${sessionScope.userlogin.username}
                                 </a>
                                 <ul class="user-dropdown">
-                                    <li><a href="profile.jsp">Thông tin cá nhân</a></li>
+                                    <li><a href="profile">Thông tin cá nhân</a></li>
                                     <li><a href="donmua.jsp">Đơn hàng của tôi</a></li>
                                     <li><a href="logout">Đăng xuất</a></li>
                                 </ul>

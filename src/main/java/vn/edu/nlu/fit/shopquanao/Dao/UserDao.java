@@ -108,5 +108,15 @@ public class UserDao extends BaseDao {
     }
 
 
+    public User findUserById(int id) {
+        return getJdbi().withHandle(handle -> handle.createQuery("""
+                SELECT id, username , email, created_at, full_name , birthday, gender, phone
+                FROM users
+                WHERE id = :id""")
+                .bind("id", id)
+                .mapToBean(User.class)
+                .findOne()
+                .orElse(null));
+    }
 }
 
