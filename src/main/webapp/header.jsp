@@ -52,7 +52,7 @@
                         </ul>
                     </li>
                     <li><a href="tin-tuc">Tin tức</a></li>
-                    <li><a href="khuyenmai.jsp">Khuyến mãi</a></li>
+                    <li><a href="khuyen-mai">Khuyến mãi</a></li>
                     <li><a href="lienhe.jsp">Liên hệ</a></li>
                 </ul>
             </div>
