@@ -13,15 +13,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
-    <!-- ========== HEADER ========== -->
-    <header class="header" id="header">
+<!-- ========== HEADER ========== -->
+<header class="header" id="header">
 
     <nav class="topbar">
-       <p id="hotline">Hotline: <b> 0909 999 999</b> (8h30 - 12h) Tất cả các ngày trong tuần | </p>
-       <p id="thongBao">
-           <i class="fa-regular fa-bell"></i>
-           Thông báo của tôi
-       </p>
+        <p id="hotline">Hotline: <b> 0909 999 999</b> (8h30 - 12h) Tất cả các ngày trong tuần | </p>
+        <p id="thongBao">
+            <i class="fa-regular fa-bell"></i>
+            Thông báo của tôi
+        </p>
 
         <div id="notification-box">
             <ul>
@@ -68,187 +68,187 @@
             <a href="giohang.jsp" class="iconCart"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
     </nav>
-    
-  </header>
 
-        
-  <div class="search-overlay" id="searchOverlay">
-      <img class="logo" src="./img/gau.jpg" alt="Logo">
+</header>
 
-      <div class="boxSearch">
-          <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
-          <button> <i class="fa-solid fa-magnifying-glass"></i> </button>
-      </div>
 
-      <span class="closeSearch" id="closeSearch">&times; </span>
-   </div>
+<div class="search-overlay" id="searchOverlay">
+    <img class="logo" src="./img/gau.jpg" alt="Logo">
 
-    <div class="title">
-        <span>KHUYẾN MÃI</span>
-    </div>    
-    <!-- ========== HERO BANNER ========== -->
-    <section class="hero-banner">
-        <div class="hero-content">
-            <h1> <i class="fas fa-fire"></i>
-                KHUYẾN MÃI ĐẶC BIỆT</h1>
-            <p>Giảm giá lên đến 50% - Thời trang trẻ em chất lượng cao</p>
-            <a href="sanpham.jsp" class="btn-hero">Mua ngay</a>
+    <div class="boxSearch">
+        <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
+        <button> <i class="fa-solid fa-magnifying-glass"></i> </button>
+    </div>
+
+    <span class="closeSearch" id="closeSearch">&times; </span>
+</div>
+
+<div class="title">
+    <span>KHUYẾN MÃI</span>
+</div>
+<!-- ========== HERO BANNER ========== -->
+<section class="hero-banner">
+    <div class="hero-content">
+        <h1> <i class="fas fa-fire"></i>
+            KHUYẾN MÃI ĐẶC BIỆT</h1>
+        <p>Giảm giá lên đến 50% - Thời trang trẻ em chất lượng cao</p>
+        <a href="sanpham.jsp" class="btn-hero">Mua ngay</a>
+    </div>
+</section>
+
+<!-- ========== FLASH SALE ========== -->
+<section class="flash-sale">
+    <div class="flash-header">
+        <h2> <i class="fas fa-fire"></i>
+            FLASH SALE - SỐC HÔM NAY</h2>
+    </div>
+    </div>
+    <div class="flash-products">
+        <div class="product-card">
+            <span class="badge flash">SALE -50%</span>
+            <img src="./img/aox.webp" alt="Áo polo">
+            <h3>Áo polo in hình khủng long SunnyBear</h3>
+            <p class="price">
+                <span class="new-price">150.000đ</span>
+                <span class="old-price">300.000đ</span>
+            </p>
+            <button class="btn-add">Thêm vào giỏ</button>
         </div>
-    </section>
-
-    <!-- ========== FLASH SALE ========== -->
-    <section class="flash-sale">
-        <div class="flash-header">
-            <h2> <i class="fas fa-fire"></i> 
-                FLASH SALE - SỐC HÔM NAY</h2>
-            </div>
+        <div class="product-card">
+            <span class="badge flash">SALE -45%</span>
+            <img src="./img/vayhong.png" alt="Váy hồng">
+            <h3>Váy hồng dễ thương</h3>
+            <p class="price">
+                <span class="new-price">220.000đ</span>
+                <span class="old-price">400.000đ</span>
+            </p>
+            <button class="btn-add">Thêm vào giỏ</button>
         </div>
-        <div class="flash-products">
-            <div class="product-card">
-                <span class="badge flash">SALE -50%</span>
-                <img src="./img/aox.webp" alt="Áo polo">
-                <h3>Áo polo in hình khủng long SunnyBear</h3>
-                <p class="price">
-                    <span class="new-price">150.000đ</span>
-                    <span class="old-price">300.000đ</span>
-                </p>
-                <button class="btn-add">Thêm vào giỏ</button>
-            </div>
-            <div class="product-card">
-                <span class="badge flash">SALE -45%</span>
-                <img src="./img/vayhong.png" alt="Váy hồng">
-                <h3>Váy hồng dễ thương</h3>
-                <p class="price">
-                    <span class="new-price">220.000đ</span>
-                    <span class="old-price">400.000đ</span>
-                </p>
-                <button class="btn-add">Thêm vào giỏ</button>
-            </div>
-            <div class="product-card">
-                <span class="badge flash">SALE -40%</span>
-                <img src="./img/dongu.webp" alt="Đồ ngủ">
-                <h3>Bộ đồ ngủ gấu</h3>
-                <p class="price">
-                    <span class="new-price">180.000đ</span>
-                    <span class="old-price">300.000đ</span>
-                </p>
-                <button class="btn-add">Thêm vào giỏ</button>
-            </div>
-            <div class="product-card">
-                <span class="badge flash">SALE -35%</span>
-                <img src="./img/somi.png" alt="Áo sơ mi">
-                <h3>Áo sơ mi bé trai</h3>
-                <p class="price">
-                    <span class="new-price">175.000đ</span>
-                    <span class="old-price">270.000đ</span>
-                </p>
-                <button class="btn-add">Thêm vào giỏ</button>
-            </div>
+        <div class="product-card">
+            <span class="badge flash">SALE -40%</span>
+            <img src="./img/dongu.webp" alt="Đồ ngủ">
+            <h3>Bộ đồ ngủ gấu</h3>
+            <p class="price">
+                <span class="new-price">180.000đ</span>
+                <span class="old-price">300.000đ</span>
+            </p>
+            <button class="btn-add">Thêm vào giỏ</button>
         </div>
-    </section>
-
-    <!-- ========== SẢN PHẨM GIẢM GIÁ ========== -->
-    <section class="products" id="products">
-        <h2>TẤT CẢ SẢN PHẨM GIẢM GIÁ</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <span class="badge flash">SALE -30%</span>
-                <img src="./img/quanjogger.jpg" alt="Quần Jogger">
-                <h3>Quần Jogger bé trai</h3>
-                <p class="price">
-                    <span class="new-price">184.000đ</span>
-                    <span class="old-price">263.000đ</span>
-                </p>
-                <button class="btn-add">Thêm vào giỏ</button>
-            </div>
-            <div class="product-card">
-                <span class="badge flash">SALE -25%</span>
-                <img src="./img/aobalogame.jpg" alt="Áo ba lỗ">
-                <h3>Áo ba lỗ Game Play</h3>
-                <p class="price">
-                    <span class="new-price">96.000đ</span>
-                    <span class="old-price">128.000đ</span>
-                </p>
-                <button class="btn-add">Thêm vào giỏ</button>
-            </div>
-            <div class="product-card">
-                <span class="badge flash">SALE -35%</span>
-                <img src="./img/vayhalo.jpg" alt="Váy Halloween">
-                <h3>Váy Halloween</h3>
-                <p class="price">
-                    <span class="new-price">535.000đ</span>
-                    <span class="old-price">823.000đ</span>
-                </p>
-                <button class="btn-add">Thêm vào giỏ</button>
-            </div>
-            <div class="product-card">
-                <span class="badge flash">SALE -20%</span>
-                <img src="./img/hoodie.jpg" alt="Hoodie">
-                <h3>Sét áo hoodie và chân váy</h3>
-                <p class="price">
-                    <span class="new-price">350.000đ</span>
-                    <span class="old-price">438.000đ</span>
-                </p>
-                <button class="btn-add">Thêm vào giỏ</button>
-            </div>
-            <div class="product-card">
-                <span class="badge flash">SALE -28%</span>
-                <img src="./img/vaycongchua.jpg" alt="Váy công chúa">
-                <h3>Váy công chúa tay phồng</h3>
-                <p class="price">
-                    <span class="new-price">340.000đ</span>
-                    <span class="old-price">472.000đ</span>
-                </p>
-                <button class="btn-add">Thêm vào giỏ</button>
-            </div>
-            <div class="product-card">
-                <span class="badge flash">SALE -22%</span>
-                <img src="./img/tathong.jpg" alt="Tất">
-                <h3>Combo 5 đôi tất hoa</h3>
-                <p class="price">
-                    <span class="new-price">87.000đ</span>
-                    <span class="old-price">112.000đ</span>
-                </p>
-                <button class="btn-add">Thêm vào giỏ</button>
-            </div>
-            <div class="product-card">
-                <span class="badge flash">SALE -30%</span>
-                <img src="./img/muvanh.jpg" alt="Mũ vành">
-                <h3>Mũ vành basic</h3>
-                <p class="price">
-                    <span class="new-price">158.000đ</span>
-                    <span class="old-price">226.000đ</span>
-                </p>
-                <button class="btn-add">Thêm vào giỏ</button>
-            </div>
-            <div class="product-card">
-                <span class="badge flash">SALE -18%</span>
-                <img src="./img/balomeo.jpg" alt="Balo">
-                <h3>Balo trứng hình MÈO</h3>
-                <p class="price">
-                    <span class="new-price">119.000đ</span>
-                    <span class="old-price">145.000đ</span>
-                </p>
-                <button class="btn-add">Thêm vào giỏ</button>
-            </div>
+        <div class="product-card">
+            <span class="badge flash">SALE -35%</span>
+            <img src="./img/somi.png" alt="Áo sơ mi">
+            <h3>Áo sơ mi bé trai</h3>
+            <p class="price">
+                <span class="new-price">175.000đ</span>
+                <span class="old-price">270.000đ</span>
+            </p>
+            <button class="btn-add">Thêm vào giỏ</button>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- ========== Khi nhấn thêm vào giỏ hàng-->
-    <div id="toast"></div>
+<!-- ========== SẢN PHẨM GIẢM GIÁ ========== -->
+<section class="products" id="products">
+    <h2>TẤT CẢ SẢN PHẨM GIẢM GIÁ</h2>
+    <div class="product-grid">
+        <div class="product-card">
+            <span class="badge flash">SALE -30%</span>
+            <img src="./img/quanjogger.jpg" alt="Quần Jogger">
+            <h3>Quần Jogger bé trai</h3>
+            <p class="price">
+                <span class="new-price">184.000đ</span>
+                <span class="old-price">263.000đ</span>
+            </p>
+            <button class="btn-add">Thêm vào giỏ</button>
+        </div>
+        <div class="product-card">
+            <span class="badge flash">SALE -25%</span>
+            <img src="./img/aobalogame.jpg" alt="Áo ba lỗ">
+            <h3>Áo ba lỗ Game Play</h3>
+            <p class="price">
+                <span class="new-price">96.000đ</span>
+                <span class="old-price">128.000đ</span>
+            </p>
+            <button class="btn-add">Thêm vào giỏ</button>
+        </div>
+        <div class="product-card">
+            <span class="badge flash">SALE -35%</span>
+            <img src="./img/vayhalo.jpg" alt="Váy Halloween">
+            <h3>Váy Halloween</h3>
+            <p class="price">
+                <span class="new-price">535.000đ</span>
+                <span class="old-price">823.000đ</span>
+            </p>
+            <button class="btn-add">Thêm vào giỏ</button>
+        </div>
+        <div class="product-card">
+            <span class="badge flash">SALE -20%</span>
+            <img src="./img/hoodie.jpg" alt="Hoodie">
+            <h3>Sét áo hoodie và chân váy</h3>
+            <p class="price">
+                <span class="new-price">350.000đ</span>
+                <span class="old-price">438.000đ</span>
+            </p>
+            <button class="btn-add">Thêm vào giỏ</button>
+        </div>
+        <div class="product-card">
+            <span class="badge flash">SALE -28%</span>
+            <img src="./img/vaycongchua.jpg" alt="Váy công chúa">
+            <h3>Váy công chúa tay phồng</h3>
+            <p class="price">
+                <span class="new-price">340.000đ</span>
+                <span class="old-price">472.000đ</span>
+            </p>
+            <button class="btn-add">Thêm vào giỏ</button>
+        </div>
+        <div class="product-card">
+            <span class="badge flash">SALE -22%</span>
+            <img src="./img/tathong.jpg" alt="Tất">
+            <h3>Combo 5 đôi tất hoa</h3>
+            <p class="price">
+                <span class="new-price">87.000đ</span>
+                <span class="old-price">112.000đ</span>
+            </p>
+            <button class="btn-add">Thêm vào giỏ</button>
+        </div>
+        <div class="product-card">
+            <span class="badge flash">SALE -30%</span>
+            <img src="./img/muvanh.jpg" alt="Mũ vành">
+            <h3>Mũ vành basic</h3>
+            <p class="price">
+                <span class="new-price">158.000đ</span>
+                <span class="old-price">226.000đ</span>
+            </p>
+            <button class="btn-add">Thêm vào giỏ</button>
+        </div>
+        <div class="product-card">
+            <span class="badge flash">SALE -18%</span>
+            <img src="./img/balomeo.jpg" alt="Balo">
+            <h3>Balo trứng hình MÈO</h3>
+            <p class="price">
+                <span class="new-price">119.000đ</span>
+                <span class="old-price">145.000đ</span>
+            </p>
+            <button class="btn-add">Thêm vào giỏ</button>
+        </div>
+    </div>
+</section>
 
-   <!-- ========== FOOTER ========== -->
-   <div class="footer">
+<!-- ========== Khi nhấn thêm vào giỏ hàng-->
+<div id="toast"></div>
+
+<!-- ========== FOOTER ========== -->
+<div class="footer">
     <section class="s-footer-1">
         <div class="footer-info">
-          <h3>SunnyBear Kids Clothing</h3>
-          <p class="slogan">Thời trang trẻ em chất lượng, an toàn cho bé yêu</p>
-          <p class="fa-phone"> <i class="fa-solid fa-phone"></i> Hotline: 0909 999 999</p>
-          <p class="fa-mail"> <i class="fa-solid fa-envelope"></i> Email: contact@sunnybear.vn</p>
+            <h3>SunnyBear Kids Clothing</h3>
+            <p class="slogan">Thời trang trẻ em chất lượng, an toàn cho bé yêu</p>
+            <p class="fa-phone"> <i class="fa-solid fa-phone"></i> Hotline: 0909 999 999</p>
+            <p class="fa-mail"> <i class="fa-solid fa-envelope"></i> Email: contact@sunnybear.vn</p>
         </div>
     </section>
     <section class="s-footer-2">
-      
+
         <div class="footer-danhmuc">
             <h3>Danh mục</h3>
             <a href="trangchu.jsp">Trang chủ</a>
@@ -256,40 +256,40 @@
             <a href="tintuc.jsp">Tin Tức</a>
             <a href="khuyenmai.jsp">Khuyến mãi</a>
             <a href="lienhe.jsp">Liên hệ</a>
-          
+
         </div>
 
     </section>
     <section class="s-footer-3">
         <div class="footer-contact">
-          <h3>Địa chỉ & Thời gian làm việc</h3>
-          <p>123 Đường Hạnh Phúc, Quận 5, TP.HCM</p>
-          <p>Thời gian làm việc: </p>
-          <p>Thứ 2 - Thứ 6: 8h00 - 17h30</p>
-          <p>Thứ 7 - Chủ nhật: 9h00 - 17h00</p>
+            <h3>Địa chỉ & Thời gian làm việc</h3>
+            <p>123 Đường Hạnh Phúc, Quận 5, TP.HCM</p>
+            <p>Thời gian làm việc: </p>
+            <p>Thứ 2 - Thứ 6: 8h00 - 17h30</p>
+            <p>Thứ 7 - Chủ nhật: 9h00 - 17h00</p>
         </div>
     </section>
 
     <section class="s-footer-4">
         <div class="footer-social">
-           <h3>Kết nối với chúng tôi</h3>
+            <h3>Kết nối với chúng tôi</h3>
 
-           <div class="social-icons">
-               <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-               <a href="#"><img src="./img/zalo.webp" alt="Zalo"></a>
-               <a href="#"><i class="fa-brands fa-twitter"></i></a>
-               <a href="#"><i class="fa-brands fa-instagram"></i></a>
-               <a href="#"><i class="fa-brands fa-tiktok"></i></a>
-               <a href="#"><i class="fa-brands fa-youtube"></i></a>
-           </div>
-           </div>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><img src="./img/zalo.webp" alt="Zalo"></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
     </section>
-   </div>
-  <p class="copyright">© 2025 SunnyBear. All rights reserved.</p>
+</div>
+<p class="copyright">© 2025 SunnyBear. All rights reserved.</p>
 
-    <script src="./javaScript/khuyenmai.js"></script>
-    <script src="./javaScript/thongBao.js"></script>
-    <script src="./javaScript/search.js"></script>
-    <script src="./javaScript/themvaogiohang.js"></script>
+<script src="./javaScript/khuyenmai.js"></script>
+<script src="./javaScript/thongBao.js"></script>
+<script src="./javaScript/search.js"></script>
+<script src="./javaScript/themvaogiohang.js"></script>
 </body>
 </html>

@@ -111,4 +111,12 @@ public class Product implements Serializable {
     public void setStatus(String status) {
         this.status = status;
     }
+    public int getDiscountPercent() {
+        if (sale_price <= 0 || sale_price >= price) return 0;
+        return (int) Math.round((price - sale_price) * 100 / price);
+    }
+    public boolean isOnSale() {
+        return sale_price > 0 && sale_price < price;
+    }
+
 }
