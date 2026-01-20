@@ -144,10 +144,12 @@ public class UserDao extends BaseDao {
 
     public boolean checkOldPass(int id, String oldPass) {
 
+        return false;
     }
 
 
     public boolean updatePasss(int id, String hash) {
+        return false;
     }
 }
 

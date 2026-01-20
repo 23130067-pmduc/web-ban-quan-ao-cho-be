@@ -6,6 +6,8 @@ import vn.edu.nlu.fit.shopquanao.model.User;
 import java.time.LocalDateTime;
 import java.util.Random;
 
+import vn.edu.nlu.fit.shopquanao.Util.PasswordUtil;
+
 public class UserService {
 
     private final UserDao userDao = new UserDao();
@@ -15,7 +17,7 @@ public class UserService {
 
         if (user == null) return null;
 
-        if (!user.getPassword().equals(password)) return null;
+        if (!PasswordUtil.verify(password, user.getPassword())) return null;
 
         return user;
     }
@@ -51,6 +53,8 @@ public class UserService {
             throw new RuntimeException(passwordError);
         }
 
+        String hashedPassword = PasswordUtil.hash(password);
+
         String otp = String.format("%06d", new Random().nextInt(1_000_000));
         LocalDateTime expiredAt = LocalDateTime.now().plusMinutes(5);
 
@@ -58,7 +62,7 @@ public class UserService {
 
         if (existing == null) {
             // Lần đầu đăng ký → INSERT
-            userDao.insertPendingUser(username, email, password, otp, expiredAt);
+            userDao.insertPendingUser(username, email, hashedPassword, otp, expiredAt);
         } else if (existing.getIsActive() == 0) {
             // Đã tồn tại nhưng chưa active → UPDATE OTP
             userDao.updateOtp(email, otp, expiredAt);
@@ -112,8 +116,8 @@ public class UserService {
         if (!ok) {
             throw new RuntimeException("OTP sai hoặc đã hết hạn");
         }
-
-        userDao.updatePassword(email, newPassword);
+        String hashed = PasswordUtil.hash(newPassword);
+        userDao.updatePassword(email, hashed);
     }
 
     public User findById(int id) {
