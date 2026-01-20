@@ -38,7 +38,7 @@
 
     <div class="flash-products">
         <c:forEach items="${flashSaleProducts}" var="p">
-            <div class="product-card">
+            <div class="product-card" data-product-id="${p.id}" data-sale-price="${p.sale_price}">
                 <span class="badge flash">SALE -${p.discountPercent}%</span>
                 <img src="${p.thumbnail}" alt="${p.name}">
                 <h3>${p.name}</h3>
@@ -59,7 +59,7 @@
     <!-- 👇 QUAN TRỌNG: discount-grid -->
     <div class="product-grid discount-grid">
         <c:forEach items="${discountProducts}" var="p">
-            <div class="product-card">
+            <div class="product-card" data-product-id="${p.id}" data-sale-price="${p.sale_price}">
                 <span class="badge flash">SALE -${p.discountPercent}%</span>
                 <img src="${p.thumbnail}" alt="${p.name}">
                 <h3>${p.name}</h3>
@@ -79,6 +79,9 @@
 </section>
 
 <%@ include file="/footer.jsp" %>
+
+<!-- Toast thông báo -->
+<div id="toast"></div>
 
 <script src="${pageContext.request.contextPath}/javaScript/khuyenmai.js?v=2.0"></script>
 <script src="${pageContext.request.contextPath}/javaScript/themvaogiohang.js?v=2.0"></script>

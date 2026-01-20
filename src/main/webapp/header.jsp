@@ -100,16 +100,13 @@
                     <c:when test="${not empty sessionScope.userlogin}">
                         <a href="my-cart" class="iconCart">
                             <i class="fa-solid fa-cart-shopping"></i>
-                            <c:if test="${not empty sessionScope.userlogin && not empty sessionScope.cart}">
-                                <span class="cart-count">
-                                        ${sessionScope.cart.totalQuantity}
-                                </span>
+                            <c:if test="${not empty sessionScope.cart && sessionScope.cart.totalQuantity > 0}">
+                                <span class="cart-count">${sessionScope.cart.totalQuantity}</span>
                             </c:if>
-
                         </a>
                     </c:when>
                     <c:otherwise>
-                        <a href="#" class="iconCart">
+                        <a href="login" class="iconCart">
                             <i class="fa-solid fa-cart-shopping"></i>
                         </a>
                     </c:otherwise>

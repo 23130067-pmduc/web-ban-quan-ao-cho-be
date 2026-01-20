@@ -411,3 +411,12 @@ header li:hover .sub{
     border-radius: 50%;
     font-weight: 600;
 }
+
+@keyframes cartBounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+}

@@ -1,13 +1,16 @@
 package vn.edu.nlu.fit.shopquanao.Controller.Cart;
 
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import java.io.IOException;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import vn.edu.nlu.fit.shopquanao.Cart.Cart;
 import vn.edu.nlu.fit.shopquanao.Service.ProductService;
 import vn.edu.nlu.fit.shopquanao.model.Product;
-
-import java.io.IOException;
 
 @WebServlet(name = "AddCart", value = "/add-cart")
 public class AddCart extends HttpServlet {
@@ -15,6 +18,18 @@ public class AddCart extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int productId = Integer.parseInt(request.getParameter("productId"));
         int quantity = Integer.parseInt(request.getParameter("quantity"));
+
+        // Lấy giá khuyến mãi nếu có (từ trang khuyến mãi)
+        String salePriceParam = request.getParameter("salePrice");
+        Double salePrice = null;
+        if (salePriceParam != null && !salePriceParam.isEmpty()) {
+            try {
+                salePrice = Double.parseDouble(salePriceParam);
+            } catch (NumberFormatException e) {
+                // Ignore
+            }
+        }
+
         HttpSession session = request.getSession();
         Cart cart = (Cart)session.getAttribute("cart");
         if(cart==null){
@@ -22,9 +37,25 @@ public class AddCart extends HttpServlet {
         }
         ProductService productService = new ProductService();
         Product product = productService.getProductById(productId);
+
         if(product!=null){
+            // Nếu có giá khuyến mãi, ghi đè vào product
+            if (salePrice != null) {
+                product.setSale_price(salePrice);
+            }
+
             cart.addItem(product,quantity);
             session.setAttribute("cart",cart);
+
+            // Kiểm tra nếu là AJAX request
+            String ajaxHeader = request.getHeader("X-Requested-With");
+            if ("XMLHttpRequest".equals(ajaxHeader)) {
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write("{\"success\":true,\"message\":\"Thêm vào giỏ hàng thành công!\",\"cartSize\":" + cart.getTotalQuantity() + "}");
+                return;
+            }
+
             String referer = request.getHeader("Referer");
             response.sendRedirect(referer != null ? referer : "san-pham");
             return;
@@ -36,6 +67,6 @@ public class AddCart extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        doGet(request, response);
     }
 }

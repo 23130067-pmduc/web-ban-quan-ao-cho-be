@@ -60,4 +60,94 @@
             }
         });
     });
+    
+    // ========== THÊM VÀO GIỎ HÀNG ==========
+    document.addEventListener("DOMContentLoaded", function () {
+        const addToCartButtons = document.querySelectorAll(".btn-add");
+        
+        addToCartButtons.forEach(button => {
+            button.addEventListener("click", function(e) {
+                e.preventDefault();
+                
+                const productCard = this.closest(".product-card");
+                const productId = productCard.dataset.productId;
+                const salePrice = productCard.dataset.salePrice;
+                
+                if (!productId) {
+                    showToast("Không tìm thấy thông tin sản phẩm!", "error");
+                    return;
+                }
+                
+                // Gửi AJAX request
+                const contextPath = window.location.pathname.substring(0, window.location.pathname.indexOf("/", 2)) || "";
+                const url = `${contextPath}/add-cart?productId=${productId}&quantity=1&salePrice=${salePrice}`;
+                
+                fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        showToast(data.message, "success");
+                        
+                        // Cập nhật số lượng giỏ hàng trong header
+                        updateCartBadge(data.cartSize);
+                    } else {
+                        showToast("Có lỗi xảy ra!", "error");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    showToast("Không thể thêm vào giỏ hàng!", "error");
+                });
+            });
+        });
+    });
+    
+    // ========== CẬP NHẬT BADGE GIỎ HÀNG ==========
+    function updateCartBadge(count) {
+        const iconCart = document.querySelector(".iconCart");
+        if (!iconCart) return;
+        
+        let cartCount = iconCart.querySelector(".cart-count");
+        
+        // Nếu chưa có badge, tạo mới
+        if (!cartCount) {
+            cartCount = document.createElement("span");
+            cartCount.className = "cart-count";
+            iconCart.appendChild(cartCount);
+        }
+        
+        // Cập nhật số lượng
+        cartCount.textContent = count;
+        
+        // Hiển thị badge nếu có sản phẩm
+        if (count > 0) {
+            cartCount.style.display = "block";
+            
+            // Thêm animation bounce
+            cartCount.style.animation = "none";
+            setTimeout(() => {
+                cartCount.style.animation = "cartBounce 0.5s ease";
+            }, 10);
+        } else {
+            cartCount.style.display = "none";
+        }
+    }
+    
+    // ========== TOAST NOTIFICATION ==========
+    function showToast(message, type = "success") {
+        const toast = document.getElementById("toast");
+        if (!toast) return;
+        
+        toast.textContent = message;
+        toast.className = "show " + type;
+        
+        setTimeout(() => {
+            toast.className = toast.className.replace("show", "");
+        }, 3000);
+    }
 })();

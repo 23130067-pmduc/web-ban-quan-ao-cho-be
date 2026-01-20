@@ -221,29 +221,6 @@
 }
 
 /* ==========Khi nhấn thêm vào giỏ hàng ===========*/
-#toast {
-  visibility: hidden;
-  min-width: 250px;
-  background-color: #4CAF50;
-  color: white;
-  text-align: center;
-  border-radius: 12px;
-  padding: 16px;
-  position: fixed;
-  z-index: 1000;
-  right: 30px;
-  bottom: 30px;
-  font-size: 16px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-  opacity: 0;
-  transition: opacity 0.5s, bottom 0.5s;
-}
-
-#toast.show {
-  visibility: visible;
-  opacity: 1;
-  bottom: 50px;
-}
 
 .title {
     background-color: #f8f8f8; /* màu nền nhạt */
@@ -317,4 +294,52 @@
     width: 0 !important;
     overflow: hidden !important;
     position: absolute !important;
+}
+
+/* ===== TOAST NOTIFICATION ===== */
+#toast {
+    visibility: hidden;
+    min-width: 300px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    padding: 16px;
+    position: fixed;
+    z-index: 9999;
+    right: 30px;
+    bottom: 30px;
+    font-size: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+#toast.show {
+    visibility: visible;
+    animation: slideInRight 0.5s, fadeout 0.5s 2.5s;
+}
+
+#toast.error {
+    background-color: #f44336;
+}
+
+@keyframes slideInRight {
+    from {
+        right: -350px;
+        opacity: 0;
+    }
+    to {
+        right: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        right: 30px;
+        opacity: 1;
+    }
+    to {
+        right: -350px;
+        opacity: 0;
+    }
 }
