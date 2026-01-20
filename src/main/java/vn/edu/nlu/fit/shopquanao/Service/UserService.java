@@ -123,4 +123,14 @@ public class UserService {
     public void update(User user) {
         userDao.update(user);
     }
+
+    public boolean checkOldPass(int id, String oldPass) {
+        String hashPass = "";
+        return userDao.checkOldPass(id, oldPass);
+    }
+
+    public boolean updatePass(int id, String newPass) {
+        String hash = "";
+        return userDao.updatePasss(id, hash);
+    }
 }
