@@ -60,7 +60,7 @@
 
 .flash-products {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 25px;
 }
 
@@ -216,7 +216,7 @@
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 25px;
 }
 
@@ -266,21 +266,55 @@
 }
 
 .btn-load-more {
-    padding: 10px 30px;
-    border-radius: 20px;
-    border: 1px solid #cfa670;
-    background: #fff;
-    color: #cfa670;
-    cursor: pointer;
+    display: inline-block;
+    margin: 60px auto 0;
+    background-color: #ffffff;
+    color: #666666;
+    text-decoration: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 15px;
     font-weight: 500;
+    transition: all 0.3s ease;
+    width: fit-content;
+    position: relative;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-load-more::before,
+.btn-load-more::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 550px;
+    height: 2px;
+    background-color: #C89F7B;
+    transform: translateY(-50%);
+}
+
+.btn-load-more::before {
+    left: -550px;
+}
+
+.btn-load-more::after {
+    right: -550px;
 }
 
 .btn-load-more:hover {
-    background: #cfa670;
-    color: #fff;
+    background-color: #5B3A29;
+    color: #FFF8E7;
+    transform: scale(1.05);
 }
 
 /* ===== ẨN SẢN PHẨM ===== */
-.hidden {
+.product-card.hidden,
+.discount-grid .product-card.hidden {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+    position: absolute !important;
 }

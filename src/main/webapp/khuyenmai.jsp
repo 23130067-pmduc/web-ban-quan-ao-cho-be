@@ -80,7 +80,8 @@
 
 <%@ include file="/footer.jsp" %>
 
-<script src="${pageContext.request.contextPath}/javaScript/khuyenmai.js"></script>
+<script src="${pageContext.request.contextPath}/javaScript/khuyenmai.js?v=2.0"></script>
+<script src="${pageContext.request.contextPath}/javaScript/themvaogiohang.js?v=2.0"></script>
 
 </body>
 </html>
