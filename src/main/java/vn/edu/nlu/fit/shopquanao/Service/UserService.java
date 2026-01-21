@@ -129,12 +129,14 @@ public class UserService {
     }
 
     public boolean checkOldPass(int id, String oldPass) {
-        String hashPass = "";
-        return userDao.checkOldPass(id, oldPass);
+        String hashPass = userDao.getPasswordById(id);
+
+        return PasswordUtil.checkOldPass(oldPass, hashPass);
     }
 
     public boolean updatePass(int id, String newPass) {
-        String hash = "";
+        String hash = PasswordUtil.hash(newPass);
+
         return userDao.updatePasss(id, hash);
     }
 }

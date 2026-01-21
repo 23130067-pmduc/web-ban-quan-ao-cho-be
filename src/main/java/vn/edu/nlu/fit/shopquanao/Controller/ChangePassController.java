@@ -20,7 +20,14 @@ public class ChangePassController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession(false);
+        if (session == null || session.getAttribute("userlogin") == null) {
+            response.sendRedirect("login.jsp");
+            return;
+        }
 
+        request.getRequestDispatcher("/doimatkhau.jsp")
+                .forward(request, response);
     }
 
     @Override
@@ -42,20 +49,20 @@ public class ChangePassController extends HttpServlet {
 
         if (oldPass == null || newPass == null || rePass == null || oldPass.isEmpty() || newPass.isEmpty() || rePass.isEmpty()){
            request.setAttribute("error", "Vui lòng nhập đầy đủ thông tin!");
-           request.getRequestDispatcher("/doi-mat-khau").forward(request,response);
+           request.getRequestDispatcher("/doimatkhau.jsp").forward(request,response);
            return;
         }
 
         if (!newPass.equals(rePass)){
             request.setAttribute("error", "Mật khẩu xác nhập không khớp!");
-            request.getRequestDispatcher("/doi-mat-khau").forward(request,response);
+            request.getRequestDispatcher("/doimatkhau.jsp").forward(request,response);
             return;
         }
 
         if (!newPass.matches("^(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$")) {
             request.setAttribute("error",
                     "Mật khẩu phải có ít nhất 8 ký tự, gồm chữ hoa, số và ký tự đặc biệt");
-            request.getRequestDispatcher("doi-mat-khau.jsp").forward(request, response);
+            request.getRequestDispatcher("/doimatkhau.jsp").forward(request, response);
             return;
         }
 
@@ -63,7 +70,7 @@ public class ChangePassController extends HttpServlet {
         boolean checkOldPass = userService.checkOldPass(user.getId() , oldPass);
         if (!checkOldPass){
             request.setAttribute("error", "Mật khẩu hiện tại không đúng!");
-            request.getRequestDispatcher("doi-mat-khau.jsp").forward(request, response);
+            request.getRequestDispatcher("/doimatkhau.jsp").forward(request, response);
             return;
         }
 
@@ -75,7 +82,7 @@ public class ChangePassController extends HttpServlet {
             response.sendRedirect("login.jsp");
         } else {
             request.setAttribute("error", "Đổi mật khẩu thất bại, vui lòng thử lại!");
-            request.getRequestDispatcher("doi-mat-khau.jsp").forward(request, response);
+            request.getRequestDispatcher("/doimatkhau.jsp").forward(request, response);
 
         }
     }

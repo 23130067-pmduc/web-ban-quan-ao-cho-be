@@ -29,16 +29,16 @@
                 <li><a href="profile.jsp"><i class="fas fa-user"></i> Thông tin cá nhân</a></li>
                 <li><a href="diachi.jsp"><i class="fas fa-map-marker-alt"></i> Địa chỉ của tôi</a></li>
                 <li><a href="donmua.jsp"><i class="fas fa-clipboard-list"></i> Đơn hàng của tôi</a></li>
-                <li class="active"><a href="doimatkhau.jsp"><i class="fas fa-lock"></i> Đổi mật khẩu</a></li>
-                <li><a href="trangchu.jsp"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
+                <li class="active"><a href="doi-mat-khau"><i class="fas fa-lock"></i> Đổi mật khẩu</a></li>
+                <li><a href="trang-chu"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
             </ul>
         </nav>
     </div>
 
-    <div class="profile-content">
+    <div class="profile-content" >
         <h2>Đổi mật khẩu</h2>
 
-        <form class="profile-form">
+        <form class="profile-form" method="post" action="doi-mat-khau">
             <div class="form-row">
                 <div class="form-group">
                     <label for="oldpass">Mật khẩu hiện tại</label>

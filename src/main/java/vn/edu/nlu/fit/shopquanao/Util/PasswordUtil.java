@@ -14,4 +14,8 @@ public class PasswordUtil {
         if (hashedPassword == null) return false;
         return BCrypt.checkpw(plainPassword, hashedPassword);
     }
+
+    public static boolean checkOldPass(String oldPass, String hashPass) {
+        return  verify(oldPass,hashPass);
+    }
 }

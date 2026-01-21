@@ -63,7 +63,7 @@
                 <ul class="user-dropdown">
                     <li><a href="profile.jsp"><i class="fa-solid fa-user"></i> Thông tin cá nhân</a></li>
                     <li><a href="#"><i class="fa-solid fa-clipboard-list"></i> Đơn hàng của tôi</a></li>
-                    <li><a href="trangchu.jsp"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
+                    <li><a href="trang-chu"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
                 </ul>
             </div>
             <a href="giohang.jsp" class="iconCart"><i class="fa-solid fa-cart-shopping"></i></a>
