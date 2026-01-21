@@ -3,12 +3,18 @@ package vn.edu.nlu.fit.shopquanao.Controller.Cart;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import vn.edu.nlu.fit.shopquanao.Cart.Cart;
+import vn.edu.nlu.fit.shopquanao.Dao.CartItemDao;
 
 import java.io.IOException;
 
 @WebServlet(name = "RemoveItem", value = "/del-item")
 public class RemoveItem extends HttpServlet {
+    private CartItemDao cartItemDao;
+    @Override
+    public void init() {
+        cartItemDao = new CartItemDao();
+    }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -16,14 +22,19 @@ public class RemoveItem extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int productID=Integer.parseInt(request.getParameter("productId"));
-        Cart cart=(Cart)request.getSession().getAttribute("cart");
-        if(cart==null){
-            cart = new Cart();
+        HttpSession session = request.getSession(false);
+        if (session == null || session.getAttribute("cartId") == null) {
+            response.sendRedirect("login");
             return;
         }
-        cart.removeItem(productID);
-        request.getSession().setAttribute("cart",cart);
+
+        int productId = Integer.parseInt(request.getParameter("productId"));
+        int cartId = (Integer) session.getAttribute("cartId");
+
+        cartItemDao.delete(cartId, productId);
+        int cartSize = cartItemDao.countDistinctItems(cartId);
+        session.setAttribute("cartSize", cartSize);
+
         response.sendRedirect("my-cart");
 
 

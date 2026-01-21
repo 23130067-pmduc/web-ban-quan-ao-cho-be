@@ -8,12 +8,19 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import vn.edu.nlu.fit.shopquanao.Cart.Cart;
+import vn.edu.nlu.fit.shopquanao.Dao.CartItemDao;
 import vn.edu.nlu.fit.shopquanao.Service.ProductService;
 import vn.edu.nlu.fit.shopquanao.model.Product;
 
 @WebServlet(name = "AddCart", value = "/add-cart")
 public class AddCart extends HttpServlet {
+
+    private CartItemDao cartItemDao;
+
+    @Override
+    public void init() {
+        cartItemDao = new CartItemDao();
+    }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int productId = Integer.parseInt(request.getParameter("productId"));
@@ -30,11 +37,14 @@ public class AddCart extends HttpServlet {
             }
         }
 
-        HttpSession session = request.getSession();
-        Cart cart = (Cart)session.getAttribute("cart");
-        if(cart==null){
-            cart = new Cart();
+        HttpSession session = request.getSession(false);
+        if (session == null || session.getAttribute("cartId") == null) {
+            response.sendRedirect("login");
+            return;
         }
+
+        Integer cartId = (Integer) session.getAttribute("cartId");
+
         ProductService productService = new ProductService();
         Product product = productService.getProductById(productId);
 
@@ -44,15 +54,18 @@ public class AddCart extends HttpServlet {
                 product.setSale_price(salePrice);
             }
 
-            cart.addItem(product,quantity);
-            session.setAttribute("cart",cart);
+            double price = (salePrice != null) ? salePrice : product.getPrice();
+            cartItemDao.addOrUpdate(cartId, productId, quantity, price);
+
+            int cartSize = cartItemDao.countDistinctItems(cartId);
+            session.setAttribute("cartSize", cartSize);
 
             // Kiểm tra nếu là AJAX request
             String ajaxHeader = request.getHeader("X-Requested-With");
             if ("XMLHttpRequest".equals(ajaxHeader)) {
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
-                response.getWriter().write("{\"success\":true,\"message\":\"Thêm vào giỏ hàng thành công!\",\"cartSize\":" + cart.getTotalQuantity() + "}");
+                response.getWriter().write("{\"success\":true,\"message\":\"Thêm vào giỏ hàng thành công!\",\"cartSize\":" + cartSize  + "}");
                 return;
             }
 

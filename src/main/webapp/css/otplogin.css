@@ -1,12 +1,10 @@
-/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Page layout */
-body.forget-page {
+body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #fff;
     display: flex;
@@ -26,25 +24,28 @@ body.forget-page {
 .forget-box {
     position: relative;
     background-color: #f8f3e8;
-    padding: 40px 45px;
-    border-radius: 12px;
-    border: 1px solid #5B3A29;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    padding: 45px 60px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 380px;
     text-align: center;
+    border: 1px solid #5B3A29;
 }
 
 /* Close button */
-.close-btn {
+.forget-box .close-btn {
     position: absolute;
-    top: 18px;
-    right: 20px;
+    left: 20px;
+    top: 20px;
+    text-decoration: none;
+    font-size: 22px;
+    color: #333;
     background: none;
     border: none;
-    font-size: 20px;
     cursor: pointer;
-    color: #333;
-    transition: 0.3s;
+    transition: color 0.3s ease;
 }
+
 .close-btn:hover {
     color: red;
 }
@@ -57,24 +58,22 @@ body.forget-page {
     margin-bottom: 25px;
 }
 
-/* Input group */
 .input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    text-align: left;
+    margin-bottom: 20px;
 }
 
 /* Input */
 .input-group input {
     width: 100%;
-    padding: 12px 14px;
-    border-radius: 25px;
+    padding: 11px;
+    border-radius: 20px;
     border: none;
     background-color: #d6cfc2;
     font-size: 15px;
     color: #333;
+    box-shadow: inset 2px 2px 4px rgba(0,0,0,0.15);
     outline: none;
-    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.15);
     transition: 0.3s;
 }
 
@@ -101,6 +100,23 @@ body.forget-page {
 .input-group button:hover {
     background-color: #333;
 }
+.btn-primary {
+    width: 100%;
+    background-color: black;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    background-color: #333;
+}
 
 /* Error message */
 .input-group p {
@@ -111,14 +127,13 @@ body.forget-page {
 
 /* Links */
 .links {
-    margin-top: 18px;
     text-align: center;
+    margin-top: 15px;
 }
 
 .links a {
     text-decoration: none;
     color: blue;
-    font-size: 14px;
 }
 
 .links a:hover {

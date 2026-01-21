@@ -8,17 +8,21 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import vn.edu.nlu.fit.shopquanao.Dao.CartItemDao;
 import vn.edu.nlu.fit.shopquanao.Service.UserService;
 import vn.edu.nlu.fit.shopquanao.model.User;
+import vn.edu.nlu.fit.shopquanao.Dao.CartDao;
 
 @WebServlet(name = "loginController", value = "/login")
 public class loginController extends HttpServlet {
 
     private UserService userService;
+    private CartDao cartDao;
 
     @Override
     public void init() {
         userService = new UserService();
+        cartDao = new CartDao();
     }
 
     @Override
@@ -60,8 +64,18 @@ public class loginController extends HttpServlet {
         HttpSession oldSession = request.getSession(false);
         if (oldSession != null) oldSession.invalidate();
 
+        // tạo session mới
         HttpSession session = request.getSession(true);
         session.setAttribute("userlogin", user);
+
+        // ====== CART LOGIC ======
+        Integer cartId = cartDao.findCartIdByUser(user.getId());
+        if (cartId == null) {
+            cartId = cartDao.createCart(user.getId());
+        }
+        session.setAttribute("cartId", cartId);
+        int cartSize = new CartItemDao().countDistinctItems(cartId);
+        session.setAttribute("cartSize", cartSize);
         if ("admin".equalsIgnoreCase(user.getRole())) {
             response.sendRedirect(request.getContextPath() + "/admin.jsp");
         } else {

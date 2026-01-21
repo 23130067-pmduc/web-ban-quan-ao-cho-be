@@ -19,8 +19,8 @@
     <div class="container">
         <div class="card-content-left">
             <c:choose>
-                <c:when test="${empty sessionScope.cart || empty sessionScope.cart.items}">
-                    <p style="text-align:center; padding:40px; font-size:18px;">
+                <c:when test="${empty cartItems}">
+                <p style="text-align:center; padding:40px; font-size:18px;">
                         🛒 Giỏ hàng của bạn đang trống
                     </p>
                 </c:when>
@@ -36,7 +36,7 @@
                             <th>Xóa</th>
                         </tr>
                         <c:set var="count" value="1"/>
-                        <c:forEach var="item" items="${sessionScope.cart.items}">
+                        <c:forEach var="item" items="${cartItems}">
                             <tr>
                                 <td>
                                     <input type="checkbox"
@@ -134,8 +134,8 @@
                     <button id="ttms">TIẾP TỤC MUA SẮM</button>
                 </a>
 
-                <c:if test="${not empty sessionScope.cart && sessionScope.cart.totalQuantity > 0}">
-                    <form action="checkout" method="post" id="checkoutForm" class="checkout-form">
+                <c:if test="${not empty cartItems}">
+                <form action="checkout" method="post" id="checkoutForm" class="checkout-form">
 
                         <input type="hidden" name="selectedIds" id="selectedIds">
 

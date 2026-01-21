@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nhập mã OTP</title>
-    <link rel="stylesheet" href="./css/forget.css">
+    <link rel="stylesheet" href="./css/otplogin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body class="forget-page">
 
 <!-- ======== Form Quên Mật Khẩu ======== -->
 <main class="forgot-container">
-    <div class="forget-box">
-        <a href="trangchu.jsp">
-            <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+    <div class="forget-box" >
+        <a href="trangchu.jsp" class="close-btn">
+            <i class="fa-solid fa-arrow-left"></i>
         </a>
         <h2 class="quenMatKhau">Nhập mã OTP</h2>
         <form id="forgetForm" action="otp" method="post">
@@ -28,6 +28,7 @@
         <div class="links">
             <a href="login.jsp">Quay lại đăng nhập</a>
         </div>
+    </div>
 </main>
 <script src="./javaScript/forget.js"></script>
 </body>
