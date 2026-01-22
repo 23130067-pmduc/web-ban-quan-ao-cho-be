@@ -186,9 +186,11 @@
             <p><a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}">${p.description}</a></p>
             
             <fmt:setLocale value="vi_VN"/>
-            <span><a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}">
-                <fmt:formatNumber value="${p.sale_price}" type="number" groupingUsed="true"/>đ
-            </a></span>
+            <p class="price">
+                Giá: <span class="new-price">
+                    <fmt:formatNumber value="${p.sale_price}" type="number" groupingUsed="true"/>đ
+                </span>
+            </p>
 
             <a href="add-cart?productId=${p.id}&quantity=1" class="btn-add">
                 Thêm vào giỏ
