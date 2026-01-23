@@ -16,15 +16,23 @@
 
         <!-- ========== HÌNH ẢNH ========== -->
         <div class="product-image">
-            <img id="main-image" src="./img/aox.webp" alt="Áo polo in hình khủng long">
+            <c:forEach var="img" items="${images}">
+                <c:if test="${img.main}">
+                    <img id="main-image"
+                         src="${pageContext.request.contextPath}/${img.imageUrl}"
+                         alt="${product.name}">
+                </c:if>
+            </c:forEach>
+
             <div class="image-thumbs">
-                <img class="thumb active" src="./img/aox.webp" data-color="xanh" alt="Xanh lá">
-                <img class="thumb" src="./img/do.webp" data-color="do" alt="Đỏ">
-                <img class="thumb" src="./img/den.webp" data-color="den" alt="Đen">
-                <img class="thumb" src="./img/xanhnhat.webp" data-color="xanhnhat" alt="Xanh nhạt">
-                <img class="thumb" src="./img/trang.webp" data-color="trang" alt="Trắng">
+                <c:forEach var="img" items="${images}">
+                    <img class="thumb ${img.main ? 'active' : ''}"
+                         src="${pageContext.request.contextPath}/${img.imageUrl}"
+                         alt="${product.name}">
+                </c:forEach>
             </div>
         </div>
+
 
         <!-- ========== THÔNG TIN CHUNG ========== -->
         <div class="product-info">
@@ -33,29 +41,37 @@
             <p class="product-price">Giá:
                 <span><fmt:formatNumber value="${product.sale_price}" type="number"/>₫</span>
             </p>
-            <div class="product-rating">⭐⭐⭐⭐☆ (128 đánh giá)</div>
+            <div class="product-rating">
+                <c:forEach begin="1" end="${displayStar}">⭐
+                </c:forEach>
+
+                <c:forEach begin="1" end="${5 - displayStar}">☆
+                </c:forEach>
+
+                (${totalReviews} đánh giá)
+            </div>
 
             <!-- CHỌN MÀU -->
             <div class="product-colors">
                 <p><strong>Màu sắc:</strong></p>
                 <div class="color-options">
-                    <img class="color-thumb" data-image="./img/aox.webp" src="./img/green.webp" alt="xanh">
-                    <img class="color-thumb" data-image="./img/do.webp" src="./img/red.webp" alt="do">
-                    <img class="color-thumb" data-image="./img/den.webp" src="./img/black.webp" alt="den">
-                    <img class="color-thumb" data-image="./img/xanhnhat.webp" src="./img/xn.jpg" alt="xanhnhat">
-                    <img class="color-thumb" data-image="./img/trang.webp" src="./img/t.jpg" alt="trang">
-
-                </div>
+                    <c:forEach var="color" items="${colors}">
+                        <div class="color-thumb" data-color-id="${color.id}" style="background-color: ${color.hex};">
+                        </div>
+                    </c:forEach>
+                 </div>
             </div>
 
             <!-- CHỌN SIZE -->
             <div class="product-sizes">
                 <p><strong>Chọn size theo cân nặng:</strong></p>
                 <div class="size-options">
-                    <button class="size-btn">10-15kg</button>
-                    <button class="size-btn">16-20kg</button>
-                    <button class="size-btn">21-25kg</button>
-                    <button class="size-btn">26-30kg</button>
+                    <c:forEach var="s" items="${sizes}">
+                        <button class="size-btn"
+                                data-size-id="${s.id}">
+                                ${s.code}
+                        </button>
+                    </c:forEach>
                 </div>
             </div>
 
@@ -79,32 +95,7 @@
 
     <!-- ========== MÔ TẢ + THÔNG TIN ========== -->
     <section class="product-description">
-        <h2>MÔ TẢ SẢN PHẨM</h2>
-        <p>
-            Áo polo trẻ em SunnyBear được làm từ chất liệu <strong>cotton 100%</strong> mềm mịn, thấm hút mồ hôi tốt,
-            giúp bé luôn thoải mái trong mọi hoạt động. Thiết kế <strong>in hình khủng long dễ thương</strong>
-            mang lại phong cách năng động, đáng yêu cho các bé trai.
-        </p>
-
-        <ul>
-            <li>Chất liệu: Cotton co giãn 4 chiều, thoáng mát.</li>
-            <li>Kiểu dáng: Áo polo cổ bẻ, tay ngắn.</li>
-            <li>Màu sắc: Xanh lá, đỏ, trắng, đen, xanh nhạt.</li>
-            <li>Size: Phù hợp cho bé từ 10kg – 35kg.</li>
-            <li>Xuất xứ: Việt Nam.</li>
-        </ul>
-
-        <p>
-            Sản phẩm phù hợp cho bé mặc đi học, đi chơi, hoặc trong các buổi dã ngoại cuối tuần.
-            Với đường may tỉ mỉ và chất liệu cao cấp, áo đảm bảo <strong>độ bền cao</strong> sau nhiều lần giặt.
-        </p>
-
-        <p><em>Hướng dẫn bảo quản:</em></p>
-        <ul>
-            <li>Giặt ở nhiệt độ dưới 40°C.</li>
-            <li>Không dùng thuốc tẩy mạnh.</li>
-            <li>Ủi ở nhiệt độ thấp, tránh in hình.</li>
-        </ul>
+        ${product.description}
     </section>
 
     <!-- ========== ĐÁNH GIÁ ========== -->
@@ -173,5 +164,19 @@
 
 <!-- Toast thông báo thêm giỏ hàng -->
 <div id="toast"></div>
+
+
+<script>
+    const variants = [
+        <c:forEach var="v" items="${variants}" varStatus="st">
+        {
+            id: ${v.id},
+            colorId: ${v.colorId},
+            sizeId: ${v.sizeId},
+            stock: ${v.stock}
+        }<c:if test="${!st.last}">,</c:if>
+        </c:forEach>
+    ];
+</script>
 
 <%@include file="footer.jsp"%>

@@ -27,4 +27,11 @@ public class ReviewService {
         return reviewDao.findByProductID(productID);
     }
 
+    public double getAvgRating(int id) {
+        return reviewDao.getAvgRating(id);
+    }
+
+    public int getTotalReviews(int id) {
+        return reviewDao.getTotalReviews(id);
+    }
 }
