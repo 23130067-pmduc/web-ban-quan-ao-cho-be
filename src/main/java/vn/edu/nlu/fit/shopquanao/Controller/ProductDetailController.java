@@ -3,10 +3,8 @@ package vn.edu.nlu.fit.shopquanao.Controller;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import vn.edu.nlu.fit.shopquanao.Service.ProductService;
-import vn.edu.nlu.fit.shopquanao.Service.ReviewService;
-import vn.edu.nlu.fit.shopquanao.model.Product;
-import vn.edu.nlu.fit.shopquanao.model.Review;
+import vn.edu.nlu.fit.shopquanao.Service.*;
+import vn.edu.nlu.fit.shopquanao.model.*;
 
 import java.io.IOException;
 import java.util.List;
@@ -16,12 +14,20 @@ public class ProductDetailController extends HttpServlet {
 
     private ProductService productService;
     private ReviewService reviewService;
+    private ProductImageService productImageService;
+    private ColorService colorService;
+    private SizeService sizeService;
+    private ProductVariantService productVariantService;
 
     @Override
     public void init()  {
 
         productService = new ProductService();
         reviewService = new ReviewService();
+        productImageService = new ProductImageService();
+        colorService = new ColorService();
+        sizeService = new SizeService();
+        productVariantService = new ProductVariantService();
     }
 
 
@@ -47,6 +53,26 @@ public class ProductDetailController extends HttpServlet {
         List<Product> ralatedProducts = productService.ralatedProduct(id, 4);
 
 
+        double avgRating = reviewService.getAvgRating(id);
+        int totalReviews = reviewService.getTotalReviews(id);
+
+        int displayStar = (int) Math.round(avgRating);
+
+        List<ProductImage> listImage = productImageService.getImageByProduct(id);
+
+        List<Color> listColor = colorService.getColorByProductId(id);
+
+        List<Size> listSize = sizeService.getSizeByProductId(id);
+
+        List<ProductVariant> listVariant = productVariantService.getVariantByProductId(id);
+
+
+        request.setAttribute("variants", listVariant);
+        request.setAttribute("sizes", listSize);
+        request.setAttribute("colors", listColor);
+        request.setAttribute("images", listImage);
+        request.setAttribute("displayStar", displayStar);
+        request.setAttribute("totalReviews", totalReviews);
         request.setAttribute("product", product);
         request.setAttribute("reviews",reviews);
         request.setAttribute("ralatedProducts",ralatedProducts);

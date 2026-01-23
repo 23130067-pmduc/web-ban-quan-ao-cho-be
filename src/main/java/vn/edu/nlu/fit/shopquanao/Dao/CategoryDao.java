@@ -15,7 +15,7 @@ public class CategoryDao extends BaseDao {
      */
     public List<Category> findAll() {
         Jdbi jdbi = getJdbi();
-        String sql = "SELECT * FROM categories WHERE status = 1 ORDER BY id";
+        String sql = "SELECT * FROM category_product WHERE status = 1 ORDER BY id";
         return jdbi.withHandle(handle ->
                 handle.createQuery(sql)
                         .mapToBean(Category.class)
@@ -28,7 +28,7 @@ public class CategoryDao extends BaseDao {
      */
     public Category findById(int id) {
         Jdbi jdbi = getJdbi();
-        String sql = "SELECT * FROM categories WHERE id = :id AND status = 1";
+        String sql = "SELECT * FROM category_product WHERE id = :id AND status = 1";
         return jdbi.withHandle(handle ->
                 handle.createQuery(sql)
                         .bind("id", id)
@@ -39,7 +39,7 @@ public class CategoryDao extends BaseDao {
     }
 
     public List<Category> getCategoryChild(int parentId) {
-        String sql = "SELECT * FROM categories WHERE parent_id = :pid AND status = 1";
+        String sql = "SELECT * FROM category_product WHERE parent_id = :pid AND status = 1";
         return getJdbi().withHandle(h ->
                 h.createQuery(sql)
                         .bind("pid", parentId)

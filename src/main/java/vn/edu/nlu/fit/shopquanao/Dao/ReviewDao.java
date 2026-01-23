@@ -72,4 +72,24 @@ public class ReviewDao extends BaseDao {
     }
 
 
+    public double getAvgRating(int id) {
+        return getJdbi().withHandle(handle -> handle.createQuery("""
+                SELECT AVG(rating)
+                FROM product_reviews
+                WHERE product_id = :id
+                """).bind("id", id)
+                .mapTo(double.class)
+                .one());
+
+    }
+
+    public int getTotalReviews(int id) {
+        return getJdbi().withHandle(handle -> handle.createQuery("""
+                SELECT COUNT(*)
+                FROM product_reviews
+                WHERE product_id = :id
+                """).bind("id", id)
+                .mapTo(int.class)
+                .one());
+    }
 }

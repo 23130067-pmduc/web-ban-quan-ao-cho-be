@@ -255,11 +255,14 @@
         cursor: pointer;
         font-size: 15px;
         transition: all 0.3s ease;
+        text-decoration: none !important;
+        display: inline-block;
     }
 
     .btn-add:hover {
         background-color: #ffffff;
         transform: scale(1.05);
+        text-decoration: none !important;
     }
     /* Nút Xem thêm */
     .hidden{
@@ -371,10 +374,13 @@
         cursor: pointer;
         font-size: 15px;
         transition: all 0.3s ease;
+        text-decoration: none !important;
+        display: inline-block;
     }
     .btn-add:hover {
         background-color: #C89F7B;
         transform: scale(1.05);
+        text-decoration: none !important;
     }
 
     /* ==========Khi nhấn thêm vào giỏ hàng ===========*/

@@ -227,12 +227,17 @@
     font-weight: 500;
 }
 
-/* Giá nổi bật */
-.product-card span {
+/* Giá */
+.product-card .price {
+    font-size: 15px;
+    color: #888;
+    margin: 10px 0;
+}
+
+.product-card .new-price {
     color: #dc2626;
     font-weight: bold;
-    font-size: 16px;
-    margin-bottom: 0;
+    font-size: 18px;
 }
 
 /* Nút thêm giỏ hàng */

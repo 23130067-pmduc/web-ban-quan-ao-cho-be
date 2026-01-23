@@ -49,12 +49,19 @@ public class AddCart extends HttpServlet {
         Product product = productService.getProductById(productId);
 
         if(product!=null){
-            // Nếu có giá khuyến mãi, ghi đè vào product
+            // Xác định giá để lưu vào giỏ hàng
+            double price;
+            
             if (salePrice != null) {
-                product.setSale_price(salePrice);
+                // Từ trang khuyến mãi: dùng giá sale được truyền vào
+                price = salePrice;
+            } else {
+                // Từ trang khác: ưu tiên sale_price, nếu không có thì dùng price
+                price = (product.getSale_price() > 0) 
+                        ? product.getSale_price() 
+                        : product.getPrice();
             }
-
-            double price = (salePrice != null) ? salePrice : product.getPrice();
+            
             cartItemDao.addOrUpdate(cartId, productId, quantity, price);
 
             int cartSize = cartItemDao.countDistinctItems(cartId);
