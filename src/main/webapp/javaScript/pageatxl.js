@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let selectedColorId = null;
     let selectedSizeId = null;
     let selectedRating = 0;
+    let currentStock = 0;
+
 
     // ===== CLICK ẢNH THUMB =====
     thumbs.forEach(t => {
@@ -78,6 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 v.sizeId === sizeId
             );
 
+            currentStock = variant ? variant.stock : 0;
+
             if (!variant || variant.stock <= 0) {
                 btn.disabled = true;
                 btn.classList.add("disabled");
@@ -96,8 +100,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         increaseBtn.addEventListener("click", () => {
+            if (!selectedSizeId) {
+                showToast("Vui lòng chọn size trước");
+                return;
+            }
+
             let val = parseInt(quantityInput.value);
-            quantityInput.value = val + 1;
+
+            if (val < currentStock) {
+                quantityInput.value = val + 1;
+            } else {
+                showToast(`Chỉ còn ${currentStock} sản phẩm`);
+            }
         });
     }
 
