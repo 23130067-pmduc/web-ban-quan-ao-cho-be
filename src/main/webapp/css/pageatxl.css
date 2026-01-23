@@ -451,3 +451,12 @@ html, body {
     color: #FFF8E7;
     transform: scale(1.05);
 }
+
+/*Theemm phần 0 cho chọn */
+
+.size-btn.disabled,
+.color-thumb.disabled {
+    cursor: not-allowed;     /* 🚫 chuột cấm */
+    opacity: 0.4;            /* mờ đi */
+    pointer-events: none;    /* không cho click */
+}
