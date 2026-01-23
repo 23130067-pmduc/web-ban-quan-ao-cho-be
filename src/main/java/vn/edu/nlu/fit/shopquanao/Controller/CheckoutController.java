@@ -5,6 +5,7 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import vn.edu.nlu.fit.shopquanao.Cart.Cart;
 import vn.edu.nlu.fit.shopquanao.Cart.CartItem;
+import vn.edu.nlu.fit.shopquanao.Dao.CartItemDao;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,6 +13,14 @@ import java.util.List;
 
 @WebServlet(name = "CheckoutController", value = "/checkout")
 public class CheckoutController extends HttpServlet {
+
+    private CartItemDao cartItemDao;
+
+    @Override
+    public void init() {
+        cartItemDao = new CartItemDao();
+    }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -24,7 +33,7 @@ public class CheckoutController extends HttpServlet {
 
         String ids = request.getParameter("selectedIds");
         if (cart == null || ids == null || ids.isEmpty()) {
-            response.sendRedirect("my-cart");
+            response.sendRedirect(request.getContextPath() + "/my-cart");
             return;
         }
 

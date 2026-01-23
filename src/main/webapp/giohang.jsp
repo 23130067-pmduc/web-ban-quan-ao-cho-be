@@ -135,7 +135,7 @@
                 </a>
 
                 <c:if test="${not empty cartItems}">
-                <form action="checkout" method="post" id="checkoutForm" class="checkout-form">
+                <form action="${pageContext.request.contextPath}/checkout" method="post" id="checkoutForm" class="checkout-form">
 
                         <input type="hidden" name="selectedIds" id="selectedIds">
 

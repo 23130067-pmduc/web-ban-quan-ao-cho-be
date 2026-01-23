@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateTotal();
     });
 
-    function prepareCheckout() {
+    window.prepareCheckout = function () {
         const checked = document.querySelectorAll(".item-check:checked");
 
         if (checked.length === 0) {

@@ -102,22 +102,22 @@
 
                     <div class="customer-info-item">
                         <label>Họ và tên:</label>
-                        <input type="text" placeholder="Nhập họ và tên người nhận">
+                        <input type="text" name="receiverName" placeholder="Nhập họ và tên người nhận" required>
                     </div>
 
                     <div class="customer-info-item">
                         <label>Số điện thoại:</label>
-                        <input type="text" placeholder="Nhập số điện thoại liên hệ">
+                        <input type="text" name="phone" placeholder="Nhập số điện thoại liên hệ" required>
                     </div>
 
                     <div class="customer-info-item">
                         <label>Địa chỉ nhận hàng:</label>
-                        <input type="text" placeholder="Nhập địa chỉ nhận hàng cụ thể">
+                        <input type="text" name="address" placeholder="Nhập địa chỉ nhận hàng cụ thể" required>
                     </div>
 
                     <div class="customer-info-item">
                         <label>Ghi chú (tuỳ chọn):</label>
-                        <textarea placeholder="Ví dụ: Giao trong giờ hành chính, gọi trước khi giao..."></textarea>
+                        <textarea name="textarea" placeholder="Ví dụ: Giao trong giờ hành chính, gọi trước khi giao..."></textarea>
                     </div>
                 </div>
                 <div class="payment-content-right-button">
@@ -129,11 +129,13 @@
             </div>
         </div>
         <div class="payment-content-right-payment">
-            <a href="#" class="btn-pay">XÁC NHẬN THANH TOÁN</a>
+            <form action="place-order" method="post">
+                <input type="hidden" name="paymentMethod" value="COD">
+                <button type="submit" class="btn-pay">XÁC NHẬN THANH TOÁN</button>
+            </form>
         </div>
     </div>
 </section>
 
 <!-- ========== FOOTER ========== -->
 <%@include file="footer.jsp"%>
-<script src="./javaScript/giohang.js"></script>
