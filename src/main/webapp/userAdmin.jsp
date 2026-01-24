@@ -47,18 +47,26 @@
             <!-- DASHBROAD -->
             <section id="dashboard" class="page active">
                 <div class="cards">
-                    <div class="card">Tổng người dùng<br><span id="dashboard-total-products">0</span></div>
-                    <div class="card">Người dùng mới / tuần<br><span id="dashboard-total-orders">0</span></div>
-                    <div class="card">Hoạt động<br><span id="dashboard-total-customers">0</span></div>
-                    <div class="card">Bị khóa<br><span id="dashboard-total-revenue">0</span></div>
+                    <div class="card">Tổng người dùng<br><span id="dashboard-total-user">${total}</span></div>
+                    <div class="card">Người dùng mới / tuần<br><span id="dashboard-total-user-in-week">${countInWeek}</span></div>
+                    <div class="card">Hoạt động<br><span id="dashboard-total-user-active">${countActive}</span></div>
+                    <div class="card">Bị khóa<br><span id="dashboard-total-user-block">${countBlock}</span></div>
                 </div>
 
                 <div class="user-toolbar">
-                    <input
-                            type="text"
-                            id="searchUser"
-                            placeholder="Tìm theo username, email, họ tên..."
-                    >
+                    <form method="get" action="user-admin" class="user-toolbar">
+                        <input
+                                type="text"
+                                name="keyword"
+                                value="${param.keyword}"
+                                placeholder="Tìm theo username, email..."
+                        >
+
+                        <button type="submit" class="btn-add">
+                            <i class="fa fa-search"></i> Tìm
+                        </button>
+                    </form>
+
 
                     <button id="btnAddUser" class="btn-add">
                         <i class="fa fa-plus"></i> Thêm người dùng
@@ -75,48 +83,57 @@
                             <th>Username</th>
                             <th>Họ tên</th>
                             <th>Email</th>
-                            <th>Role</th>
+                            <th>Vai trò</th>
                             <th>Trạng thái</th>
                             <th>Hành động</th>
                         </tr>
                         </thead>
                         <tbody id="userTableBody">
                         <!-- demo data -->
-                        <tr>
-                            <td>1</td>
-                            <td>lehuhoang1503</td>
-                            <td>Lê Huy Hoàng</td>
-                            <td>lehuhoang@gmail.com</td>
-                            <td>customer</td>
-                            <td><span class="status active">ACTIVE</span></td>
-                            <td class="actions">
-                                <button class="icon-btn view" title="Xem chi tiết">
-                                    <i class="fa fa-eye"></i>
-                                </button>
-                                <button class="icon-btn edit" title="Chỉnh sửa">
-                                    <i class="fa fa-pen"></i>
-                                </button>
-                            </td>
+                        <c:forEach items="${users}" var="u">
+                            <tr>
+                                <td>${u.id}</td>
+                                <td>${u.username}</td>
+                                <td>${u.fullName}</td>
+                                <td>${u.email}</td>
+                                <td>
+                                    <c:choose>
+                                        <c:when test="${u.role == 'admin'}">
+                                            Quản trị
+                                        </c:when>
+                                        <c:otherwise>
+                                            Khách hàng
+                                        </c:otherwise>
+                                    </c:choose>
+                                </td>
 
-                        </tr>
+                                <td><span class="status active">
+                                    <c:choose>
+                                        <c:when test="${u.status == 'ACTIVE'}">
+                                            <span class="status active">Hoạt động</span>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <span class="status blocked">Bị khóa</span>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </span></td>
+                                <td class="actions">
+                                    <button class="icon-btn view" title="Xem chi tiết">
+                                        <i class="fa fa-eye"></i>
+                                    </button>
 
-                        <tr>
-                            <td>1</td>
-                            <td>lehuhoang1503</td>
-                            <td>Lê Huy Hoàng</td>
-                            <td>lehuhoang@gmail.com</td>
-                            <td>customer</td>
-                            <td><span class="status active">ACTIVE</span></td>
-                            <td class="actions">
-                                <button class="icon-btn view" title="Xem chi tiết">
-                                    <i class="fa fa-eye"></i>
-                                </button>
-                                <button class="icon-btn edit" title="Chỉnh sửa">
-                                    <i class="fa fa-pen"></i>
-                                </button>
-                            </td>
+                                    <button class="icon-btn edit" title="Chỉnh sửa">
+                                        <i class="fa fa-pen"></i>
+                                    </button>
 
-                        </tr>
+                                    <button class="icon-btn delete" title="Khóa người dùng"onclick="return confirm('Bạn có chắc muốn khóa người dùng này không?');">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </td>
+
+                            </tr>
+                        </c:forEach>
+
                         </tbody>
                     </table>
                 </div>

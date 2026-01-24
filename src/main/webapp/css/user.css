@@ -8,6 +8,7 @@
 
 html, body {
     overflow: hidden;
+    height: 100%;
     max-width: 100%;
 }
 
@@ -18,6 +19,7 @@ body, .admin {
 /* LAYOUT CHÍNH */
 .user {
     display: flex;
+    height: 100vh;
 }
 
 /* SIDEBAR - MENU BÊN TRÁI */
@@ -80,6 +82,7 @@ body, .admin {
 
 .content {
     flex: 1;
+    overflow-y: auto;
     background: #f5f7fb;
     padding: 25px;
 }
@@ -258,4 +261,13 @@ body, .admin {
 .active {
     background: rgba(255, 255, 255, 0.15);
     transform: translateX(5px);
+}
+
+
+.icon-btn.delete {
+    color: #e03131;
+}
+
+.icon-btn.delete:hover {
+    background: rgba(224, 49, 49, 0.1);
 }
