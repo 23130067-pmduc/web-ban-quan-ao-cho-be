@@ -476,12 +476,21 @@ html, body {
     z-index: 9999;
     opacity: 0;
     transition: opacity 0.3s, bottom 0.3s;
+    font-weight: 500;
 }
 
 #toast.show {
     visibility: visible;
     opacity: 1;
     bottom: 50px;
+}
+
+#toast.show.success {
+    background-color: #4CAF50;
+}
+
+#toast.show.error {
+    background-color: #f44336;
 }
 
 input[type=number] {

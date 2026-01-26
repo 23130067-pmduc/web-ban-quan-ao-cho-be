@@ -20,46 +20,49 @@
         <div class="card-content-left">
             <c:choose>
                 <c:when test="${empty cartItems}">
-                <p style="text-align:center; padding:40px; font-size:18px;">
+                    <p style="text-align:center; padding:40px; font-size:18px;">
                         🛒 Giỏ hàng của bạn đang trống
                     </p>
                 </c:when>
 
                 <c:otherwise>
-                    <table class="table table-bordered table-striped">
+                    <table border="1" cellpadding="10" cellspacing="0" width="100%">
+                        <thead>
                         <tr>
-                            <th>Chọn</th>
-                            <th>Tên sản phẩm</th>
-                            <th>Hình ảnh</th>
+                            <th>Sản phẩm</th>
+                            <th>Phân loại</th>
                             <th>Số lượng</th>
-                            <th>Giá tiền</th>
+                            <th>Thành tiền</th>
                             <th>Xóa</th>
                         </tr>
+                        </thead>
+
+                        <tbody>
                         <c:set var="count" value="1"/>
                         <c:forEach var="item" items="${cartItems}">
-                            <tr>
+                            <tr data-price="${item.price}">
+                                <!-- SẢN PHẨM -->
                                 <td>
-                                    <input type="checkbox"
-                                           class="item-check"
-                                           data-id="${item.product.id}"
-                                           data-price="${item.price}">
+                                    <img src="${item.product.thumbnail}" width="60">
+                                    <br>
+                                        ${item.product.name}
                                 </td>
 
+                                <!-- SIZE + MÀU -->
                                 <td>
-                                    <p>${item.product.name}</p>
+                                    Size: <b>${item.size}</b><br>
+                                    Màu: <b>${item.color}</b>
                                 </td>
 
-                                <td>
-                                    <img src="${item.product.thumbnail}" alt="${item.product.name}"style="height: 80px">
-                                </td>
 
+                                <!-- UPDATE SỐ LƯỢNG -->
                                 <td>
                                     <form action="update-cart"
                                           method="post"
                                           class="qty-form"
                                           style="display:flex; justify-content:center; align-items:center; gap:6px;">
 
-                                        <input type="hidden" name="productId" value="${item.product.id}">
+                                        <input type="hidden" name="variantId" value="${item.variantId}">
 
                                         <button type="button" class="btn-minus">−</button>
 
@@ -72,31 +75,24 @@
 
                                         <button type="button" class="btn-plus">+</button>
                                     </form>
+                                </td>
+                                <!-- THÀNH TIỀN -->
+                                <td>
+                                    <fmt:formatNumber value="${item.price * item.quantity}" type="number"/> ₫
+                                </td>
 
                                 </td>
 
+                                <!-- XÓA -->
                                 <td>
-                                    <fmt:formatNumber value="${item.price}" type="number"/>₫
-                                </td>
-
-                                <td>
-                                    <form action="${pageContext.request.contextPath}/del-item" method="post"
-                                        onsubmit="saveCheckedBeforeDelete(${item.product.id})">
-                                        <input type="hidden" name="productId" value="${item.product.id}">
+                                    <form action="del-item" method="post">
+                                        <input type="hidden" name="variantId" value="${item.variantId}">
                                         <button type="submit"> <i class="fa fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>
                         </c:forEach>
-                            <tr>
-                                <td>
-                                    <input type="checkbox" id="checkAll">
-                                </td>
-                                <td colspan="5" style="text-align:center; font-weight:600">
-                                    Chọn tất cả sản phẩm
-                                </td>
-                            </tr>
-
+                        </tbody>
                     </table>
                 </c:otherwise>
             </c:choose>
@@ -135,13 +131,9 @@
                 </a>
 
                 <c:if test="${not empty cartItems}">
-                <form action="${pageContext.request.contextPath}/checkout" method="post" id="checkoutForm" class="checkout-form">
+                    <form action="${pageContext.request.contextPath}/checkout" method="post" id="checkoutForm" class="checkout-form">
 
-                        <input type="hidden" name="selectedIds" id="selectedIds">
-
-                        <button type="submit"
-                                id="tt"
-                                onclick="return prepareCheckout()">
+                        <button type="submit" id="tt">
                             THANH TOÁN
                         </button>
                     </form>

@@ -7,28 +7,35 @@ import java.util.List;
 
 public class CartItemDao extends BaseDao {
 
-    public void addOrUpdate(int cartId, int productId, int quantity, double price) {
-        getJdbi().useHandle(handle -> {
-            Integer exists = handle.createQuery(
-                            "SELECT id FROM cart_items WHERE cart_id = :cid AND product_id = :pid")
+    public void addOrUpdate(int cartId, int variantId, int productId, int quantity, double price) {
+        getJdbi().useHandle(h -> {
+            Integer exists = h.createQuery("""
+            SELECT id FROM cart_items
+            WHERE cart_id = :cid AND variant_id = :vid
+        """)
                     .bind("cid", cartId)
-                    .bind("pid", productId)
+                    .bind("vid", variantId)
                     .mapTo(Integer.class)
                     .findOne()
                     .orElse(null);
 
             if (exists != null) {
-                handle.createUpdate(
-                                "UPDATE cart_items SET quantity = quantity + :q WHERE id = :id")
+                h.createUpdate("""
+                UPDATE cart_items
+                SET quantity = quantity + :q
+                WHERE id = :id
+            """)
                         .bind("q", quantity)
                         .bind("id", exists)
                         .execute();
             } else {
-                handle.createUpdate(
-                                "INSERT INTO cart_items(cart_id, product_id, quantity, price) " +
-                                        "VALUES (:cid, :pid, :q, :price)")
+                h.createUpdate("""
+                INSERT INTO cart_items(cart_id, product_id, variant_id, quantity, price)
+                VALUES (:cid, :pid, :vid, :q, :price)
+            """)
                         .bind("cid", cartId)
                         .bind("pid", productId)
+                        .bind("vid", variantId)
                         .bind("q", quantity)
                         .bind("price", price)
                         .execute();
@@ -46,28 +53,41 @@ public class CartItemDao extends BaseDao {
     }
 
     public List<CartItem> getItemsByCartId(int cartId) {
-        String sql =
-                "SELECT ci.quantity, ci.price, " +
-                        "p.id AS pid, p.name, p.price AS pprice, p.thumbnail " +
-                        "FROM cart_items ci " +
-                        "JOIN products p ON ci.product_id = p.id " +
-                        "WHERE ci.cart_id = :cid";
+        String sql = """
+        SELECT
+            ci.variant_id,
+            ci.quantity,
+            ci.price,
+            p.id   AS pid,
+            p.name,
+            p.thumbnail,
+            s.code AS size,
+            c.name AS color
+        FROM cart_items ci
+        JOIN product_variants v ON ci.variant_id = v.id
+        JOIN products p ON v.product_id = p.id
+        JOIN sizes s ON v.size_id = s.id
+        JOIN colors c ON v.color_id = c.id
+        WHERE ci.cart_id = :cid
+    """;
 
         return getJdbi().withHandle(h ->
                 h.createQuery(sql)
                         .bind("cid", cartId)
                         .map((rs, ctx) -> {
-                            Product product = new Product();
-                            product.setId(rs.getInt("pid"));
-                            product.setName(rs.getString("name"));
-                            product.setPrice(rs.getDouble("pprice"));
-                            product.setThumbnail(rs.getString("thumbnail"));
-
                             CartItem item = new CartItem();
+                            item.setVariantId(rs.getInt("variant_id"));
                             item.setQuantity(rs.getInt("quantity"));
                             item.setPrice(rs.getDouble("price"));
-                            item.setProduct(product);
+                            item.setSize(rs.getString("size"));
+                            item.setColor(rs.getString("color"));
 
+                            Product p = new Product();
+                            p.setId(rs.getInt("pid"));
+                            p.setName(rs.getString("name"));
+                            p.setThumbnail(rs.getString("thumbnail"));
+
+                            item.setProduct(p);
                             return item;
                         })
                         .list()
@@ -75,30 +95,38 @@ public class CartItemDao extends BaseDao {
     }
 
 
-    public void delete(int cartId, int productId) {
+
+    public void delete(int cartId, int variantId) {
         getJdbi().useHandle(h ->
-                h.createUpdate(
-                                "DELETE FROM cart_items WHERE cart_id = :cid AND product_id = :pid")
+                h.createUpdate("""
+            DELETE FROM cart_items
+            WHERE cart_id = :cid AND variant_id = :vid
+        """)
                         .bind("cid", cartId)
-                        .bind("pid", productId)
+                        .bind("vid", variantId)
                         .execute()
         );
     }
-    public void updateQuantity(int cartId, int productId, int quantity) {
+
+    public void updateQuantity(int cartId, int variantId, int quantity) {
         getJdbi().useHandle(h ->
-                h.createUpdate(
-                                "UPDATE cart_items SET quantity = :q " +
-                                        "WHERE cart_id = :cid AND product_id = :pid")
+                h.createUpdate("""
+            UPDATE cart_items
+            SET quantity = :q
+            WHERE cart_id = :cid AND variant_id = :vid
+        """)
                         .bind("q", quantity)
                         .bind("cid", cartId)
-                        .bind("pid", productId)
+                        .bind("vid", variantId)
                         .execute()
         );
     }
+
     public int countDistinctItems(int cartId) {
         return getJdbi().withHandle(h ->
-                h.createQuery(
-                                "SELECT COUNT(*) FROM cart_items WHERE cart_id = :cid")
+                h.createQuery("""
+            SELECT COUNT(*) FROM cart_items WHERE cart_id = :cid
+        """)
                         .bind("cid", cartId)
                         .mapTo(int.class)
                         .one()

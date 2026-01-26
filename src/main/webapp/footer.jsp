@@ -49,8 +49,35 @@
 </footer>
 <p class="copyright">© 2025 SunnyBear. All rights reserved.</p>
 
-
-<script src="${pageContext.request.contextPath}/javaScript/header.js"></script>
+<!-- Global utility functions -->
+<script>
+    // ===== GLOBAL UPDATE CART BADGE =====
+    window.updateCartBadge = function(count) {
+        console.log("[global] updateCartBadge called with count: " + count);
+        
+        const cartIcons = document.querySelectorAll(".iconCart");
+        console.log("[global] Found " + cartIcons.length + " cart icons");
+        
+        if (cartIcons.length === 0) {
+            console.warn("[global] No cart icons found");
+            return;
+        }
+        
+        cartIcons.forEach((iconCart, index) => {
+            let cartCount = iconCart.querySelector(".cart-count");
+            
+            if (!cartCount) {
+                cartCount = document.createElement("span");
+                cartCount.className = "cart-count";
+                iconCart.appendChild(cartCount);
+            }
+            
+            cartCount.textContent = count;
+            cartCount.style.display = count > 0 ? "block" : "none";
+            console.log("[global] Updated cart badge #" + (index + 1) + ": " + count);
+        });
+    };
+</script>
 <script src="${pageContext.request.contextPath}/javaScript/thongBao.js"></script>
 <script src="${pageContext.request.contextPath}/javaScript/search.js"></script>
 <script src="${pageContext.request.contextPath}/javaScript/slider.js"></script>

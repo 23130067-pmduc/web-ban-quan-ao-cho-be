@@ -28,15 +28,19 @@ public class RemoveItem extends HttpServlet {
             return;
         }
 
-        int productId = Integer.parseInt(request.getParameter("productId"));
         int cartId = (Integer) session.getAttribute("cartId");
 
-        cartItemDao.delete(cartId, productId);
-        int cartSize = cartItemDao.countDistinctItems(cartId);
-        session.setAttribute("cartSize", cartSize);
+        try {
+            int variantId = Integer.parseInt(request.getParameter("variantId"));
 
-        response.sendRedirect("my-cart");
+            cartItemDao.delete(cartId, variantId);
 
+            int cartSize = cartItemDao.countTotalQuantity(cartId);
+            session.setAttribute("cartSize", cartSize);
 
+            response.sendRedirect("my-cart");
+        } catch (NumberFormatException e) {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+        }
     }
 }

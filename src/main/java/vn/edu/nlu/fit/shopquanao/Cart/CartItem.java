@@ -5,22 +5,51 @@ import vn.edu.nlu.fit.shopquanao.model.Product;
 import java.io.Serializable;
 
 public class CartItem implements Serializable {
-    private int Quantity;
+    private int quantity;
     private double price;
     private Product product;
+    private int variantId;
+    private String size;
+    private String color;
+    public int getVariantId() {
+        return variantId;
+    }
 
-    public CartItem(int Quantity, double price, Product product) {
-        this.Quantity = Quantity;
+    public String getSize() {
+        return size;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setVariantId(int variantId) {
+        this.variantId = variantId;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public CartItem(int quantity, double price, Product product, int variantId, String size, String color) {
+        this.quantity = quantity;
         this.price = price;
         this.product = product;
+        this.variantId = variantId;
+        this.size = size;
+        this.color = color;
     }
 
     public int getQuantity() {
-        return Quantity;
+        return quantity;
     }
 
     public void setQuantity(int quantity) {
-        Quantity = quantity;
+        this.quantity = quantity;
     }
 
     public double getPrice() {
@@ -42,7 +71,7 @@ public class CartItem implements Serializable {
     public CartItem(){
 
     }
-    public void updateQuantity(int Quantity){
-        this.Quantity += Quantity;
+    public void increaseQuantity(int amount) {
+        this.quantity += amount;
     }
 }

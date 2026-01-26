@@ -46,7 +46,7 @@
                     <span class="new-price">${p.sale_price}đ</span>
                     <span class="old-price">${p.price}đ</span>
                 </p>
-                <button class="btn-add">Thêm vào giỏ</button>
+                <a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}" class="btn-add">Thêm vào giỏ</a>
             </div>
         </c:forEach>
     </div>
@@ -67,7 +67,7 @@
                     <span class="new-price">${p.sale_price}đ</span>
                     <span class="old-price">${p.price}đ</span>
                 </p>
-                <button class="btn-add">Thêm vào giỏ</button>
+                <a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}" class="btn-add">Xem chi tiết</a>
             </div>
         </c:forEach>
     </div>

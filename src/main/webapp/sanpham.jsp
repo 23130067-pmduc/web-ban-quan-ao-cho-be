@@ -192,7 +192,7 @@
                 </span>
             </p>
 
-            <a href="add-cart?productId=${p.id}&quantity=1" class="btn-add">
+            <a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}" class="btn-add">
                 Thêm vào giỏ
             </a>
         </div>

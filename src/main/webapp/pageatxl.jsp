@@ -165,7 +165,6 @@
 <!-- Toast thông báo thêm giỏ hàng -->
 <div id="toast"></div>
 
-
 <script>
     const variants = [
         <c:forEach var="v" items="${variants}" varStatus="st">

@@ -57,7 +57,7 @@
                         </span>
                     </p>
 
-                    <a href="add-cart?productId=${p.id}&quantity=1" class="btn-add">
+                    <a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}&quantity=1" class="btn-add">
                         Thêm vào giỏ
                     </a>
                 </div>
@@ -86,7 +86,7 @@
                             <span class="new-price"><fmt:formatNumber value="${p.sale_price}" type="number"/>đ</span>
                             <span class="old-price"><fmt:formatNumber value="${p.price}" type="number"/>đ</span>
                         </p>
-                        <a href="add-cart?productId=${p.id}&quantity=1" class="btn-add">Thêm vào giỏ</a>
+                        <a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}&quantity=1" class="btn-add">Thêm vào giỏ</a>
                     </div>
                 </c:forEach>
             </div>
@@ -120,7 +120,7 @@
                         </span>
                         </p>
 
-                        <a href="add-cart?productId=${p.id}&quantity=1" class="btn-add">
+                        <a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}&quantity=1" class="btn-add">
                             Thêm vào giỏ
                         </a>
                     </div>
@@ -157,7 +157,7 @@
                         </span>
                         </p>
 
-                        <a href="add-cart?productId=${p.id}&quantity=1" class="btn-add">
+                        <a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}&quantity=1" class="btn-add">
                             Thêm vào giỏ
                         </a>
                     </div>
@@ -175,8 +175,7 @@
 
 
 
-    <!-- ========== Khi nhấn thêm vào giỏ hàng-->
-    <div id="toast"></div>
+
 </section>
 
 

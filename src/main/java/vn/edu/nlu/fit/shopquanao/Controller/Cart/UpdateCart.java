@@ -3,7 +3,6 @@ package vn.edu.nlu.fit.shopquanao.Controller.Cart;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import vn.edu.nlu.fit.shopquanao.Cart.Cart;
 import vn.edu.nlu.fit.shopquanao.Dao.CartItemDao;
 
 import java.io.IOException;
@@ -30,18 +29,24 @@ public class UpdateCart extends HttpServlet {
             return;
         }
 
-        int productId = Integer.parseInt(request.getParameter("productId"));
-        int quantity = Integer.parseInt(request.getParameter("quantity"));
         int cartId = (Integer) session.getAttribute("cartId");
 
-        if (quantity <= 0) {
-            cartItemDao.delete(cartId, productId);
-        } else {
-            cartItemDao.updateQuantity(cartId, productId, quantity);
-        }
-        int cartSize = cartItemDao.countDistinctItems(cartId);
-        session.setAttribute("cartSize", cartSize);
+        try {
+            int variantId = Integer.parseInt(request.getParameter("variantId"));
+            int quantity  = Integer.parseInt(request.getParameter("quantity"));
 
-        response.sendRedirect("my-cart");
+            if (quantity <= 0) {
+                cartItemDao.delete(cartId, variantId);
+            } else {
+                cartItemDao.updateQuantity(cartId, variantId, quantity);
+            }
+
+            int cartSize = cartItemDao.countTotalQuantity(cartId);
+            session.setAttribute("cartSize", cartSize);
+
+            response.sendRedirect("my-cart");
+        } catch (NumberFormatException e) {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+        }
     }
 }

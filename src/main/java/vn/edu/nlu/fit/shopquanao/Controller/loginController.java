@@ -74,7 +74,7 @@ public class loginController extends HttpServlet {
             cartId = cartDao.createCart(user.getId());
         }
         session.setAttribute("cartId", cartId);
-        int cartSize = new CartItemDao().countDistinctItems(cartId);
+        int cartSize = new CartItemDao().countTotalQuantity(cartId);
         session.setAttribute("cartSize", cartSize);
         if ("admin".equalsIgnoreCase(user.getRole())) {
             response.sendRedirect(request.getContextPath() + "/admin.jsp");

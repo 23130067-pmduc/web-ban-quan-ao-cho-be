@@ -14,4 +14,79 @@ public class ProductVariantDao extends BaseDao {
                 .mapToBean(ProductVariant.class)
                 .list());
     }
+
+    public double getPriceByVariantId(int variantId) {
+        return getJdbi().withHandle(h ->
+                h.createQuery("""
+            SELECT COALESCE(sale_price, price)
+            FROM product_variants
+            WHERE id = :vid
+        """)
+                        .bind("vid", variantId)
+                        .mapTo(double.class)
+                        .one()
+        );
+    }
+
+    /**
+     * Lấy variant đầu tiên của một sản phẩm (để làm mặc định khi thêm vào giỏ từ trang sản phẩm)
+     */
+    public ProductVariant getFirstVariantByProductId(int productId) {
+        return getJdbi().withHandle(h ->
+                h.createQuery("""
+            SELECT *
+            FROM product_variants
+            WHERE product_id = :pid
+            ORDER BY id ASC
+            LIMIT 1
+        """)
+                        .bind("pid", productId)
+                        .mapToBean(ProductVariant.class)
+                        .findOne()
+                        .orElse(null)
+        );
+    }
+
+    /**
+     * Lấy product_id từ variant_id
+     */
+    public int getProductIdByVariantId(int variantId) {
+        return getJdbi().withHandle(h ->
+                h.createQuery("""
+            SELECT product_id
+            FROM product_variants
+            WHERE id = :vid
+        """)
+                        .bind("vid", variantId)
+                        .mapTo(int.class)
+                        .one()
+        );
+    }
+
+    public int getStockByVariantId(int variantId) {
+        String sql = "SELECT stock FROM product_variants WHERE id = ?";
+        return getJdbi().withHandle(handle ->
+                handle.createQuery(sql)
+                        .bind(0, variantId)
+                        .mapTo(int.class)
+                        .one()
+        );
+    }
+
+
+    public void decreaseStock(int variantId, int quantity) {
+        String sql = """
+        UPDATE product_variants
+        SET stock = stock - :qty
+        WHERE id = :vid AND stock >= :qty
+    """;
+
+        getJdbi().withHandle(handle ->
+                handle.createUpdate(sql)
+                        .bind("vid", variantId)
+                        .bind("qty", quantity)
+                        .execute()
+        );
+    }
+
 }
