@@ -1,141 +1,119 @@
-<%@ page contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%
     request.setAttribute("pageCss", "thanhtoan.css");
-    request.setAttribute("pageTitle" , "Thanh toán");
+    request.setAttribute("pageTitle", "Thanh toán");
 %>
 
 <%@include file="header.jsp"%>
-<!-- ========== PAYMENT ========== -->
-<div class="title">
-    <span>THANH TOÁN SẢN PHẦM</span>
-</div>
-<section class="payment">
-    <div class="container">
-        <div class="payment-content row">
-            <div class="payment-content-left">
-                <div class="payment-content-left-method-delivery">
-                    <p style="font-weight: bold;">Phương thức giao hàng</p>
-                    <div class="payment-content-left-method-delivery-item">
-                        <input checked type="radio">
-                        <label for="">Giao hàng chuyển phát nhanh</label>
-                    </div>
-                </div>
-                <div class="payment-content-left-method-payment">
-                    <p style="font-weight: bold;">Phương thức thanh toán</p>
-                    <label>Mọi giao dịch đều được bảo mật và mã hóa. Thông tin thẻ tín dụng sẽ không bao giờ được lưu lại.</label>
-                    <div class="payment-content-left-method-payment-item">
-                        <input name="method-payment" type="radio">
-                        <label for="">Thanh toán bằng thẻ tín dụng(OnePay)</label>
-                    </div>
-                    <div class="payment-content-left-method-payment-item-img">
-                        <img src="./img/ttd.jpg" alt="">
-                    </div>
-                    <div class="payment-content-left-method-payment-item">
-                        <input checked name="method-payment" type="radio">
-                        <label for="">Thanh toán bằng thẻ ATM(OnePay)</label>
-                    </div>
-                    <div class="payment-content-left-method-payment-item-img">
-                        <img src="./img/nganhang.jpg" alt="">
-                    </div>
-                    <div class="payment-content-left-method-payment-item">
-                        <input name="method-payment" type="radio">
-                        <label for="">Thanh toán MOMO</label>
-                    </div>
-                    <div class="payment-content-left-method-payment-item-img">
-                        <img src="./img/momoo.jpg" alt="">
-                    </div>
-                    <div class="payment-content-left-method-payment-item">
-                        <input name="method-payment" type="radio">
-                        <label for="">Thanh toán khi nhận hàng</label>
-                    </div>
+
+<section class="checkout">
+    <div class="checkout-container">
+        <form action="place-order" method="post">
+            <!-- ===== LEFT ===== -->
+            <div class="checkout-left">
+                <h2>Thông tin giao hàng</h2>
+
+                <div class="form-group">
+                    <label>Họ và tên</label>
+                    <input type="text" name="receiverName" placeholder="Tên người nhận" required>
                 </div>
 
+                <div class="form-group">
+                    <label>Số điện thoại</label>
+                    <input type="text" name="phone" placeholder="Nhập số điện thoại" pattern="[0-9]{9,11}" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Địa chỉ nhận hàng</label>
+                    <input type="text" name="address" placeholder="Số nhà, đường, phường/xã, quận/huyện" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Ghi chú</label>
+                    <textarea name="note" placeholder="Giao giờ hành chính..."></textarea>
+                </div>
+
+                <h2>Phương thức thanh toán</h2>
+
+                <div class="payment-method">
+                    <label>
+                        <input type="radio" name="paymentMethod" value="COD" checked>
+                        Thanh toán khi nhận hàng (COD)
+                    </label>
+
+                    <label>
+                        <input type="radio" name="paymentMethod" value="MOMO">
+                        Ví điện tử MOMO
+                    </label>
+
+                    <label>
+                        <input type="radio" name="paymentMethod" value="ONEPAY">
+                        Thẻ ATM / Visa (OnePay)
+                    </label>
+                </div>
             </div>
-            <div class="payment-content-right">
-                <!-- Danh sách sản phẩm gọn, số lượng cố định 1 -->
-                <div class="payment-cart">
-                    <h3>Danh sách sản phẩm</h3>
-                    <c:if test="${not empty checkoutItems}">
-                        <table class="checkout-table">
-                            <tr>
-                                <th>Hình ảnh</th>
-                                <th>Tên sản phẩm</th>
-                                <th>Số lượng</th>
-                                <th>Thành tiền</th>
-                            </tr>
 
-                            <c:set var="total" value="0"/>
+            <!-- ===== RIGHT ===== -->
+            <div class="checkout-right">
+                <h3>Đơn hàng của bạn</h3>
+                <input type="hidden" name="cartId" value="${sessionScope.cartId}">
+                <c:forEach var="item" items="${checkoutItems}">
+                <input type="hidden" name="variantIds" value="${item.variantId}">
+                <input type="hidden" name="quantities" value="${item.quantity}">
+                </c:forEach>
 
-                            <c:forEach var="item" items="${checkoutItems}">
-                                <tr>
-                                    <td>
-                                        <img src="${item.product.thumbnail}" style="height:60px">
-                                    </td>
-                                    <td>${item.product.name}</td>
-                                    <td>${item.quantity}</td>
-                                    <td style="color:#c62828; font-weight:600">
-                                        <fmt:formatNumber value="${item.price * item.quantity}" type="number"/>₫
-                                    </td>
-                                </tr>
 
-                                <c:set var="total" value="${total + item.price * item.quantity}"/>
-                            </c:forEach>
-                        </table>
-
-                        <div class="cart-total">
-                            <p><b>Tổng tiền:</b>
-                                <span style="color:#c62828; font-size:18px">
-                                <fmt:formatNumber value="${total}" type="number"/>₫
-                            </span>
+                <div class="order-items">
+                    <c:set var="total" value="0"/>
+                    <c:forEach var="item" items="${checkoutItems}">
+                    <div class="order-item">
+                        <img src="${item.product.thumbnail}">
+                        <div class="info">
+                            <p class="name">${item.product.name}</p>
+                            <p class="variant">Size ${item.size} · ${item.color}
                             </p>
+                            <p class="qty">SL: ${item.quantity}</p>
                         </div>
-                    </c:if>
+                        <div class="price">
+                            <fmt:formatNumber value="${item.price * item.quantity}" type="number"/>₫
+                        </div>
+                    </div>
+
+                        <c:set var="total" value="${total + item.price * item.quantity}"/>
+                    </c:forEach>
                 </div>
 
-                <!-- 🧾 Thông tin người nhận hàng -->
-                <div class="payment-content-left-customer-info">
-                    <p style="font-weight: bold;">Thông tin người nhận hàng</p>
-
-                    <div class="customer-info-item">
-                        <label>Họ và tên:</label>
-                        <input type="text" name="receiverName" placeholder="Nhập họ và tên người nhận" required>
+                <div class="order-summary">
+                    <div>
+                        <span>Tạm tính</span>
+                        <span>
+                        <fmt:formatNumber value="${total}" type="number"/>₫
+                    </span>
                     </div>
 
-                    <div class="customer-info-item">
-                        <label>Số điện thoại:</label>
-                        <input type="text" name="phone" placeholder="Nhập số điện thoại liên hệ" required>
+                    <div>
+                        <span>Phí vận chuyển</span>
+                        <span>Miễn phí</span>
                     </div>
 
-                    <div class="customer-info-item">
-                        <label>Địa chỉ nhận hàng:</label>
-                        <input type="text" name="address" placeholder="Nhập địa chỉ nhận hàng cụ thể" required>
-                    </div>
-
-                    <div class="customer-info-item">
-                        <label>Ghi chú (tuỳ chọn):</label>
-                        <textarea name="textarea" placeholder="Ví dụ: Giao trong giờ hành chính, gọi trước khi giao..."></textarea>
+                    <div class="total">
+                        <span>Tổng cộng</span>
+                        <span>
+                        <fmt:formatNumber value="${total}" type="number"/>₫
+                    </span>
                     </div>
                 </div>
-                <div class="payment-content-right-button">
-                    <input type="text" placeholder="Mã giảm giá/ Quà tặng">
-                    <button> <i class="fa-solid fa-check"></i> </button>
-                </div>
 
+                <button type="submit" class="btn-checkout">
+                    XÁC NHẬN THANH TOÁN
+                </button>
 
             </div>
-        </div>
-        <div class="payment-content-right-payment">
-            <form action="place-order" method="post">
-                <input type="hidden" name="paymentMethod" value="COD">
-                <button type="submit" class="btn-pay">XÁC NHẬN THANH TOÁN</button>
-            </form>
-        </div>
+        </form>
     </div>
 </section>
 
-<!-- ========== FOOTER ========== -->
 <%@include file="footer.jsp"%>
