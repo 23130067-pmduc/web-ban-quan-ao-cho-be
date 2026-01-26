@@ -122,18 +122,53 @@ public class CartItemDao extends BaseDao {
         );
     }
 
-    public int countDistinctItems(int cartId) {
+
+    public List<CartItem> getByCartId(int cartId) {
         return getJdbi().withHandle(h ->
                 h.createQuery("""
-            SELECT COUNT(*) FROM cart_items WHERE cart_id = :cid
+            SELECT
+                ci.variant_id,
+                ci.quantity,
+                ci.price,
+                s.code AS size,
+                c.name AS color,
+                p.id   AS product_id,
+                p.name AS product_name,
+                p.thumbnail
+            FROM cart_items ci
+            JOIN product_variants pv ON ci.variant_id = pv.id
+            JOIN products p ON pv.product_id = p.id
+            LEFT JOIN sizes s ON pv.size_id = s.id
+            LEFT JOIN colors c ON pv.color_id = c.id
+            WHERE ci.cart_id = :cartId
         """)
-                        .bind("cid", cartId)
-                        .mapTo(int.class)
-                        .one()
+                        .bind("cartId", cartId)
+                        .map((rs, ctx) -> {
+                            CartItem item = new CartItem();
+                            item.setVariantId(rs.getInt("variant_id"));
+                            item.setQuantity(rs.getInt("quantity"));
+                            item.setPrice(rs.getDouble("price"));
+                            item.setSize(rs.getString("size"));
+                            item.setColor(rs.getString("color"));
+
+                            Product p = new Product();
+                            p.setId(rs.getInt("product_id"));
+                            p.setName(rs.getString("product_name"));
+                            p.setThumbnail(rs.getString("thumbnail"));
+                            item.setProduct(p);
+
+                            return item;
+                        })
+                        .list()
         );
     }
 
 
-
-
+    public void clearCart(int cartId) {
+        getJdbi().useHandle(h ->
+                h.createUpdate("DELETE FROM cart_items WHERE cart_id = :cid")
+                        .bind("cid", cartId)
+                        .execute()
+        );
+    }
 }

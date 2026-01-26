@@ -74,17 +74,15 @@ public class ProductVariantDao extends BaseDao {
     }
 
 
-    public void decreaseStock(int variantId, int quantity) {
-        String sql = """
-        UPDATE product_variants
-        SET stock = stock - :qty
-        WHERE id = :vid AND stock >= :qty
-    """;
-
-        getJdbi().withHandle(handle ->
-                handle.createUpdate(sql)
+    public void decreaseStock(int variantId, int qty) {
+        getJdbi().useHandle(h ->
+                h.createUpdate("""
+            UPDATE product_variants
+            SET stock = stock - :q
+            WHERE id = :vid
+        """)
+                        .bind("q", qty)
                         .bind("vid", variantId)
-                        .bind("qty", quantity)
                         .execute()
         );
     }
