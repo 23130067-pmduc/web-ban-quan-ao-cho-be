@@ -163,5 +163,48 @@ public class UserDao extends BaseDao {
                 .bind("id", id)
                 .execute()) > 0;        //Nếu update thành công thì trả về 1 không thì trả về 0
     }
+
+    public int getCountInWeek() {
+        return getJdbi().withHandle(handle -> handle.createQuery("""
+                SELECT COUNT(*)
+                FROM users
+                WHERE created_at >= NOW() - INTERVAL 7 DAY
+                """)
+                .mapTo(int.class)
+                .findOne()
+                .orElse(0));
+    }
+
+    public int getCountActive() {
+        return getJdbi().withHandle(handle -> handle.createQuery("""
+                SELECT COUNT(*)
+                FROM users
+                WHERE status = 'ACTIVE'
+                """)
+                .mapTo(int.class)
+                .findOne()
+                .orElse(0));
+    }
+
+    public int getCountBlock() {
+        return getJdbi().withHandle(handle -> handle.createQuery("""
+                SELECT COUNT(*)
+                FROM users
+                WHERE status = 'BLOCK'
+                """)
+                .mapTo(int.class)
+                .findOne()
+                .orElse(0));
+    }
+
+    public List<User> searchByUsernameOrEmail(String keyword) {
+        return getJdbi().withHandle(handle -> handle.createQuery("""
+                SELECT *
+                FROM users
+                WHERE username LIKE :keyword OR email LIKE :keyword
+                """).bind("keyword", "%" + keyword + "%")
+                .mapToBean(User.class)
+                .list());
+    }
 }
 

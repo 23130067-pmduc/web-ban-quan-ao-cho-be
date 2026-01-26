@@ -4,6 +4,7 @@ import vn.edu.nlu.fit.shopquanao.Dao.UserDao;
 import vn.edu.nlu.fit.shopquanao.model.User;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Random;
 
 import vn.edu.nlu.fit.shopquanao.Util.PasswordUtil;
@@ -138,5 +139,25 @@ public class UserService {
         String hash = PasswordUtil.hash(newPass);
 
         return userDao.updatePasss(id, hash);
+    }
+
+    public List<User> getAllUser() {
+        return userDao.getListUser();
+    }
+
+    public int getCountInWeek() {
+        return userDao.getCountInWeek();
+    }
+
+    public int getCountActive() {
+        return userDao.getCountActive();
+    }
+
+    public int getCountBlock() {
+        return userDao.getCountBlock();
+    }
+
+    public List<User> searchByUsernameOrEmail(String keyword) {
+        return userDao.searchByUsernameOrEmail(keyword);
     }
 }

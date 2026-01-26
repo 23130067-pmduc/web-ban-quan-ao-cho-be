@@ -8,10 +8,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+
+import vn.edu.nlu.fit.shopquanao.Dao.CartDao;
 import vn.edu.nlu.fit.shopquanao.Dao.CartItemDao;
 import vn.edu.nlu.fit.shopquanao.Service.UserService;
 import vn.edu.nlu.fit.shopquanao.model.User;
-import vn.edu.nlu.fit.shopquanao.Dao.CartDao;
 
 @WebServlet(name = "loginController", value = "/login")
 public class loginController extends HttpServlet {
@@ -26,18 +27,22 @@ public class loginController extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         request.getRequestDispatcher("/login.jsp").forward(request, response);
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        // validate
-        if (username == null || password == null || username.isEmpty() || password.isEmpty()) {
+        // ===== VALIDATE =====
+        if (username == null || password == null
+                || username.trim().isEmpty()
+                || password.trim().isEmpty()) {
 
             request.setAttribute("error", "Vui lòng nhập đầy đủ thông tin");
             request.getRequestDispatcher("/login.jsp").forward(request, response);
@@ -60,12 +65,19 @@ public class loginController extends HttpServlet {
             return;
         }
 
-        // reset session
+        // ===== RESET SESSION CŨ =====
         HttpSession oldSession = request.getSession(false);
-        if (oldSession != null) oldSession.invalidate();
+        if (oldSession != null) {
+            oldSession.invalidate();
+        }
 
-        // tạo session mới
+        // ===== TẠO SESSION MỚI (QUAN TRỌNG) =====
         HttpSession session = request.getSession(true);
+
+        // 🔥 BẮT BUỘC: LƯU userId
+        session.setAttribute("userId", user.getId());
+
+        // giữ user object cho profile, header
         session.setAttribute("userlogin", user);
 
         // ====== CART LOGIC ======
@@ -76,6 +88,8 @@ public class loginController extends HttpServlet {
         session.setAttribute("cartId", cartId);
         int cartSize = new CartItemDao().countTotalQuantity(cartId);
         session.setAttribute("cartSize", cartSize);
+
+        // ===== REDIRECT =====
         if ("admin".equalsIgnoreCase(user.getRole())) {
             response.sendRedirect(request.getContextPath() + "/admin.jsp");
         } else {
