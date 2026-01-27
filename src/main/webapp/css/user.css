@@ -164,7 +164,7 @@ body, .admin {
     border: 1px solid #ccc;
 }
 
-.btn-add {
+.btn-search {
     padding: 10px 16px;
     border: none;
     border-radius: 8px;
@@ -177,9 +177,26 @@ body, .admin {
     gap: 6px;
 }
 
-.btn-add:hover {
+.btn-search:hover {
     background: #37b24d;
 }
+
+.btn-add {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: #4caf50;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn-add:hover {
+    background: #43a047;
+}
+
 
 
 .user-table {
@@ -270,4 +287,64 @@ body, .admin {
 
 .icon-btn.delete:hover {
     background: rgba(224, 49, 49, 0.1);
+}
+
+
+/* MODAL OVERLAY */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* MODAL BOX */
+.modal {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px 25px;
+    width: 360px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal h3 {
+    margin-top: 0;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* BUTTON */
+.btn-danger {
+    background: #f44336;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-danger:hover {
+    background: #e53935;
+}
+
+.btn-secondary {
+    background: #dddddd;
+    color: black;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background: #cccccc;
 }

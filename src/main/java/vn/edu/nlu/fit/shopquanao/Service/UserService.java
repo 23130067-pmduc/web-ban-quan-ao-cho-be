@@ -160,4 +160,20 @@ public class UserService {
     public List<User> searchByUsernameOrEmail(String keyword) {
         return userDao.searchByUsernameOrEmail(keyword);
     }
+
+    public void createUser(User user) {
+        String pass = "Newpass123*";
+        String hashed = PasswordUtil.hash(pass);
+        user.setPassword(hashed);
+
+        userDao.createUser(user);
+    }
+
+    public void updateUser(User user) {
+        userDao.updateUser(user);
+    }
+
+    public void blockUser(int id) {
+        userDao.blockUser(id , "BLOCKED");
+    }
 }
