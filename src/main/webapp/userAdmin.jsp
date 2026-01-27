@@ -26,7 +26,6 @@
             <button data-page="sanpham">Sản phẩm</button>
             <button data-page="donhang">Đơn hàng</button>
             <button data-page="nguoidung" class="active">Người dùng</button>
-            <button data-page="khachhang">Khách hàng</button>
             <button data-page="magiamgia">Mã giảm giá</button>
             <button data-page="caidat">Cài đặt</button>
         </div>
@@ -62,15 +61,14 @@
                                 placeholder="Tìm theo username, email..."
                         >
 
-                        <button type="submit" class="btn-add">
+                        <button type="submit" class="btn-search">
                             <i class="fa fa-search"></i> Tìm
                         </button>
                     </form>
 
-
-                    <button id="btnAddUser" class="btn-add">
+                    <a href="user-admin?mode=add" class="btn-add">
                         <i class="fa fa-plus"></i> Thêm người dùng
-                    </button>
+                    </a>
                 </div>
 
 
@@ -118,17 +116,28 @@
                                     </c:choose>
                                 </span></td>
                                 <td class="actions">
-                                    <button class="icon-btn view" title="Xem chi tiết">
+                                    <a href="user-admin?mode=view&id=${u.id}"
+                                       class="icon-btn view" title="Xem chi tiết">
                                         <i class="fa fa-eye"></i>
-                                    </button>
+                                    </a>
 
-                                    <button class="icon-btn edit" title="Chỉnh sửa">
+                                    <a href="user-admin?mode=edit&id=${u.id}"
+                                       class="icon-btn edit" title="Chỉnh sửa">
                                         <i class="fa fa-pen"></i>
-                                    </button>
+                                    </a>
 
-                                    <button class="icon-btn delete" title="Khóa người dùng"onclick="return confirm('Bạn có chắc muốn khóa người dùng này không?');">
-                                        <i class="fa fa-trash"></i>
-                                    </button>
+
+                                    <c:if test="${u.status == 'ACTIVE'}">
+                                        <button type="button"
+                                                class="icon-btn delete"
+                                                title="Khóa người dùng"
+                                                onclick="openConfirmModal(${u.id})">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </c:if>
+
+
+
                                 </td>
 
                             </tr>
@@ -142,8 +151,38 @@
 
         </main>
     </section>
+
+    <!-- MODAL CONFIRM -->
+    <div id="confirmModal" class="modal-overlay">
+        <div class="modal">
+            <h3>Xác nhận</h3>
+            <p>Bạn có chắc muốn <b>khóa người dùng</b> này không?</p>
+
+            <form id="confirmForm" method="post" action="user-admin">
+                <input type="hidden" name="action" value="block">
+                <input type="hidden" name="id" id="confirmUserId">
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal()">Hủy</button>
+                    <button type="submit" class="btn-danger">Khóa</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
 </div>
 
 
 </body>
+<script>
+    function openConfirmModal(userId) {
+        document.getElementById("confirmUserId").value = userId;
+        document.getElementById("confirmModal").style.display = "flex";
+    }
+
+    function closeModal() {
+        document.getElementById("confirmModal").style.display = "none";
+    }
+</script>
+
 </html>

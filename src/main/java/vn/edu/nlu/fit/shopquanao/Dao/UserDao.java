@@ -110,7 +110,7 @@ public class UserDao extends BaseDao {
 
     public User findUserById(int id) {
         return getJdbi().withHandle(handle -> handle.createQuery("""
-                SELECT id, username , email, created_at, full_name , birthday, gender, phone , address
+                SELECT id, username , email, role, created_at, full_name , birthday, gender, phone , address, status
                 FROM users
                 WHERE id = :id""")
                 .bind("id", id)
@@ -190,7 +190,7 @@ public class UserDao extends BaseDao {
         return getJdbi().withHandle(handle -> handle.createQuery("""
                 SELECT COUNT(*)
                 FROM users
-                WHERE status = 'BLOCK'
+                WHERE status = 'BLOCKED'
                 """)
                 .mapTo(int.class)
                 .findOne()
@@ -205,6 +205,43 @@ public class UserDao extends BaseDao {
                 """).bind("keyword", "%" + keyword + "%")
                 .mapToBean(User.class)
                 .list());
+    }
+
+    public void createUser(User user) {
+        getJdbi().withHandle(handle -> handle.createUpdate("""
+                INSERT INTO users(username ,email, password, role,status, full_name, birthday, gender, phone, address,created_at)
+                VALUES (:username, :email, :password, :role, :status,
+                    :fullName, :birthday, :gender, :phone, :address, NOW())""")
+                .bindBean(user)
+                .execute());
+    }
+
+    public void updateUser(User user) {
+        getJdbi().withHandle(handle -> handle.createUpdate("""
+                        UPDATE users
+                                    SET username = :username,
+                                        email = :email,
+                                        role = :role,
+                                        status = :status,
+                                        full_name = :fullName,
+                                        phone = :phone,
+                                        birthday = :birthday,
+                                        gender = :gender,
+                                        address = :address
+                                    WHERE id = :id
+                        """).bindBean(user)
+                            .execute());
+    }
+
+
+    public void blockUser(int id, String status) {
+        getJdbi().withHandle(handle -> handle.createUpdate("""
+                UPDATE users
+                SET status = :status
+                WHERE id = :id""")
+                .bind("status", status)
+                .bind("id", id)
+                .execute());
     }
 }
 

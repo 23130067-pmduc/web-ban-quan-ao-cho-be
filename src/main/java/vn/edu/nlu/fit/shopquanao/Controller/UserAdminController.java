@@ -8,6 +8,7 @@ import vn.edu.nlu.fit.shopquanao.model.User;
 
 import java.io.IOException;
 import java.util.List;
+import java.time.LocalDate;
 
 @WebServlet(name = "UserAdminController", value = "/user-admin")
 public class UserAdminController extends HttpServlet {
@@ -44,10 +45,94 @@ public class UserAdminController extends HttpServlet {
             request.getRequestDispatcher("/userAdmin.jsp").forward(request,response);
             return;
         }
+
+        if("edit".equals(mode) || "view".equals(mode)){
+            int id = Integer.parseInt(request.getParameter("id"));
+            User user = userService.findById(id);
+
+            request.setAttribute("user", user);
+            request.setAttribute("mode", mode);
+
+            request.getRequestDispatcher("/user-form.jsp").forward(request,response);
+            return;
+        }
+
+        if("add".equals(mode)){
+            request.setAttribute("mode", "add");
+            request.getRequestDispatcher("/user-form.jsp").forward(request, response);
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        request.setCharacterEncoding("UTF-8");
+
+        String action = request.getParameter("action");
+
+        if ("create".equals(action)){
+            User user = new User();
+            user.setUsername(request.getParameter("username"));
+            user.setEmail(request.getParameter("email"));
+            user.setRole(request.getParameter("role"));
+            user.setStatus(request.getParameter("status"));
+            user.setFullName(request.getParameter("full_name"));
+            user.setPhone(request.getParameter("phone"));
+            user.setGender(request.getParameter("gander"));
+
+
+            String birthdayStr = request.getParameter("birthday");
+
+            if (birthdayStr != null && !birthdayStr.isEmpty()) {
+                user.setBirthday(LocalDate.parse(birthdayStr));
+            }
+
+            user.setAddress(request.getParameter("address"));
+
+
+            userService.createUser(user);
+
+            response.sendRedirect("user-admin");
+            return;
+        }
+
+        if ("update".equals(action)){
+            int id = Integer.parseInt(request.getParameter("id"));
+
+            User user = new User();
+
+            user.setId(id);
+            user.setUsername(request.getParameter("username"));
+            user.setEmail(request.getParameter("email"));
+            user.setRole(request.getParameter("role"));
+            user.setStatus(request.getParameter("status"));
+            user.setFullName(request.getParameter("full_name"));
+            user.setPhone(request.getParameter("phone"));
+            user.setGender(request.getParameter("gender"));
+
+
+            String birthdayStr = request.getParameter("birthday");
+
+            if (birthdayStr != null && !birthdayStr.isEmpty()) {
+                user.setBirthday(LocalDate.parse(birthdayStr));
+            }
+
+            user.setAddress(request.getParameter("address"));
+
+            userService.updateUser(user);
+
+            response.sendRedirect("user-admin?mode=view&id=" + id);
+        }
+
+        if ("block".equals(action)){
+
+            int id = Integer.parseInt(request.getParameter("id"));
+
+            userService.blockUser(id);
+
+            response.sendRedirect("user-admin");
+            return;
+        }
 
     }
 }
