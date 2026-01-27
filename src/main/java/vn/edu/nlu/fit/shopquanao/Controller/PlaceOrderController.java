@@ -26,6 +26,7 @@ public class PlaceOrderController extends HttpServlet {
         cartItemDao = new CartItemDao();
         variantDao = new ProductVariantDao();
     }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -40,7 +41,13 @@ public class PlaceOrderController extends HttpServlet {
         }
 
         User user = (User) session.getAttribute("userlogin");
-        int cartId = (int) session.getAttribute("cartId");
+
+        Integer cartIdObj = (Integer) session.getAttribute("cartId");
+        if (cartIdObj == null) {
+            response.sendRedirect("my-cart");
+            return;
+        }
+        int cartId = cartIdObj;
 
         String receiverName = request.getParameter("receiverName");
         String phone = request.getParameter("phone");
@@ -59,11 +66,22 @@ public class PlaceOrderController extends HttpServlet {
             return;
         }
 
+        /* ========= 1. CHECK KHO TRƯỚC ========= */
+        for (CartItem item : cartItems) {
+            int stock = variantDao.getStockByVariantId(item.getVariantId());
+            if (stock < item.getQuantity()) {
+                response.sendRedirect("checkout?error=out_of_stock");
+                return;
+            }
+        }
+
+        /* ========= 2. TÍNH TỔNG TIỀN ========= */
         double totalPrice = 0;
         for (CartItem item : cartItems) {
             totalPrice += item.getPrice() * item.getQuantity();
         }
 
+        /* ========= 3. TẠO ORDER ========= */
         int orderId = orderDao.createOrder(
                 user.getId(),
                 receiverName,
@@ -74,6 +92,7 @@ public class PlaceOrderController extends HttpServlet {
                 totalPrice
         );
 
+        /* ========= 4. ORDER ITEMS + TRỪ KHO ========= */
         for (CartItem item : cartItems) {
             int variantId = item.getVariantId();
             int qty = item.getQuantity();
@@ -93,9 +112,10 @@ public class PlaceOrderController extends HttpServlet {
             variantDao.decreaseStock(variantId, qty);
         }
 
+        /* ========= 5. CLEAR CART ========= */
         cartItemDao.clearCart(cartId);
-        session.setAttribute("cartSize", 0);
+        session.setAttribute("lastOrderId", orderId);
 
-        response.sendRedirect("thanhtoanthanhcong.jsp");
+        response.sendRedirect("order-success");
     }
 }
