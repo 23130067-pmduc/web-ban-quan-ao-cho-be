@@ -31,7 +31,7 @@
                 <li><a href="dia-chi"><i class="fas fa-map-marker-alt"></i> Địa chỉ của tôi</a></li>
                 <li><a href="donmua.jsp"><i class="fas fa-clipboard-list"></i> Đơn hàng của tôi</a></li>
                 <li><a href="doi-mat-khau"><i class="fas fa-lock"></i> Đổi mật khẩu</a></li>
-                <li><a href="logout"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
+                <li><a href="trang-chu"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
             </ul>
         </nav>
     </div>
@@ -70,10 +70,10 @@
             </div>
 
             <div class="form-row">
-            <div class="form-group">
-                <label for="address">Địa chỉ</label>
-                <input type="text" id="address" name="address" value="${user.address}" disabled>
-            </div>
+                <div class="form-group">
+                    <label for="address">Địa chỉ</label>
+                    <input type="text" id="address" name="address" value="${user.address}" disabled>
+                </div>
             </div>
 
             <div class="form-row">
