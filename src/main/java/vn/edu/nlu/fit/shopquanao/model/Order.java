@@ -1,6 +1,7 @@
 package vn.edu.nlu.fit.shopquanao.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class Order {
     private int id;
@@ -17,6 +18,7 @@ public class Order {
     private String paymentStatuses;
     private String orderStatus;
     private LocalDateTime createdAt;
+    private List<OrderItem> items;
 
     public int getId() {
         return id;
@@ -129,4 +131,6 @@ public class Order {
     public void setNote(String note) {
         this.note = note;
     }
+    public List<OrderItem> getItems() { return items; }
+    public void setItems(List<OrderItem> items) { this.items = items; }
 }

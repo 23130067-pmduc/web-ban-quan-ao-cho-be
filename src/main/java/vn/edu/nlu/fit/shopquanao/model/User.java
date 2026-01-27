@@ -2,6 +2,7 @@ package vn.edu.nlu.fit.shopquanao.model;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public class User {
     private int id;
@@ -191,6 +192,8 @@ public class User {
                 ", isActive=" + isActive +
                 '}';
     }
-
+    public Date getCreatedAtDate() {
+        return java.sql.Timestamp.valueOf(createdAt);
+    }
 
 }

@@ -197,6 +197,7 @@
     transition: all 0.3s;
     position: relative;
     z-index: 10;
+    text-decoration: none;
 }
 
 .btn-add:hover {

@@ -32,28 +32,14 @@ public class OrderItemDao extends BaseDao{
 
 
     public List<OrderItem> getByOrderId(int orderId) {
-
-        String sql = """
-            SELECT oi.id, oi.order_id, oi.variant_id, oi.product_name, oi.size, oi.color, oi.quantity, oi.price, oi.total, p.thumbnail FROM order_items oi JOIN product_variants pv ON oi.variant_id = pv.id JOIN products p ON pv.product_id = p.id WHERE oi.order_id = :oid               
-        """;
-
         return getJdbi().withHandle(h ->
-                h.createQuery(sql)
+                h.createQuery("""
+                SELECT *
+                FROM order_items
+                WHERE order_id = :oid
+            """)
                         .bind("oid", orderId)
-                        .map((rs, ctx) -> {
-                            OrderItem item = new OrderItem();
-                            item.setId(rs.getInt("id"));
-                            item.setOrderId(rs.getInt("order_id"));
-                            item.setVariantId(rs.getInt("variant_id"));
-                            item.setProductName(rs.getString("product_name"));
-                            item.setSize(rs.getString("size"));
-                            item.setColor(rs.getString("color"));
-                            item.setQuantity(rs.getInt("quantity"));
-                            item.setPrice(rs.getDouble("price"));
-                            item.setTotal(rs.getDouble("total"));
-                            item.setThumbnail(rs.getString("thumbnail"));
-                            return item;
-                        })
+                        .mapToBean(OrderItem.class)
                         .list()
         );
     }

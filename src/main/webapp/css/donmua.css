@@ -1,5 +1,4 @@
-/* ========== THÔNG TIN PROFILE ========== */
-/* Profile Container */
+/* ===== PROFILE CONTAINER ===== */
 .profile-container {
     display: flex;
     width: 1400px;
@@ -8,16 +7,16 @@
     gap: 30px;
 }
 
-/* Sidebar */
+/* ===== SIDEBAR ===== */
 .profile-sidebar {
     flex: 0 0 280px;
     background: #ffffff;
     border-radius: 10px;
     box-shadow: 0 2px 10px #e0e0e0;
     padding: 20px;
-    height: 500px;
 }
 
+/* ===== USER INFO ===== */
 .user-info {
     text-align: center;
     padding-bottom: 20px;
@@ -25,42 +24,47 @@
     margin-bottom: 20px;
 }
 
+/* ===== AVATAR ===== */
 .avatar {
     position: relative;
-    margin-bottom: 15px;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 15px;
 }
 
 .avatar img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    border-radius: 50%;
     border: 3px solid #C89F7B;
 }
 
 .change-avatar-btn {
     position: absolute;
-    bottom: 0;
-    right: 25px;
+    bottom: -5px;
+    right: -5px;
     background: #ff6b6b;
     color: white;
     border: none;
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
     cursor: pointer;
 }
 
+/* ===== TEXT ===== */
 .user-info h3 {
-    margin: 10px 0 5px;
-    color: #333333;
+    margin: 8px 0 5px;
+    color: #333;
 }
 
 .user-info p {
-    color: #666666;
+    color: #666;
     font-size: 14px;
 }
 
+/* ===== MENU ===== */
 .profile-menu ul {
     list-style: none;
     padding: 0;
@@ -74,7 +78,7 @@
     display: flex;
     align-items: center;
     padding: 12px 15px;
-    color: #666666;
+    color: #666;
     text-decoration: none;
     border-radius: 5px;
     transition: all 0.3s;
@@ -95,242 +99,11 @@
     color: white;
 }
 
-
-/* Profile Content */
+/* ===== CONTENT ===== */
 .profile-content {
     flex: 1;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 10px #e0e0e0;
     padding: 30px;
-
-}
-
-.profile-content h2 {
-    color: #333;
-    margin-bottom: 25px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #5B3A29;
-}
-
-.orderTab{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 25px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px #e0e0e0;
-    padding: 20px;
-}
-
-.orderTab button {
-    border: none;
-    cursor: pointer;
-    background-color: #f5f5f5;
-    color: #333;
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-weight: 500;
-}
-
-.orderTab .active {
-    background-color: #C89F7B;
-    color: white;
-}
-
-.orderTab .tab:not(.active):hover {
-    background: #d6cfc2;
-    color: white;
-}
-
-/* Tìm kiếm */
-.timkiem {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background-color: #f0f0f0;
-    padding: 10px 15px;
-    border-radius: 8px;
-}
-
-.timkiem i {
-    font-size: 16px;
-    color: #555;
-}
-
-.timkiem input {
-    flex: 1;
-    border: none;
-    background: transparent;
-    outline: none;
-    font-size: 14px;
-    color: #333;
-}
-
-
-/* Sản phẩm */
-
-.order-item {
-    margin-top: 25px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-
-}
-
-.order-center {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #ddd;
-
-}
-
-.order-left {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-
-}
-.order-left.multiple {
-    display: flex;
-    flex-direction: column; /* xếp dọc */
-    gap: 15px;
-}
-
-.single-product {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-
-.order-left img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 8px;
-    padding-bottom: 5px;
-}
-
-.order-info h3 {
-    margin: 0;
-    font-size: 16px;
-}
-
-.order-right {
-    text-align: right;
-}
-
-.status.dang-giao {
-    background-color: #f0ad4e;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    display: inline-block;
-    font-size: 14px;
-}
-.status.hoan-thanh {
-    background-color: #5cb85c;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    display: inline-block;
-    font-size: 14px;
-}
-.status.da-huy {
-    background-color: #d9534f;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    display: inline-block;
-    font-size: 14px;
-}
-
-.price {
-    font-weight: bold;
-    margin-top: 5px;
-}
-
-.order-bottom {
-    margin-top: 20px;
-    font-size: 14px;
-}
-
-.order-total {
-    font-size: 16px;
-    margin-bottom: 10px;
-    text-align: right;
-}
-
-.order-total span {
-    font-size: 24px;
-    color: red;
-    font-weight: bold;
-}
-
-
-
-.order-note {
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    font-size: 12px;
-}
-
-
-
-.order-buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-}
-
-.btn-mualai {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: red;
-    color: white;
-}
-.btn-mualai:hover {
-    background: #c62828
-}
-.btn-huydon {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #f0f0f0;
-    color: black;
-    text-decoration: none;
-}
-
-.btn-huydon:hover {
-    background-color: #ddd;
-    text-decoration: underline;
-}
-.contact{
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    color: black;
-}
-.contact:hover{
-    background-color: #ddd;
-}
-
-.disabled {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    background-color: #ccc;
-    color: #666;
-    cursor: not-allowed;
 }
