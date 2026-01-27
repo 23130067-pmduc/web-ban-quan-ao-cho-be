@@ -49,7 +49,7 @@
         <nav class="profile-menu">
             <ul>
                 <li>
-                    <a href="profile.jsp">
+                    <a href="profile">
                         <i class="fas fa-user"></i> Thông tin cá nhân
                     </a>
                 </li>
@@ -64,12 +64,12 @@
                     </a>
                 </li>
                 <li>
-                    <a href="doimatkhau.jsp">
+                    <a href="doi-mat-khau">
                         <i class="fas fa-lock"></i> Đổi mật khẩu
                     </a>
                 </li>
                 <li>
-                    <a href="trangchu.jsp">
+                    <a href="logout">
                         <i class="fa fa-sign-out"></i> Đăng xuất
                     </a>
                 </li>
@@ -89,7 +89,38 @@
 
         <!-- Danh sách địa chỉ -->
         <div class="address-list">
-            <%-- render bằng JSTL hoặc JS nếu cần --%>
+
+            <c:if test="${empty addressList}">
+                <p>Bạn chưa có địa chỉ nào.</p>
+            </c:if>
+
+            <c:forEach var="a" items="${addressList}">
+                <div class="address-card">
+
+                    <div class="address-header">
+                        <strong>${a.receiverName}</strong>
+                        <span>${a.phone}</span>
+
+                        <c:if test="${a.defaultAddress}">
+                            <span class="badge-default">Mặc định</span>
+                        </c:if>
+                    </div>
+
+                    <div class="address-body">
+                            ${a.detailAddress}, ${a.ward}, ${a.district}, ${a.city}
+                    </div>
+
+                    <div class="address-actions">
+                        <form method="post" action="dia-chi" style="display:inline">
+                            <input type="hidden" name="action" value="delete">
+                            <input type="hidden" name="id" value="${a.id}">
+                            <button type="submit">Xóa</button>
+                        </form>
+                    </div>
+
+                </div>
+            </c:forEach>
+
         </div>
     </div>
 </div>
@@ -113,27 +144,35 @@
 
             <div class="form-group">
                 <label>Số điện thoại <span class="required">*</span></label>
-                <input type="tel" name="phone" required>
+                <input type="tel" name="phone" id="phoneInput" required>
+                <small id="phoneError" class="error-message"></small>
+
             </div>
 
             <div class="form-group">
                 <label>Tỉnh / Thành phố <span class="required">*</span></label>
-                <input
-                        type="text"
-                        name="city"
-                        placeholder="Ví dụ: Hồ Chí Minh"
-                        required
-                >
-            </div>
-            <div class="form-group">
-                <label>Quận/Huyện <span class="required">*</span></label>
-                <input type="text" name="district" required>
+                <select name="city" id="citySelect" required>
+                    <option value="">-- Chọn Tỉnh / Thành phố --</option>
+                    <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                    <option value="Hà Nội">Hà Nội</option>
+                    <option value="Bình Dương">Bình Dương</option>
+                </select>
             </div>
 
             <div class="form-group">
-                <label>Phường/Xã <span class="required">*</span></label>
-                <input type="text" name="ward" required>
+                <label>Quận / Huyện <span class="required">*</span></label>
+                <select name="district" id="districtSelect" required disabled>
+                    <option value="">-- Chọn Quận / Huyện --</option>
+                </select>
             </div>
+
+            <div class="form-group">
+                <label>Phường / Xã <span class="required">*</span></label>
+                <select name="ward" id="wardSelect" required disabled>
+                    <option value="">-- Chọn Phường / Xã --</option>
+                </select>
+            </div>
+
 
             <div class="form-group">
                 <label>Địa chỉ chi tiết <span class="required">*</span></label>
@@ -163,19 +202,6 @@
 <%@ include file="footer.jsp" %>
 
 <!-- ========== JS ========== -->
-<script>
-    const modal = document.getElementById("addressModal");
-    const openBtn = document.getElementById("btnOpenModal");
-    const closeBtn = document.getElementById("btnCloseModal");
-    const cancelBtn = document.getElementById("btnCancelModal");
-
-    openBtn.onclick = () => modal.classList.add("active");
-    closeBtn.onclick = () => modal.classList.remove("active");
-    cancelBtn.onclick = () => modal.classList.remove("active");
-
-    window.onclick = (e) => {
-        if (e.target === modal) modal.classList.remove("active");
-    };
-</script>
+<script src="javaScript/address.js"></script>
 </body>
 </html>

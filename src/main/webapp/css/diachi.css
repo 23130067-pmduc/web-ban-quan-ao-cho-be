@@ -429,3 +429,9 @@
 .btn-cancel:hover {
     background: #5a6268;
 }
+.error-message {
+    color: #e53935;
+    font-size: 13px;
+    margin-top: 4px;
+    display: none;
+}

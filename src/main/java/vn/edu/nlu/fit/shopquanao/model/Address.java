@@ -9,8 +9,8 @@ public class Address {
     private String district;
     private String ward;
     private String detailAddress;
-    private boolean isDefault;
-    private boolean isActive;
+    private boolean defaultAddress;
+    private boolean active;
 
     public Address() {}
 
@@ -38,9 +38,9 @@ public class Address {
     public String getDetailAddress() { return detailAddress; }
     public void setDetailAddress(String detailAddress) { this.detailAddress = detailAddress; }
 
-    public boolean isDefault() { return isDefault; }
-    public void setDefault(boolean aDefault) { isDefault = aDefault; }
+    public boolean isDefaultAddress() { return defaultAddress; }
+    public void setDefaultAddress(boolean defaultAddress) { this.defaultAddress = defaultAddress; }
 
-    public boolean isActive() { return isActive; }
-    public void setActive(boolean active) { isActive = active; }
+    public boolean isActive() { return active; }
+    public void setActive(boolean active) { this.active = active; }
 }
