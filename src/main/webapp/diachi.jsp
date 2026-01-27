@@ -111,12 +111,46 @@
                     </div>
 
                     <div class="address-actions">
+
+                        <!-- ĐẶT LÀM MẶC ĐỊNH -->
+                        <c:if test="${!a.defaultAddress}">
+                            <form method="post" action="dia-chi" style="display:inline">
+                                <input type="hidden" name="action" value="setDefault">
+                                <input type="hidden" name="id" value="${a.id}">
+                                <button type="submit" class="btn-default">
+                                    Đặt làm mặc định
+                                </button>
+                            </form>
+                        </c:if>
+
+                        <!-- SỬA -->
+                        <button
+                                type="button"
+                                class="btn-edit"
+                                onclick="openEditModal(
+                                        '${a.id}',
+                                        '${a.receiverName}',
+                                        '${a.phone}',
+                                        '${a.city}',
+                                        '${a.district}',
+                                        '${a.ward}',
+                                        '${a.detailAddress}',
+                                    ${a.defaultAddress}
+                                        )">
+                            Sửa
+                        </button>
+
+                        <!-- XÓA -->
                         <form method="post" action="dia-chi" style="display:inline">
                             <input type="hidden" name="action" value="delete">
                             <input type="hidden" name="id" value="${a.id}">
-                            <button type="submit">Xóa</button>
+                            <button type="submit" class="btn-delete">
+                                Xóa
+                            </button>
                         </form>
+
                     </div>
+
 
                 </div>
             </c:forEach>

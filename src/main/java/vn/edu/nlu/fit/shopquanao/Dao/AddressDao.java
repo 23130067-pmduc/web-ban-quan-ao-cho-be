@@ -130,4 +130,45 @@ public class AddressDao extends BaseDao {
                     .execute();
         });
     }
+    // ================== UPDATE ĐỊA CHỈ ==================
+    public void update(Address a) {
+        getJdbi().useTransaction(h -> {
+
+            // Nếu đặt làm mặc định → reset default cũ
+            if (a.isDefaultAddress()) {
+                h.createUpdate("""
+                UPDATE addresses
+                SET is_default = 0
+                WHERE user_id = :uid
+            """)
+                        .bind("uid", a.getUserId())
+                        .execute();
+            }
+
+            // Update địa chỉ
+            h.createUpdate("""
+            UPDATE addresses
+            SET receiver_name = :name,
+                phone = :phone,
+                city = :city,
+                district = :district,
+                ward = :ward,
+                detail_address = :detail,
+                is_default = :def
+            WHERE id = :id
+              AND user_id = :uid
+        """)
+                    .bind("id", a.getId())
+                    .bind("uid", a.getUserId())
+                    .bind("name", a.getReceiverName())
+                    .bind("phone", a.getPhone())
+                    .bind("city", a.getCity())
+                    .bind("district", a.getDistrict())
+                    .bind("ward", a.getWard())
+                    .bind("detail", a.getDetailAddress())
+                    .bind("def", a.isDefaultAddress() ? 1 : 0)
+                    .execute();
+        });
+    }
+
 }

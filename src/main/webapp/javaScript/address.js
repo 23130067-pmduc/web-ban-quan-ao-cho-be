@@ -150,6 +150,43 @@ function validateForm(e) {
         return false;
     }
 }
+function openEditModal(
+    id, name, phone, city, district, ward, detail, isDefault
+) {
+    const modal = document.getElementById("addressModal");
+    const form = document.querySelector(".address-form");
+
+    form.action.value = "update";
+
+    form.querySelector("input[name='receiverName']").value = name;
+    form.querySelector("input[name='phone']").value = phone;
+    form.querySelector("select[name='city']").value = city;
+
+    loadDistricts();
+
+    setTimeout(() => {
+        document.getElementById("districtSelect").value = district;
+        loadWards();
+        setTimeout(() => {
+            document.getElementById("wardSelect").value = ward;
+        }, 50);
+    }, 50);
+
+    form.querySelector("textarea[name='detailAddress']").value = detail;
+    form.querySelector("input[name='isDefault']").checked = isDefault;
+
+    // hidden id
+    let idInput = form.querySelector("input[name='id']");
+    if (!idInput) {
+        idInput = document.createElement("input");
+        idInput.type = "hidden";
+        idInput.name = "id";
+        form.appendChild(idInput);
+    }
+    idInput.value = id;
+
+    modal.classList.add("active");
+}
 
 
 // ================== VALIDATE PHONE VN ==================

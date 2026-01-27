@@ -435,3 +435,131 @@
     margin-top: 4px;
     display: none;
 }
+/* ================== ADDRESS LIST ================== */
+
+.address-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+/* ===== Card ===== */
+.address-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 16px 18px;
+    position: relative;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.address-card:hover {
+    border-color: #d8b48a;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* ===== Header ===== */
+.address-card .address-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.address-card .address-header strong {
+    font-size: 16px;
+    color: #222;
+}
+
+.address-card .address-header span {
+    color: #666;
+    font-size: 14px;
+}
+
+/* ===== Badge mặc định ===== */
+.badge-default {
+    margin-left: auto;
+    background: #f3e2c7;
+    color: #8b5e2f;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-weight: 500;
+}
+
+/* ===== Body ===== */
+.address-card .address-body {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+/* ===== Actions ===== */
+.address-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.address-actions button {
+    background: #f5f5f5;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.address-actions button:hover {
+    background: #ffeaea;
+    color: #d32f2f;
+}
+
+/* ===== Khi là địa chỉ mặc định ===== */
+.address-card:has(.badge-default) {
+    border-color: #d8b48a;
+    background: #fffaf3;
+}
+
+/* ===== Empty state ===== */
+.address-list p {
+    text-align: center;
+    color: #999;
+    padding: 40px 0;
+    font-size: 14px;
+}
+.address-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.btn-default {
+    background: #f3e2c7;
+    color: #8b5e2f;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btn-edit {
+    background: #e3f2fd;
+    color: #1976d2;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.btn-delete {
+    background: #fbe9e7;
+    color: #d32f2f;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
