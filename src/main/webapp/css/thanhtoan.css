@@ -110,11 +110,12 @@
     width: 100%;
     margin-top: 20px;
     padding: 14px;
-    background: #000;
+    background: #dc3545;
     color: #fff;
     border: none;
     font-size: 16px;
     cursor: pointer;
+    border-radius: 10px;
 }
 
 .btn-checkout:hover {

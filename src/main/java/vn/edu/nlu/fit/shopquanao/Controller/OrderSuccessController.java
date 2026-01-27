@@ -4,16 +4,20 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import vn.edu.nlu.fit.shopquanao.Dao.OrderDao;
+import vn.edu.nlu.fit.shopquanao.Dao.OrderItemDao;
 
 import java.io.IOException;
 
 @WebServlet(name = "OrderSuccessController", value = "/order-success")
 public class OrderSuccessController extends HttpServlet {
     private OrderDao orderDao;
+    private OrderItemDao orderItemDao;
+
 
     @Override
     public void init() {
         orderDao = new OrderDao();
+        orderItemDao = new OrderItemDao();
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,15 +33,21 @@ public class OrderSuccessController extends HttpServlet {
             return;
         }
 
+        //Lấy order
         var order = orderDao.getById(orderId);
         if (order == null) {
             response.sendRedirect("trang-chu");
             return;
         }
 
-        request.setAttribute("order", order);
+        //Lấy order items
+        var orderItems = orderItemDao.getByOrderId(orderId);
 
-        // tránh F5 tạo lại đơn
+        //Set attribute cho JSP
+        request.setAttribute("order", order);
+        request.setAttribute("orderItems", orderItems);
+
+        //Tránh F5 tạo lại đơn
         session.removeAttribute("lastOrderId");
 
         request.getRequestDispatcher("thanhtoanthanhcong.jsp")

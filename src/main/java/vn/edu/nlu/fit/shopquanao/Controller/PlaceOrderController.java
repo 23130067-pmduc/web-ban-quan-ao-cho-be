@@ -7,6 +7,8 @@ import jakarta.servlet.annotation.*;
 import vn.edu.nlu.fit.shopquanao.Dao.*;
 import vn.edu.nlu.fit.shopquanao.Cart.CartItem;
 import vn.edu.nlu.fit.shopquanao.model.User;
+import vn.edu.nlu.fit.shopquanao.Service.EmailService;
+import vn.edu.nlu.fit.shopquanao.Service.OrderEmailService;
 
 import java.io.IOException;
 import java.util.List;
@@ -114,7 +116,20 @@ public class PlaceOrderController extends HttpServlet {
 
         /* ========= 5. CLEAR CART ========= */
         cartItemDao.clearCart(cartId);
+
+        session.setAttribute("cartSize", 0);
         session.setAttribute("lastOrderId", orderId);
+        // Lấy lại order & orderItems
+        var order = orderDao.getById(orderId);
+        var orderItems = orderItemDao.getByOrderId(orderId);
+
+        // Gửi mail
+        String emailContent = OrderEmailService .build(order, orderItems);
+        EmailService.sendEmail(
+                user.getEmail(),
+                "Đã xác nhận đơn hàng #" + orderId + " - SunnyBear",
+                emailContent
+        );
 
         response.sendRedirect("order-success");
     }
