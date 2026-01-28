@@ -174,4 +174,19 @@ public class OrderDao extends BaseDao{
 
 
 
+    public List<Order> getByUserIdAndStatus(int userId, String status) {
+        return getJdbi().withHandle(h ->
+                h.createQuery("""
+            SELECT *
+            FROM orders
+            WHERE user_id = :uid AND order_status = :status
+            ORDER BY created_at DESC
+        """)
+                        .bind("uid", userId)
+                        .bind("status", status)
+                        .mapToBean(Order.class)
+                        .list()
+        );
+    }
+
 }

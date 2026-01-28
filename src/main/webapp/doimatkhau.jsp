@@ -28,7 +28,7 @@
             <ul>
                 <li><a href="profile.jsp"><i class="fas fa-user"></i> Thông tin cá nhân</a></li>
                 <li><a href="diachi.jsp"><i class="fas fa-map-marker-alt"></i> Địa chỉ của tôi</a></li>
-                <li><a href="donmua.jsp"><i class="fas fa-clipboard-list"></i> Đơn hàng của tôi</a></li>
+                <li><a href="don-mua"><i class="fas fa-clipboard-list"></i> Đơn hàng của tôi</a></li>
                 <li class="active"><a href="doi-mat-khau"><i class="fas fa-lock"></i> Đổi mật khẩu</a></li>
                 <li><a href="trang-chu"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
             </ul>

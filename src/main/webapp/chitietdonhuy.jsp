@@ -99,17 +99,17 @@
 
         <nav class="profile-menu">
             <ul>
-                <li><a href="profile.jsp"><i class="fas fa-user"></i> Thông tin cá nhân</a></li>
-                <li class="active"><a href="donmua.jsp"><i class="fas fa-clipboard-list"></i> Đơn hàng của tôi</a></li>
-                <li><a href="doimatkhau.jsp"><i class="fas fa-lock"></i> Đổi mật khẩu</a></li>
-                <li><a href="trangchu.jsp"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
+                <li><a href="profile"><i class="fas fa-user"></i> Thông tin cá nhân</a></li>
+                <li class="active"><a href="don-mua"><i class="fas fa-clipboard-list"></i> Đơn hàng của tôi</a></li>
+                <li><a href="doi-mat-khau"><i class="fas fa-lock"></i> Đổi mật khẩu</a></li>
+                <li><a href="trang-chu"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
             </ul>
         </nav>
     </div>
 
     <div class="profile-content">
         <div class="profile-top">
-            <a href="donmua.jsp">
+            <a href="don-mua">
                 <h4><i class="fa-solid fa-angle-left"></i> TRỞ LẠI</h4>
             </a>
 

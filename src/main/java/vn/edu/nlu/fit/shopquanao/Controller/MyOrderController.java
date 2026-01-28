@@ -30,8 +30,16 @@ public class MyOrderController extends HttpServlet {
 
         User user = (User) session.getAttribute("userlogin");
 
-        // Lấy danh sách đơn hàng của user
-        List<Order> orders = orderDao.getByUserId(user.getId());
+        // Lấy trạng thái filter từ parameter
+        String status = req.getParameter("status");
+        
+        // Lấy danh sách đơn hàng theo trạng thái
+        List<Order> orders;
+        if (status != null && !status.isEmpty() && !status.equals("all")) {
+            orders = orderDao.getByUserIdAndStatus(user.getId(), status);
+        } else {
+            orders = orderDao.getByUserId(user.getId());
+        }
 
         // Gắn item cho từng order
         for (Order o : orders) {
@@ -39,6 +47,7 @@ public class MyOrderController extends HttpServlet {
         }
 
         req.setAttribute("orders", orders);
+        req.setAttribute("currentStatus", status != null ? status : "all");
         req.getRequestDispatcher("/donmua.jsp").forward(req, resp);
     }
 }
