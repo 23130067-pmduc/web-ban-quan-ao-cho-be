@@ -1,53 +1,77 @@
-// ===== MODAL XEM =====
+// ===== MODAL THÊM SẢN PHẨM =====
+function openAddProductModal() {
+    document.getElementById("product-form").reset();
+    document.getElementById("product-action").value = "add";
+    document.getElementById("product-modal-title").innerText = "Thêm sản phẩm";
+    document.getElementById("product-modal").classList.add("show");
+}
+
+// ===== MODAL XEM SẢN PHẨM =====
 function viewProduct(id) {
     fetch("product-admin?action=view&id=" + id)
         .then(res => res.json())
         .then(p => {
-            document.getElementById("vp-img").src = p.thumbnail;
-            document.getElementById("vp-name").innerText = p.name;
-            document.getElementById("vp-price").innerText =
+            document.getElementById("view-product-id").innerText = p.id;
+            document.getElementById("view-product-name").innerText = p.name;
+            document.getElementById("view-product-price").innerText = 
                 Number(p.price).toLocaleString() + " ₫";
-            document.getElementById("vp-category").innerText = p.category;
-            document.getElementById("vp-status").innerText = p.status;
+            document.getElementById("view-product-category").innerText = p.categoryName || p.category;
+            document.getElementById("view-product-status").innerText = p.status;
+            document.getElementById("view-product-image").src = p.thumbnail;
 
-            document.getElementById("view-modal").classList.add("show");
+            document.getElementById("view-product-modal").classList.add("show");
+        })
+        .catch(err => {
+            console.error("Error loading product:", err);
+            alert("Không thể tải thông tin sản phẩm");
         });
 }
 
-function closeView() {
-    document.getElementById("view-modal").classList.remove("show");
+function closeViewProductModal() {
+    document.getElementById("view-product-modal").classList.remove("show");
 }
 
-// ===== MODAL ADD / EDIT =====
-function openAddModal() {
-    document.getElementById("product-form").reset();
-    document.getElementById("modal-action").value = "add";
-    document.getElementById("product-modal").classList.add("show");
+// ===== MODAL SỬA SẢN PHẨM =====
+function editProduct(id) {
+    fetch("product-admin?action=view&id=" + id)
+        .then(res => res.json())
+        .then(p => {
+            document.getElementById("product-action").value = "update";
+            document.getElementById("product-id").value = p.id;
+            document.getElementById("product-name").value = p.name;
+            document.getElementById("product-price").value = p.price;
+            document.getElementById("product-category").value = p.category_id;
+            document.getElementById("product-thumbnail").value = p.thumbnail;
+            document.getElementById("product-status").value = p.status;
+            document.getElementById("product-modal-title").innerText = "Chỉnh sửa sản phẩm";
+            
+            document.getElementById("product-modal").classList.add("show");
+        })
+        .catch(err => {
+            console.error("Error loading product:", err);
+            alert("Không thể tải thông tin sản phẩm");
+        });
 }
 
-function openEditModal(id, name, price, category, thumbnail, status) {
-    document.getElementById("modal-action").value = "update";
-    document.getElementById("product-id").value = id;
-    document.getElementById("product-name").value = name;
-    document.getElementById("product-price").value = price;
-    document.getElementById("product-category").value = category;
-    document.getElementById("product-thumbnail").value = thumbnail;
-    document.getElementById("product-status").value = status;
-
-    document.getElementById("product-modal").classList.add("show");
-}
-
-function closeModal() {
+function closeProductModal() {
     document.getElementById("product-modal").classList.remove("show");
 }
 
-// ===== DELETE =====
-function deleteProduct(id) {
-    if (!confirm("Bạn có chắc muốn xoá sản phẩm này?")) return;
+// ===== TOGGLE STATUS SẢN PHẨM (HẾT HÀNG) =====
+let toggleProductData = { id: null, name: '', status: '' };
 
-    fetch("product-admin", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: "action=delete&id=" + id
-    }).then(() => location.reload());
+function openToggleProductModal(id, name, status) {
+    toggleProductData = { id, name, status };
+    
+    const message = status === 'Đang bán' 
+        ? `Bạn có chắc muốn đặt sản phẩm "<strong>${name}</strong>" thành <strong>Hết hàng</strong> không?`
+        : `Bạn có chắc muốn mở bán lại sản phẩm "<strong>${name}</strong>" không?`;
+    
+    document.getElementById("toggle-product-message").innerHTML = message;
+    document.getElementById("toggle-product-id").value = id;
+    document.getElementById("toggle-product-modal").classList.add("show");
+}
+
+function closeToggleProductModal() {
+    document.getElementById("toggle-product-modal").classList.remove("show");
 }

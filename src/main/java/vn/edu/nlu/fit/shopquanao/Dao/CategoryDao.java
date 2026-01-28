@@ -6,8 +6,6 @@ import org.jdbi.v3.core.Jdbi;
 
 import vn.edu.nlu.fit.shopquanao.model.Category;
 
-import static java.lang.reflect.Array.get;
-
 public class CategoryDao extends BaseDao {
 
     /**
@@ -15,7 +13,7 @@ public class CategoryDao extends BaseDao {
      */
     public List<Category> findAll() {
         Jdbi jdbi = getJdbi();
-        String sql = "SELECT * FROM category_product WHERE status = 1 ORDER BY id";
+        String sql = "SELECT * FROM category_product ORDER BY id";
         return jdbi.withHandle(handle ->
                 handle.createQuery(sql)
                         .mapToBean(Category.class)
@@ -28,7 +26,7 @@ public class CategoryDao extends BaseDao {
      */
     public Category findById(int id) {
         Jdbi jdbi = getJdbi();
-        String sql = "SELECT * FROM category_product WHERE id = :id AND status = 1";
+        String sql = "SELECT * FROM category_product WHERE id = :id";
         return jdbi.withHandle(handle ->
                 handle.createQuery(sql)
                         .bind("id", id)
@@ -60,6 +58,69 @@ public class CategoryDao extends BaseDao {
                         .bind("categoryId", categoryId)
                         .mapTo(Integer.class)
                         .one()
+        );
+    }
+
+    /**
+     * Thêm danh mục mới
+     */
+    public void insert(Category category) {
+        getJdbi().useHandle(handle ->
+                handle.createUpdate("""
+                INSERT INTO category_product (name, image, status)
+                VALUES (:name, :image, :status)
+            """)
+                        .bind("name", category.getName())
+                        .bind("image", category.getImage())
+                        .bind("status", category.getStatus())
+                        .execute()
+        );
+    }
+
+    /**
+     * Cập nhật danh mục
+     */
+    public void update(Category category) {
+        getJdbi().useHandle(handle ->
+                handle.createUpdate("""
+                UPDATE category_product
+                SET name = :name,
+                    image = :image
+                WHERE id = :id
+            """)
+                        .bind("id", category.getId())
+                        .bind("name", category.getName())
+                        .bind("image", category.getImage())
+                        .execute()
+        );
+    }
+
+    /**
+     * Cập nhật trạng thái danh mục
+     */
+    public void updateStatus(int id, String status) {
+        getJdbi().useHandle(handle ->
+                handle.createUpdate("""
+                UPDATE category_product
+                SET status = :status
+                WHERE id = :id
+            """)
+                        .bind("id", id)
+                        .bind("status", status)
+                        .execute()
+        );
+    }
+
+    /**
+     * Tìm kiếm danh mục theo tên
+     */
+    public List<Category> searchByName(String keyword) {
+        String sql = "SELECT * FROM category_product WHERE name LIKE :keyword ORDER BY id";
+        return getJdbi().withHandle(handle ->
+                handle.createQuery(sql)
+                        .bind("keyword", "%" + keyword + "%")
+                        .mapToBean(Category.class)
+                        .list()
         );
     }
 

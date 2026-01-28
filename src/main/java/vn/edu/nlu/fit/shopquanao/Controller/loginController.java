@@ -8,7 +8,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-
 import vn.edu.nlu.fit.shopquanao.Dao.CartDao;
 import vn.edu.nlu.fit.shopquanao.Dao.CartItemDao;
 import vn.edu.nlu.fit.shopquanao.Service.UserService;
@@ -97,6 +96,7 @@ public class loginController extends HttpServlet {
         int cartSize = new CartItemDao().countTotalQuantity(cartId);
         session.setAttribute("cartSize", cartSize);
 
+        // Redirect based on role
         if ("admin".equalsIgnoreCase(user.getRole())) {
             response.sendRedirect(request.getContextPath() + "/admin.jsp");
         } else {

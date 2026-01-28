@@ -7,6 +7,7 @@ public class Category implements Serializable {
     private String name;
     private String description;
     private int status;
+    private String image;
 
     public Category() {
     }
@@ -50,6 +51,18 @@ public class Category implements Serializable {
         this.status = status;
     }
 
+    public void setStatus(String status) {
+        this.status = "Đang dùng".equals(status) ? 1 : 0;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     @Override
     public String toString() {
         return "Category{" +
@@ -57,6 +70,7 @@ public class Category implements Serializable {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", status=" + status +
+                ", image='" + image + '\'' +
                 '}';
     }
 }

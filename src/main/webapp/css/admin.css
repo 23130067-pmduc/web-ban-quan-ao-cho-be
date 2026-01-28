@@ -1002,10 +1002,12 @@ textarea:focus {
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .btn-add:hover {
     background: #43a047;
+    color: #fff;
 }
 
 .user-table {
@@ -1105,4 +1107,82 @@ textarea:focus {
 
 .user-table-wrapper::-webkit-scrollbar-track {
     background: #f1f1f1;
+}
+/* ================= MODAL CONTENT STYLES ================= */
+.modal-content {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 650px;
+    max-height: 90vh;
+    overflow: hidden;
+    animation: slideIn 0.3s;
+}
+
+.modal-content.modal-small {
+    max-width: 450px;
+}
+
+.modal-content .modal-header h2 {
+    margin: 0;
+    font-size: 20px;
+    color: white;
+}
+
+.modal-content .modal-body {
+    padding: 25px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.modal-content .modal-body p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin: 10px 0;
+}
+
+/* Form Section Styles */
+.form-section {
+    margin-bottom: 20px;
+}
+
+.form-section h3 {
+    font-size: 16px;
+    color: #A9C87D;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Info Row for View Modal */
+.info-row {
+    display: flex;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-row label {
+    font-weight: 600;
+    min-width: 150px;
+    color: #555;
+}
+
+.info-row span {
+    color: #333;
+    flex: 1;
+}
+
+/* Delete button in modal */
+.modal-footer .btn-delete {
+    background: #e03131;
+    color: white;
+}
+
+.modal-footer .btn-delete:hover {
+    background: #c92a2a;
 }

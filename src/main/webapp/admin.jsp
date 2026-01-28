@@ -20,22 +20,38 @@
         <p>ADMIN</p>
 
         <div class="nav">
-            <button data-page="dashboard"
-                    class="${empty page || page == 'dashboard' ? 'active' : ''}">
+            <a class="menu-link ${empty page || page == 'dashboard' ? 'active' : ''}"
+               href="${pageContext.request.contextPath}/dashboard">
                 DashBoard
-            </button>
-
-            <button data-page="doanhthu">Doanh thu</button>
-
+            </a>
             <a class="menu-link ${page == 'product' ? 'active' : ''}"
                href="${pageContext.request.contextPath}/product-admin">
                 Sản phẩm
             </a>
-
-            <button data-page="donhang">Đơn hàng</button>
-            <button data-page="khachhang">Khách hàng</button>
-            <button data-page="magiamgia">Mã giảm giá</button>
-            <button data-page="caidat">Cài đặt</button>
+            <a class="menu-link ${page == 'category' ? 'active' : ''}"
+               href="${pageContext.request.contextPath}/category-admin">
+                Danh mục
+            </a>
+            <a class="menu-link ${page == 'order' ? 'active' : ''}"
+               href="${pageContext.request.contextPath}/order-admin">
+                Đơn hàng
+            </a>
+            <a class="menu-link ${page == 'user' ? 'active' : ''}"
+               href="${pageContext.request.contextPath}/user-admin">
+                Người dùng
+            </a>
+            <a class="menu-link ${page == 'banner' ? 'active' : ''}"
+               href="${pageContext.request.contextPath}/banner-admin">
+                Banner
+            </a>
+            <a class="menu-link ${page == 'news' ? 'active' : ''}"
+               href="${pageContext.request.contextPath}/tin-tuc">
+                Tin tức
+            </a>
+            <a class="menu-link ${page == 'contact' ? 'active' : ''}"
+               href="${pageContext.request.contextPath}/contact-admin">
+                Liên hệ
+            </a>
         </div>
     </aside>
 
@@ -49,7 +65,7 @@
             <section class="page ${empty page || page == 'dashboard' ? 'active' : ''}">
                 <div class="page-header">
                     <h1>Dashboard</h1>
-                    <button class="logout-btn">Đăng xuất</button>
+                    <a href="logout" class="logout-btn">Đăng xuất</a>
                 </div>
             </section>
 
@@ -59,7 +75,7 @@
                 <!-- HEADER -->
                 <div class="page-header">
                     <h1>Quản lý sản phẩm</h1>
-                    <button class="logout-btn">Đăng xuất</button>
+                    <a href="${pageContext.request.contextPath}/logout" class="logout-btn">Đăng xuất</a>
                 </div>
 
                 <!-- CARDS -->
@@ -95,9 +111,9 @@
                         </button>
                     </form>
 
-                    <button class="btn-add">
+                    <a href="product-admin?mode=add" class="btn-add">
                         <i class="fa fa-plus"></i> Thêm sản phẩm
-                    </button>
+                    </a>
                 </div>
 
                 <!-- TABLE WRAPPER -->
@@ -141,37 +157,27 @@
                                 <td class="action-buttons">
 
                                     <!-- XEM -->
-                                    <button class="btn-view"
-                                            title="Xem chi tiết"
-                                            onclick="viewProduct(${p.id})">
+                                    <a href="product-admin?mode=view&id=${p.id}" 
+                                       class="icon-btn view"
+                                       title="Xem chi tiết">
                                         <i class="fa fa-eye"></i>
-                                    </button>
+                                    </a>
 
 
                                     <!-- SỬA -->
-                                    <button class="btn-edit"
-                                            onclick='openEditModal({
-                                                    id:${p.id},
-                                                    name:"${p.name}",
-                                                    price:${p.price},
-                                                    category_id:${p.category_id},
-                                                    thumbnail:"${p.thumbnail}",
-                                                    status:"${p.status}"
-                                                    })'>
-                                        ✏
+                                    <a href="product-admin?mode=edit&id=${p.id}"
+                                       class="icon-btn edit"
+                                       title="Chỉnh sửa">
+                                        <i class="fa fa-pen"></i>
+                                    </a>
+
+
+                                    <!-- TOGGLE STATUS (HẾT HÀNG) -->
+                                    <button class="icon-btn delete"
+                                            title="${p.status == 'Đang bán' ? 'Đặt hết hàng' : 'Mở bán lại'}"
+                                            onclick="openToggleProductModal(${p.id}, '${p.name}', '${p.status}')">
+                                        <i class="fa fa-trash"></i>
                                     </button>
-
-
-                                    <!-- XOÁ (ẩn trong DB) -->
-                                    <form method="post"
-                                          action="${pageContext.request.contextPath}/product-admin"
-                                          style="display:inline">
-                                        <input type="hidden" name="action" value="delete">
-                                        <input type="hidden" name="id" value="${p.id}">
-                                        <button type="submit" class="btn-delete" title="Xoá">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                    </form>
 
                                 </td>
 
@@ -180,65 +186,292 @@
                         </tbody>
                     </table>
                 </div>
-                <!-- ================= END PRODUCT LIST ================= -->
+
+                <!-- ================= PAGINATION ================= -->
+                <c:if test="${totalPages > 1}">
+                    <div class="pagination">
+                        <div class="pagination-info">
+                            Hiển thị ${(currentPage - 1) * pageSize + 1} - ${currentPage * pageSize > totalProducts ? totalProducts : currentPage * pageSize} của ${totalProducts} sản phẩm
+                        </div>
+                        <div class="pagination-controls">
+                            <c:if test="${currentPage > 1}">
+                                <a href="?page=1" class="page-btn">« Đầu</a>
+                                <a href="?page=${currentPage - 1}" class="page-btn">‹ Trước</a>
+                            </c:if>
+
+                            <c:forEach begin="1" end="${totalPages}" var="i">
+                                <c:choose>
+                                    <c:when test="${i == currentPage}">
+                                        <span class="page-btn active">${i}</span>
+                                    </c:when>
+                                    <c:when test="${i == 1 || i == totalPages || (i >= currentPage - 2 && i <= currentPage + 2)}">
+                                        <a href="?page=${i}" class="page-btn">${i}</a>
+                                    </c:when>
+                                    <c:when test="${i == currentPage - 3 || i == currentPage + 3}">
+                                        <span class="page-btn dots">...</span>
+                                    </c:when>
+                                </c:choose>
+                            </c:forEach>
+
+                            <c:if test="${currentPage < totalPages}">
+                                <a href="?page=${currentPage + 1}" class="page-btn">Sau ›</a>
+                                <a href="?page=${totalPages}" class="page-btn">Cuối »</a>
+                            </c:if>
+                        </div>
+                    </div>
+                </c:if>
+                <!-- ================= END PAGINATION ================= -->
+
+            </section>
+
+            <!-- ================= CATEGORY ================= -->
+            <section id="category" class="page ${page == 'category' ? 'active' : ''}">
+
+                <!-- HEADER -->
+                <div class="page-header">
+                    <h1>Quản lý danh mục</h1>
+                    <a href="${pageContext.request.contextPath}/logout" class="logout-btn">Đăng xuất</a>
+                </div>
+
+                <!-- CARDS -->
+                <div class="cards">
+                    <div class="card">
+                        Tổng danh mục
+                        <span>${totalCategories}</span>
+                    </div>
+                    <div class="card">
+                        Đang dùng
+                        <span>${activeCategories}</span>
+                    </div>
+                    <div class="card">
+                        Đã khóa
+                        <span>${lockedCategories}</span>
+                    </div>
+                </div>
+
+                <!-- TOOLBAR -->
+                <div class="user-toolbar">
+                    <form method="post"
+                          action="${pageContext.request.contextPath}/category-admin"
+                          class="user-toolbar">
+                        <input type="hidden" name="action" value="search">
+                        <input type="text" name="keyword"
+                               placeholder="Tìm theo tên danh mục...">
+                        <button type="submit" class="btn-search">
+                            <i class="fa fa-search"></i> Tìm
+                        </button>
+                    </form>
+
+                    <a href="${pageContext.request.contextPath}/category-admin?mode=add" class="btn-add">
+                        <i class="fa fa-plus"></i> Thêm danh mục
+                    </a>
+                </div>
+
+                <!-- TABLE WRAPPER -->
+                <div class="user-table-wrapper">
+                    <table class="user-table">
+                        <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>ID</th>
+                            <th>Tên danh mục</th>
+                            <th>Hình ảnh</th>
+                            <th>Trạng thái</th>
+                            <th>Hành động</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <c:forEach var="c" items="${categories}" varStatus="status">
+                            <tr>
+                                <td>${status.index + 1}</td>
+                                <td>${c.id}</td>
+                                <td>${c.name}</td>
+                                <td>
+                                    <c:if test="${not empty c.image}">
+                                        <img src="${c.image}" alt="${c.name}"
+                                             style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;">
+                                    </c:if>
+                                    <c:if test="${empty c.image}">
+                                        <span style="color: #999;">Chưa có ảnh</span>
+                                    </c:if>
+                                </td>
+                                <td>
+                                    <span class="status ${c.status == 1 ? 'active' : 'inactive'}">
+                                        ${c.status == 1 ? 'Đang dùng' : 'Đã khóa'}
+                                    </span>
+                                </td>
+                                <td class="action-buttons">
+                                    <!-- XEM -->
+                                    <a href="${pageContext.request.contextPath}/category-admin?mode=view&id=${c.id}"
+                                       class="icon-btn view"
+                                       title="Xem chi tiết">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+
+                                    <!-- SỬA -->
+                                    <a href="${pageContext.request.contextPath}/category-admin?mode=edit&id=${c.id}"
+                                       class="icon-btn edit"
+                                       title="Chỉnh sửa">
+                                        <i class="fa fa-pen"></i>
+                                    </a>
+
+                                    <!-- KHÓA/MỞ KHÓA -->
+                                    <button class="icon-btn ${c.status == 1 ? 'delete' : 'view'}"
+                                            title="${c.status == 1 ? 'Khóa danh mục' : 'Mở khóa'}"
+                                            onclick="openToggleCategoryModal(${c.id}, '${c.name}', ${c.status})">
+                                        <i class="fa fa-${c.status == 1 ? 'lock' : 'unlock'}"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- ================= END CATEGORY LIST ================= -->
 
             </section>
 
         </main>
     </section>
 </div>
-<!-- ===== MODAL XEM SẢN PHẨM ===== -->
-<div class="modal-overlay" id="product-modal">
+
+<!-- ===== MODAL XÁC NHẬN KHÓA/MỞ KHÓA DANH MỤC ===== -->
+<div class="modal-overlay" id="toggle-category-modal">
     <div class="modal">
-        <form method="post" action="${pageContext.request.contextPath}/product-admin">
-            <input type="hidden" name="action" id="modal-action">
-            <input type="hidden" name="id" id="product-id">
+        <h3 id="toggle-category-title">Khóa danh mục?</h3>
+        <p id="toggle-category-message"></p>
 
-            <h3 id="modal-title">Thêm sản phẩm</h3>
-
-            <label>Tên sản phẩm</label>
-            <input type="text" name="name" id="product-name" required>
-
-            <label>Giá</label>
-            <input type="number" name="price" id="product-price" required>
-
-            <label>Danh mục</label>
-            <select name="category_id" id="product-category">
-                <c:forEach var="c" items="${categories}">
-                    <option value="${c.id}">${c.name}</option>
-                </c:forEach>
-            </select>
-
-            <label>Ảnh </label>
-            <input type="text" name="thumbnail" id="product-thumbnail">
-
-            <label>Trạng thái</label>
-            <select name="status" id="product-status">
-                <option value="Đang bán">Đang bán</option>
-                <option value="Ngừng bán">Ngừng bán</option>
-            </select>
+        <form method="post" action="${pageContext.request.contextPath}/category-admin">
+            <input type="hidden" name="action" value="toggle-status">
+            <input type="hidden" name="id" id="toggle-category-id">
 
             <div class="modal-footer">
-                <button type="submit">Lưu</button>
-                <button type="button" onclick="closeModal()">Huỷ</button>
+                <button type="submit">OK</button>
+                <button type="button" onclick="closeToggleCategoryModal()">Cancel</button>
             </div>
         </form>
     </div>
 </div>
-<div class="modal-overlay" id="view-modal">
-    <div class="modal">
-        <h3>Xem sản phẩm</h3>
-        <img id="vp-img" style="width:150px">
-        <p><b>Tên:</b> <span id="vp-name"></span></p>
-        <p><b>Giá:</b> <span id="vp-price"></span> đ</p>
-        <p><b>Danh mục:</b> <span id="vp-category"></span></p>
-        <p><b>Trạng thái:</b> <span id="vp-status"></span></p>
 
-        <button onclick="closeView()">Đóng</button>
+<!-- ===== MODAL THÊM/SỬA SẢN PHẨM ===== -->
+<div class="modal-overlay" id="product-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="product-modal-title">Thêm sản phẩm</h2>
+            <button class="modal-close" onclick="closeProductModal()">&times;</button>
+        </div>
+        <form method="post" action="${pageContext.request.contextPath}/product-admin" id="product-form">
+            <input type="hidden" name="action" id="product-action" value="add">
+            <input type="hidden" name="id" id="product-id">
+
+            <div class="form-section">
+                <h3>● Thông tin sản phẩm</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Tên sản phẩm</label>
+                        <input type="text" name="name" id="product-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Giá</label>
+                        <input type="number" name="price" id="product-price" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Danh mục</label>
+                        <select name="category_id" id="product-category">
+                            <c:forEach var="c" items="${categories}">
+                                <option value="${c.id}">${c.name}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Trạng thái</label>
+                        <select name="status" id="product-status">
+                            <option value="Đang bán">Đang bán</option>
+                            <option value="Hết hàng">Hết hàng</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>URL Ảnh</label>
+                    <input type="text" name="thumbnail" id="product-thumbnail">
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn-save">Lưu</button>
+                <button type="button" class="btn-cancel" onclick="closeProductModal()">Hủy</button>
+            </div>
+        </form>
     </div>
 </div>
 
-<script src="javaScript/adminProduct.js.js"></script>
+<!-- ===== MODAL XEM SẢN PHẨM ===== -->
+<div class="modal-overlay" id="view-product-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Xem chi tiết sản phẩm</h2>
+            <button class="modal-close" onclick="closeViewProductModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="form-section">
+                <h3>● Thông tin sản phẩm</h3>
+                <div class="info-row">
+                    <label>ID:</label>
+                    <span id="view-product-id"></span>
+                </div>
+                <div class="info-row">
+                    <label>Tên sản phẩm:</label>
+                    <span id="view-product-name"></span>
+                </div>
+                <div class="info-row">
+                    <label>Giá:</label>
+                    <span id="view-product-price"></span>
+                </div>
+                <div class="info-row">
+                    <label>Danh mục:</label>
+                    <span id="view-product-category"></span>
+                </div>
+                <div class="info-row">
+                    <label>Trạng thái:</label>
+                    <span id="view-product-status"></span>
+                </div>
+                <div class="info-row">
+                    <label>Ảnh:</label>
+                    <img id="view-product-image" style="max-width: 200px; border-radius: 8px; margin-top: 10px;">
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn-cancel" onclick="closeViewProductModal()">Đóng</button>
+        </div>
+    </div>
+</div>
+
+<!-- ===== MODAL XÁC NHẬN TOGGLE STATUS SẢN PHẨM ===== -->
+<div class="modal-overlay" id="toggle-product-modal">
+    <div class="modal-content modal-small">
+        <div class="modal-header">
+            <h2>Xác nhận</h2>
+        </div>
+        <div class="modal-body">
+            <p id="toggle-product-message"></p>
+        </div>
+        <form method="post" action="${pageContext.request.contextPath}/product-admin" id="toggle-product-form">
+            <input type="hidden" name="action" value="toggle-status">
+            <input type="hidden" name="id" id="toggle-product-id">
+            <div class="modal-footer">
+                <button type="button" class="btn-cancel" onclick="closeToggleProductModal()">Hủy</button>
+                <button type="submit" class="btn-delete">Xác nhận</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="javaScript/adminProduct.js"></script>
+<script src="javaScript/adminCategory.js"></script>
 
 </body>
 </html>

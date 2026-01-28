@@ -59,7 +59,7 @@ public class ProductDao extends BaseDao {
         );
     }
 
-     public List<Product> findByCategories(List<Integer> categoryIds) {
+    public List<Product> findByCategories(List<Integer> categoryIds) {
 
         if (categoryIds == null || categoryIds.isEmpty()) {
             return List.of();
@@ -168,7 +168,7 @@ public class ProductDao extends BaseDao {
                                 ORDER BY created_at DESC
                                 LIMIT :limit
                                 """
-                ).bind("categoryId", categoryId)
+                        ).bind("categoryId", categoryId)
                         .bind("currentProductId",currentProductId)
                         .bind("limit", limit).
                         mapToBean(Product.class)
