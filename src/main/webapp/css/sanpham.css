@@ -266,6 +266,10 @@
 
 .product-card a{
     text-decoration: none;
+
+}
+
+.product-card h3 a{
     color: inherit;
 }
 

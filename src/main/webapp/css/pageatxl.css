@@ -358,8 +358,7 @@ html, body {
     flex-direction: column;
     align-items: center;
     position: relative;
-    justify-content: space-between;
-    gap: 12px;
+    gap: 10px;
     height: 450px;
 
 }
@@ -378,13 +377,25 @@ html, body {
     transition: transform 0.3s ease;
 }
 
+
 .suggested-item .name {
     color: black;
     font-size: 18px;
     margin-bottom: 10px;
     font-weight: bold;
     text-align: center;
+
+    min-height: 48px;
+    line-height: 1.3;
+
+
 }
+
+.suggested-item .name a{
+    text-decoration: none;
+    color: inherit;
+}
+
 /* Nút thêm giỏ hàng */
 .btn-add {
     background-color: #A9C87D;
@@ -398,6 +409,7 @@ html, body {
     display: inline-block;
     align-self: center;
     margin: 0;
+    text-decoration: none;
 }
 
 .btn-add:hover {

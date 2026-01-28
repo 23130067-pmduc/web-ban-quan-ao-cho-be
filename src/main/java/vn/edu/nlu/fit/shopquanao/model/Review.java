@@ -5,16 +5,16 @@ import java.time.LocalDateTime;
 public class Review {
     private int id;
     private int productId;
-    private int customerId;
+    private int userId;
     private int rating;
     private String comment;
     private LocalDateTime createdAt;
 
 
-    public Review(int id, int productId, int customerId, int rating, String comment, LocalDateTime createdAt) {
+    public Review(int id, int productId, int userId, int rating, String comment, LocalDateTime createdAt) {
         this.id = id;
         this.productId = productId;
-        this.customerId = customerId;
+        this.userId = userId;
         this.rating = rating;
         this.comment = comment;
         this.createdAt = createdAt;
@@ -39,12 +39,12 @@ public class Review {
         this.productId = productId;
     }
 
-    public int getCustomerId() {
-        return customerId;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public int getRating() {

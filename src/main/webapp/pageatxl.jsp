@@ -87,7 +87,6 @@
 
             <!-- NÚT MUA -->
             <div class="product-actions">
-                <a href="thanhtoan.jsp" class="link-cover"><button class="btn-buy-now">Mua ngay</button></a>
                 <button class="btn-add-cart">Thêm vào giỏ hàng</button>
             </div>
         </div>
@@ -128,7 +127,7 @@
 
             <c:forEach var="r" items="${reviews}">
                 <div class="review-item">
-                    <strong>User #${r.customerId}</strong>
+                    <strong>User ${r.userId}</strong>
                     <div>
                         <c:forEach begin="1" end="${r.rating}">⭐</c:forEach>
                     </div>
@@ -146,10 +145,19 @@
         <div class="suggested-list">
             <c:forEach var="item" items="${ralatedProducts}">
                 <div class="suggested-item">
-                    <img src="${item.thumbnail}" alt="${item.name}">
-                    <p class="name">${item.name}</p>
-                    <p class="price">${item.sale_price}</p>
-                    <button class="btn-add">Thêm vào giỏ</button>
+                    <a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${item.id}" class="link-cover">
+                        <img src="${item.thumbnail}" alt="${item.name}">
+                    </a>
+                    <h3 class="name"><a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${item.id}">${item.name}</a></h3>
+                    <fmt:setLocale value="vi_VN"/>
+                        <p class="price">
+                            Giá: <span class="new-price">
+                        <fmt:formatNumber value="${item.sale_price}" type="number" groupingUsed="true"/>đ
+                    </span>
+                        </p>
+                    <a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${item.id}" class="btn-add">
+                        Thêm vào giỏ
+                    </a>
                 </div>
             </c:forEach>
 

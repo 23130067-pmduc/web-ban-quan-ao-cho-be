@@ -46,7 +46,7 @@ public class ReviewController extends HttpServlet {
 
         Review review = new Review();
         review.setProductId(productId);
-        review.setCustomerId(userId);
+        review.setUserId(userId);
         review.setRating(rating);
         review.setComment(comment);
 

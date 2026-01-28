@@ -12,7 +12,7 @@ public class ReviewService {
     public void addOrUpdateReview(Review review) {
         Review exist = reviewDao.findByProductAndUser(
                 review.getProductId(),
-                review.getCustomerId()
+                review.getUserId()
         );
 
         if (exist == null) {

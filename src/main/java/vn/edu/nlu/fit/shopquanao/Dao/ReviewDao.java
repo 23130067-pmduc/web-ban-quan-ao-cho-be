@@ -13,7 +13,7 @@ public class ReviewDao extends BaseDao {
                 handle.createQuery("""
             SELECT * 
             FROM product_reviews
-            WHERE product_id = :pid AND customer_id = :uid
+            WHERE product_id = :pid AND user_id = :uid
         """)
                         .bind("pid", productId)
                         .bind("uid", userId)
@@ -27,11 +27,11 @@ public class ReviewDao extends BaseDao {
     public void insert(Review review) {
         getJdbi().useHandle(handle -> handle.createUpdate(
                 """
-                        INSERT INTO product_reviews(product_id, customer_id, rating, comment, created_at)
+                        INSERT INTO product_reviews(product_id, user_id, rating, comment, created_at)
                         VALUES (:pid, :cid, :rating, :comment, NOW())
                     """
                      ).bind("pid", review.getProductId())
-                        .bind("cid", review.getCustomerId())
+                        .bind("cid", review.getUserId())
                         .bind("rating", review.getRating())
                         .bind("comment", review.getComment())
                         .execute()
@@ -46,10 +46,10 @@ public class ReviewDao extends BaseDao {
             SET rating = :rating,
                 comment = :comment,
                 created_at = NOW()
-            WHERE product_id = :pid AND customer_id = :uid
+            WHERE product_id = :pid AND user_id = :uid
         """)
                         .bind("pid", review.getProductId())
-                        .bind("uid", review.getCustomerId())
+                        .bind("uid", review.getUserId())
                         .bind("rating", review.getRating())
                         .bind("comment", review.getComment())
                         .execute()
