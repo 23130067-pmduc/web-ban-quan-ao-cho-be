@@ -80,6 +80,7 @@ body, .admin {
     background: rgba(255, 255, 255, 0.25);
     font-weight: 600;
 }
+
 .content {
     flex: 1;
     overflow-y: auto;
@@ -119,10 +120,10 @@ body, .admin {
 }
 
 .cards {
-    display: flex;
+    display: grid;
     gap: 15px;
     margin-bottom: 25px;
-    flex-wrap: wrap;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .card {
@@ -148,38 +149,14 @@ body, .admin {
     color: #A9C87D;
 }
 
-.user-toolbar {
+.contact-toolbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
     margin: 20px 0;
     gap: 12px;
 }
 
-.user-toolbar input {
-    flex: 1;
-    max-width: 350px;
-    padding: 10px 14px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-}
-
-.btn-search {
-    padding: 10px 16px;
-    border: none;
-    border-radius: 8px;
-    background: #40c057;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.btn-search:hover {
-    background: #37b24d;
-}
 
 .btn-add {
     display: inline-flex;
@@ -198,8 +175,7 @@ body, .admin {
 }
 
 
-
-.user-table {
+.contact-table {
     width: 100%;
     border-collapse: collapse;
     background: #fff;
@@ -207,13 +183,13 @@ body, .admin {
     overflow: hidden;
 }
 
-.user-table th, .user-table td {
+.contact-table th, .contact-table td {
     padding: 12px 14px;
     text-align: left;
     border-bottom: 1px solid #eee;
 }
 
-.user-table th {
+.contact-table th {
     background: #f3f6fa;
     font-weight: 600;
 }
@@ -229,6 +205,10 @@ body, .admin {
     background: #e3f7e9;
     color: #2e7d32;
 }
+.status.processing {
+    background: greenyellow;
+    color: #2e7d32;
+}
 
 .status.blocked {
     background: #fdecea;
@@ -238,6 +218,7 @@ body, .admin {
 .actions {
     display: flex;
     gap: 8px;
+    align-items: center;
 }
 
 .icon-btn {
@@ -261,7 +242,7 @@ body, .admin {
     background: rgba(0,0,0,0.05);
 }
 
-.user-table-wrapper {
+.contact-table-wrapper {
     background: #fff;
     border-radius: 12px;
     padding: 16px;
@@ -279,16 +260,6 @@ body, .admin {
     background: rgba(255, 255, 255, 0.15);
     transform: translateX(5px);
 }
-
-
-.icon-btn.delete {
-    color: #e03131;
-}
-
-.icon-btn.delete:hover {
-    background: rgba(224, 49, 49, 0.1);
-}
-
 
 /* MODAL OVERLAY */
 .modal-overlay {
@@ -348,76 +319,3 @@ body, .admin {
 .btn-secondary:hover {
     background: #cccccc;
 }
-/* ================= ORDER ADMIN TABLE ================= */
-
-.order-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.order-table th,
-.order-table td {
-    padding: 14px 16px;
-    text-align: left;
-    border-bottom: 1px solid #eee;
-    font-size: 14px;
-}
-
-.order-table th {
-    background: #f3f6fa;
-    font-weight: 600;
-    color: #333;
-}
-
-.order-table tr:hover {
-    background: #f9fbff;
-}
-
-/* ================= ORDER STATUS ================= */
-
-.order-status {
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-    display: inline-block;
-}
-
-.order-status.PENDING {
-    background: #fff3bf;
-    color: #f08c00;
-}
-
-.order-status.SHIPPING {
-    background: #e7f5ff;
-    color: #1c7ed6;
-}
-
-.order-status.COMPLETED {
-    background: #ebfbee;
-    color: #2f9e44;
-}
-
-.order-status.CANCELLED {
-    background: #fff0f0;
-    color: #e03131;
-}
-
-/* ================= ORDER ACTION ================= */
-
-.order-actions {
-    display: flex;
-    gap: 8px;
-}
-
-.icon-btn.view {
-    color: #228be6;
-}
-
-.icon-btn.view:hover {
-    background: rgba(34, 139, 230, 0.1);
-}
-

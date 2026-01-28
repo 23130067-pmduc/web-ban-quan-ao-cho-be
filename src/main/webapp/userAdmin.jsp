@@ -20,14 +20,16 @@
         <img src="./img/gau.jpg" alt=""Logo>
         <p>ADMIN</p>
 
-        <div class="nav" id="menu">
-            <button data-page="dashboard">DashBoard</button>
-            <button data-page="doanhthu">Doanh thu</button>
-            <button data-page="sanpham">Sản phẩm</button>
-            <button data-page="donhang">Đơn hàng</button>
-            <button data-page="nguoidung" class="active">Người dùng</button>
-            <button data-page="magiamgia">Mã giảm giá</button>
-            <button data-page="caidat">Cài đặt</button>
+        <div class="nav">
+            <a href="dashboard.jsp" class="nav-item">Dashboard</a>
+            <a href="sanpham.jsp" class="nav-item">Sản phẩm</a>
+            <a href="donhang.jsp" class="nav-item">Đơn hàng</a>
+            <a href="user-admin" class="nav-item active">Người dùng</a>
+            <a href="magiamgia" class="nav-item">Mã giãm giá</a>
+            <a href="banner-admin" class="nav-item">Banner</a>
+            <a href="news-admin" class="nav-item">Tin tức</a>
+            <a href="contact-admin" class="nav-item">Liên hệ</a>
+            <a href="settings.jsp" class="nav-item">Cài đặt</a>
         </div>
     </aside>
 

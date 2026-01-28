@@ -3,10 +3,39 @@ package vn.edu.nlu.fit.shopquanao.Service;
 import vn.edu.nlu.fit.shopquanao.Dao.ContactDao;
 import vn.edu.nlu.fit.shopquanao.model.Contact;
 
+import java.util.Collection;
+import java.util.List;
+
 public class ContactService {
-    private ContactDao contactDao = new ContactDao();
+    private final ContactDao contactDao = new ContactDao();
 
     public void addContact(Contact contact) {
         contactDao.addContact(contact);
+    }
+
+    public List<Contact> getAllContact() {
+        return contactDao.getAllContact();
+    }
+
+
+
+    public List<Contact> getAllContactByStatus(String status) {
+        return contactDao.getAllContactByStatus(status);
+    }
+
+    public Contact getContactById(int id) {
+        return contactDao.getContactById(id);
+    }
+
+    public void createContact(Contact contact) {
+        contactDao.createContact(contact);
+    }
+
+    public void updateContact(Contact contact) {
+        contactDao.updateContact(contact);
+    }
+
+    public void acceptContact(int id) {
+        contactDao.acceptContact(id, "Closed");
     }
 }

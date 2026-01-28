@@ -70,4 +70,6 @@ public class Banner {
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
+
+
 }
