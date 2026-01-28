@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đơn hàng</title>
+    <title>Admin Dashboard</title>
     <link rel="stylesheet" href="./css/user.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
@@ -20,10 +20,10 @@
         <img src="./img/gau.jpg" alt=""Logo>
         <p>ADMIN</p>
 
-        <div class="nav" id="menu">
-            <a href="dashboard" class="nav-item">Dashboard</a>
+        <div class="nav">
+            <a href="dashboard" class="nav-item active">Dashboard</a>
             <a href="sanpham.jsp" class="nav-item">Sản phẩm</a>
-            <a href="order-admin" class="nav-item active">Đơn hàng</a>
+            <a href="order-admin" class="nav-item">Đơn hàng</a>
             <a href="user-admin" class="nav-item">Người dùng</a>
             <a href="magiamgia" class="nav-item">Mã giãm giá</a>
             <a href="banner-admin" class="nav-item">Banner</a>
@@ -36,7 +36,7 @@
     <section class="content">
         <!-- PHẦN HEADER -->
         <header class="topbar">
-            <h1 id="pageTitle">Đơn hàng</h1>
+            <h1 id="pageTitle">Dashboard</h1>
             <div class="actions">
                 <button id="logout">Đăng xuất</button>
             </div>
@@ -48,66 +48,62 @@
             <!-- DASHBROAD -->
             <section id="dashboard" class="page active">
                 <div class="cards">
-                    <div class="card">Tổng đơn<br>${total}</div>
-                    <div class="card">Đang xử lý<br>${countPending}</div>
-                    <div class="card">Hoàn thành<br>${countCompleted}</div>
+                    <div class="card">
+                        Tổng đơn hàng
+                        <span>${totalOrders}</span>
+                    </div>
+
+                    <div class="card">
+                        Doanh thu
+                        <span>
+                            <fmt:formatNumber value="${totalRevenue}"/>đ
+                        </span>
+                    </div>
+
+                    <div class="card">
+                        Sản phẩm
+                        <span>${totalProducts}</span>
+                    </div>
+
+                    <div class="card">
+                        Người dùng
+                        <span>${totalUsers}</span>
+                    </div>
                 </div>
+
+                <h2 style="margin-bottom: 12px;">Đơn hàng mới nhất</h2>
 
                 <div class="user-table-wrapper">
                     <table class="order-table">
-                        <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Khách hàng</th>
+                            <th>Mã</th>
+                            <th>Người nhận</th>
                             <th>Tổng tiền</th>
                             <th>Trạng thái</th>
-                            <th>Ngày tạo</th>
-                            <th>Hành động</th>
                         </tr>
-                        </thead>
-                        <tbody>
-                        <c:if test="${empty orders}">
-                            <tr>
-                                <td colspan="6" style="text-align:center">
-                                    Chưa có đơn hàng
-                                </td>
-                            </tr>
-                        </c:if>
 
-                        <c:forEach items="${orders}" var="o">
+                        <c:forEach items="${latestOrders}" var="o">
                             <tr>
                                 <td>#${o.id}</td>
                                 <td>${o.receiverName}</td>
-                                <td>${o.finalAmount} đ</td>
                                 <td>
-                                    <span class="order-status ${o.orderStatus}">
-                                            ${o.orderStatus}
-                                    </span>
-                                </td>
-
-                                <td>
-                                        ${o.createdAtFormatted}
+                                    <fmt:formatNumber value="${o.totalPrice}"/>đ
                                 </td>
                                 <td>
-                                    <a href="order-admin?mode=view&id=${o.id}" class="icon-btn view">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
+                    <span class="order-status ${o.orderStatus}">
+                            ${o.orderStatus}
+                    </span>
                                 </td>
                             </tr>
                         </c:forEach>
-                        </tbody>
                     </table>
-
                 </div>
 
             </section>
 
         </main>
     </section>
-
 </div>
-
-
 </body>
 <script>
     function openConfirmModal(userId) {

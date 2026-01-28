@@ -21,9 +21,9 @@
         <p>ADMIN</p>
 
         <div class="nav">
-            <a href="dashboard.jsp" class="nav-item">Dashboard</a>
+            <a href="dashboard" class="nav-item">Dashboard</a>
             <a href="sanpham.jsp" class="nav-item">Sản phẩm</a>
-            <a href="donhang.jsp" class="nav-item">Đơn hàng</a>
+            <a href="order-admin" class="nav-item">Đơn hàng</a>
             <a href="user-admin" class="nav-item active">Người dùng</a>
             <a href="magiamgia" class="nav-item">Mã giãm giá</a>
             <a href="banner-admin" class="nav-item">Banner</a>
