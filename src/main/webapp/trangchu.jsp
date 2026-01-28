@@ -82,6 +82,7 @@
                     <div class="product-mini">
                         <a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}" class="link-cover"></a>
                         <img src="${pageContext.request.contextPath}/${p.thumbnail}" alt="${p.name}">
+                        <h3>${p.name}</h3>
                         <p class="price">
                             <span class="new-price"><fmt:formatNumber value="${p.sale_price}" type="number"/>đ</span>
                             <span class="old-price"><fmt:formatNumber value="${p.price}" type="number"/>đ</span>
@@ -110,6 +111,7 @@
                     <div class="product-mini">
                         <a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}" class="link-cover"></a>
                         <img src="${pageContext.request.contextPath}/${p.thumbnail}" alt="${p.name}">
+                        <h3>${p.name}</h3>
 
                         <p class="price">
                         <span class="new-price">
@@ -147,6 +149,7 @@
                     <div class="product-mini">
                         <a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}" class="link-cover"></a>
                         <img src="${pageContext.request.contextPath}/${p.thumbnail}" alt="${p.name}">
+                        <h3>${p.name}</h3>
 
                         <p class="price">
                         <span class="new-price">
