@@ -78,6 +78,7 @@ body {
     flex-direction: column;
 }
 
+
 label {
     font-size: 13px;
     margin-bottom: 5px;
@@ -108,7 +109,6 @@ textarea:disabled {
     background: #f2f2f2;
     cursor: not-allowed;
 }
-
 
 button,
 .btn-primary,
@@ -147,6 +147,8 @@ button,
 .btn-warning:hover {
     background: #fb8c00;
 }
+
+
 .form-footer {
     display: flex;
     justify-content: flex-end;
@@ -159,12 +161,3 @@ button,
         flex-direction: column;
     }
 }
-.preview img {
-    padding-top: 15px;
-    width: 80%;
-    max-height: 350px;
-    object-fit: cover;
-    display: block;
-    margin: 0 auto;
-}
-

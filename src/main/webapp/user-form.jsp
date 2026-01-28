@@ -26,10 +26,10 @@
         </h2>
     </div>
 
-    <!-- FORM -->
+
     <form method="post" action="user-admin">
 
-        <!-- THÔNG TIN TÀI KHOẢN -->
+
         <div class="card">
             <h3>Thông tin tài khoản</h3>
 
@@ -138,7 +138,7 @@
 
 </div>
 
-<!-- DISABLE INPUT WHEN VIEW -->
+
 <c:if test="${mode == 'view'}">
     <style>
         input, select, textarea, button {
