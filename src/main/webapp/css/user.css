@@ -348,3 +348,76 @@ body, .admin {
 .btn-secondary:hover {
     background: #cccccc;
 }
+/* ================= ORDER ADMIN TABLE ================= */
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.order-table th,
+.order-table td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.order-table th {
+    background: #f3f6fa;
+    font-weight: 600;
+    color: #333;
+}
+
+.order-table tr:hover {
+    background: #f9fbff;
+}
+
+/* ================= ORDER STATUS ================= */
+
+.order-status {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.order-status.PENDING {
+    background: #fff3bf;
+    color: #f08c00;
+}
+
+.order-status.SHIPPING {
+    background: #e7f5ff;
+    color: #1c7ed6;
+}
+
+.order-status.COMPLETED {
+    background: #ebfbee;
+    color: #2f9e44;
+}
+
+.order-status.CANCELLED {
+    background: #fff0f0;
+    color: #e03131;
+}
+
+/* ================= ORDER ACTION ================= */
+
+.order-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.icon-btn.view {
+    color: #228be6;
+}
+
+.icon-btn.view:hover {
+    background: rgba(34, 139, 230, 0.1);
+}
+

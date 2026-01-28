@@ -165,3 +165,87 @@ button,
         flex-direction: column;
     }
 }
+.status-form {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.status-form label {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.order-table th,
+.order-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.order-table th {
+    background: #f5f7fb;
+    font-weight: 600;
+}
+
+.card p {
+    margin-bottom: 6px;
+}
+/* ===== PRODUCT IMAGE ===== */
+.product-thumb {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background: #fafafa;
+}
+
+/* ===== ORDER TABLE ===== */
+.order-table th,
+.order-table td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.order-table td:nth-child(2) {
+    text-align: left;
+    font-weight: 500;
+}
+
+/* ===== STATUS FORM ===== */
+.status-form {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.status-form select {
+    min-width: 180px;
+}
+
+/* ===== CARD TITLE ===== */
+.card h3 {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.card h3::before {
+    content: "•";
+    color: #4caf50;
+    font-size: 22px;
+}
+
+/* ===== INFO TEXT ===== */
+.card p {
+    font-size: 14px;
+    color: #444;
+}

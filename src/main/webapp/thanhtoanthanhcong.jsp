@@ -44,7 +44,7 @@
         <h3>Tóm tắt đơn hàng</h3>
         <c:forEach var="item" items="${orderItems}">
             <div class="product-item">
-                <img src="${item.thumbnail}" alt="${item.productName}" class="product-img"/>
+<%--                <img src="${item.thumbnail}" alt="${item.productName}" class="product-img"/>--%>
 
                 <div class="product-info">
                     <b>${item.productName}</b><br>
