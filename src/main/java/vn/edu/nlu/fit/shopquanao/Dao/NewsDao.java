@@ -182,4 +182,10 @@ public class NewsDao extends BaseDao {
         int total = getTotalNewsCount();
         return (int) Math.ceil((double) total / pageSize);
     }
+    public List<News> getAllNews() {
+        return getJdbi().withHandle(h ->
+                h.createQuery("SELECT * FROM news ORDER BY created_at DESC").mapToBean(News.class).list()
+        );
+    }
+
 }
