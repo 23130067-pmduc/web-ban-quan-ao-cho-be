@@ -39,7 +39,7 @@ public class loginController extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        // ===== VALIDATE =====
+        // 1. Validate
         if (username == null || password == null
                 || username.trim().isEmpty()
                 || password.trim().isEmpty()) {
@@ -49,8 +49,10 @@ public class loginController extends HttpServlet {
             return;
         }
 
+        // 2. Login
         User user = userService.login(username, password);
 
+        // 3. Sai tài khoản / mật khẩu
         if (user == null) {
             request.setAttribute("error", "Tài khoản hoặc mật khẩu không đúng");
             request.setAttribute("username", username);
@@ -58,6 +60,19 @@ public class loginController extends HttpServlet {
             return;
         }
 
+        if (user.getStatus() == null) {
+            request.setAttribute("error", "Tài khoản chưa được kích hoạt");
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            return;
+        }
+        //Khóa block
+        if ("BLOCKED".equalsIgnoreCase(user.getStatus())) {
+            request.setAttribute("error", "Tài khoản đã bị khóa");
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            return;
+        }
+
+        // 5. Check OTP
         if (user.getIsActive() == 0) {
             request.setAttribute("error", "Tài khoản chưa xác nhận OTP. Vui lòng kiểm tra email.");
             request.setAttribute("username", username);
@@ -65,22 +80,15 @@ public class loginController extends HttpServlet {
             return;
         }
 
-        // ===== RESET SESSION CŨ =====
         HttpSession oldSession = request.getSession(false);
         if (oldSession != null) {
             oldSession.invalidate();
         }
 
-        // ===== TẠO SESSION MỚI (QUAN TRỌNG) =====
         HttpSession session = request.getSession(true);
-
-        // 🔥 BẮT BUỘC: LƯU userId
         session.setAttribute("userId", user.getId());
-
-        // giữ user object cho profile, header
         session.setAttribute("userlogin", user);
 
-        // ====== CART LOGIC ======
         Integer cartId = cartDao.findCartIdByUser(user.getId());
         if (cartId == null) {
             cartId = cartDao.createCart(user.getId());
@@ -89,7 +97,6 @@ public class loginController extends HttpServlet {
         int cartSize = new CartItemDao().countTotalQuantity(cartId);
         session.setAttribute("cartSize", cartSize);
 
-        // ===== REDIRECT =====
         if ("admin".equalsIgnoreCase(user.getRole())) {
             response.sendRedirect(request.getContextPath() + "/admin.jsp");
         } else {

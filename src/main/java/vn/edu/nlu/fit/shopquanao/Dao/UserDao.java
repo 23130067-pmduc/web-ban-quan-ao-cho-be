@@ -42,8 +42,8 @@ public class UserDao extends BaseDao {
                                   String otp, LocalDateTime expiredAt) {
         getJdbi().withHandle(h ->
                 h.createUpdate(
-                                "INSERT INTO users(username,email,password,otp_code,otp_expired_at,is_active) " +
-                                        "VALUES (:u,:e,:p,:otp,:exp,0)"
+                                "INSERT INTO users(username,email,password,otp_code,otp_expired_at,is_active,status) " +
+                                        "VALUES (:u,:e,:p,:otp,:exp,0,'PENDING')"
                         )
                         .bind("u", username)
                         .bind("e", email)
@@ -58,7 +58,7 @@ public class UserDao extends BaseDao {
     public boolean verifyOtp(String email, String otp) {
         return getJdbi().withHandle(h ->
                 h.createUpdate(
-                                "UPDATE users SET is_active=1, otp_code=NULL, otp_expired_at=NULL " +
+                                "UPDATE users SET is_active=1, status = 'ACTIVE',otp_code=NULL, otp_expired_at=NULL " +
                                         "WHERE email=:e AND otp_code=:otp AND otp_expired_at > NOW()"
                         )
                         .bind("e", email)
@@ -269,6 +269,23 @@ public class UserDao extends BaseDao {
                         .bind("id", id)
                         .execute()
         );
+    }
+    public boolean existsByUsername(String username) {
+        return getJdbi().withHandle(h ->
+                h.createQuery("SELECT COUNT(*) FROM users WHERE username = :u")
+                        .bind("u", username)
+                        .mapTo(int.class)
+                        .one()
+        ) > 0;
+    }
+
+    public boolean existsByEmail(String email) {
+        return getJdbi().withHandle(h ->
+                h.createQuery("SELECT COUNT(*) FROM users WHERE email = :e")
+                        .bind("e", email)
+                        .mapTo(int.class)
+                        .one()
+        ) > 0;
     }
 
 }
