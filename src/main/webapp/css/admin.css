@@ -126,21 +126,23 @@ body, .admin {
 .topbar h1 {
     font-size: 26px;
     color: #333;
+    font-weight: 700;
 }
 
 #logout {
     padding: 10px 20px;
     border: none;
     border-radius: 8px;
-    background: #ff6b6b;
+    background: #ff0000;
     color: white;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 700;
+    text-decoration: none;
     transition: all 0.3s;
 }
 
 #logout:hover {
-    background: #ff5252;
+    background: #cc0000;
     transform: scale(1.05);
 }
 
@@ -392,20 +394,24 @@ body, .admin {
 }
 
 .logout-btn {
-    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+    background: #ff0000;
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 8px;
     cursor: pointer;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
     transition: all 0.3s;
 }
 
 .logout-btn:hover {
+    background: #cc0000;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+    text-decoration: none;
 }
 
 @keyframes slideIn {

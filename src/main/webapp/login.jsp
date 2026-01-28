@@ -15,9 +15,17 @@
    <section class="login-container">
        <%
            String error = (String) request.getAttribute("error");
-           if(error==null) error="";
+           String errorParam = request.getParameter("error");
+           if(error == null && errorParam != null) {
+               if("require_login".equals(errorParam)) {
+                   error = "Vui lòng đăng nhập bằng tài khoản Admin để truy cập trang quản trị!";
+               } else if("access_denied".equals(errorParam)) {
+                   error = "Truy cập bị từ chối!";
+               }
+           }
+           if(error == null) error = "";
            String username = request.getParameter("username");
-           if(username==null) username="";
+           if(username == null) username = "";
        %>
     <div class="login-box">
       <a href="trangchu.jsp">

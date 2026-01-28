@@ -19,17 +19,15 @@
         <p>ADMIN</p>
 
         <div class="nav" id="menu">
-            <div class="nav" id="menu">
-                <a href="dashboard" class="nav-item">Dashboard</a>
-                <a href="sanpham.jsp" class="nav-item">Sản phẩm</a>
-                <a href="order-admin" class="nav-item active">Đơn hàng</a>
-                <a href="user-admin" class="nav-item">Người dùng</a>
-                <a href="magiamgia" class="nav-item">Mã giãm giá</a>
-                <a href="banner-admin" class="nav-item">Banner</a>
-                <a href="news-admin" class="nav-item">Tin tức</a>
-                <a href="contact-admin" class="nav-item">Liên hệ</a>
-                <a href="settings.jsp" class="nav-item">Cài đặt</a>
-            </div>
+            <a href="dashboard" class="nav-item">Dashboard</a>
+            <a href="product-admin" class="nav-item">Sản phẩm</a>
+            <a href="category-admin" class="nav-item">Danh mục</a>
+            <a href="order-admin" class="nav-item">Đơn hàng</a>
+            <a href="user-admin" class="nav-item">Người dùng</a>
+            <a href="banner-admin" class="nav-item active">Banner</a>
+            <a href="news-admin" class="nav-item">Tin tức</a>
+            <a href="contact-admin" class="nav-item">Liên hệ</a>
+        </div>
     </aside>
 
     <section class="content">
@@ -37,7 +35,7 @@
         <header class="topbar">
             <h1 id="pageTitle">Banner</h1>
             <div class="actions">
-                <button id="logout">Đăng xuất</button>
+                <a href="${pageContext.request.contextPath}/logout" class="logout-btn">Đăng xuất</a>
             </div>
         </header>
 
@@ -90,19 +88,25 @@
                                     </c:choose>
                                 </td>
                                 <td class="actions">
+                                    <!-- XEM -->
+                                    <a href="banner-admin?mode=view&id=${b.id}"
+                                       class="icon-btn view" title="Xem chi tiết">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+
+                                    <!-- SỬA -->
                                     <a href="banner-admin?mode=edit&id=${b.id}"
                                        class="icon-btn edit" title="Chỉnh sửa">
                                         <i class="fa fa-pen"></i>
                                     </a>
 
-                                    <c:if test="${b.status}">
-                                        <button type="button"
-                                                class="icon-btn delete"
-                                                title="Tắt banner"
-                                                onclick="openConfirmModal(${b.id})">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                    </c:if>
+                                    <!-- XÓA MỀM -->
+                                    <button type="button"
+                                            class="icon-btn delete"
+                                            title="Xóa banner"
+                                            onclick="openDeleteModal(${b.id}, '${b.title}')">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
                                 </td>
 
                             </tr>
@@ -114,19 +118,19 @@
             </section>
         </main>
     </section>
-    <!-- MODAL CONFIRM -->
-    <div id="confirmModal" class="modal-overlay">
+    <!-- MODAL XÓA -->
+    <div id="deleteModal" class="modal-overlay">
         <div class="modal">
-            <h3>Xác nhận</h3>
-            <p>Bạn có chắc muốn <b>tắt banner</b> này không?</p>
+            <h3>Xác nhận xóa</h3>
+            <p id="deleteMessage">Bạn có chắc muốn xóa banner này không?</p>
 
-            <form id="confirmForm" method="post" action="banner-admin">
-                <input type="hidden" name="action" value="block">
-                <input type="hidden" name="id" id="confirmUserId">
+            <form id="deleteForm" method="post" action="banner-admin">
+                <input type="hidden" name="action" value="delete">
+                <input type="hidden" name="id" id="deleteBannerId">
 
                 <div class="modal-actions">
-                    <button type="button" class="btn-secondary" onclick="closeModal()">Hủy</button>
-                    <button type="submit" class="btn-danger">Tắt</button>
+                    <button type="button" class="btn-secondary" onclick="closeDeleteModal()">Hủy</button>
+                    <button type="submit" class="btn-danger">Xóa</button>
                 </div>
             </form>
         </div>
@@ -135,9 +139,15 @@
 
 </body>
 <script>
-    function openConfirmModal(userId) {
-        document.getElementById("confirmUserId").value = userId;
-        document.getElementById("confirmModal").style.display = "flex";
+    function openDeleteModal(id, title) {
+        document.getElementById("deleteBannerId").value = id;
+        document.getElementById("deleteMessage").innerHTML = 
+            'Bạn có chắc muốn xóa banner "<b>' + title + '</b>" không?';
+        document.getElementById("deleteModal").style.display = "flex";
+    }
+
+    function closeDeleteModal() {
+        document.getElementById("deleteModal").style.display = "none";
     }
 
     function closeModal() {

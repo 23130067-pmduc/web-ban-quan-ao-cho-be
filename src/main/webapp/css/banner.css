@@ -101,22 +101,26 @@ body, .admin {
 .topbar h1 {
     font-size: 26px;
     color: #333;
+    font-weight: 700;
 }
 
 #logout {
     padding: 10px 20px;
     border: none;
     border-radius: 8px;
-    background: #ff6b6b;
+    background: #ff0000;
     color: white;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
     transition: all 0.3s;
 }
 
 #logout:hover {
-    background: #ff5252;
+    background: #cc0000;
     transform: scale(1.05);
+    text-decoration: none;
 }
 
 .cards {
@@ -230,14 +234,17 @@ body, .admin {
     font-size: 16px;
     padding: 6px;
     border-radius: 6px;
+    color: red;
 }
 
 .icon-btn.view {
-    color: #228be6;
+    color: green;
+    text-decoration: none;
 }
 
 .icon-btn.edit {
     color: #2f9e44;
+    text-decoration: none;
 }
 
 .icon-btn:hover {

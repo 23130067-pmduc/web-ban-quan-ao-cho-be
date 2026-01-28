@@ -19,17 +19,14 @@
         <p>ADMIN</p>
 
         <div class="nav" id="menu">
-            <div class="nav" id="menu">
-                <a href="dashboard" class="nav-item">Dashboard</a>
-                <a href="sanpham.jsp" class="nav-item">Sản phẩm</a>
-                <a href="order-admin" class="nav-item">Đơn hàng</a>
-                <a href="user-admin" class="nav-item">Người dùng</a>
-                <a href="magiamgia" class="nav-item">Mã giãm giá</a>
-                <a href="banner-admin" class="nav-item">Banner</a>
-                <a href="news-admin" class="nav-item active">Tin tức</a>
-                <a href="contact-admin" class="nav-item">Liên hệ</a>
-                <a href="settings.jsp" class="nav-item">Cài đặt</a>
-            </div>
+            <a href="dashboard" class="nav-item">Dashboard</a>
+            <a href="product-admin" class="nav-item">Sản phẩm</a>
+            <a href="category-admin" class="nav-item">Danh mục</a>
+            <a href="order-admin" class="nav-item">Đơn hàng</a>
+            <a href="user-admin" class="nav-item">Người dùng</a>
+            <a href="banner-admin" class="nav-item">Banner</a>
+            <a href="news-admin" class="nav-item active">Tin tức</a>
+            <a href="contact-admin" class="nav-item">Liên hệ</a>
         </div>
     </aside>
 
@@ -38,7 +35,7 @@
         <header class="topbar">
             <h1 id="pageTitle">Tin tức</h1>
             <div class="actions">
-                <a href="logout" id="logout">Đăng xuất</a>
+                <a href="${pageContext.request.contextPath}/logout" class="logout-btn">Đăng xuất</a>
             </div>
         </header>
 
@@ -93,14 +90,27 @@
                                         </c:otherwise>
                                     </c:choose>
                                 </td>
-                                <td>
-                                    <a href="news-admin?mode=edit&id=${n.id}" class="icon-btn edit">
+                                <td class="actions">
+                                    <!-- XEM -->
+                                    <a href="news-admin?mode=view&id=${n.id}"
+                                       class="icon-btn view" title="Xem chi tiết">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+
+                                    <!-- SỬA -->
+                                    <a href="news-admin?mode=edit&id=${n.id}"
+                                       class="icon-btn edit" title="Chỉnh sửa">
                                         <i class="fa fa-pen"></i>
                                     </a>
-                                    <a href="news-admin?action=delete&id=${n.id}"
-                                       onclick="return confirm('Xóa tin này?')"
-                                       class="icon-btn delete">
+
+                                    <!-- XÓA MỀM -->
+                                    <button type="button"
+                                            class="icon-btn delete"
+                                            title="Xóa tin tức"
+                                            onclick="openDeleteModal(${n.id}, '${n.title}')">
                                         <i class="fa fa-trash"></i>
+                                    </button>
+                                </td>
                                     </a>
                                 </td>
                             </tr>
@@ -112,18 +122,19 @@
         </main>
     </section>
 
-    <div id="confirmModal" class="modal-overlay">
+    <!-- MODAL XÓA -->
+    <div id="deleteModal" class="modal-overlay">
         <div class="modal">
-            <h3>Xác nhận</h3>
-            <p>Bạn có chắc muốn <b>tắt tin</b> này không?</p>
+            <h3>Xác nhận xóa</h3>
+            <p id="deleteMessage">Bạn có chắc muốn xóa tin tức này không?</p>
 
-            <form id="confirmForm" method="post" action="news-admin">
-                <input type="hidden" name="action" value="block">
-                <input type="hidden" name="id" id="confirmUserId">
+            <form id="deleteForm" method="post" action="news-admin">
+                <input type="hidden" name="action" value="delete">
+                <input type="hidden" name="id" id="deleteNewsId">
 
                 <div class="modal-actions">
-                    <button type="button" class="btn-secondary" onclick="closeModal()">Hủy</button>
-                    <button type="submit" class="btn-danger">Tắt</button>
+                    <button type="button" class="btn-secondary" onclick="closeDeleteModal()">Hủy</button>
+                    <button type="submit" class="btn-danger">Xóa</button>
                 </div>
             </form>
         </div>
@@ -131,6 +142,18 @@
 </div>
 
 </body>
+<script>
+    function openDeleteModal(id, title) {
+        document.getElementById("deleteNewsId").value = id;
+        document.getElementById("deleteMessage").innerHTML = 
+            'Bạn có chắc muốn xóa tin tức "<b>' + title + '</b>" không?';
+        document.getElementById("deleteModal").style.display = "flex";
+    }
+
+    function closeDeleteModal() {
+        document.getElementById("deleteModal").style.display = "none";
+    }
+</script>
 <script>
     function openConfirmModal(userId) {
         document.getElementById("confirmUserId").value = userId;
