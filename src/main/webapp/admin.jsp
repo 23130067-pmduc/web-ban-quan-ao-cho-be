@@ -1,25 +1,37 @@
-<%@ page contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <title>Admin</title>
-    <link rel="stylesheet" href="./css/admin.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
+
 <div class="admin">
 
-    <!-- THANH CÔNG CỤ -->
-
+    <!-- ===== SIDEBAR ===== -->
     <aside class="sidebar">
-        <img src="../img/gau.jpg" alt=""Logo>
+        <img src="img/gau.jpg" alt="Logo">
         <p>ADMIN</p>
 
-        <div class="nav" id="menu">
-            <button data-page="dashboard">DashBoard</button>
+        <div class="nav">
+            <button data-page="dashboard"
+                    class="${empty page || page == 'dashboard' ? 'active' : ''}">
+                DashBoard
+            </button>
+
             <button data-page="doanhthu">Doanh thu</button>
-            <button data-page="sanpham">Sản phẩm</button>
+
+            <a class="menu-link ${page == 'product' ? 'active' : ''}"
+               href="${pageContext.request.contextPath}/product-admin">
+                Sản phẩm
+            </a>
+
             <button data-page="donhang">Đơn hàng</button>
             <button data-page="khachhang">Khách hàng</button>
             <button data-page="magiamgia">Mã giảm giá</button>
@@ -27,401 +39,206 @@
         </div>
     </aside>
 
-
-    <!-- PHẦN NỘI DUNG -->
+    <!-- ===== CONTENT ===== -->
     <section class="content">
-        <!-- PHẦN HEADER -->
-        <header class="topbar" style="display: none;">
-            <h1 id="pageTitle">DashBoard</h1>
-            <div class="actions">
-                <button id="logout">Đăng xuất</button>
-            </div>
-        </header>
 
+        <main>
 
-        <!-- PHẦN MAIN -->
-        <main id="page">
-            <!-- DASHBROAD -->
-            <section id="dashboard" class="page active">
+            <!-- ================= DASHBOARD ================= -->
+
+            <section class="page ${empty page || page == 'dashboard' ? 'active' : ''}">
                 <div class="page-header">
-                    <h1>DashBoard</h1>
-                    <button id="logout" class="logout-btn">Đăng xuất</button>
-                </div>
-                <div class="cards">
-                    <div class="card">Tổng sản phẩm<br><span id="dashboard-total-products">0</span></div>
-                    <div class="card">Đơn hàng<br><span id="dashboard-total-orders">0</span></div>
-                    <div class="card">Khách hàng<br><span id="dashboard-total-customers">0</span></div>
-                    <div class="card">Doanh thu<br><span id="dashboard-total-revenue">0₫</span></div>
+                    <h1>Dashboard</h1>
+                    <button class="logout-btn">Đăng xuất</button>
                 </div>
             </section>
 
-            <!-- DOANH THU -->
-            <section id="doanhthu" class="page">
+            <!-- ================= PRODUCT ================= -->
+            <section id="product" class="page ${page == 'product' ? 'active' : ''}">
+
+                <!-- HEADER -->
                 <div class="page-header">
-                    <h1>Doanh thu</h1>
+                    <h1>Quản lý sản phẩm</h1>
                     <button class="logout-btn">Đăng xuất</button>
                 </div>
+
+                <!-- CARDS -->
                 <div class="cards">
-                    <div class="card">Doanh thu hôm nay<br>
-                        <span id="revenue-today">0₫</span>
+                    <div class="card">
+                        Tổng sản phẩm
+                        <span>${totalProducts}</span>
                     </div>
-                    <div class="card">Doanh thu tuần này<br>
-                        <span id="revenue-week">0₫</span>
+                    <div class="card">
+                        Sản phẩm mới / tuần
+                        <span>0</span>
                     </div>
-                    <div class="card">Doanh thu tháng này<br>
-                        <span id="revenue-month">0₫</span>
+                    <div class="card">
+                        Đang bán
+                        <span>0</span>
                     </div>
-                    <div class="card">Tổng doanh thu<br>
-                        <span id="revenue-total">0₫</span>
-                    </div>
-                </div>
-
-                <div class="revenue-filters">
-                    <h3>Lọc theo thời gian</h3>
-                    <div class="filter-group">
-                        <label>Từ ngày: <input type="date" id="revenue-from-date"></label>
-                        <label>Đến ngày: <input type="date" id="revenue-to-date"></label>
-                        <button id="filter-revenue">Lọc</button>
-                        <button id="reset-revenue-filter">Đặt lại</button>
+                    <div class="card">
+                        Ngừng bán
+                        <span>0</span>
                     </div>
                 </div>
 
-                <div class="revenue-chart">
-                    <h3>Biểu đồ doanh thu</h3>
-                    <div class="chart-container">
-                    </div>
+                <!-- TOOLBAR -->
+                <div class="user-toolbar">
+                    <form method="post"
+                          action="${pageContext.request.contextPath}/product-admin"
+                          class="user-toolbar">
+                        <input type="hidden" name="action" value="search">
+                        <input type="text" name="keyword"
+                               placeholder="Tìm theo tên sản phẩm...">
+                        <button type="submit" class="btn-search">
+                            <i class="fa fa-search"></i> Tìm
+                        </button>
+                    </form>
+
+                    <button class="btn-add">
+                        <i class="fa fa-plus"></i> Thêm sản phẩm
+                    </button>
                 </div>
 
-                <div class="revenue-details">
-                    <h3>Chi tiết doanh thu theo đơn hàng</h3>
-                    <table class="table" id="revenue-table">
+                <!-- TABLE WRAPPER -->
+                <div class="user-table-wrapper">
+                    <table class="user-table">
                         <thead>
                         <tr>
-                            <th>Mã đơn hàng</th>
-                            <th>Ngày</th>
-                            <th>Khách hàng</th>
-                            <th>Sản phẩm</th>
+                            <th>ID</th>
+                            <th>Ảnh</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Giá</th>
+                            <th>Danh mục</th>
                             <th>Trạng thái</th>
-                            <th>Doanh thu</th>
+                            <th>Hành động</th>
                         </tr>
                         </thead>
-                        <tbody></tbody>
+
+                        <tbody>
+                        <c:forEach var="p" items="${products}">
+                            <tr>
+                                <td>${p.id}</td>
+
+                                <td>
+                                    <img src="${p.thumbnail}" alt="${p.name}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;">
+                                </td>
+
+                                <td>${p.name}</td>
+
+                                <td>
+                                    <fmt:formatNumber value="${p.price}" type="number"/> đ
+                                </td>
+
+                                <td>${p.categoryName}</td>
+
+                                <td>
+                                    <span class="status active">
+                                        ${p.status}
+                                    </span>
+                                </td>
+
+                                <td class="action-buttons">
+
+                                    <!-- XEM -->
+                                    <button class="btn-view"
+                                            title="Xem chi tiết"
+                                            onclick="viewProduct(${p.id})">
+                                        <i class="fa fa-eye"></i>
+                                    </button>
+
+
+                                    <!-- SỬA -->
+                                    <button class="btn-edit"
+                                            onclick='openEditModal({
+                                                    id:${p.id},
+                                                    name:"${p.name}",
+                                                    price:${p.price},
+                                                    category_id:${p.category_id},
+                                                    thumbnail:"${p.thumbnail}",
+                                                    status:"${p.status}"
+                                                    })'>
+                                        ✏
+                                    </button>
+
+
+                                    <!-- XOÁ (ẩn trong DB) -->
+                                    <form method="post"
+                                          action="${pageContext.request.contextPath}/product-admin"
+                                          style="display:inline">
+                                        <input type="hidden" name="action" value="delete">
+                                        <input type="hidden" name="id" value="${p.id}">
+                                        <button type="submit" class="btn-delete" title="Xoá">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </form>
+
+                                </td>
+
+                            </tr>
+                        </c:forEach>
+                        </tbody>
                     </table>
                 </div>
+                <!-- ================= END PRODUCT LIST ================= -->
+
             </section>
 
-            <!-- SẢN PHẨM -->
-            <section id="sanpham" class="page">
-                <div class="page-header">
-                    <h1>Sản phẩm</h1>
-                    <button class="logout-btn">Đăng xuất</button>
-                </div>
-                <div class="cards">
-                    <div class="card">Tổng sản phẩm<br>
-                        <span id="total-products">0</span>
-                    </div>
-                    <div class="card">Sản phẩm còn hàng<br>
-                        <span id="in-stock">0</span>
-                    </div>
-                    <div class="card">Sản phẩm hết hàng<br>
-                        <span id="out-of-stock">0</span>
-                    </div>
-                </div>
-                <div class="toolbar">
-                    <button id="add-product">Thêm sản phẩm</button>
-                    <input type="text" id="search" placeholder="Tìm sản phẩm...">
-                </div>
-
-                <table class="table" id="products-table">
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Ảnh</th>
-                        <th data-sort="name">Tên ⇅</th>
-                        <th data-sort="price">Giá ⇅</th>
-                        <th data-sort="category">Loại ⇅</th>
-                        <th data-sort="purchases">Lượt mua ⇅</th>
-                        <th>Trạng thái</th>
-                        <th>Hành động</th>
-                    </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </section>
-
-            <!-- ĐƠN HÀNG -->
-            <section id="donhang" class="page">
-                <div class="page-header">
-                    <h1>Đơn hàng</h1>
-                    <button class="logout-btn">Đăng xuất</button>
-                </div>
-                <div class="cards">
-                    <div class="card">Tổng đơn hàng<br>
-                        <span id="total-orders">0</span>
-                    </div>
-                    <div class="card">Đơn đang xử lý<br>
-                        <span id="pending-orders">0</span>
-                    </div>
-                    <div class="card">Đơn hoàn thành<br>
-                        <span id="completed-orders">0</span>
-                    </div>
-                </div>
-                <div class="toolbar">
-                    <button id="add-order">Thêm đơn hàng</button>
-                    <input type="text" id="search-donhang" placeholder="Tìm đơn hàng...">
-                </div>
-
-                <table class="table" id="donhang-table">
-                    <thead>
-                    <tr>
-                        <th>Mã đơn hàng</th>
-                        <th>Mã khách hàng</th>
-                        <th>Tên khách hàng</th>
-                        <th>Email</th>
-                        <th>Số điện thoại</th>
-                        <th>Ngày đặt hàng</th>
-                        <th>Trạng thái đơn hàng</th>
-                        <th>Tổng tiền</th>
-                    </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </section>
-
-
-
-            <!-- KHÁCH HÀNG -->
-            <section id="khachhang" class="page">
-                <div class="page-header">
-                    <h1>Khách hàng</h1>
-                    <button class="logout-btn">Đăng xuất</button>
-                </div>
-                <div class="cards">
-                    <div class="card">Tổng khách hàng<br>
-                        <span id="total-customers">0</span>
-                    </div>
-                    <div class="card">Khách hàng mới trong tuần<br>
-                        <span id="new-customers-week">0</span>
-                    </div>
-                    <div class="card">Khách hàng thân thiết<br>
-                        <span id="vip-customers">0</span>
-                    </div>
-                </div>
-                <div class="toolbar">
-                    <button id="add-customer">Thêm khách hàng</button>
-                    <input type="text" id="search-khachhang" placeholder="Tìm khách hàng...">
-                </div>
-
-                <table class="table" id="khachhang-table">
-                    <thead>
-                    <tr>
-                        <th>Mã khách hàng</th>
-                        <th>Tên</th>
-                        <th>Email</th>
-                        <th>Số điện thoại</th>
-                        <th>Ngày đăng ký</th>
-                        <th>Số đơn hàng</th>
-                        <th>Trạng thái hoạt động</th>
-                    </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </section>
-
-
-
-            <!-- MÃ GIẢM GIÁ -->
-            <section id="magiamgia" class="page">
-                <div class="page-header">
-                    <h1>Mã giảm giá</h1>
-                    <button class="logout-btn">Đăng xuất</button>
-                </div>
-                <div class="cards">
-                    <div class="card">Tổng mã giảm giá<br>
-                        <span id="total-discounts">0</span>
-                    </div>
-                    <div class="card">Mã đang hoạt động<br>
-                        <span id="active-discounts">0</span>
-                    </div>
-                    <div class="card">Mã hết hạn<br>
-                        <span id="expired-discounts">0</span>
-                    </div>
-                </div>
-                <div class="toolbar">
-                    <button id="add-discount">Thêm mã giảm giá</button>
-                    <input type="text" id="search-discount" placeholder="Tìm mã giảm giá...">
-                </div>
-
-                <table class="table" id="discount-table">
-                    <thead>
-                    <tr>
-                        <th>Mã giảm giá</th>
-                        <th>Mức giảm (%)</th>
-                        <th>Ngày bắt đầu</th>
-                        <th>Ngày kết thúc</th>
-                        <th>Số lượng sử dụng</th>
-                        <th>Trạng thái</th>
-                        <th>Hành động</th>
-                    </tr>
-                    </thead>
-                    <tbody id="discounts-table"></tbody>
-                </table>
-            </section>
-
-
-
-            <!-- CÀI ĐẶT -->
-            <section id="caidat" class="page">
-                <div class="page-header">
-                    <h1>Cài đặt</h1>
-                    <button class="logout-btn">Đăng xuất</button>
-                </div>
-
-                <div class="settings-section">
-                    <h3>Thông tin cửa hàng</h3>
-                    <label>Tên cửa hàng: <input type="text" id="shop-name" value="SuunyBear Kids Clothongs"></label>
-                    <label>Email: <input type="email" id="shop-email" value="contact@sunnybear.vn"></label>
-                    <label>Số điện thoại: <input type="text" id="shop-phone" value="0909 999 999"></label>
-                    <button id="save-shop-info">Lưu thay đổi</button>
-                </div>
-
-                <div class="settings-section">
-                    <h3>Giao diện admin</h3>
-                    <label>Chủ đề:
-                        <select id="theme-select">
-                            <option value="light">Sáng</option>
-                            <option value="dark">Tối</option>
-                            <option value="pastel">Màu pastel</option>
-                        </select>
-                    </label>
-                    <button id="save-theme">Lưu chủ đề</button>
-                </div>
-
-                <div class="settings-section">
-                    <h3>Bảo mật</h3>
-                    <label>Đổi mật khẩu: <input type="password" id="new-password" placeholder="Nhập mật khẩu mới"></label>
-                    <button id="change-password">Đổi mật khẩu</button>
-                </div>
-            </section>
         </main>
-
-
     </section>
-
-
-
 </div>
-
-<!-- MODAL THÊM/SỬA SẢN PHẨM -->
+<!-- ===== MODAL XEM SẢN PHẨM ===== -->
 <div class="modal-overlay" id="product-modal">
     <div class="modal">
-        <div class="modal-header">
+        <form method="post" action="${pageContext.request.contextPath}/product-admin">
+            <input type="hidden" name="action" id="modal-action">
+            <input type="hidden" name="id" id="product-id">
+
             <h3 id="modal-title">Thêm sản phẩm</h3>
-            <button class="modal-close" id="modal-close">&times;</button>
-        </div>
-        <div class="modal-body">
-            <input type="hidden" id="product-id">
 
-            <div class="form-group">
-                <label>Tên sản phẩm <span class="required">*</span></label>
-                <input type="text" id="product-name" placeholder="Nhập tên sản phẩm">
-            </div>
+            <label>Tên sản phẩm</label>
+            <input type="text" name="name" id="product-name" required>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Giá (VNĐ) <span class="required">*</span></label>
-                    <input type="number" id="product-price" placeholder="100000">
-                </div>
-                <div class="form-group">
-                    <label>Loại</label>
-                    <select id="product-category">
-                        <option value="Áo">Áo</option>
-                        <option value="Quần">Quần</option>
-                        <option value="Đầm">Đầm</option>
-                        <option value="Phụ kiện">Phụ kiện</option>
-                    </select>
-                </div>
-            </div>
+            <label>Giá</label>
+            <input type="number" name="price" id="product-price" required>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Lượt mua</label>
-                    <input type="number" id="product-purchases" value="0">
-                </div>
-                <div class="form-group">
-                    <label>Trạng thái</label>
-                    <select id="product-status">
-                        <option value="Còn hàng">Còn hàng</option>
-                        <option value="Hết hàng">Hết hàng</option>
-                    </select>
-                </div>
-            </div>
+            <label>Danh mục</label>
+            <select name="category_id" id="product-category">
+                <c:forEach var="c" items="${categories}">
+                    <option value="${c.id}">${c.name}</option>
+                </c:forEach>
+            </select>
 
-            <div class="form-group">
-                <label>Ảnh (URL)</label>
-                <input type="text" id="product-image" placeholder="https://example.com/image.jpg">
+            <label>Ảnh </label>
+            <input type="text" name="thumbnail" id="product-thumbnail">
+
+            <label>Trạng thái</label>
+            <select name="status" id="product-status">
+                <option value="Đang bán">Đang bán</option>
+                <option value="Ngừng bán">Ngừng bán</option>
+            </select>
+
+            <div class="modal-footer">
+                <button type="submit">Lưu</button>
+                <button type="button" onclick="closeModal()">Huỷ</button>
             </div>
-        </div>
-        <div class="modal-footer">
-            <button class="btn-cancel" id="modal-cancel">Hủy</button>
-            <button class="btn-save" id="modal-save">Lưu</button>
-        </div>
+        </form>
     </div>
 </div>
-
-<!-- MODAL THÊM MÃ GIẢM GIÁ -->
-<div class="modal-overlay" id="discount-modal">
+<div class="modal-overlay" id="view-modal">
     <div class="modal">
-        <div class="modal-header">
-            <h3>Thêm mã giảm giá</h3>
-            <button class="modal-close" id="discount-modal-close">&times;</button>
-        </div>
-        <div class="modal-body">
-            <div class="form-group">
-                <label>Mã giảm giá <span class="required">*</span></label>
-                <input type="text" id="discount-code" placeholder="VD: SUMMER2025">
-            </div>
+        <h3>Xem sản phẩm</h3>
+        <img id="vp-img" style="width:150px">
+        <p><b>Tên:</b> <span id="vp-name"></span></p>
+        <p><b>Giá:</b> <span id="vp-price"></span> đ</p>
+        <p><b>Danh mục:</b> <span id="vp-category"></span></p>
+        <p><b>Trạng thái:</b> <span id="vp-status"></span></p>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Phần trăm giảm <span class="required">*</span></label>
-                    <input type="number" id="discount-percent" placeholder="10" min="1" max="100">
-                </div>
-                <div class="form-group">
-                    <label>Số lượt sử dụng</label>
-                    <input type="number" id="discount-uses" value="0">
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Ngày bắt đầu <span class="required">*</span></label>
-                    <input type="date" id="discount-start">
-                </div>
-                <div class="form-group">
-                    <label>Ngày kết thúc <span class="required">*</span></label>
-                    <input type="date" id="discount-end">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label>Trạng thái</label>
-                <select id="discount-status">
-                    <option value="Đang hoạt động">Đang hoạt động</option>
-                    <option value="Hết hạn">Hết hạn</option>
-                    <option value="Hết lượt">Hết lượt</option>
-                </select>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button class="btn-cancel" id="discount-modal-cancel">Hủy</button>
-            <button class="btn-save" id="discount-modal-save">Lưu</button>
-        </div>
+        <button onclick="closeView()">Đóng</button>
     </div>
 </div>
 
-<script src="../javaScript/admin.js"></script>
-<script src="../javaScript/doanhthu.js"></script>
-<script src="../javaScript/product-admin.js"></script>
+<script src="javaScript/adminProduct.js.js"></script>
+
 </body>
 </html>

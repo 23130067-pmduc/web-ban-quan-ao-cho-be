@@ -12,11 +12,16 @@ public class ProductDao extends BaseDao {
      * Lấy toàn bộ sản phẩm đang bán
      */
     public List<Product> findAll() {
-        Jdbi jdbi = getJdbi();
-        return jdbi.withHandle(handle ->
-                handle.createQuery(
-                                "SELECT * FROM products WHERE status = 'Đang bán'"
-                        )
+        String sql = """
+        SELECT p.*, c.name AS categoryName
+        FROM products p
+        JOIN category_product c ON p.category_id = c.id
+        WHERE p.status <> 'Đã xoá'
+        ORDER BY p.id DESC
+    """;
+
+        return getJdbi().withHandle(h ->
+                h.createQuery(sql)
                         .mapToBean(Product.class)
                         .list()
         );
@@ -26,18 +31,19 @@ public class ProductDao extends BaseDao {
      * Lấy sản phẩm theo ID
      */
     public Product findById(int id) {
-        Jdbi jdbi = getJdbi();
-        return jdbi.withHandle(handle ->
-                handle.createQuery(
-                                "SELECT * FROM products WHERE id = :id"
-                        )
+        return getJdbi().withHandle(h ->
+                h.createQuery("""
+                SELECT p.*, c.name AS categoryName
+                FROM products p
+                JOIN category_product c ON p.category_id = c.id
+                WHERE p.id = :id
+            """)
                         .bind("id", id)
                         .mapToBean(Product.class)
                         .findOne()
                         .orElse(null)
         );
     }
-
     /**
      * Lấy sản phẩm theo category
      */
@@ -90,44 +96,24 @@ public class ProductDao extends BaseDao {
      * Tìm kiếm sản phẩm theo tên
      */
     public List<Product> searchByName(String keyword) {
-        Jdbi jdbi = getJdbi();
-        return jdbi.withHandle(handle ->
-                handle.createQuery(
-                                "SELECT * FROM products WHERE name LIKE :kw AND status = 'Đang bán'"
-                        )
+        String sql = """
+        SELECT p.*, c.name AS categoryName
+        FROM products p
+        JOIN category_product c ON p.category_id = c.id
+        WHERE p.status <> 'Đã xoá'
+        AND p.name LIKE :kw
+    """;
+
+        return getJdbi().withHandle(h ->
+                h.createQuery(sql)
                         .bind("kw", "%" + keyword + "%")
                         .mapToBean(Product.class)
                         .list()
         );
     }
 
-    /**
-     * Test method để kiểm tra kết nối database
-     */
-    public static void main(String[] args) {
-        System.out.println("=== TEST ProductDao ===");
-        ProductDao dao = new ProductDao();
-        
-        try {
-            List<Product> products = dao.findAll();
-            System.out.println("Kết nối database thành công!");
-            System.out.println("Số sản phẩm tìm thấy: " + products.size());
-            
-            if (!products.isEmpty()) {
-                Product first = products.get(0);
-                System.out.println("\nSản phẩm đầu tiên:");
-                System.out.println("  ID: " + first.getId());
-                System.out.println("  Tên: " + first.getName());
-                System.out.println("  Giá: " + first.getPrice());
-                System.out.println("  Status: " + first.getStatus());
-            }
-        } catch (Exception e) {
-            System.err.println("LỖI: " + e.getMessage());
-            e.printStackTrace();
-        }
-        
-        System.out.println("\n=== KẾT THÚC TEST ===");
-    }
+
+
     public List<Product> findBoyProducts(int limit) {
         return getJdbi().withHandle(handle ->
                 handle.createQuery("""
@@ -219,5 +205,58 @@ public class ProductDao extends BaseDao {
                         .list()
         );
     }
-    
+    public void insert(Product p) {
+        String sql = """
+        INSERT INTO products
+        (category_id, name, price, thumbnail, status)
+        VALUES (:category_id, :name, :price, :thumbnail, 'Đang bán')
+    """;
+
+        getJdbi().withHandle(h ->
+                h.createUpdate(sql)
+                        .bind("category_id", p.getCategory_id())
+                        .bind("name", p.getName())
+                        .bind("price", p.getPrice())
+                        .bind("thumbnail", p.getThumbnail())
+                        .execute()
+        );
+    }
+
+    public void update(Product p) {
+        String sql = """
+        UPDATE products
+        SET name = :name,
+            price = :price,
+            category_id = :category_id,
+            thumbnail = :thumbnail,
+            status = :status
+        WHERE id = :id
+    """;
+
+        getJdbi().withHandle(h ->
+                h.createUpdate(sql)
+                        .bind("id", p.getId())
+                        .bind("name", p.getName())
+                        .bind("price", p.getPrice())
+                        .bind("category_id", p.getCategory_id())
+                        .bind("thumbnail", p.getThumbnail())
+                        .bind("status", p.getStatus())
+                        .execute()
+        );
+    }
+
+    public void softDelete(int id) {
+        String sql = """
+        UPDATE products
+        SET status = 'Đã xoá'
+        WHERE id = :id
+    """;
+
+        getJdbi().withHandle(h ->
+                h.createUpdate(sql)
+                        .bind("id", id)
+                        .execute()
+        );
+    }
+
 }

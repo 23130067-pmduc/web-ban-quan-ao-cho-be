@@ -14,6 +14,7 @@ public class Product implements Serializable {
     private LocalDateTime created_at;
     private int views;
     private String status;
+    private String categoryName;
 
     public Product(int id, int category_id, String name, String description, double price, double
             sale_price, String thumbnail, LocalDateTime created_at, int views, String status) {
@@ -111,6 +112,14 @@ public class Product implements Serializable {
     public void setStatus(String status) {
         this.status = status;
     }
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
     public int getDiscountPercent() {
         if (sale_price <= 0 || sale_price >= price) return 0;
         return (int) Math.round((price - sale_price) * 100 / price);
