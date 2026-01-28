@@ -485,7 +485,7 @@
         max-width: calc((100% - 3 * 24px) / 4);
     }
 
-    /* ===== CATEGORY SLIDER: BÉ TRAI / GÁI / PHỤ KIỆN ===== */
+
     .category-products {
         display: flex;
         flex-wrap: nowrap;        /* 1 HÀNG DUY NHẤT */
@@ -511,6 +511,12 @@
         display: none;
     }
 
+    .category-products h3{
+        font-size: 18px;
+        color: black;
+        margin: 10px 0;
+        text-align: center;
+    }
 
 
     /* Phần . để chuyeenr sản phẩm */
