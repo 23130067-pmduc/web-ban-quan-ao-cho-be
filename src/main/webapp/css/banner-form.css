@@ -168,3 +168,23 @@ button,
     margin: 0 auto;
 }
 
+textarea[name="content"] {
+    min-height: 300px;
+}
+
+textarea[name="shortDescription"] {
+    min-height: 100px;
+}
+
+.card h3 {
+    font-size: 17px;
+    margin-bottom: 12px;
+}
+
+.preview img {
+    max-width: 100%;
+    max-height: 350px;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
