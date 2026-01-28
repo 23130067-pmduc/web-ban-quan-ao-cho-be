@@ -192,11 +192,9 @@ html, body {
     background: #c62828;
     transform: scale(1.05);
 }
-/* ========== MÔ TẢ, ĐÁNH GIÁ, GỢI Ý ========== */
 .product-description {
-    margin-top: 40px;
     border-top: 1px solid #ffffff;
-    padding-top: 30px;
+    padding-top: 10px;
     color: #333333;
     line-height: 1.6;
 }
@@ -390,6 +388,11 @@ html, body {
 
 
 }
+
+.product-description {
+    white-space: pre-line;
+}
+
 
 .suggested-item .name a{
     text-decoration: none;

@@ -19,7 +19,7 @@
             <c:forEach var="img" items="${images}">
                 <c:if test="${img.main}">
                     <img id="main-image"
-                         src="${pageContext.request.contextPath}/${img.imageUrl}"
+                         src="${img.imageUrl}"
                          alt="${product.name}">
                 </c:if>
             </c:forEach>
@@ -27,7 +27,7 @@
             <div class="image-thumbs">
                 <c:forEach var="img" items="${images}">
                     <img class="thumb ${img.main ? 'active' : ''}"
-                         src="${pageContext.request.contextPath}/${img.imageUrl}"
+                         src="${img.imageUrl}"
                          alt="${product.name}">
                 </c:forEach>
             </div>
@@ -64,7 +64,7 @@
 
             <!-- CHỌN SIZE -->
             <div class="product-sizes">
-                <p><strong>Chọn size theo cân nặng:</strong></p>
+                <p><strong>Chọn size:</strong></p>
                 <div class="size-options">
                     <c:forEach var="s" items="${sizes}">
                         <button class="size-btn"
@@ -94,7 +94,11 @@
 
     <!-- ========== MÔ TẢ + THÔNG TIN ========== -->
     <section class="product-description">
-        ${product.description}
+        <h2>Mô tả chi tiết</h2>
+        <div class="product-description">
+            ${product.description}
+        </div>
+
     </section>
 
     <!-- ========== ĐÁNH GIÁ ========== -->
