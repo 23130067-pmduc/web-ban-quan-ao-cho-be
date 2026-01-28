@@ -183,7 +183,7 @@
                 <img src="${p.thumbnail}" alt="${p.name}">
             </a>
             <h3><a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}">${p.name}</a></h3>
-            <p><a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}">${p.description}</a></p>
+
             
             <fmt:setLocale value="vi_VN"/>
             <p class="price">

@@ -87,5 +87,6 @@
 <script src="${pageContext.request.contextPath}/javaScript/loadMore.js"></script>
 <script src="${pageContext.request.contextPath}/javaScript/profile.js"></script>
 <script src="${pageContext.request.contextPath}/javaScript/chuyensanpham.js"></script>
+<script src="${pageContext.request.contextPath}/javaScript/header.js"></script>
 </body>
 </html>
