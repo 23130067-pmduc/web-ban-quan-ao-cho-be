@@ -1,16 +1,17 @@
 package vn.edu.nlu.fit.shopquanao.Controller;
-import vn.edu.nlu.fit.shopquanao.Dao.OrderItemDao;
-
-import vn.edu.nlu.fit.shopquanao.Dao.OrderDao;
-import vn.edu.nlu.fit.shopquanao.model.Order;
-import vn.edu.nlu.fit.shopquanao.model.User;
-
-import jakarta.servlet.*;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.*;
-
 import java.io.IOException;
 import java.util.List;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import vn.edu.nlu.fit.shopquanao.Dao.OrderDao;
+import vn.edu.nlu.fit.shopquanao.Dao.OrderItemDao;
+import vn.edu.nlu.fit.shopquanao.model.Order;
+import vn.edu.nlu.fit.shopquanao.model.User;
 
 @WebServlet("/don-mua")
 public class MyOrderController extends HttpServlet {
@@ -43,7 +44,12 @@ public class MyOrderController extends HttpServlet {
 
         // Gắn item cho từng order
         for (Order o : orders) {
-            o.setItems(orderItemDao.getByOrderId(o.getId()));
+            List<vn.edu.nlu.fit.shopquanao.model.OrderItem> items = orderItemDao.getByOrderId(o.getId());
+            System.out.println("Order ID: " + o.getId() + " has " + items.size() + " items");
+            for (vn.edu.nlu.fit.shopquanao.model.OrderItem item : items) {
+                System.out.println("  - Product: " + item.getProductName() + ", Thumbnail: " + item.getThumbnail());
+            }
+            o.setItems(items);
         }
 
         req.setAttribute("orders", orders);

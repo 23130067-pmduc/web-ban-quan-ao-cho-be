@@ -1,5 +1,6 @@
 package vn.edu.nlu.fit.shopquanao.Dao;
 import java.util.List;
+
 import vn.edu.nlu.fit.shopquanao.model.OrderItem;
 
 public class OrderItemDao extends BaseDao{
@@ -34,9 +35,12 @@ public class OrderItemDao extends BaseDao{
     public List<OrderItem> getByOrderId(int orderId) {
         return getJdbi().withHandle(h ->
                 h.createQuery("""
-                SELECT *
-                FROM order_items
-                WHERE order_id = :oid
+                SELECT oi.*,
+                       p.thumbnail
+                FROM order_items oi
+                LEFT JOIN product_variants pv ON oi.variant_id = pv.id
+                LEFT JOIN products p ON pv.product_id = p.id
+                WHERE oi.order_id = :oid
             """)
                         .bind("oid", orderId)
                         .mapToBean(OrderItem.class)

@@ -38,7 +38,7 @@
 
         <nav class="navbar">
             <div class="logo">
-                <img src="${pageContext.request.contextPath}/img/gau.jpg" alt="SunnyBear Logo">
+                <img src="${pageContext.request.contextPath}/img/gau.png" alt="SunnyBear Logo">
             </div>
 
             <div class="menu">
@@ -119,7 +119,7 @@
     </header>
 
     <div class="search-overlay" id="searchOverlay">
-        <img class="logo" src="./img/gau.jpg" alt="Logo">
+        <img class="logo" src="img/gau.png" alt="Logo">
 
         <div class="boxSearch">
             <form action="SearchController" method="get">

@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -43,8 +44,8 @@
                 <img src="${p.thumbnail}" alt="${p.name}">
                 <h3>${p.name}</h3>
                 <p class="price">
-                    <span class="new-price">${p.sale_price}đ</span>
-                    <span class="old-price">${p.price}đ</span>
+                    <span class="new-price"><fmt:formatNumber value="${p.sale_price}" type="number" groupingUsed="true"/>₫</span>
+                    <span class="old-price"><fmt:formatNumber value="${p.price}" type="number" groupingUsed="true"/>₫</span>
                 </p>
                 <a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}" class="btn-add">Thêm vào giỏ</a>
             </div>
@@ -64,8 +65,8 @@
                 <img src="${p.thumbnail}" alt="${p.name}">
                 <h3>${p.name}</h3>
                 <p class="price">
-                    <span class="new-price">${p.sale_price}đ</span>
-                    <span class="old-price">${p.price}đ</span>
+                    <span class="new-price"><fmt:formatNumber value="${p.sale_price}" type="number" groupingUsed="true"/>₫</span>
+                    <span class="old-price"><fmt:formatNumber value="${p.price}" type="number" groupingUsed="true"/>₫</span>
                 </p>
                 <a href="${pageContext.request.contextPath}/chi-tiet-san-pham?id=${p.id}" class="btn-add">Thêm vào giỏ</a>
             </div>

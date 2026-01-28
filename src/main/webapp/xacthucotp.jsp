@@ -16,7 +16,7 @@
 
      <!-- ====== TOP HEADER WITH LOGO & TIMER ====== -->
     <div class="top-header">
-        <img src="./img/Vietcombank_Logo.png" class="vnpay-logo">
+        <img src="img/Vietcombank_Logo.png" class="vnpay-logo">
 
         <div class="timer-top">
             Giao dịch hết hạn sau 

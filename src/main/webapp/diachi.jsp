@@ -25,7 +25,7 @@
     <div class="address-sidebar">
         <div class="user-info">
             <div class="avatar">
-                <img src="./img/aochuV.jpg" alt="Avatar">
+                <img src="img/aochuV.png" alt="Avatar">
                 <button class="change-avatar-btn">Đổi ảnh</button>
             </div>
 

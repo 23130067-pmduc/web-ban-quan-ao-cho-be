@@ -17,7 +17,7 @@
 <body>
 <div class="user">
     <aside class="sidebar">
-        <img src="./img/gau.jpg" alt=""Logo>
+        <img src="img/gau.png" alt="" Logo>
         <p>ADMIN</p>
 
         <div class="nav">

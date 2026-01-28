@@ -36,7 +36,7 @@
 
     <nav class="navbar">
         <div class="logo">
-            <img src="./img/gau.jpg" alt="SunnyBear Logo">
+            <img src="img/gau.png" alt="SunnyBear Logo">
         </div>
 
         <div class="menu">
@@ -74,7 +74,7 @@
 </header>
 <!-- Ô TÌM KIẾM ẨN -->
 <div class="search-overlay" id="searchOverlay">
-    <img class="logo" src="./img/gau.jpg" alt="Logo">
+    <img class="logo" src="img/gau.png" alt="Logo">
 
     <div class="boxSearch">
         <input type="text" placeholder="Tìm kiếm sản phẩm..."/>
@@ -90,7 +90,7 @@
     <div class="profile-sidebar">
         <div class="user-info">
             <div class="avatar">
-                <img src="./img/aochuV.jpg" alt="Avatar">
+                <img src="img/aochuV.png" alt="Avatar">
                 <button class="change-avatar-btn">Đổi ảnh</button>
             </div>
             <h3>Nguyễn Văn A</h3>
@@ -127,7 +127,7 @@
                 <div class="order-left multiple">
                     <!-- Sản phẩm 1 -->
                     <div class="single-product">
-                        <img src="./img/aox.webp" alt="sp">
+                        <img src="img/aox.webp" alt="sp">
                         <div class="order-info">
                             <h3>Áo polo in hình khủng long SunnyBear</h3>
                             <p>Phân loại: Xanh lá, 10-15kg</p>
@@ -137,7 +137,7 @@
 
                     <!-- Sản phẩm 2 (Mới thêm) -->
                     <div class="single-product">
-                        <img src="./img/xanhnhat.webp" alt="sp">
+                        <img src="img/xanhnhat.png" alt="sp">
                         <div class="order-info">
                             <h3>Áo polo in hình khủng long SunnyBear</h3>
                             <p>Phân loại: Xanh nhạt, 10-15kg</p>
@@ -223,7 +223,7 @@
 
             <div class="social-icons">
                 <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#"><img src="./img/zalo.webp" alt="Zalo"></a>
+                <a href="#"><img src="img/zalo.png" alt="Zalo"></a>
                 <a href="#"><i class="fa-brands fa-twitter"></i></a>
                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
                 <a href="#"><i class="fa-brands fa-tiktok"></i></a>

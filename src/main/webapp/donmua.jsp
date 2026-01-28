@@ -45,7 +45,7 @@
     <div class="profile-sidebar">
         <div class="user-info">
             <div class="avatar">
-                <img src="./img/aochuV.jpg" alt="Avatar">
+                <img src="img/aochuV.png" alt="Avatar">
                 <button class="change-avatar-btn">Đổi ảnh</button>
             </div>
 
@@ -102,16 +102,24 @@
 
                 <div class="order-center">
                     <div class="order-left ${fn:length(o.items) > 1 ? 'multiple' : ''}">
-                        <c:forEach var="i" items="${o.items}">
-                            <div class="single-product">
-                                <img src="./img/aox.webp">
-                                <div class="order-info">
-                                    <h3>${i.productName}</h3>
-                                    <p>Phân loại: ${i.color}, ${i.size}</p>
-                                    <p>x${i.quantity}</p>
-                                </div>
-                            </div>
-                        </c:forEach>
+                        <!-- Debug: items count = ${fn:length(o.items)} -->
+                        <c:choose>
+                            <c:when test="${empty o.items}">
+                                <p style="color:red">Không có sản phẩm trong đơn hàng này</p>
+                            </c:when>
+                            <c:otherwise>
+                                <c:forEach var="i" items="${o.items}">
+                                    <div class="single-product">
+                                        <img src="${not empty i.thumbnail ? i.thumbnail : './img/aox.webp'}" alt="${i.productName}">
+                                        <div class="order-info">
+                                            <h3>${i.productName}</h3>
+                                            <p>Phân loại: ${i.color}, ${i.size}</p>
+                                            <p>x${i.quantity}</p>
+                                        </div>
+                                    </div>
+                                </c:forEach>
+                            </c:otherwise>
+                        </c:choose>
                     </div>
 
                     <div class="order-right">
