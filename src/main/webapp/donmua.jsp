@@ -3,6 +3,21 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
+<%!
+    // Hàm chuyển đổi trạng thái sang tiếng Việt
+    public String getStatusInVietnamese(String status) {
+        if (status == null) return "Không xác định";
+        switch (status) {
+            case "PENDING": return "Chờ xác nhận";
+            case "CONFIRMED": return "Đã xác nhận";
+            case "SHIPPING": return "Đang giao hàng";
+            case "DELIVERED": return "Đã giao";
+            case "CANCELLED": return "Đã hủy";
+            default: return status;
+        }
+    }
+%>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -57,6 +72,25 @@
     <div class="profile-content">
         <h2>Đơn hàng của tôi</h2>
 
+        <!-- TAB FILTER -->
+        <div class="order-tabs">
+            <a href="don-mua?status=all" class="tab-item ${currentStatus == 'all' || empty currentStatus ? 'active' : ''}">
+                Tất cả
+            </a>
+            <a href="don-mua?status=PENDING" class="tab-item ${currentStatus == 'PENDING' ? 'active' : ''}">
+                Chờ xác nhận
+            </a>
+            <a href="don-mua?status=SHIPPING" class="tab-item ${currentStatus == 'SHIPPING' ? 'active' : ''}">
+                Đang giao hàng
+            </a>
+            <a href="don-mua?status=DELIVERED" class="tab-item ${currentStatus == 'DELIVERED' ? 'active' : ''}">
+                Đã giao
+            </a>
+            <a href="don-mua?status=CANCELLED" class="tab-item ${currentStatus == 'CANCELLED' ? 'active' : ''}">
+                Đã hủy
+            </a>
+        </div>
+
         <c:if test="${empty orders}">
             <p style="text-align:center; padding:30px; color:#888">
                 Bạn chưa có đơn hàng nào.
@@ -81,7 +115,12 @@
                     </div>
 
                     <div class="order-right">
-                        <span class="status">${o.orderStatus}</span>
+                        <span class="status">
+                            <% 
+                                vn.edu.nlu.fit.shopquanao.model.Order order = (vn.edu.nlu.fit.shopquanao.model.Order) pageContext.getAttribute("o");
+                                out.print(getStatusInVietnamese(order.getOrderStatus()));
+                            %>
+                        </span>
                         <p class="price">
                             <fmt:formatNumber value="${o.finalAmount}" type="number"/>₫
                         </p>

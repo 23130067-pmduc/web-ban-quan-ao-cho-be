@@ -62,7 +62,7 @@
                 <a href="#" class="iconUser"><i class="fa-regular fa-user"></i></a>
                 <ul class="user-dropdown">
                     <li><a href="profile.jsp"><i class="fa-solid fa-user"></i> Thông tin cá nhân</a></li>
-                    <li><a href="donmua.jsp"><i class="fa-solid fa-clipboard-list"></i> Đơn hàng của tôi</a></li>
+                    <li><a href="don-mua"><i class="fa-solid fa-clipboard-list"></i> Đơn hàng của tôi</a></li>
                     <li><a href="trangchu.jsp"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
                 </ul>
             </div>

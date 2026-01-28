@@ -1,8 +1,8 @@
 package vn.edu.nlu.fit.shopquanao.Dao;
 
-import vn.edu.nlu.fit.shopquanao.model.Order;
-
 import java.util.List;
+
+import vn.edu.nlu.fit.shopquanao.model.Order;
 
 public class OrderDao extends BaseDao{
     public int createOrder(int userId,
@@ -175,6 +175,21 @@ public class OrderDao extends BaseDao{
             ORDER BY created_at DESC
         """)
                         .bind("uid", userId)
+                        .mapToBean(Order.class)
+                        .list()
+        );
+    }
+
+    public List<Order> getByUserIdAndStatus(int userId, String status) {
+        return getJdbi().withHandle(h ->
+                h.createQuery("""
+            SELECT *
+            FROM orders
+            WHERE user_id = :uid AND order_status = :status
+            ORDER BY created_at DESC
+        """)
+                        .bind("uid", userId)
+                        .bind("status", status)
                         .mapToBean(Order.class)
                         .list()
         );

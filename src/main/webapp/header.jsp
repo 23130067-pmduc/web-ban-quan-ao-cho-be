@@ -53,7 +53,7 @@
                     </li>
                     <li><a href="tin-tuc">Tin tức</a></li>
                     <li><a href="khuyen-mai">Khuyến mãi</a></li>
-                    <li><a href="lienhe.jsp">Liên hệ</a></li>
+                    <li><a href="lien-he">Liên hệ</a></li>
                 </ul>
             </div>
 
@@ -76,7 +76,7 @@
                                 </a>
                                 <ul class="user-dropdown">
                                     <li><a href="profile">Thông tin cá nhân</a></li>
-                                    <li><a href="donmua.jsp">Đơn hàng của tôi</a></li>
+                                    <li><a href="don-mua">Đơn hàng của tôi</a></li>
                                     <li><a href="logout">Đăng xuất</a></li>
                                 </ul>
                             </div>
