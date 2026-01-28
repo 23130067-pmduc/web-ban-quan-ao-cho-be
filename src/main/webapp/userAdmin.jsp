@@ -38,7 +38,7 @@
         <header class="topbar">
             <h1 id="pageTitle">Người dùng</h1>
             <div class="actions">
-                <button id="logout">Đăng xuất</button>
+                <a href="logout" id="logout">Đăng xuất</a>
             </div>
         </header>
 

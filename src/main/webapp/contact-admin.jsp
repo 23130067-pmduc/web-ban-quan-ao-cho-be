@@ -25,12 +25,12 @@
             <div class="nav" id="menu">
                 <a href="dashboard" class="nav-item">Dashboard</a>
                 <a href="sanpham.jsp" class="nav-item">Sản phẩm</a>
-                <a href="order-admin" class="nav-item active">Đơn hàng</a>
+                <a href="order-admin" class="nav-item">Đơn hàng</a>
                 <a href="user-admin" class="nav-item">Người dùng</a>
                 <a href="magiamgia" class="nav-item">Mã giãm giá</a>
                 <a href="banner-admin" class="nav-item">Banner</a>
                 <a href="news-admin" class="nav-item">Tin tức</a>
-                <a href="contact-admin" class="nav-item">Liên hệ</a>
+                <a href="contact-admin" class="nav-item active">Liên hệ</a>
                 <a href="settings.jsp" class="nav-item">Cài đặt</a>
             </div>
         </div>
@@ -41,7 +41,7 @@
         <header class="topbar">
             <h1 id="pageTitle">Liên hệ</h1>
             <div class="actions">
-                <button id="logout">Đăng xuất</button>
+                <a href="logout" id="logout">Đăng xuất</a>
             </div>
         </header>
 
