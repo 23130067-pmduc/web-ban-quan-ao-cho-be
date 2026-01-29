@@ -90,11 +90,11 @@
                     </div>
                     <div class="card">
                         Đang bán
-                        <span>0</span>
+                        <span>${activeProducts}</span>
                     </div>
                     <div class="card">
                         Ngừng bán
-                        <span>0</span>
+                        <span>${inactiveProducts}</span>
                     </div>
                 </div>
 
