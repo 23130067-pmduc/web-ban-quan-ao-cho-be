@@ -103,7 +103,7 @@ body, .admin {
     font-weight: 700;
 }
 
-#logout {
+.logout-btn {
     padding: 10px 20px;
     border: none;
     border-radius: 8px;
@@ -114,9 +114,10 @@ body, .admin {
     text-decoration: none;
     display: inline-block;
     transition: all 0.3s;
+    font-size: 14px;
 }
 
-#logout:hover {
+.logout-btn:hover {
     background: #cc0000;
     transform: scale(1.05);
     text-decoration: none;
