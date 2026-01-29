@@ -196,9 +196,17 @@ public class ProductAdminController extends HttpServlet {
             return null;
         }
 
-        // Tạo tên file unique
-        String extension = fileName.substring(fileName.lastIndexOf("."));
+        // Lấy extension
+        String extension = "";
+        int lastDotIndex = fileName.lastIndexOf(".");
+        if (lastDotIndex > 0) {
+            extension = fileName.substring(lastDotIndex);
+        }
+
+        // Tạo tên file unique, loại bỏ ký tự đặc biệt
         String uniqueFileName = "product_" + System.currentTimeMillis() + extension;
+        // Đảm bảo tên file chỉ chứa ký tự hợp lệ
+        uniqueFileName = uniqueFileName.replaceAll("[^a-zA-Z0-9._-]", "_");
 
         // Lưu vào thư mục img
         String uploadPath = req.getServletContext().getRealPath("") + File.separator + "img";

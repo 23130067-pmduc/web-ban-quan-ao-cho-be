@@ -26,7 +26,7 @@
     </div>
 
 
-    <form method="post" action="category-admin" enctype="multipart/form-data">
+    <form method="post" action="category-admin">
 
 
         <div class="card">
@@ -62,32 +62,10 @@
 
             <div class="row">
                 <div class="col">
-                    <label>Hình ảnh</label>
-                    <input type="file" name="imageFile" accept="image/*" 
-                           onchange="previewImage(event)"
-                           ${mode == 'view' ? 'disabled' : ''}>
-                    <small style="color: #666; display: block; margin-top: 5px;">
-                        Chọn file ảnh (JPG, PNG, GIF - tối đa 10MB)
-                    </small>
-                </div>
-            </div>
-
-            <!-- Preview ảnh hiện tại hoặc ảnh mới chọn -->
-            <div class="row">
-                <div class="col">
-                    <c:if test="${not empty category.image || mode == 'add'}">
-                        <div id="image-preview-container" style="margin-top: 10px;">
-                            <c:if test="${not empty category.image}">
-                                <img id="image-preview" src="${category.image}" 
-                                     alt="Category image"
-                                     style="max-width: 300px; max-height: 300px; border-radius: 8px; border: 1px solid #ddd;">
-                            </c:if>
-                            <c:if test="${empty category.image}">
-                                <img id="image-preview" src="" alt="Preview" 
-                                     style="display: none; max-width: 300px; max-height: 300px; border-radius: 8px; border: 1px solid #ddd;">
-                            </c:if>
-                        </div>
-                    </c:if>
+                    <label>Mô tả</label>
+                    <textarea name="description" rows="4" 
+                              placeholder="Nhập mô tả danh mục..."
+                              ${mode == 'view' ? 'disabled' : ''}>${category.description}</textarea>
                 </div>
             </div>
         </div>

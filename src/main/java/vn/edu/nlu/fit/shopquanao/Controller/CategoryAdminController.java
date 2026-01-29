@@ -3,6 +3,8 @@ package vn.edu.nlu.fit.shopquanao.Controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import jakarta.servlet.ServletException;
@@ -115,7 +117,9 @@ public class CategoryAdminController extends HttpServlet {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            resp.sendRedirect(req.getContextPath() + "/category-admin?error=" + e.getMessage());
+            // Encode error message để tránh ký tự đặc biệt trong URL
+            String errorMsg = URLEncoder.encode(e.getMessage(), StandardCharsets.UTF_8);
+            resp.sendRedirect(req.getContextPath() + "/category-admin?error=" + errorMsg);
         }
     }
 
@@ -123,11 +127,11 @@ public class CategoryAdminController extends HttpServlet {
             throws ServletException, IOException {
 
         String name = req.getParameter("name");
-        String imagePath = handleFileUpload(req, "imageFile");
+        String description = req.getParameter("description");
 
         Category category = new Category();
         category.setName(name);
-        category.setImage(imagePath);
+        category.setDescription(description);
         category.setStatus(1); // 1 = Đang dùng
 
         categoryDao.insert(category);
@@ -139,20 +143,15 @@ public class CategoryAdminController extends HttpServlet {
 
         int id = Integer.parseInt(req.getParameter("id"));
         String name = req.getParameter("name");
+        String description = req.getParameter("description");
         String status = req.getParameter("status");
 
         Category category = categoryDao.findById(id);
         category.setName(name);
+        category.setDescription(description);
         if (status != null) {
             category.setStatus(status);
         }
-
-        // Xử lý ảnh mới (nếu có)
-        String newImage = handleFileUpload(req, "imageFile");
-        if (newImage != null && !newImage.isEmpty()) {
-            category.setImage(newImage);
-        }
-        // Giữ nguyên ảnh cũ nếu không upload ảnh mới
 
         categoryDao.update(category);
         resp.sendRedirect(req.getContextPath() + "/category-admin");
@@ -197,9 +196,17 @@ public class CategoryAdminController extends HttpServlet {
             return null;
         }
 
-        // Tạo tên file unique
-        String extension = fileName.substring(fileName.lastIndexOf("."));
+        // Lấy extension
+        String extension = "";
+        int lastDotIndex = fileName.lastIndexOf(".");
+        if (lastDotIndex > 0) {
+            extension = fileName.substring(lastDotIndex);
+        }
+
+        // Tạo tên file unique, loại bỏ ký tự đặc biệt
         String uniqueFileName = "category_" + System.currentTimeMillis() + extension;
+        // Đảm bảo tên file chỉ chứa ký tự hợp lệ
+        uniqueFileName = uniqueFileName.replaceAll("[^a-zA-Z0-9._-]", "_");
 
         // Lưu vào thư mục img
         String uploadPath = req.getServletContext().getRealPath("") + File.separator + "img";

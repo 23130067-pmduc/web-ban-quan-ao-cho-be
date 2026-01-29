@@ -54,7 +54,7 @@ public class ProductController extends HttpServlet {
         } else if ("begai".equals(group)) {
             products = productService.getProductsByCategories(List.of(4, 5, 6, 7, 9));
         } else if ("phukien".equals(group)) {
-            products = productService.getProductsByCategories(List.of(8, 10));
+            products = productService.getProductsByCategories(List.of(8,9, 10));
 
         } else {
             products = productService.getAllProducts();

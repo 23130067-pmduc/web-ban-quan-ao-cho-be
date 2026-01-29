@@ -281,7 +281,7 @@
                             <th>STT</th>
                             <th>ID</th>
                             <th>Tên danh mục</th>
-                            <th>Hình ảnh</th>
+                            <th>Mô tả</th>
                             <th>Trạng thái</th>
                             <th>Hành động</th>
                         </tr>
@@ -294,12 +294,11 @@
                                 <td>${c.id}</td>
                                 <td>${c.name}</td>
                                 <td>
-                                    <c:if test="${not empty c.image}">
-                                        <img src="${c.image}" alt="${c.name}"
-                                             style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;">
+                                    <c:if test="${not empty c.description}">
+                                        ${c.description}
                                     </c:if>
-                                    <c:if test="${empty c.image}">
-                                        <span style="color: #999;">Chưa có ảnh</span>
+                                    <c:if test="${empty c.description}">
+                                        <span style="color: #999;">Chưa có mô tả</span>
                                     </c:if>
                                 </td>
                                 <td>
@@ -325,7 +324,7 @@
                                     <!-- KHÓA/MỞ KHÓA -->
                                     <button class="icon-btn ${c.status == 1 ? 'delete' : 'view'}"
                                             title="${c.status == 1 ? 'Khóa danh mục' : 'Mở khóa'}"
-                                            onclick="openToggleCategoryModal(${c.id}, '${c.name}', ${c.status})">
+                                            onclick="toggleCategoryStatus(${c.id}, '${c.name}', ${c.status})">
                                         <i class="fa fa-${c.status == 1 ? 'lock' : 'unlock'}"></i>
                                     </button>
                                 </td>
@@ -343,20 +342,18 @@
 </div>
 
 <!-- ===== MODAL XÁC NHẬN KHÓA/MỞ KHÓA DANH MỤC ===== -->
-<div class="modal-overlay" id="toggle-category-modal">
-    <div class="modal">
-        <h3 id="toggle-category-title">Khóa danh mục?</h3>
-        <p id="toggle-category-message"></p>
-
-        <form method="post" action="${pageContext.request.contextPath}/category-admin">
-            <input type="hidden" name="action" value="toggle-status">
-            <input type="hidden" name="id" id="toggle-category-id">
-
-            <div class="modal-footer">
-                <button type="submit">OK</button>
-                <button type="button" onclick="closeToggleCategoryModal()">Cancel</button>
-            </div>
-        </form>
+<div class="modal-overlay" id="toggle-status-modal">
+    <div class="modal-content modal-small">
+        <div class="modal-header">
+            <h2 id="toggle-status-title">Xác nhận</h2>
+        </div>
+        <div class="modal-body">
+            <p id="toggle-status-message"></p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn-cancel" onclick="closeToggleStatusModal()">Hủy</button>
+            <button type="button" class="btn-delete" onclick="confirmToggleStatus()">Xác nhận</button>
+        </div>
     </div>
 </div>
 

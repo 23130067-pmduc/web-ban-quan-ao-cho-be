@@ -13,7 +13,7 @@ public class CategoryDao extends BaseDao {
      */
     public List<Category> findAll() {
         Jdbi jdbi = getJdbi();
-        String sql = "SELECT * FROM category_product ORDER BY id";
+        String sql = "SELECT * FROM category_product ORDER BY id DESC";
         return jdbi.withHandle(handle ->
                 handle.createQuery(sql)
                         .mapToBean(Category.class)
@@ -67,11 +67,11 @@ public class CategoryDao extends BaseDao {
     public void insert(Category category) {
         getJdbi().useHandle(handle ->
                 handle.createUpdate("""
-                INSERT INTO category_product (name, image, status)
-                VALUES (:name, :image, :status)
+                INSERT INTO category_product (name, description, status)
+                VALUES (:name, :description, :status)
             """)
                         .bind("name", category.getName())
-                        .bind("image", category.getImage())
+                        .bind("description", category.getDescription())
                         .bind("status", category.getStatus())
                         .execute()
         );
@@ -85,12 +85,14 @@ public class CategoryDao extends BaseDao {
                 handle.createUpdate("""
                 UPDATE category_product
                 SET name = :name,
-                    image = :image
+                    description = :description,
+                    status = :status
                 WHERE id = :id
             """)
                         .bind("id", category.getId())
                         .bind("name", category.getName())
-                        .bind("image", category.getImage())
+                        .bind("description", category.getDescription())
+                        .bind("status", category.getStatus())
                         .execute()
         );
     }
