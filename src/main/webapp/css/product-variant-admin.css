@@ -104,6 +104,25 @@ body, .admin {
     font-weight: 700;
 }
 
+.back-to-product-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #4caf50;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-size: 16px;
+}
+
+.back-to-product-btn:hover {
+    background: #43a047;
+    transform: scale(1.1);
+}
+
 .logout-btn {
     padding: 10px 20px;
     border: none;

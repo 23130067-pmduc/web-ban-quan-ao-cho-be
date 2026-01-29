@@ -34,7 +34,12 @@
     <section class="image-content">
         <!-- TOPBAR -->
         <header class="topbar">
-            <h1>Quản Lý Ảnh Sản Phẩm</h1>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <a href="product-admin" class="back-to-product-btn" title="Quay về quản lý sản phẩm">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <h1>Quản Lý Ảnh Sản Phẩm</h1>
+            </div>
             <div class="actions">
                 <a href="${pageContext.request.contextPath}/logout" class="logout-btn">Đăng xuất</a>
             </div>
