@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đơn hàng</title>
-    <link rel="stylesheet" href="./css/user.css">
+    <link rel="stylesheet" href="css/user.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
 
@@ -80,7 +80,13 @@
                                 <td>${o.finalAmount} đ</td>
                                 <td>
                                     <span class="order-status ${o.orderStatus}">
-                                            ${o.orderStatus}
+                                        <c:choose>
+                                            <c:when test="${o.orderStatus == 'PENDING'}">Chờ xử lý</c:when>
+                                            <c:when test="${o.orderStatus == 'SHIPPING'}">Đang giao</c:when>
+                                            <c:when test="${o.orderStatus == 'COMPLETED'}">Hoàn thành</c:when>
+                                            <c:when test="${o.orderStatus == 'CANCELLED'}">Đã hủy</c:when>
+                                            <c:otherwise>${o.orderStatus}</c:otherwise>
+                                        </c:choose>
                                     </span>
                                 </td>
 

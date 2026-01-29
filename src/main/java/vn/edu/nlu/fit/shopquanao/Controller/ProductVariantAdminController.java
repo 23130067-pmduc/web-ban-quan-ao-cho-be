@@ -1,13 +1,15 @@
 package vn.edu.nlu.fit.shopquanao.Controller;
 
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
-import vn.edu.nlu.fit.shopquanao.Service.ProductVariantService;
-import vn.edu.nlu.fit.shopquanao.model.ProductVariant;
-
 import java.io.IOException;
 import java.util.List;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import vn.edu.nlu.fit.shopquanao.Service.ProductVariantService;
+import vn.edu.nlu.fit.shopquanao.model.ProductVariant;
 
 @WebServlet(name = "ProductVariantAdminController", value = "/product-variant-admin")
 public class ProductVariantAdminController extends HttpServlet {
@@ -51,6 +53,7 @@ public class ProductVariantAdminController extends HttpServlet {
 
         if ("add".equals(mode)) {
 
+            request.setAttribute("mode", "add");
             request.setAttribute("productId", productId);
             request.setAttribute("sizes", productVariantService.getAllSizes());
             request.setAttribute("colors", productVariantService.getAllColors());
@@ -86,20 +89,44 @@ public class ProductVariantAdminController extends HttpServlet {
 
         if ("create".equals(action)) {
 
-            ProductVariant variant = new ProductVariant();
+            try {
+                ProductVariant variant = new ProductVariant();
 
-            variant.setProductId(Integer.parseInt(request.getParameter("productId")));
-            variant.setSizeId(Integer.parseInt(request.getParameter("sizeId")));
-            variant.setColorId(Integer.parseInt(request.getParameter("colorId")));
-            variant.setStock(Integer.parseInt(request.getParameter("stock")));
-            variant.setPrice(Double.parseDouble(request.getParameter("price")));
-            variant.setSalePrice(Double.parseDouble(request.getParameter("salePrice")));
+                String productIdParam = request.getParameter("productId");
+                String sizeIdParam = request.getParameter("sizeId");
+                String colorIdParam = request.getParameter("colorId");
+                String stockParam = request.getParameter("stock");
+                String priceParam = request.getParameter("price");
+                String salePriceParam = request.getParameter("salePrice");
 
-            productVariantService.createVariant(variant);
+                // Debug log
+                System.out.println("productId: " + productIdParam);
+                System.out.println("sizeId: " + sizeIdParam);
+                System.out.println("colorId: " + colorIdParam);
+                System.out.println("stock: " + stockParam);
+                System.out.println("price: " + priceParam);
+                System.out.println("salePrice: " + salePriceParam);
 
-            response.sendRedirect(
-                    "product-variant-admin?productId=" + variant.getProductId()
-            );
+                variant.setProductId(Integer.parseInt(productIdParam));
+                variant.setSizeId(Integer.parseInt(sizeIdParam));
+                variant.setColorId(Integer.parseInt(colorIdParam));
+                variant.setStock(stockParam != null && !stockParam.isEmpty() 
+                    ? Integer.parseInt(stockParam) : 0);
+                variant.setPrice(priceParam != null && !priceParam.isEmpty() 
+                    ? Double.parseDouble(priceParam) : 0.0);
+                variant.setSalePrice(salePriceParam != null && !salePriceParam.isEmpty() 
+                    ? Double.parseDouble(salePriceParam) : 0.0);
+
+                productVariantService.createVariant(variant);
+
+                response.sendRedirect(
+                        "product-variant-admin?productId=" + variant.getProductId()
+                );
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST, 
+                    "Lỗi định dạng số: " + e.getMessage());
+            }
             return;
         }
 
@@ -110,9 +137,21 @@ public class ProductVariantAdminController extends HttpServlet {
 
             variant.setId(Integer.parseInt(request.getParameter("id")));
             variant.setProductId(Integer.parseInt(request.getParameter("productId")));
-            variant.setStock(Integer.parseInt(request.getParameter("stock")));
-            variant.setPrice(Double.parseDouble(request.getParameter("price")));
-            variant.setSalePrice(Double.parseDouble(request.getParameter("salePrice")));
+            
+            // Parse stock với xử lý null/empty
+            String stockParam = request.getParameter("stock");
+            variant.setStock(stockParam != null && !stockParam.isEmpty() 
+                ? Integer.parseInt(stockParam) : 0);
+            
+            // Parse price với xử lý null/empty
+            String priceParam = request.getParameter("price");
+            variant.setPrice(priceParam != null && !priceParam.isEmpty() 
+                ? Double.parseDouble(priceParam) : 0.0);
+            
+            // Parse salePrice với xử lý null/empty
+            String salePriceParam = request.getParameter("salePrice");
+            variant.setSalePrice(salePriceParam != null && !salePriceParam.isEmpty() 
+                ? Double.parseDouble(salePriceParam) : 0.0);
 
             productVariantService.updateVariant(variant);
 

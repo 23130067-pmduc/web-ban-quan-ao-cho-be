@@ -89,9 +89,15 @@
                                     <fmt:formatNumber value="${o.totalPrice}"/>đ
                                 </td>
                                 <td>
-                    <span class="order-status ${o.orderStatus}">
-                            ${o.orderStatus}
-                    </span>
+                                    <span class="order-status ${o.orderStatus}">
+                                        <c:choose>
+                                            <c:when test="${o.orderStatus == 'PENDING'}">Chờ xử lý</c:when>
+                                            <c:when test="${o.orderStatus == 'SHIPPING'}">Đang giao</c:when>
+                                            <c:when test="${o.orderStatus == 'COMPLETED'}">Hoàn thành</c:when>
+                                            <c:when test="${o.orderStatus == 'CANCELLED'}">Đã hủy</c:when>
+                                            <c:otherwise>${o.orderStatus}</c:otherwise>
+                                        </c:choose>
+                                    </span>
                                 </td>
                             </tr>
                         </c:forEach>

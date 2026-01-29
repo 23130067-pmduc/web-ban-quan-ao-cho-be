@@ -201,8 +201,8 @@
                         </div>
                         <div class="pagination-controls">
                             <c:if test="${currentPage > 1}">
-                                <a href="?page=1" class="page-btn">« Đầu</a>
-                                <a href="?page=${currentPage - 1}" class="page-btn">‹ Trước</a>
+                                <a href="product-admin?page=1" class="page-btn">« Đầu</a>
+                                <a href="product-admin?page=${currentPage - 1}" class="page-btn">‹ Trước</a>
                             </c:if>
 
                             <c:forEach begin="1" end="${totalPages}" var="i">
@@ -211,7 +211,7 @@
                                         <span class="page-btn active">${i}</span>
                                     </c:when>
                                     <c:when test="${i == 1 || i == totalPages || (i >= currentPage - 2 && i <= currentPage + 2)}">
-                                        <a href="?page=${i}" class="page-btn">${i}</a>
+                                        <a href="product-admin?page=${i}" class="page-btn">${i}</a>
                                     </c:when>
                                     <c:when test="${i == currentPage - 3 || i == currentPage + 3}">
                                         <span class="page-btn dots">...</span>
@@ -220,8 +220,8 @@
                             </c:forEach>
 
                             <c:if test="${currentPage < totalPages}">
-                                <a href="?page=${currentPage + 1}" class="page-btn">Sau ›</a>
-                                <a href="?page=${totalPages}" class="page-btn">Cuối »</a>
+                                <a href="product-admin?page=${currentPage + 1}" class="page-btn">Sau ›</a>
+                                <a href="product-admin?page=${totalPages}" class="page-btn">Cuối »</a>
                             </c:if>
                         </div>
                     </div>

@@ -1,12 +1,14 @@
 package vn.edu.nlu.fit.shopquanao.Controller;
 
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import java.io.IOException;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import vn.edu.nlu.fit.shopquanao.Service.EmailService;
 import vn.edu.nlu.fit.shopquanao.Service.OrderService;
-
-import java.io.IOException;
 
 @WebServlet(name = "OrderAdminController", value = "/order-admin")
 public class OrderAdminController extends HttpServlet {
@@ -87,11 +89,31 @@ public class OrderAdminController extends HttpServlet {
         // 4. Update trạng thái
         orderService.updateStatus(id, newStatus);
         String userEmail = orderService.getUserEmailByOrderId(id);
+        
+        // Chuyển đổi trạng thái sang tiếng Việt
+        String statusInVietnamese;
+        switch (newStatus) {
+            case "PENDING":
+                statusInVietnamese = "Chờ xử lý";
+                break;
+            case "SHIPPING":
+                statusInVietnamese = "Đang giao";
+                break;
+            case "COMPLETED":
+                statusInVietnamese = "Hoàn thành";
+                break;
+            case "CANCELLED":
+                statusInVietnamese = "Đã hủy";
+                break;
+            default:
+                statusInVietnamese = newStatus;
+        }
+        
         // 5. Gửi mail cho user
         EmailService.sendEmail(
                 userEmail,
                 "Cập nhật trạng thái đơn hàng #" + id,
-                "Đơn hàng của bạn đã chuyển sang trạng thái: " + newStatus
+                "Đơn hàng của bạn đã chuyển sang trạng thái: " + statusInVietnamese
         );
 
         resp.sendRedirect("order-admin?mode=view&id=" + id);

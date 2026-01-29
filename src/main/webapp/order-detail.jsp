@@ -41,7 +41,7 @@
                 <option value="PENDING" ${order.orderStatus=='PENDING'?'selected':''}>Chờ xử lý</option>
                 <option value="SHIPPING" ${order.orderStatus=='SHIPPING'?'selected':''}>Đang giao</option>
                 <option value="COMPLETED" ${order.orderStatus=='COMPLETED'?'selected':''}>Hoàn thành</option>
-                <option value="CANCELLED" ${order.orderStatus=='CANCELLED'?'selected':''}>Hủy</option>
+                <option value="CANCELLED" ${order.orderStatus=='CANCELLED'?'selected':''}>Đã hủy</option>
             </select>
 
             <button class="btn-primary">Cập nhật</button>

@@ -86,12 +86,14 @@
             <div class="row">
                 <div class="col">
                 <label>Giá</label>
-                    <input type="text" name="price" value="${variant.price.intValue()}">
+                    <input type="number" name="price" step="0.01" min="0" required
+                           value="${mode == 'edit' ? variant.price : 0}">
             </div>
 
                 <div class="col">
                     <label>Giá sale</label>
-                    <input type="text" name="salePrice" value="${variant.salePrice.intValue()}">
+                    <input type="number" name="salePrice" step="0.01" min="0" required
+                           value="${mode == 'edit' ? variant.salePrice : 0}">
                 </div>
             </div>
 
@@ -100,7 +102,7 @@
                 <div class="col">
                     <label>Tồn kho</label>
                     <input type="number" name="stock" min="0" required
-                           value="${variant.stock}">
+                           value="${mode == 'edit' ? variant.stock : 0}">
                 </div>
             </div>
 
