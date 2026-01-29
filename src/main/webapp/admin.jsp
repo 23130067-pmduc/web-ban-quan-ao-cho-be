@@ -178,6 +178,13 @@
                                         <i class="fa fa-layer-group"></i>
                                     </a>
 
+                                    <!-- QUẢN LÝ ẢNH SẢN PHẨM -->
+                                    <a href="product-image-admin?productId=${p.id}"
+                                       class="icon-btn image"
+                                       title="Quản lý ảnh">
+                                        <i class="fa fa-images"></i>
+                                    </a>
+
                                     <!-- TOGGLE STATUS (HẾT HÀNG) -->
                                     <button class="icon-btn delete"
                                             title="${p.status == 'Đang bán' ? 'Đặt hết hàng' : 'Mở bán lại'}"
