@@ -14,7 +14,7 @@ public class ContactAdminController extends HttpServlet {
     private ContactService contactService;
 
     @Override
-    public void init(){
+    public void init() {
         contactService = new ContactService();
     }
 
@@ -22,7 +22,7 @@ public class ContactAdminController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String mode = request.getParameter("mode");
 
-        if (mode == null){
+        if (mode == null) {
             List<Contact> contacts = contactService.getAllContact();
 
             int total = contacts.size();
@@ -37,26 +37,26 @@ public class ContactAdminController extends HttpServlet {
             request.setAttribute("totalProcessing", totalProcessing);
             request.setAttribute("totalClosed", totalClosed);
 
-            request.getRequestDispatcher("/contact-admin.jsp").forward(request,response);
+            request.getRequestDispatcher("/contact-admin.jsp").forward(request, response);
             return;
 
         }
 
-        if ("edit".equals(mode) || "view".equals(mode)){
+        if ("edit".equals(mode) || "view".equals(mode)) {
             int id = Integer.parseInt(request.getParameter("id"));
 
             Contact contact = contactService.getContactById(id);
 
-            request.setAttribute("contact",contact);
+            request.setAttribute("contact", contact);
             request.setAttribute("mode", mode);
 
-            request.getRequestDispatcher("contact-form.jsp").forward(request,response);
+            request.getRequestDispatcher("contact-form.jsp").forward(request, response);
             return;
         }
 
-        if ("add".equals(mode)){
+        if ("add".equals(mode)) {
             request.setAttribute("mode", mode);
-            request.getRequestDispatcher("contact-form.jsp").forward(request,response);
+            request.getRequestDispatcher("contact-form.jsp").forward(request, response);
             return;
         }
     }
@@ -68,7 +68,7 @@ public class ContactAdminController extends HttpServlet {
 
         String action = request.getParameter("action");
 
-        if ("create".equals(action)){
+        if ("create".equals(action)) {
             Contact contact = new Contact();
 
             contact.setName(request.getParameter("name"));
@@ -84,7 +84,7 @@ public class ContactAdminController extends HttpServlet {
             return;
         }
 
-        if ("upadate".equals(action)){
+        if ("upadate".equals(action)) {
             int id = Integer.parseInt(request.getParameter("id"));
             Contact contact = new Contact();
 
@@ -101,7 +101,7 @@ public class ContactAdminController extends HttpServlet {
             return;
         }
 
-        if ("accept".equals(action)){
+        if ("accept".equals(action)) {
             int id = Integer.parseInt(request.getParameter("id"));
 
             contactService.acceptContact(id);

@@ -163,6 +163,5 @@
         document.getElementById("deleteModal").style.display = "none";
     }
 </script>
-    }
-</script>
+
 </html>

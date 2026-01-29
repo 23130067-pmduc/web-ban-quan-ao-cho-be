@@ -172,6 +172,12 @@
                                     </a>
 
 
+                                    <a href="product-variant-admin?productId=${p.id}"
+                                       class="icon-btn variant"
+                                       title="Quản lý biến thể">
+                                        <i class="fa fa-layer-group"></i>
+                                    </a>
+
                                     <!-- TOGGLE STATUS (HẾT HÀNG) -->
                                     <button class="icon-btn delete"
                                             title="${p.status == 'Đang bán' ? 'Đặt hết hàng' : 'Mở bán lại'}"

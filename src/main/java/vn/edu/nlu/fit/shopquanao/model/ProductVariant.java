@@ -19,6 +19,25 @@ public class ProductVariant {
     @ColumnName("sale_price")
     private double salePrice;
 
+    private String sizeName;
+    private String colorName;
+
+    public String getSizeName() {
+        return sizeName;
+    }
+
+    public void setSizeName(String sizeName) {
+        this.sizeName = sizeName;
+    }
+
+    public String getColorName() {
+        return colorName;
+    }
+
+    public void setColorName(String colorName) {
+        this.colorName = colorName;
+    }
+
     public ProductVariant(int id, int productId, int sizeId, int colorId, int stock, double price, double salePrice) {
         this.id = id;
         this.productId = productId;
