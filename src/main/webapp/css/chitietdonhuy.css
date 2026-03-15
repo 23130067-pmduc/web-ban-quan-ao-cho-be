@@ -1,0 +1,211 @@
+/* ========== THÔNG TIN PROFILE ========== */
+/* Profile Container */
+.profile-container {
+    display: flex;
+    width: 1400px;
+    margin: 30px auto;
+    padding: 0 20px;
+    gap: 30px;
+}
+
+/* Sidebar */
+.profile-sidebar {
+    flex: 0 0 280px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px #e0e0e0;
+    padding: 20px;
+    height: 450px;
+}
+
+.user-info {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.avatar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #C89F7B;
+}
+
+.change-avatar-btn {
+    position: absolute;
+    bottom: 0;
+    right: 25px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.user-info h3 {
+    margin: 10px 0 5px;
+    color: #333333;
+}
+
+.user-info p {
+    color: #666666;
+    font-size: 14px;
+}
+
+.profile-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.profile-menu li {
+    margin-bottom: 10px;
+}
+
+.profile-menu a {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    color: #666666;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.profile-menu a i {
+    margin-right: 10px;
+    width: 20px;
+}
+
+.profile-menu a:hover {
+    background: #d6cfc2;
+    color: white;
+}
+
+.profile-menu li.active a {
+    background: #C89F7B;
+    color: white;
+}
+/* Profile Content */
+
+.profile-content {
+    flex: 1;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px #e0e0e0;
+    padding: 30px;
+
+}
+.profile-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+}
+
+.profile-top h4{
+    cursor: pointer;
+}
+.profile-top a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.top{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+
+}
+.top h2{
+    color: red;
+}
+
+.center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    margin-bottom: 15px;
+
+}
+
+.center-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.order-left {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+
+}
+.order-left.multiple {
+    display: flex;
+    flex-direction: column; /* xếp dọc */
+    gap: 15px;
+}
+
+.single-product {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.order-left img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    padding-bottom: 5px;
+}
+
+.order-info h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.order-right {
+    text-align: right;
+}
+
+.center-bottom {
+    margin-top: 15px;
+}
+
+.info-table {
+    width: 100%;
+    border-collapse: collapse;   /* viền liền mạch */
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    font-size: 14px;
+    background: #fff;
+}
+
+
+.info-table td {
+    border: 1px solid #ddd;
+    padding: 10px 12px;
+    text-align: right;
+}
+.info-table td:last-child{
+    width: 25%;
+}
+
+.bottom{
+    margin-top: 20px;
+}
